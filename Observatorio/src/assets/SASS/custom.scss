@@ -1,0 +1,92 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* -------begin customization-------- */
+
+
+/* simply assign the value */
+
+
+/* use a variable to override primary */
+
+
+/* -------end customization-------- */
+
+// $theme-colors: (
+//   "primary": #3F51B5,
+//   "danger": #F44336,
+//   "basic": #FFFFFF,
+$primary: #3F51B5;
+$primary-focus: #768bff;
+$warn: #F44336;
+$basic: #FFFFFF;
+$disabled: #A3A3A3;
+$link: #FFFFFF;
+$accent: #FF4081;
+$font-primary: #3F51B5;
+$font-warn: #FFFFFF;
+$font-basic: #212121;
+$font-disabled: #A3A3A3;
+$font-link: #212121;
+$font-accent: #FFFFFF;
+.basic {
+    background-color: #FFFFFF;
+    color: #212121;
+}
+
+.btn-accent {
+    background-color: #FF4081;
+    color: #FFFFFF;
+}
+
+.btn-warn {
+    background-color: $warn;
+    color: #FFFFFF;
+}
+
+.btn-disabled {
+    color: #A3A3A3;
+}
+
+.btn-link {
+    background-color: $link;
+    color: #212121;
+}
+
+.navbar-primary {
+    background-color: $primary;
+    color: white;
+}
+
+.footer-primary {
+    background-color: $primary;
+    color: white;
+}
+
+.btn-primary {
+    background-color: $primary;
+    color: white;
+    border: none;
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar a:hover {
+    color: #DB5363;
+}
+
+.navbar .dropdown-menu {
+    background-color: $primary;
+    color: $font-primary;
+    border: none;
+}
+
+.dropdown-item:hover {
+    background-color: $primary;
+}
+
+// .nav-custom{
+//     display: flex;
+//     justify-content: space-between;
+// }

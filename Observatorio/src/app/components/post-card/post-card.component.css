@@ -1,0 +1,25 @@
+.custom-card{
+    margin-top: 1rem;
+    width: 90%;
+    margin: 3% auto;
+}
+
+@media (max-width: 800px){
+    custom-card{
+        margin-top: 1rem;
+        font-size: 1rem;
+        width: 150rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.categories{
+    margin-bottom: 1rem;
+}
+.example-box.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-chip .cdk-drop-list-dragging {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }

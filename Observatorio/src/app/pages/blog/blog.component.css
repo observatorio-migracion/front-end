@@ -1,0 +1,20 @@
+.custom-container {
+    margin: 0 auto;
+    display: grid;
+    width: 100%;
+    padding: 0;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .custom-container {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .custom-container {
+        grid-template-columns: auto;
+    }
+}
