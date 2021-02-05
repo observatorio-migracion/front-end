@@ -18,6 +18,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { PostComponent } from './pages/post/post.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ContactComponent,
     ContactFormComponent,
     PostComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
