@@ -1,0 +1,38 @@
+<div class="form-container">
+
+    <div class="col-auto">
+        <form #createPostForm="ngForm" (ngSubmit)="onSubmit(createPostForm); createPostForm.reset()">
+            <div class="form-group">
+                <h4>Crear publicación</h4>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Título</label>
+                <input type="title" name="title" class="form-control" id="title" required maxlength="128"
+                    placeholder="Un título interesante" [(ngModel)]="title">
+            </div>
+
+            <div class="form-group">
+                <label for="categories">Categorías</label>
+                <section class="form-group checkbox-section" name="categories" id="categories" >
+                    <mat-checkbox *ngFor="let category of categories" [(ngModel)]="category.value" [ngModelOptions]="{standalone:true}" [checked]="category.value"
+                     (change)="valueChanged($event)"
+                    >{{category.name}}</mat-checkbox>
+                </section>
+
+            </div>
+
+
+            <div class="form-group">
+                <label for="content">Contenido de la publicación</label>
+                <textarea class="form-control" name="content" id="content" rows="10" required minlength="1"
+                    placeholder="Copie el contenido de un archivo de Notion y péguelo aquí."
+                    [(ngModel)]="notionContent"></textarea>
+            </div>
+            <button type="submit" mat-raised-button color="accent"
+                [disabled]="!createPostForm.form.valid">Enviar</button>
+        </form>
+
+    </div>
+
+</div>

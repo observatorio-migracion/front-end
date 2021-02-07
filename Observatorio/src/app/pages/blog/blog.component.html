@@ -1,12 +1,3 @@
-<div class="custom-container">
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
-    <app-post-card [title]="cardTitle" [description]="cardDescription" [image]="cardImage"></app-post-card>
+<div class="custom-container" *ngIf="postsListInfo.length">
+    <app-post-card *ngFor="let post of postsListInfo" [id]="post.id" [title]="post.fields.Titulo" [description]="post.fields.Descripcion" [image]="post.fields.Miniatura[0]" [categories]="post.fields.Categorias"></app-post-card>
 </div>

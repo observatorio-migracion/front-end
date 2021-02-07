@@ -1,3 +1,6 @@
+<div class="custom-container">
+  <div><button mat-raised-button color="accent" routerLink="/newPost">Crear publicación</button></div>
+</div>
 <div class="table-wrapper">
     <div class="table-responsive">
         <table class="table">
@@ -5,7 +8,6 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Título</th>
-                    <th scope="col">Autor</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Editar</th>
@@ -16,10 +18,9 @@
             <tbody>
                 <tr *ngFor="let post of postsList">
                     <th scope="row">{{post.id}}</th>
-                    <td>{{post.title}}</td>
-                    <td>{{post.author}}</td>
-                    <td>{{post.date | date: 'short'}}</td>
-                    <td>{{post.categories}}</td>
+                    <td>{{post.fields.Titulo}}</td>
+                    <td>{{post.last_edited | date: 'short'}}</td>
+                    <td>{{post.fields.Categorias}}</td>
                     <td><button mat-raised-button color="accent" (click)="editPost(post)">Editar</button></td>
                     <td><button mat-raised-button color="primary" (click)="showPost(post)">Ver</button></td>
                     <td><button mat-raised-button id="danger" data-toggle="modal" data-target="#myModal" (click)="postToDelete(post)">Eliminar</button></td>

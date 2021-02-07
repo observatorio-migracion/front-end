@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostInfo } from 'src/app/models/PostInfo';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-blog',
@@ -6,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  cardTitle = "Card title";
-  cardDescription = "Some quick example text to build on the card title and make up the bulk of the card's content.";
-  cardImage = "https://source.unsplash.com/random/286x180";
-  constructor() { }
+  
+  public postsListInfo: PostInfo[];
+  constructor(private _postService:PostService) {
+    this.postsListInfo = new Array<PostInfo>();
+  }
 
   ngOnInit(): void {
+    this.loadPostListInfo();
+  }
+  loadPostListInfo():void{
+    this.postsListInfo = this._postService.getPostList();
   }
 
 }

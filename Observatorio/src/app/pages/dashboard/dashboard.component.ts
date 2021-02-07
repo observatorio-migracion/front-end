@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostInfo } from 'src/app/models/PostInfo';
+import { Fields, PostInfo } from 'src/app/models/PostInfo';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -12,22 +12,15 @@ export class DashboardComponent implements OnInit {
   public currentPost:PostInfo;
   constructor(private _postService:PostService) {
     this.postsList = new Array<PostInfo>();
-    this.currentPost = new PostInfo('','','',new Date(),[]);
+    this.currentPost = new PostInfo(new Fields([],false, '', [], ''), '', -1, -1);
   }
 
   ngOnInit(): void {
     this.loadPostsInfo();
   }
-  loadPostsInfo():PostInfo[]{
-    this._postService.getPostList().subscribe(
-      posts=>{
-        this.postsList = posts;
-      },
-      err=>{
-        console.log(err);
-      }
-    )
-    return [];
+  loadPostsInfo():void{
+    this.postsList = this._postService.getPostList();
+    console.log(this.postsList);
   }
   public editPost(post:PostInfo){
     console.log('edit: ', post);

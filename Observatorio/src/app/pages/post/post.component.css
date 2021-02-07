@@ -1,7 +1,9 @@
-
+/* 
 h1{
     font-size: 3rem;
     font-weight: 400;
+    color: green;
+    margin: 20% 0;
 }
 p {
     white-space: pre-wrap;
@@ -10,7 +12,14 @@ p {
 img{
     display: block;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     border-radius: 0.3rem;
+    width: 500px;
+    height: 300px;
+} */
+.post-container{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    text-align: justify;
 }
