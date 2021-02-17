@@ -1,54 +1,101 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { ShowdownConverter } from 'ngx-showdown';
+import { Categoria } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
+  providers: [ShowdownConverter]
 })
 export class PostComponent implements OnInit {
-  // public title:string;
-  // public description:string;
-  // public image:string;
-  // public content:string;
+  id: number | undefined;
+  title: string | undefined;
+  description: string | undefined;
+  categories: Categoria[] | undefined;
+  date: Date | undefined;
+  api: string;
   public contentHTML: SafeHtml;
-  constructor(private _postService: PostService, private _router: ActivatedRoute, private _sanitizer: DomSanitizer) {
-    //   this.title = "Some quick example text to build on the card title and make up the bulk?";
-    //   this.description = "Some quick example text to build on the card title and make up the bulk of the card's content.";
-    //   this.image = "https://source.unsplash.com/random/1920x1080";
-    //   this.content = "Proident veniam elit sint eu. Excepteur sint excepteur est duis ipsum pariatur enim cupidatat laboris incididunt deserunt commodo esse enim. Proident Lorem non esse duis aliqua duis dolor consectetur reprehenderit occaecat. Incididunt ipsum i est.\n\nUt eu occaecat sit enim elit eu quis sint nostrud et et. Ullamco culpa deserunt Lorem in aliqua nostrud ex proident cillum nulla. Est incididunt proident eiusmod veniam ullamco ea consequat magna commodo magna sit nisi qui proident. Aliqua ullamco pariatur anim amet proident aute consequat occaecat. Exercitation dolore adipisicing adipisicing commodo tempor duis aliqua anim eiusmod. Culpa minim incididunt sit non duis et do proident ad fugiat. Quis enim voluptate dolore ipsum do commodo.\n\nVelit fugiat nostrud tempor culpa. Non mollit sint veniam adipisicing quis excepteur. Mollit adipisicing dolor et duis. Ullamco eu esse adipisicing eiusmod culpa. Esse nostrud labore laborum dolor. In minim do est et quis quis dolore. Anim eiusmod officia ut cupidatat.\n\nUllamco ullamco culpa sint commodo do cupidatat qui exercitation esse. Sunt minim et et veniam do eiusmod laboris veniam esse consectetur. Aliqua elit nulla ullamco enim et proident proident esse Lorem nulla ipsum dolore nostrud. Dolore quis reprehenderit nostrud ullamco qui dolor consectetur voluptate. Reprehenderit deserunt ut sunt ullamco nostrud irure reprehenderit officia Lorem exercitation sunt laborum."
+  constructor(private _postService: PostService, private _router: ActivatedRoute, private _sanitizer: DomSanitizer, private showdownConverter: ShowdownConverter) {
     this.contentHTML = "";
-                        
+    this.api = environment.api.url;
   }
 
   ngOnInit(): void {
     this.loadPost();
   }
   async loadPost() {
-    const id: string | null = this._router.snapshot.paramMap.get('id');
+    const id: number | null = Number(this._router.snapshot.paramMap.get('id'));
     const styles = `<style> 
-    h1{
+    .post-container h1{
+      margin-top: 5vh;
       font-size: 3rem;
       font-weight: 400;
     }
-    p {
-      white-space: pre-wrap;
-      font-size: 1.3rem;
+    .post-container h2{
+      margin-top: 1rem;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
     }
-    img{
+    .post-container h3{
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .post-container h4{
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .post-container p {
+      margin: 1rem 0;
+      white-space: pre-wrap;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .post-container img{
       display: block;
-      margin: 0 auto;
-      max-width: 50%;
+      margin: 2rem auto;
+      max-width: 95%;
       height: auto;
       border-radius: 0.3rem;
-    }</style>`;
+    }
+
+    @media (max-width: 800px) {
+      .post-container h1{
+        margin-top: 3vh;
+        font-size: 2rem;
+        font-weight: 400;
+      }
+    }
+    </style>`;
+
     if (id) {
-      await this._postService.getPostById(id).then(content => {
-        this.contentHTML = this._sanitizer.bypassSecurityTrustHtml(`${styles}${content}`);
-      })
+      this._postService.getPostById(id).subscribe(
+        res => {
+
+          this.title = res.titulo;
+          this.categories = res.categorias;
+          this.date = res.published_at;
+          let html = this.markDowntoHtml(`${styles}` + res.contenido);
+          let aux = '';
+          while (aux !== html) {
+            aux = html;
+            html = html.replace('src="/uploads/', 'src="' + this.api + "/uploads/")
+          }
+          this.contentHTML = this._sanitizer.bypassSecurityTrustHtml(html)
+        },
+        err => console.log(err));
+
     }
   }
-
+  markDowntoHtml(text: string | undefined): string {
+    let result = '';
+    if (text) {
+      result = this.showdownConverter.makeHtml(text);
+    }
+    return result;
+  }
 }

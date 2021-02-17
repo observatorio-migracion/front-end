@@ -5,11 +5,9 @@
       <p class="card-text">{{description}}</p>
       <div class="categories">
         <mat-chip-list>
-          <mat-chip *ngFor="let category of categories">{{category}}</mat-chip>
+          <mat-chip *ngFor="let category of categories">{{category.nombre}}</mat-chip>
         </mat-chip-list>
       </div>
       <button routerLink="/post/{{id}}" mat-raised-button color="accent">Leer más</button>
-     
-      
     </div>
   </div>

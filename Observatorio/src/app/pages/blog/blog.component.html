@@ -1,3 +1,27 @@
-<div class="custom-container" *ngIf="postsListInfo.length">
-    <app-post-card *ngFor="let post of postsListInfo" [id]="post.id" [title]="post.fields.Titulo" [description]="post.fields.Descripcion" [image]="post.fields.Miniatura[0]" [categories]="post.fields.Categorias"></app-post-card>
+<div class="filter">
+  <section class="example-section">
+  </section>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button" id="dropdownMenuButton"
+      aria-haspopup="true" aria-expanded="false"
+      style="background-color: transparent; color: black; border:none; outline:none;">
+      Filtrar por categorías
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="categoriesList.length">
+      <a class="dropdown-item" *ngFor="let category of categoriesList" onclick="event.stopPropagation()">
+        <mat-checkbox class="example-margin" color="primary" [(ngModel)]="category.value"
+          (change)="valueChanged(category)">{{category.name}}</mat-checkbox>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="custom-container" *ngIf="postsList.length">
+  <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
+  <!-- <div class="search-results"></div> -->
+</div>
+
+<div class="fixed-bottom">
+  <mat-paginator [length]="dbPostListSize" [pageSize]="pageSize" (page)="pageChanged($event)">
+  </mat-paginator>
 </div>
