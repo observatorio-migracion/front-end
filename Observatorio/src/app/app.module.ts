@@ -1,17 +1,17 @@
+//angular modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { PostCardComponent } from './components/post-card/post-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-//material
+//config
+import { environment } from 'src/environments/environment';
+
+// angular material
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -21,22 +21,18 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
+//components
 // import { HomeComponent } from './pages/home/home.component';
-import { AngularFireModule } from '@angular/fire';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { PostComponent } from './pages/post/post.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PostCardComponent } from './components/post-card/post-card.component';
 
 
-//import { DashboardComponent } from './pages/dashboard/dashboard.component';
-//import { CreatePostComponent } from './components/create-post/create-post.component';
-//import { PostCreateComponent } from './pages/post-create/post-create.component';
-import { environment } from 'src/environments/environment';
-
-
+//external dependencies
 import { ShowdownModule } from 'ngx-showdown';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -46,11 +42,7 @@ import { ShowdownModule } from 'ngx-showdown';
     // HomeComponent,
     BlogComponent,
     ContactComponent,
-    ContactFormComponent,
     PostComponent,
-    //DashboardComponent,
-    //CreatePostComponent,
-    //PostCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +56,6 @@ import { ShowdownModule } from 'ngx-showdown';
     MatIconModule,
     HttpClientModule,
     ShowdownModule.forRoot({emoji: true, noHeaderId: true, flavor: 'github'}),
-    AngularFireModule.initializeApp(environment.firebase),
     MatPaginatorModule,
     ReactiveFormsModule,
     MatSelectModule

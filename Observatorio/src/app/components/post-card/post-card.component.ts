@@ -28,6 +28,7 @@ export class PostCardComponent implements OnInit {
     this.categories = this.post?.categorias;
     this.date = this.post?.published_at;
   }
+  //cut a string defining a delimiter position an adds an ... at the end
   parseString(delimiter: number, str: string | undefined) {
     let result: string = '';
     if (str) {
@@ -35,5 +36,4 @@ export class PostCardComponent implements OnInit {
     }
     return result;
   }
-
 }

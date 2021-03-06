@@ -1,8 +1,4 @@
-
-// export class Post{
-//     constructor(public postInfo:PostInfo, public content:string){}
-// }
-
+//classes needed to consume the API
 export class Thumbnail {
     name: string | undefined;
     hash: string | undefined;
@@ -14,7 +10,6 @@ export class Thumbnail {
     path?: any | undefined;
     url: string | undefined;
 }
-
 
 export class Large {
     name: string | undefined;

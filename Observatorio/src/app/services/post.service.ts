@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import {filter, map} from 'rxjs/operators'
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { filter, map } from 'rxjs/operators'
 import { Categoria, Post } from '../models/Post';
 
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,22 +12,35 @@ import { HttpClient } from '@angular/common/http';
 export class PostService {
 
   private postsList: Post[];
- 
-  private url:string = "http://localhost:1337";
+  private url: string;
+  private searchQuery = new BehaviorSubject('');
+  public currentSearchQuery: Observable<string> = this.searchQuery.asObservable();
+
   constructor(private _http: HttpClient) {
     this.postsList = new Array<Post>();
-    this.getPostsListSize().subscribe( res=>{console.log('count',res)});
+    this.url = environment.api.url;
   }
-  getPostsListSize():Observable<any>{
-    return this._http.get(`${this.url}/posts/count`);
+
+  setSearchQuery(search: string) {
+    this.searchQuery.next(search);
   }
-  getPostList(start:number | undefined, limit:number |undefined, filter:string = ''): Observable<Post[]>{
-      return this._http.get<Post[]>(`${this.url}/posts?${filter}_start=${start}&_limit=${limit}`);
+
+  getPostsListSize(filter: string): Observable<any> {
+    return this._http.get(`${this.url}/posts/count?${filter}`);
   }
-  getPostById(id:number):Observable<Post>{
+
+  getPostList(start: number | undefined, limit: number | undefined, filter: string = ''): Observable<Post[]> {
+    return this._http.get<Post[]>(`${this.url}/posts?${filter}_start=${start}&_limit=${limit}`);
+  }
+  getPostById(id: number): Observable<Post> {
     return this._http.get<Post>(`${this.url}/posts/${id}`);
   }
-  getEnabledCategories(){
+  getEnabledCategories(): Observable<Categoria[]> {
     return this._http.get<Categoria[]>(`${this.url}/categories`);
+  }
+
+  //retorna un observable de un arreglo de posts;
+  searchByKeywords(keywords: string): Observable<Post[]> {
+    return this._http.get<Post[]>(`${this.url}/posts?${keywords}`);
   }
 }

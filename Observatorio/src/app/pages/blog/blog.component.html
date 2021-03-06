@@ -18,10 +18,10 @@
 
 <div class="custom-container" *ngIf="postsList.length">
   <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
-  <!-- <div class="search-results"></div> -->
 </div>
 
 <div class="fixed-bottom">
-  <mat-paginator [length]="dbPostListSize" [pageSize]="pageSize" (page)="pageChanged($event)">
+  <mat-paginator [length]="dbPostListSize" [pageIndex]='pageIndex' [pageSize]="pageSize" 
+  (page)="pageChanged($event)" hidePageSize="true">
   </mat-paginator>
 </div>

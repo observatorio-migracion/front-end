@@ -16,9 +16,9 @@
         routerLinkActive="active-link">Contacto</a>
       </li>
     </ul>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-success" type="submit" id="search-button">Buscar</button>
-    </form>
+    <div class="d-flex">
+      <input class="form-control me-2" type="search" [(ngModel)]="searchQuery" placeholder="Buscar" (ngModelChange)="setSearchQuery()" aria-label="Search">
+      <!-- <button class="btn btn-success" type="submit" id="search-button" (click)="setSearchQuery()">Buscar</button> -->
+    </div>
   </div>
 </nav>

@@ -1,3 +1,4 @@
+//hepls to manipulate forms with checkbox
 export class CheckBoxData {
     name: string;
     value: boolean;
