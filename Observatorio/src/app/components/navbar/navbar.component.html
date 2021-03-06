@@ -1,24 +1,60 @@
-<nav class="navbar navbar-expand-md" style="background-color: #3F51B5; color:#ffffff;">
-  <a class="navbar-brand" href="#">Observatorio de Migración</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <img alt="menu" src="assets/icons/menu.svg" width="24px" heigth="24px">
-  </button>
-  <div class="navbar-collapse collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/blog"
-        routerLinkActive="active-link">Blog</a>
-      </li>
+<div class="header-container">
+  <div class="logo-container"><img alt="logo" id="logo" src="../../../assets/images/logo-ucr.png" width="110px"></div>
+  <nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="#">
+      <span style="font-size: 1.8rem;">Observatorio</span>
+      <br>
+      <span style="font-size: 1.5rem;">de Migración</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <img alt="menu" src="assets/icons/menu.svg" width="24px" heigth="24px">
+    </button>
+    <div class="navbar-collapse  collapse no-transition" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/inicio" routerLinkActive="active-link">Inicio
+            <hr routerLinkActive="underline-text-decoration">
+          </a>
 
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact"
-        routerLinkActive="active-link">Contacto</a>
-      </li>
-    </ul>
-    <div class="d-flex">
-      <input class="form-control me-2" type="search" [(ngModel)]="searchQuery" placeholder="Buscar" (ngModelChange)="setSearchQuery()" aria-label="Search">
+        </li>
+        <li>
+          <a class="nav-link" routerLink="/blog" routerLinkActive="active-link">Blog
+            <hr routerLinkActive="underline-text-decoration">
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/nosotros" routerLinkActive="active-link">Nosotros
+            <hr routerLinkActive="underline-text-decoration">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/directorio" routerLinkActive="active-link">Directorio
+            <hr routerLinkActive="underline-text-decoration">
+          </a>
+
+        </li>
+      </ul>
+      <!-- <div class="d-flex"> -->
+      <!-- <input class="form-control me-2" type="search" [(ngModel)]="searchQuery" placeholder="Buscar" (ngModelChange)="setSearchQuery()" aria-label="Search"> -->
       <!-- <button class="btn btn-success" type="submit" id="search-button" (click)="setSearchQuery()">Buscar</button> -->
+      <!-- </div> -->
     </div>
-  </div>
-</nav>
+  </nav>
+
+  <!-- <script>
+    const x = window.matchMedia("(max-width: 767px)");
+    function test(e){
+      if(e.matches){
+        console.log('nice');
+        alert('nice')
+      }
+    }
+
+    x.addEventListener(test);
+
+  </script> -->
+
+</div>
+<div class="decoration-bar">
+</div>

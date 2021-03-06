@@ -15,7 +15,16 @@
   <!-- <script src="../node_modules/showdown/dist/showdown.min.js"></script> -->
 </head>
 
-<body>
+<body class="light">
+  <!-- <h1>TEST</h1> -->
+  <script>
+    const run = ()=>{
+      const [body] = document.getElementsByTagName("body");
+      body.classList.toggle("dark");
+      body.classList.toggle("light");
+    }
+  </script>
+  <!-- <button onclick="run();">Click me</button> -->
   <app-root></app-root>
 </body>
 

@@ -33,16 +33,21 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 //external dependencies
 import { ShowdownModule } from 'ngx-showdown';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { PhonebookComponent } from './pages/phonebook/phonebook.component';
+import { AboutComponent } from './pages/about/about.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostCardComponent,
     NavbarComponent,
-    // HomeComponent,
+    HomeComponent,
     BlogComponent,
     ContactComponent,
     PostComponent,
+    PhonebookComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

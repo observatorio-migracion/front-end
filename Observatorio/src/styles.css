@@ -1,9 +1,45 @@
+:root{
+  --green: #236667;
+  --dark-green: #1A4C4D;
+  --white:#F3F1F1;
+  --gray: #797878;
+  --dark-gray: #474747;
+  --light-gray: #CFCFCF;
+  --yellow: #F2C62C;
+  --light-green: #30A740;
+}
+
+.light{
+  --background-01: var(--white);
+  --background-02: var(--green);
+  --font-1: var(--gray);
+  --font-2: var(--dark-gray);
+  --font-3: var(--green);
+  --warning-1: var(--yellow);
+  --warning-2: var(--green);
+  --chips-background: var(--light-gray);
+  --footer-background: var(--dark-green);
+}
+
+.dark{
+  --background-01: var(--dark-green);
+}
+
+h1 {
+  background-color: var(--background-01);
+}
 html, body { 
    height: 100%; 
    margin: 0;
-   padding: 0;  
-   
+   padding: 0; 
+   background-color: var(--background-01); 
+   color: var(--font-1);
 }
+
+.cont{
+  background-color: var(--green);
+}
+
 *{font-family: 'Noto Sans JP', sans-serif;}
 
 .ng-valid[required]  {
