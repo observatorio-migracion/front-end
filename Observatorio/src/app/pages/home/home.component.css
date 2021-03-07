@@ -1,16 +1,116 @@
-/* .custom-container{
-    height: 80vh;
-}
-img{
-    display:block;
-    margin: 0 auto;
-}
-h1{
-    font-size: 3rem;
-    text-align: center;
-} */
-
 .main-text-container{
     width: 50%;
-    margin: 3% auto;
+    height:36%;
+    margin: 10% auto;
+    font-size: 1.3rem;
 }
+.categories-container{
+    margin: -5rem 1rem;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0.8rem;
+    justify-content: center;
+    padding-bottom: 9vh;
+}
+.horizontal-bar-01{
+    font-size: 2.2rem;
+    width:100%;
+    height: 30%;
+    background-color: var(--background-02);
+    color: var(--font-4);
+    text-align: center;
+    padding-top: 4rem;
+    position: relative;
+    z-index: -1;
+}
+
+.horizontal-bar-02{
+    font-size: 2.2rem;
+    width:100%;
+    height: 30%;
+    background-color: var(--background-01);
+    color: var(--font-1);
+    text-align: center;
+    padding-top: 4rem;
+    position: relative;
+    z-index: -1;
+}
+
+.custom-container {
+    margin-top: 1.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: grid;
+    grid-gap: 2vw;
+    padding: 0;
+    grid-template-columns: 30vw 30vw 30vw;
+    justify-content: center;
+    padding-bottom: 11vh;
+    height: 80%;
+}
+
+@media (max-width: 900px) {
+    .custom-container {
+        grid-template-columns: 45vw 45vw;
+        padding-bottom: 9vh;
+    }
+    .main-text-container{
+        width: 90%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .custom-container {
+        grid-template-columns: 90vw;
+        grid-row-gap: 4rem;
+        padding-bottom: 9vh;
+    }
+
+}
+
+.action-container{
+    padding-top: 1.3rem; 
+    width:100%;
+}
+
+.action-container-btn-warning{
+    background-color: var(--warning-02); 
+    color:var(--font-4);
+    display:block; 
+    margin:0 auto;
+}
+@media (max-width: 1400px) {
+    .categories-container {
+        grid-template-columns: auto auto;
+        padding-bottom: 9vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .categories-container {
+        grid-template-columns: auto;
+        padding-bottom: 9vh;
+    }
+    .horizontal-bar-green{
+        font-size: 1.9rem;
+    }
+    .main-text-container{
+        height:auto;
+    }
+}
+@media (max-width: 400px) {
+    .categories-container {
+        
+        margin-top: -3rem;
+        grid-template-columns: auto;
+        padding-bottom: 9vh;
+    }
+    .horizontal-bar-green{
+        font-size: 1.7rem;
+    }
+    .main-text-container{
+        height:auto;
+    }
+}
+

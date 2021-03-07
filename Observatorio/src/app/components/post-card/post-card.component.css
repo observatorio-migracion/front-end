@@ -4,7 +4,15 @@
     height: 100%;
     /* margin: 3% auto; */
 }
-
+.card-body-container{
+    padding-top: 1rem;
+}
+.card-body-container *{
+    padding-top: 0rem;
+}
+.card-title:hover{
+    color: var(--font-2);
+}
 @media (max-width: 800px){
     custom-card{
         margin-top: 1rem;

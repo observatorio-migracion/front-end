@@ -2,26 +2,26 @@
   background-image: url('../../../assets/patterns/p5.png');
   background-repeat: repeat;
   opacity: 0.9;
+  /* height: 17%; */
 }
 .decoration-bar{
   width:100%; 
-  height: 8rem;
+  /* height: 17%; */
   background-image: url('../../../assets/patterns/p4.jpg');
   background-repeat: repeat;
   
 }
 hr{
-  display: none;
-}
-.underline-text-decoration{
   display: block;
   width: 1rem;
   height: 4px;
-  background-color: var(--background-02);
+  background-color:transparent;
   border-radius: 10px;
   position: relative;
   top:-0.9rem;
-  
+}
+.underline-text-decoration{
+  background-color: var(--background-02);
 }
 .navbar{
     margin: 0 0;
@@ -42,10 +42,8 @@ hr{
     color: var(--font-1);
     font-size: 1rem;
 }
-.navbar li a:hover{
-  color: var(--font-3);
-  font-size: 1rem;
-}
+
+
 .logo-container{
   width: 100%;
   display:flex;
@@ -64,11 +62,7 @@ hr{
  
  @media (min-width: 1024px){
     .active-link{
-        /* background-color: white; */
-        /* color: #3F51B5 !important; */
-        /* color: var(--font-3) !important; */
         border-radius: 0.2rem;
-        /* opacity: 0.7; */
      }
      .navbar-brand {
         /* color:white; */
@@ -83,6 +77,10 @@ hr{
     }
  }
 @media (max-width: 800px) {
+    .navbar li a:hover{
+      font-size: 1rem;
+      color: var(--font-1);
+    }
     * {
         font-size: 1rem;
     }
@@ -90,17 +88,14 @@ hr{
         width: 100%;
     }
     .navbar-nav {
-      /* margin: 0 2%; */
       margin-right: 0.5rem;
   } 
     .navbar a{
       color: var(--background-02);
       font-size: 1.2rem;
-      /* margin-left: 1rem; */
     }
     .navbar-brand{
         font-size: 1.4rem;
-        /* color: white; */
         color: var(--background-01);
     }
     .active-link{
@@ -135,7 +130,7 @@ hr{
     .navbar-collapse {
         background: transparent;
         text-align: center;
-        line-height: 1.8;
+        /* line-height: 1.8; */
         padding-top: 20%;
     }
 }

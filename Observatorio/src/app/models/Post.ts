@@ -80,6 +80,7 @@ export class Categoria {
     published_at: Date|undefined;
     created_at: Date|undefined;
     updated_at: Date|undefined;
+    imagen:any |undefined;
 }
 
 export class Post {

@@ -1,6 +1,6 @@
-<div class="card custom-card">
-    <img class="card-img-top" src="{{image}}" alt="post image" width="280" height="280">
-    <div class="card-body">
+<div class="custom-card">
+    <img class="card-img-top" src="{{image}}" alt="post image" width="280px" height="240px" max-width="280px" max-height="240px">
+    <!-- <div class="card-body">
       <h5 class="card-title">{{title}}</h5>
       <p class="card-text">{{description}}</p>
       <div class="categories">
@@ -9,5 +9,17 @@
         </mat-chip-list>
       </div>
       <button routerLink="/post/{{id}}" mat-raised-button color="accent">Leer más</button>
+    </div> -->
+    <div class="card-body-container">
+      <p class="body-line">{{date | date:'dd/MM/YYYY'}}</p>
+      <h5 class="card-title"><b>{{title}}</b></h5>
+      <div class="categories">
+        <mat-chip-list>
+          <mat-chip *ngFor="let category of categories">{{category.nombre}}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <p>{{description}}</p>
+      
+      <!-- <button routerLink="/post/{{id}}" mat-raised-button color="accent">Leer más</button> -->
     </div>
   </div>

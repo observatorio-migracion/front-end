@@ -15,8 +15,9 @@
   --font-1: var(--gray);
   --font-2: var(--dark-gray);
   --font-3: var(--green);
-  --warning-1: var(--yellow);
-  --warning-2: var(--green);
+  --font-4: var(--white);
+  --warning-01: var(--yellow);
+  --warning-02: var(--light-green);
   --chips-background: var(--light-gray);
   --footer-background: var(--dark-green);
 }
@@ -24,10 +25,13 @@
 .dark{
   --background-01: var(--dark-green);
 }
-
+button{
+  font-size: 1rem;
+}
 h1 {
   background-color: var(--background-01);
 }
+
 html, body { 
    height: 100%; 
    margin: 0;

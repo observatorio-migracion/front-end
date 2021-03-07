@@ -24,7 +24,7 @@ export class PostCardComponent implements OnInit {
     this.id = this.post?.id;
     this.title = this.post?.titulo;
     this.description = this.post?.descripcion;
-    this.image = parseURLImage(this.post?.miniatura?.formats?.thumbnail?.url);
+    this.image = parseURLImage(this.post?.miniatura?.formats?.medium?.url);//TODO: Revisar cual es la resolucion mas adecuada
     this.categories = this.post?.categorias;
     this.date = this.post?.published_at;
   }

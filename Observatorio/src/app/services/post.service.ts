@@ -32,11 +32,16 @@ export class PostService {
   getPostList(start: number | undefined, limit: number | undefined, filter: string = ''): Observable<Post[]> {
     return this._http.get<Post[]>(`${this.url}/posts?${filter}_start=${start}&_limit=${limit}`);
   }
+
+  getRecentPostList(sort: string = '', limit: number = 4): Observable<Post[]> {
+    return this._http.get<Post[]>(`${this.url}/posts?_sort=${sort}&_limit=${limit}`);
+  }
   getPostById(id: number): Observable<Post> {
     return this._http.get<Post>(`${this.url}/posts/${id}`);
   }
-  getEnabledCategories(): Observable<Categoria[]> {
-    return this._http.get<Categoria[]>(`${this.url}/categories`);
+  //if limit === 0 returns all the elements
+  getEnabledCategories(limit: number = 0): Observable<Categoria[]> {
+    return this._http.get<Categoria[]>(`${this.url}/categories${(limit) ? "?_limit=" : ""}${(limit)?limit:""}`);
   }
 
   //retorna un observable de un arreglo de posts;
