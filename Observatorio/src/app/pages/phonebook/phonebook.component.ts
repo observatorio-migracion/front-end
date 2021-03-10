@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from 'src/app/models/Contact';
 
 @Component({
   selector: 'app-phonebook',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./phonebook.component.css']
 })
 export class PhonebookComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  public contactList:Contact[];
+  constructor() {
+    this.contactList = new Array<Contact>();
   }
 
+  ngOnInit(): void {
+    this.loadContacts();
+  }
+  loadContacts(){
+    // this.contactList.push(new Contact());
+    // this.contactList.push(new Contact());
+    // this.contactList.push(new Contact());
+    // this.contactList.push(new Contact());
+    // this.contactList.push(new Contact());
+  }
 }

@@ -11,7 +11,10 @@
     padding-top: 0rem;
 }
 .card-title:hover{
-    color: var(--font-2);
+    color: var(--font-3);
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 @media (max-width: 800px){
     custom-card{

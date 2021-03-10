@@ -6,7 +6,7 @@
 }
 .decoration-bar{
   width:100%; 
-  /* height: 17%; */
+  height: 17%;
   background-image: url('../../../assets/patterns/p4.jpg');
   background-repeat: repeat;
   
@@ -75,6 +75,9 @@ hr{
         color: white; 
         margin: 0 3%;
     }
+    .decoration-bar{
+      height: 10%;
+    }
  }
 @media (max-width: 800px) {
     .navbar li a:hover{
@@ -89,7 +92,7 @@ hr{
     }
     .navbar-nav {
       margin-right: 0.5rem;
-  } 
+    } 
     .navbar a{
       color: var(--background-02);
       font-size: 1.2rem;
@@ -110,6 +113,9 @@ hr{
     #search-button{
         color: white; 
         margin: 0 0;;
+    }
+    .decoration-bar{
+      display: none;
     }
 }
 

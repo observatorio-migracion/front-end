@@ -1,1 +1,11 @@
-<p>phonebook works!</p>
+
+<div class="container">
+    <!-- buscador -->
+    <p style="margin-left: 30%;">Seleccione alguno de los contactos para ver más información de este.<p>
+    <div class="contact-container">
+        <div class="contact" *ngFor="let contact of contactList">
+            <!-- <p class="contact-title">{{contact.titulo}}</p>
+            <p class="phone-number">{{contact.numero}}</p> -->
+        </div>
+    </div>
+</div>

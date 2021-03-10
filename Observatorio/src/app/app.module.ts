@@ -1,5 +1,5 @@
 //angular modules
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es-CR';
+registerLocaleData(localeEs, 'es-CR');
 
 //config
 import { environment } from 'src/environments/environment';
@@ -24,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 //components
 // import { HomeComponent } from './pages/home/home.component';
 import { BlogComponent } from './pages/blog/blog.component';
-import { ContactComponent } from './pages/contact/contact.component';
+// import { ContactComponent } from './pages/contact/contact.component';
 import { PostComponent } from './pages/post/post.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
@@ -36,6 +39,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PhonebookComponent } from './pages/phonebook/phonebook.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +48,11 @@ import { HomeComponent } from './pages/home/home.component';
     NavbarComponent,
     HomeComponent,
     BlogComponent,
-    ContactComponent,
+    // ContactComponent,
     PostComponent,
     PhonebookComponent,
     AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,9 @@ import { HomeComponent } from './pages/home/home.component';
     MatSelectModule
     
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-CR' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

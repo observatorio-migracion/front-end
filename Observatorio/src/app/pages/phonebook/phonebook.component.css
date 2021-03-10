@@ -1,0 +1,8 @@
+.container{
+    width: 60%;
+    border: 1px solid black;
+}
+.contact{
+    border: 1px solid red;
+    width: 100%;
+}

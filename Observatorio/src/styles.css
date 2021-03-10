@@ -16,6 +16,7 @@
   --font-2: var(--dark-gray);
   --font-3: var(--green);
   --font-4: var(--white);
+  --font-5: var(--yellow);
   --warning-01: var(--yellow);
   --warning-02: var(--light-green);
   --chips-background: var(--light-gray);
@@ -33,7 +34,7 @@ h1 {
 }
 
 html, body { 
-   height: 100%; 
+   height: 100%;
    margin: 0;
    padding: 0; 
    background-color: var(--background-01); 

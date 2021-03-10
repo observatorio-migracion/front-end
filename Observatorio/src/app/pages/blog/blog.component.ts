@@ -17,11 +17,11 @@ export class BlogComponent implements OnInit {
   pageSize: number = this.limit;
   pageIndex: number = 0;
   dbPostListSize: number = 0;
-  selector: string = '.custom-container';
+  // selector: string = '.custom-container';
   postsList: Post[];
   categoriesList: (CheckBoxData)[] = [];
 
-  public searchQuery: string = '';
+  public searchQuery: string = "";
   subscription: Subscription;
 
   constructor(private _postService: PostService) {
@@ -30,14 +30,6 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subscription = this._postService.currentSearchQuery.subscribe(
-      search => {
-        this.searchQuery = search;
-        this.loadPostListSearch();
-        console.log('search: ', this.searchQuery);
-      }
-    );
-    
     this._postService.getPostsListSize(this.filter).subscribe(size => {
       this.dbPostListSize = size;
     }, err => console.log(err));
@@ -77,18 +69,21 @@ export class BlogComponent implements OnInit {
   }
 
   loadPostListSearch(): void {
-    let search = '';
-    search+= `_where[_or][0][contenido_contains]=${this.searchQuery}&`;
-    search+= `_where[_or][1][titulo_contains]=${this.searchQuery}&`;
-    search+= `_where[_or][2][descripcion_contains]=${this.searchQuery}`;
-    this._postService.searchByKeywords(search).subscribe(
-      (posts: Post[]) => {
-        this.postsList = posts;
-      },
-      err => {
-        console.log(err)
-      }
-    );
+    
+    if (this.searchQuery) {
+      let search = '';
+      search += `_where[_or][0][contenido_contains]=${this.searchQuery}&`;
+      search += `_where[_or][1][titulo_contains]=${this.searchQuery}&`;
+      search += `_where[_or][2][descripcion_contains]=${this.searchQuery}`;
+      this._postService.searchByKeywords(search).subscribe(
+        (posts: Post[]) => {
+          this.postsList = posts;
+        },
+        err => {
+          console.log(err)
+        }
+      );
+    }
   }
 
   onScroll(event: any) {//NOT IN USE
@@ -119,4 +114,3 @@ export class BlogComponent implements OnInit {
   }
 
 }
-//http://localhost:1337/posts?_where[_or][0][contenido_contains]=pollo&_where[_or][1][titulo_contains]=FRESAS&_where[_or][2][descripcion_contains]=ladra

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Activity } from 'src/app/models/Activity';
 import { Categoria, Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
 import { environment } from 'src/environments/environment';
@@ -12,37 +13,48 @@ import { Thumbnail } from '../../models/Post';
 export class HomeComponent implements OnInit {
   public api: string;
   public seeMoreCategories:boolean;
-  public limit: number = 4;
+  public categoriesLimit: number;
+  public readonly recentPostLimit:number;
+  public readonly activitiesLimit: number;
   public categories: Categoria[];
-  public readonly recentPostLimit:number = 3;
   public postsList:Post[];
+  public readonly sortQuery: string;
+  public activities: Activity[];
   constructor(private _postService: PostService) {
+    this.categoriesLimit = 4;
+    this.recentPostLimit = 3;
+    this.activitiesLimit = 4;
+    this.sortQuery = "published_at:desc";
     this.categories = new Array<Categoria>();
     this.api = environment.api.url;
     this.postsList = new Array<Post>();
     this.seeMoreCategories = true;
+    this.activities = new Array<Activity>();
   }
 
   ngOnInit(): void {
     this.loadCategories();
-    this.loadRecentReleases();
     this.loadRecentPosts();
+    this.loadActivities();
   }
-  loadRecentReleases(){
+  loadActivities(){  
+    this._postService.getActivitiesList(this.activitiesLimit).subscribe( (activities:Activity[])=>{
+      this.activities = activities;
+    })
+  };
 
-  }
   loadMoreCategories() {
-    this.limit = 0;
+    this.categoriesLimit = 0;
     this.loadCategories();
   }
 
   loadCategories() {
-    this._postService.getEnabledCategories(this.limit).subscribe((categories: Categoria[]) => {
+    this._postService.getEnabledCategories(this.categoriesLimit).subscribe((categories: Categoria[]) => {
       categories.map((value: Categoria) => {
         value.imagen.formats.small.url = this.api + value.imagen.formats.small.url;//TODO: Recordar cambiarlo para el deploy
       })
       this.categories = categories;
-      if(!this.limit) this.seeMoreCategories = false;
+      if (!this.categoriesLimit) this.seeMoreCategories = false;
     }
       , err => {
         console.log("categories error: ", err);
@@ -50,14 +62,15 @@ export class HomeComponent implements OnInit {
     }
 
     loadRecentPosts(){
-      const sortQuery:string = "published_at:desc";
-      this._postService.getRecentPostList(sortQuery, this.recentPostLimit).subscribe((posts: Post[]) => {
+      this._postService.getRecentPostList(this.sortQuery, this.recentPostLimit).subscribe((posts: Post[]) => {
         this.postsList = posts;
       }
         , err => {
           console.log("recent posts error: ", err);
         })
     }
-
+    openActivity(activity:Activity){
+      console.log('clicked: ',activity);
+    }
 
 }

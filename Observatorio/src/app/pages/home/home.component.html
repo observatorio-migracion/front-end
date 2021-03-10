@@ -8,18 +8,20 @@
     ipsum. ermentum. Aliquam nec mi est. Cras am nec mi nad
 </div>
 
-<h1 class="horizontal-bar-01">Categorías</h1>
+<h1 class="horizontal-bar horizontal-bar-01">Categorías</h1>
 <div class="categories-container">
     <div class="category" *ngFor="let category of categories">
-        <img class="img-fluid" *ngIf="category.imagen" alt="category.nombre" src="{{category.imagen.formats.small.url}}" max-width="500px" max-height="281px">
+        <img class="img-fluid" *ngIf="category.imagen" alt="category.nombre" src="{{category.imagen.formats.small.url}}"
+            max-width="500px" max-height="281px">
     </div>
 </div>
 <div class="action-container">
-    <button *ngIf="seeMoreCategories" class="action-container-btn-warning" mat-raised-button (click)="loadMoreCategories()">Ver más</button>
+    <button *ngIf="seeMoreCategories" class="action-container-btn-warning" mat-raised-button
+        (click)="loadMoreCategories()">Ver más</button>
 </div>
 <br>
 <br>
-<h1 class="horizontal-bar-02">Publicaciones recientes</h1>
+<h1 class="horizontal-bar horizontal-bar-02">Publicaciones recientes</h1>
 
 <div class="custom-container">
     <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
@@ -27,3 +29,16 @@
 <div class="action-container">
     <button class="action-container-btn-warning" mat-raised-button routerLink="/blog">Ir al blog</button>
 </div>
+
+
+<div class="events-container">
+    <h1>Eventos próximos</h1>
+    <div class="custom-table">
+        <div class="row" *ngFor="let activity of activities">
+            <p class="index">{{activity.nombre}}</p>
+            <p>{{activity.fecha | date: 'mediumDate'}} </p>
+            <p><a (click)="openActivity(activity)">Ver más información</a></p> 
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
