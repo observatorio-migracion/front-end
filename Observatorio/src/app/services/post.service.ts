@@ -5,7 +5,6 @@ import { Categoria, Post } from '../models/Post';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Activity } from '../models/Activity';
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +29,6 @@ export class PostService {
 
   getRecentPostList(sort: string = '', limit: number = 4): Observable<Post[]> {
     return this._http.get<Post[]>(`${this.url}/posts?_sort=${sort}&_limit=${limit}`);
-  }
-  getActivitiesList(limit: number = 4): Observable<Activity[]> {
-    return this._http.get<Activity[]>(`${this.url}/eventos?_limit=${limit}`);
   }
   getPostById(id: number): Observable<Post> {
     return this._http.get<Post>(`${this.url}/posts/${id}`);

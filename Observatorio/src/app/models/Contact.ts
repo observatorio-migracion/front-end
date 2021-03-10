@@ -1,15 +1,16 @@
 export class Contact {
+    numberList: any;
     constructor(
-    id:           number,
-    titulo:       string,
-    descripcion:  string,
-    correo:       string,
-    lugar:        string,
-    horario:      string,
-    web:          string,
-    numero:       string,
-    published_at: string,
-    created_at:   string,
-    updated_at:   string,
+        public id:           number,
+        public titulo:       string,
+        public descripcion:  string,
+        public correo:       string,
+        public lugar:        string,
+        public horario:      string,
+        public web:          string,
+        public numero:       string,
+        public published_at: string,
+        public created_at:   string,
+        public updated_at:   string,
     ){}
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from 'src/app/models/Activity';
 import { Categoria, Post } from 'src/app/models/Post';
+import { EventService } from 'src/app/services/event.service';
 import { PostService } from 'src/app/services/post.service';
 import { environment } from 'src/environments/environment';
 import { Thumbnail } from '../../models/Post';
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   public postsList:Post[];
   public readonly sortQuery: string;
   public activities: Activity[];
-  constructor(private _postService: PostService) {
+  constructor(private _postService:PostService, private _eventService: EventService) {
     this.categoriesLimit = 4;
     this.recentPostLimit = 3;
     this.activitiesLimit = 4;
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
     this.loadActivities();
   }
   loadActivities(){  
-    this._postService.getActivitiesList(this.activitiesLimit).subscribe( (activities:Activity[])=>{
+    this._eventService.getActivitiesList(this.activitiesLimit).subscribe( (activities:Activity[])=>{
       this.activities = activities;
     })
   };
