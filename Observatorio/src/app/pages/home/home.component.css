@@ -50,6 +50,15 @@
     display:block; 
     margin:0 auto;
 }
+.category{
+    cursor: pointer;
+    transition: transform .1s ease;
+}
+.category:hover{
+    -ms-transform: translateY(-10px); /* IE 9 */
+     -webkit-transform: translateY(-10px); /* Safari 3-8 */
+    transform: translateY(-10px); 
+}
 .events-container{
     margin: 2rem 0;
 }
@@ -93,22 +102,71 @@
 p{
     margin: 0 !important;
 }
-
-
-
+.activity-see-more{
+    cursor: pointer;
+}
+.activity-see-more:active{
+    text-decoration: underline;
+}
+.modal-title{
+    font-size: 1.6rem;
+}
+@media (max-width: 4000px) {
+    .horizontal-bar-01{
+        height: 10%;
+    }
+    .horizontal-bar-02{
+        height: 10%;
+    }
+}
+@media (max-width: 2600px) {
+    .horizontal-bar-01{
+        height: 15%;
+    }
+    .horizontal-bar-02{
+        height: 10%;
+    }
+}
+@media (max-width: 2100px) {
+    .horizontal-bar-01{
+        height: 24%;
+    }
+    .horizontal-bar-02{
+        height: 20%;
+    }
+}
+@media (max-width: 1950px) {
+    .horizontal-bar-01{
+        height: 30%;
+    }
+    .horizontal-bar-02{
+        height: 25%;
+    }
+}
 @media (max-width: 1400px) {
     .categories-container {
         grid-template-columns: auto auto;
         padding-bottom: 9vh;
     }
     .action-container{
-        margin-top: 0.5rem; 
+        margin-top: 2rem; 
     }
     .horizontal-bar-01{
-        height: 18%;
+        height: 30%;
     }
     .horizontal-bar-02{
-        height: 13%;
+        height: 25%;
+    }
+    @media (max-height: 600px){
+        .horizontal-bar-01{
+            height: 35%;
+        }
+        .horizontal-bar-02{
+            height: 30%;
+        }
+        .action-container{
+            margin-top: 3rem; 
+        }
     }
 }
 
@@ -130,7 +188,17 @@ p{
     .custom-table {
         width: 80% !important; 
     }
-
+    @media (max-height: 600px){
+        .horizontal-bar-01{
+            height: 35%;
+        }
+        .horizontal-bar-02{
+            height: 30%;
+        }
+        .action-container{
+            margin-top: 3rem; 
+        }
+    }
 }
 @media (max-width: 700px) {
     .categories-container {

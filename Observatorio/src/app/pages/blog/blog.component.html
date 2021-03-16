@@ -1,38 +1,39 @@
-<div class="tools">
-  <div class="row">
-    <div class="dropdown" style="margin-left: 1vw;">
-      <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button" id="dropdownMenuButton"
-        aria-haspopup="true" aria-expanded="false"
-        style="background-color: transparent; color: black; border:none; outline:none;">
-        Filtrar por categorías
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="categoriesList.length">
-        <a class="dropdown-item" *ngFor="let category of categoriesList" onclick="event.stopPropagation()">
-          <mat-checkbox class="example-margin" color="primary" [(ngModel)]="category.value"
-            (change)="valueChanged(category)">{{category.name}}</mat-checkbox>
-        </a>
-      </div>
+<div infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()" style="min-height: 90%;">
+  <div class="tools">
+    <div class="row">
+      <div class="dropdown" style="margin-left: 1vw;">
+        <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button"
+          id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"
+          style="background-color: transparent; color: black; border:none; outline:none;">
+          Filtrar por categorías
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="categoriesList.length">
+          <a class="dropdown-item" *ngFor="let category of categoriesList" onclick="event.stopPropagation()">
+            <mat-checkbox class="category-checkbox" style="color: var(--background-02)" [(ngModel)]="category.value"
+              (change)="valueChanged(category)">{{category.name}}</mat-checkbox>
+          </a>
+        </div>
 
-    </div>
-    <div class="search-container">
-      <div class="search-form">
-        <input type="text"  placeholder="Buscar" class="search-input" [(ngModel)]="searchQuery" (ngModelChange)="loadPostListSearch()" >
-        <img alt="menu" class="search-button" src="assets/icons/search.svg" width="24px" heigth="24px">
+      </div>
+      <div class="search-container">
+        <div class="search-form">
+          <input type="text" placeholder="Buscar" class="search-input" [(ngModel)]="searchQuery"
+            (ngModelChange)="loadPostListSearch()">
+          <img alt="menu" class="search-button" src="assets/icons/search.svg" width="24px" heigth="24px">
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="custom-container" *ngIf="postsList.length">
+    <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
+  </div>
+
+  <!-- <div class="fixed-bottom">
+    <mat-paginator [length]="dbPostListSize" [pageIndex]='pageIndex' [pageSize]="pageSize" (page)="pageChanged($event)"
+      hidePageSize="true">
+    </mat-paginator>
+  </div> -->
+  
 </div>
-
-<div class="custom-container" *ngIf="postsList.length">
-  <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
-</div>
-
-<div class="fixed-bottom">
-  <mat-paginator [length]="dbPostListSize" [pageIndex]='pageIndex' [pageSize]="pageSize" (page)="pageChanged($event)"
-    hidePageSize="true">
-  </mat-paginator>
-</div>
-
-
-      <!-- <input class="form-control" type="search" [(ngModel)]="searchQuery" placeholder="Buscar"
-                (ngModelChange)="setSearchQuery()" aria-label="Search"> -->
+<app-footer></app-footer>

@@ -11,19 +11,43 @@ export class PhonebookComponent implements OnInit {
   public contactList:Contact[];
   public contactSelected:Contact;
   public searchQuery:string;
+  public readonly contactLimit;
+  public contactStart;
+  public contactOrder;
+  public contactListSize;
+  public searchParams;
   constructor(private _contactService: ContactService) {
     this.contactList = new Array<Contact>();
     this.contactSelected = new Contact(-1, '','','','','','','','','','');
     this.searchQuery = '';
+    this.contactLimit = 4;
+    this.contactStart = 0;
+    this.contactOrder = 'titulo:asc';
+    this.contactListSize = 0;
+    this.searchParams = '';
   }
 
   ngOnInit(): void {
+    this._contactService.getContactsListSize(this.searchParams).subscribe(size => {
+      this.contactListSize = size;
+    }, err => console.log(err));
     this.loadContacts();
   }
+
+  onScroll(){
+    if (this.contactStart <= this.contactListSize){
+      this.contactStart += this.contactLimit;
+      this.loadContacts();
+    }
+  }
+
   loadContacts(){
-    this._contactService.getContactsList().subscribe(
+    this._contactService.getContactsListSize(this.searchParams).subscribe(size => {
+      this.contactListSize = size;
+    }, err => console.log(err));
+    this._contactService.getContactsList(this.searchParams,this.contactOrder, this.contactStart, this.contactLimit).subscribe(
       (contacts: Contact[]) => {
-        this.contactList = contacts;
+        this.contactList.push(...contacts);
         this.splitNumberContact();
       },
       err => {
@@ -55,18 +79,15 @@ export class PhonebookComponent implements OnInit {
 
   loadContactListSearch(): void {
     if (this.searchQuery) {
-      let search = '';
-      search += `_where[_or][0][titulo_contains]=${this.searchQuery}&`;
-      search += `_where[_or][1][descripcion_contains]=${this.searchQuery}`;
-      this._contactService.searchByKeywords(search).subscribe(
-        (contacts: Contact[]) => {
-          this.contactList = contacts;
-        },
-        err => {
-          console.log(err)
-        }
-      );
-    }else if(!this.contactList.length){//TODO: Implementar esto en blog
+      this.contactList = [];
+      this.searchParams = '';
+      this.searchParams += `_where[_or][0][titulo_contains]=${this.searchQuery}&`;
+      this.searchParams += `_where[_or][1][descripcion_contains]=${this.searchQuery}`;
+      this.loadContacts();
+    }else{
+      this.searchParams = '';
+      this.contactStart = 0;
+      this.contactList = [];
       this.loadContacts();
     }
   }

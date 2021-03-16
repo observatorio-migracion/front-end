@@ -36,9 +36,35 @@
     <div class="custom-table">
         <div class="row" *ngFor="let activity of activities">
             <p class="index">{{activity.nombre}}</p>
+            <br>
             <p>{{activity.fecha | date: 'mediumDate'}} </p>
-            <p><a (click)="openActivity(activity)">Ver más información</a></p> 
+            <br>
+            <p><a (click)="openActivity(activity)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="activity-see-more">Ver más información</a></p>
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{activitySelected.nombre}}</h5>
+
+            </div>
+            <div class="modal-body">
+                <p><b>Fecha: </b>{{activitySelected.fecha | date:'longDate'}}</p>
+                <br>
+                <p><b>Descripción: </b>{{activitySelected.descripcion}}</p>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" mat-raised-button
+                    style="background-color: var(--warning-02); color:var(--font-4);"
+                    data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <app-footer></app-footer>

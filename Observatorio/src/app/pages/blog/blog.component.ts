@@ -11,30 +11,30 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./blog.component.css'],
 })
 export class BlogComponent implements OnInit {
-  start: number = 0;
-  limit: number = 4;
-  filter: string = '';
-  pageSize: number = this.limit;
-  pageIndex: number = 0;
-  dbPostListSize: number = 0;
-  // selector: string = '.custom-container';
-  postsList: Post[];
-  categoriesList: (CheckBoxData)[] = [];
-
-  public searchQuery: string = "";
-  subscription: Subscription;
+  public postStart: number;
+  public readonly postLimit: number;
+  public categoryFilter: string = '';
+  // public pageSize: number = 4;
+  // public pageIndex: number = 0;
+  public postListSize: number;
+  public postsList: Post[];
+  public categoriesList: (CheckBoxData)[] = [];
+  public searchQuery: string = '';
+  public searchParams: string = '';
 
   constructor(private _postService: PostService) {
     this.postsList = new Array<Post>();
-    this.subscription = new Subscription();
+    this.postListSize = 0;
+    this.postLimit = 4;
+    this.postStart = 0;
   }
 
   ngOnInit(): void {
-    this._postService.getPostsListSize(this.filter).subscribe(size => {
-      this.dbPostListSize = size;
+    this._postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe(size => {
+      this.postListSize = size;
     }, err => console.log(err));
     this.loadCategories();
-    this.loadPostList(this.start, this.limit);
+    this.loadPostList();
   }
   loadCategories(): void {
     this._postService.getEnabledCategories().subscribe(
@@ -42,75 +42,76 @@ export class BlogComponent implements OnInit {
         this.categoriesList = res.map((value) => new CheckBoxData(value.nombre || '', false));
       }, err => console.log(err));
   }
-  valueChanged(category: CheckBoxData) {
-    this.filter = '';
-    for (let c of this.categoriesList) {
-      if (c.value) {
-        this.filter += `_where[categorias.nombre]=${c.name}&`;
+  async valueChanged(category: CheckBoxData) {
+    this.categoryFilter = '';
+    for (let category of this.categoriesList) {
+      if (category.value) {
+        this.categoryFilter += `_where[categorias.nombre]=${category.name}&`;
       }
     }
-    this.start = 0;
-    this.pageIndex = 0;
-    this.loadPostList(this.start, this.limit);
+    await this.loadPostList(true);
   }
-  loadPostList(s: number, l: number): void {
-    this._postService.getPostList(s, l, this.filter).subscribe(
+
+  async deletePostsList(): Promise<void>{
+    this.postsList = [];
+  }
+  async loadPostList(clear:boolean =  false): Promise<void> {
+    this._postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe(
+      size => {
+        this.postListSize = size;
+      })
+      if(clear) this.postStart = 0;
+      this._postService.getPostList(this.categoryFilter,this.searchParams, this.postStart, this.postLimit).subscribe(
       (posts: Post[]) => {
-        this.postsList = posts;
+        if(clear){
+          this.deletePostsList().then( ()=> {
+            this.postsList.push(...posts);
+          })
+        }
+        else{
+          this.postsList.push(...posts);
+        }        
       },
       err => {
         console.log(err)
       }
     );
-    this._postService.getPostsListSize(this.filter).subscribe(
-      size => {
-        this.dbPostListSize = size;
-      })
   }
 
-  loadPostListSearch(): void {
-    
+  async loadPostListSearch(): Promise<void> {
     if (this.searchQuery) {
-      let search = '';
-      search += `_where[_or][0][contenido_contains]=${this.searchQuery}&`;
-      search += `_where[_or][1][titulo_contains]=${this.searchQuery}&`;
-      search += `_where[_or][2][descripcion_contains]=${this.searchQuery}`;
-      this._postService.searchByKeywords(search).subscribe(
-        (posts: Post[]) => {
-          this.postsList = posts;
-        },
-        err => {
-          console.log(err)
-        }
-      );
+      this.searchParams = '';
+      this.searchParams += `_where[_or][0][contenido_contains]=${this.searchQuery}&`;
+      this.searchParams += `_where[_or][1][titulo_contains]=${this.searchQuery}&`;
+      this.searchParams += `_where[_or][2][descripcion_contains]=${this.searchQuery}&`;
+      await this.loadPostList(true);
+    }else{
+      this.searchParams = '';
+      await this.loadPostList(true);
     }
   }
 
-  onScroll(event: any) {//NOT IN USE
-    const scrollY: number = event.currentScrollPosition;
-    const scrollHeight: number = this.getScrollHeight() - 100;
-  }
-
-  getScrollHeight(): number {
-    return Math.max(
-      document.body.scrollHeight, document.documentElement.scrollHeight,
-      document.body.offsetHeight, document.documentElement.offsetHeight,
-      document.body.clientHeight, document.documentElement.clientHeight
-    );
-  }
-  pageChanged(event: any) {
-    console.log(event);
-
-    const index = event.pageIndex;
-    if (index > this.pageIndex) {
-      this.start += this.pageSize;
+  onScroll() {
+    if(this.postStart <= this.postListSize){
+      this.postStart += this.postLimit;
+      this.loadPostList();
     }
-    else {
-      this.start -= this.pageSize;
-    }
-    this.pageIndex = index;
-
-    this.loadPostList(this.start, this.limit);
   }
+
+
+  // pageChanged(event: any) {
+  //   console.log(event);
+
+  //   const index = event.pageIndex;
+  //   if (index > this.pageIndex) {
+  //     this.postStart += this.pageSize;
+  //   }
+  //   else {
+  //     this.postStart -= this.pageSize;
+  //   }
+  //   this.pageIndex = index;
+
+  //   this.loadPostList(this.postStart, this.postLimit);
+  // }
 
 }
