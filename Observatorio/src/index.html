@@ -16,35 +16,6 @@
 </head>
 
 <body class="web">
-  <!-- <script>
-    const body = document.querySelector("body");
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      if(window.localStorage.getItem('theme') === 'dark'){
-        body.classList.add("dark");
-        window.localStorage.setItem('theme', 'dark');
-      }
-    }else{
-      window.localStorage.setItem('theme', 'light');
-    }
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      const newColorScheme = e.matches ? "dark" : "light";
-      if (e.matches) {
-        body.classList.add("dark");
-        window.localStorage.setItem('theme', 'dark');
-      } else {
-        body.classList.remove("dark");
-        window.localStorage.setItem('theme', 'light');
-      }
-    });
-
-    const toggleTheme = ()=>{
-      body.classList.toggle("dark");
-      window.localStorage.setItem('theme', (window.localStorage.getItem('theme') === 'dark')? 'light':'dark');
-    }
-  </script> -->
-
-  <!-- <button onclick="toggleTheme();">Click me</button> -->
   <app-root></app-root>
 </body>
 

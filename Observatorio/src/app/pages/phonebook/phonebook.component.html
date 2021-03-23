@@ -15,7 +15,7 @@
                 <div class="initial-letter" (click)="showContact(contact)"
                     *ngIf="renderFirstLetter(contact, contactList[i-1], i);"><b>{{contact.titulo[0]}}</b>
                 </div>
-                <p class="contact-title" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <p class="contact-title" data-bs-toggle="modal" data-bs-target="#contactModal"
                     (click)="showContact(contact)">{{contact.titulo}}
                 </p>
                 <div class="phone-list">
@@ -26,11 +26,11 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade"  tabindex="-1" id="contactModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{contactSelected.titulo}}</h5>
+                    <h5 class="modal-title">{{contactSelected.titulo}}</h5>
 
                 </div>
                 <div class="modal-body">
@@ -51,7 +51,6 @@
                     <button type="button" mat-raised-button
                         style="background-color: var(--warning-02); color:var(--font-4);"
                         data-bs-dismiss="modal">Cerrar</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
         </div>

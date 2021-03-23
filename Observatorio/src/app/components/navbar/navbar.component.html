@@ -1,8 +1,9 @@
+<!-- header-container -->
 <div class="header-container">
   <div class="logo-container">
     <a href="https://www.ucr.ac.cr/">
       <picture>
-        <source srcset="../../../assets/images/logo-ucr-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf='theme === "dark"'>
           <img width="110px" src="../../../assets/images/logo-ucr-light.png">
       </picture>
     </a>
@@ -14,7 +15,7 @@
       <span style="font-size: 1.5rem;">de Migración</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <img alt="menu" src="assets/icons/menu.svg" width="24px" heigth="24px">
+      <svg xmlns="http://www.w3.org/2000/svg" style="fill:var(--hamburger);" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
     </button>
     <div class="navbar-collapse  collapse no-transition" id="navbarNav">
       <ul class="navbar-nav">
@@ -54,5 +55,4 @@
   </nav>
 
 </div>
-<div class="decoration-bar">
-</div>
+<div class="decoration-bar"></div>

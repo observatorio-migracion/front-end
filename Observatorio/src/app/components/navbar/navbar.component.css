@@ -1,13 +1,11 @@
 .header-container{
-  background: linear-gradient(var(--navbar-gradient), var(--navbar-gradient)), url('../../../assets/patterns/p4.jpg');
+  background: linear-gradient(var(--navbar-gradient-01), var(--navbar-gradient-01)), url('../../../assets/patterns/p4.jpg');
   background-repeat: repeat;
-  /* opacity: 0.9; .87*/
-  /* height: 17%; */
 }
 .decoration-bar{
   width:100%; 
   height: 17%;
-  background-image: url('../../../assets/patterns/p4.jpg');
+  background-image: linear-gradient(var(--navbar-gradient-02), var(--navbar-gradient-02)), url('../../../assets/patterns/p4.jpg');
   background-repeat: repeat;
   
 }
@@ -21,14 +19,14 @@ hr{
   top:-0.9rem;
 }
 .underline-text-decoration{
-  background-color: var(--background-02);
+  background-color: var(--underline);
 }
 .navbar{
     margin: 0 0;
     padding: 0% 0.4%;
 }
 .navbar a{
-    color: var(--background-02);
+    color: var(--font-1);
     margin-left: 1rem;
     position: relative;
     top:-1.2rem;
@@ -56,23 +54,17 @@ hr{
     
   
 .navbar-nav {
-    /* margin: 0 2%; */
     margin-right: 3.5rem;
 } 
  
  @media (min-width: 1024px){
     .active-link{
         border-radius: 0.2rem;
-     }
-     .navbar-brand {
-        /* color:white; */
-        color: var(--background-01);
     }
     .nav-item{
         margin: 0 3%;
     }
     #search-button{
-        color: white; 
         margin: 0 3%;
     }
     .decoration-bar{
@@ -94,12 +86,10 @@ hr{
       margin-right: 0.5rem;
     } 
     .navbar a{
-      color: var(--background-02);
       font-size: 1.2rem;
     }
     .navbar-brand{
         font-size: 1.4rem;
-        color: var(--background-01);
     }
     .active-link{
         font-weight: bold;
@@ -111,8 +101,7 @@ hr{
         margin: 0 0;
     }
     #search-button{
-        color: white; 
-        margin: 0 0;;
+        margin: 0 0;
     }
     .decoration-bar{
       display: none;
@@ -125,7 +114,6 @@ hr{
     }
     .navbar-brand{
         font-size: 1.6rem;
-        color: white;
     }
 }
 

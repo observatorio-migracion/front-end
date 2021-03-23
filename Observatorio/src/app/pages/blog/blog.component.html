@@ -1,16 +1,15 @@
-<div infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()" style="min-height: 90%;">
+<div class="infinite-scroll" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
   <div class="tools">
     <div class="row">
-      <div class="dropdown" style="margin-left: 1vw;">
+      <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button"
-          id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"
-          style="background-color: transparent; color: black; border:none; outline:none;">
+          id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
           Filtrar por categorías
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="categoriesList.length">
           <a class="dropdown-item" *ngFor="let category of categoriesList" onclick="event.stopPropagation()">
-            <mat-checkbox class="category-checkbox" style="color: var(--background-02)" [(ngModel)]="category.value"
-              (change)="valueChanged(category)">{{category.name}}</mat-checkbox>
+            <mat-checkbox class="category-checkbox" [(ngModel)]="category.value" (change)="valueChanged(category)"><span
+                class="category-checkbox-label">{{category.name}}</span></mat-checkbox>
           </a>
         </div>
 
@@ -28,12 +27,5 @@
   <div class="custom-container" *ngIf="postsList.length">
     <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
   </div>
-
-  <!-- <div class="fixed-bottom">
-    <mat-paginator [length]="dbPostListSize" [pageIndex]='pageIndex' [pageSize]="pageSize" (page)="pageChanged($event)"
-      hidePageSize="true">
-    </mat-paginator>
-  </div> -->
-  
 </div>
 <app-footer></app-footer>

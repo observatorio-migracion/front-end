@@ -27,6 +27,10 @@
         margin-right: 0;
     }
 }
+mat-chip{
+    padding: none;
+    margin: none;
+}
 .categories{
     margin-bottom: 1rem;
 }

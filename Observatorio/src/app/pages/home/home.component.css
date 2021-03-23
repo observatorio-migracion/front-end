@@ -4,6 +4,7 @@
     margin: 10% auto;
     font-size: 1.3rem;
 }
+
 .categories-container{
     margin: -5rem 1rem;
     display: grid;
@@ -81,11 +82,9 @@
 .row{
     display: flex;
     flex-direction: column;
-    /* flex-direction: row;*/
     align-items: center; 
     justify-content: space-between;
     padding: 1.7rem 0;
-    /* border-bottom: 1px solid var(--font-4); */
 }
 .custom-table p{
     color: var(--font-4);

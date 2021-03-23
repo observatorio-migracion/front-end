@@ -1,16 +1,25 @@
 :root{
+  --dark-blue:#153A4A;
+  --very-dark-blue: #12313f;
+  --super-dark-blue: #0e2733; 
+  --light-green-02: #72B1B3;
+  --light-green-01: #30A740;
   --green: #236667;
   --dark-green: #1A4C4D;
+  --darker-green: #1E5859;
+  --very-dark-green: #113233;
   --white:#F3F1F1;
   --black: #000000;
   --gray: #797878;
   --dark-gray: #474747;
   --light-gray: #CFCFCF;
   --yellow: #F2C62C;
-  --light-green: #30A740;
+  --dark-blue-gradient:rgba(21, 58, 74, .70);
   --white-gradient: rgba(255,255,255,.87);
   --no-gradient: rgba(255,255,255,0);
 }
+ 
+/* #E9ECEF */
 
 .web{
   --background-01: var(--white);
@@ -21,18 +30,37 @@
   --font-4: var(--white);
   --font-5: var(--yellow);
   --warning-01: var(--yellow);
-  --warning-02: var(--light-green);
+  --warning-02: var(--light-green-01);
   --chips-background: var(--light-gray);
+  --chips-font: var(--font-1);
   --footer-background: var(--dark-green);
-  --navbar-gradient: var(--white-gradient);
+  --navbar-gradient-01: var(--white-gradient);
+  --navbar-gradient-02: transparent;
+  --underline: var(--dark-green);
+  --modal-background: var(--white);
+  --filter: var(--white);
+  --filter-hover: var(--light-gray);
+  --hamburger: var(--green);
+  --search-color: var(--light-gray);
 }
 
 .dark{
-  --background-01: var(--dark-green);
-  --background-02: var(--dark-green);
+  --background-02: var(--very-dark-blue);
+  --background-01: var(--dark-blue);
+  --modal-background: var(--very-dark-blue);
+  --chips-background: var(--dark-gray);
   --navbar-gradient: var(--no-gradient);
   --font-1: var(--white);
   --font-2: var(--black);
+  --font-3: var(--yellow);
+  --underline: var(--yellow);
+  --navbar-gradient-01: var(--dark-blue-gradient);
+  --navbar-gradient-02: var(--dark-blue-gradient);
+  --footer-background: var(--super-dark-blue);
+  --filter:var(--light-green-02);
+  --filter-hover: var(--dark-blue);
+  --search-color: var(--white);
+  --hamburger: var(--font-1);
 }
 button{
   font-size: 1rem;
@@ -41,8 +69,6 @@ h1 {
   background-color: var(--background-01);
 }
 
-
-
 html, body { 
    height: 100%;
    margin: 0;
@@ -50,14 +76,6 @@ html, body {
    background-color: var(--background-01); 
    color: var(--font-1);
 }
-
-/* @media (prefers-color-scheme: dark) {
-  body{
-    background-color: black;
-  }
-} */
-
-
 
 .cont{
   background-color: var(--green);
@@ -72,7 +90,13 @@ html, body {
  .ng-invalid:not(form)  {
    border-left: 5px solid #a94442; /* red */
  }
-
+ .mat-chip{
+  background-color: var(--chips-background) !important;
+  color: var(--chips-font) !important;
+}
+.modal-content{
+  background-color: var(--modal-background);
+}
 
  .mat-checkbox-ripple .mat-ripple-element,.mat-checkbox-checked.mat-accent .mat-checkbox-background {
   background-color: var(--background-02)!important;
@@ -81,3 +105,23 @@ html, body {
 .mat-checkbox-checked.mat-primary .mat-checkbox-background, .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background{
   background-color: var(--background-02)!important;
 }
+
+.search-input{
+  border: 1px solid var(--search-color);  
+  font-size: 16px;
+  width: 200px;
+  height: 30px;
+  background-color:transparent;
+  margin-top: 0.2rem;
+  margin-right: 0.2rem;
+  border-radius: 20px;
+  outline: none !important;
+  box-sizing: border-box;
+  padding: 0 1rem;
+
+  color: var(--search-color);
+  vertical-align: middle;
+}
+.search-input::placeholder{
+  color: var(--search-color);
+};

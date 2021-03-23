@@ -11,9 +11,7 @@
     width: 100%;
     padding: 2vh 0;
 }
-/* .contact p{
-    width: 100%;
-} */
+
 .phone-list{
     display:flex;
     flex-direction: row;
@@ -30,8 +28,6 @@
 
 .search-container{
     height: 30px;
-    /* margin-left: 70vw; */
-    /* border: 1px solid red; */
 }
 .search-form{
     position:relative; left: 17vw;
