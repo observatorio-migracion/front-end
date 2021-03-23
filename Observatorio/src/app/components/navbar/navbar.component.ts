@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -9,7 +8,11 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  public matchQuery:any;
+  
+  constructor(){
+    this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
+  }
   ngOnInit(): void {
   }
 }

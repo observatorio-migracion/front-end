@@ -2,14 +2,17 @@
   --green: #236667;
   --dark-green: #1A4C4D;
   --white:#F3F1F1;
+  --black: #000000;
   --gray: #797878;
   --dark-gray: #474747;
   --light-gray: #CFCFCF;
   --yellow: #F2C62C;
   --light-green: #30A740;
+  --white-gradient: rgba(255,255,255,.87);
+  --no-gradient: rgba(255,255,255,0);
 }
 
-.light{
+.web{
   --background-01: var(--white);
   --background-02: var(--green);
   --font-1: var(--gray);
@@ -21,10 +24,15 @@
   --warning-02: var(--light-green);
   --chips-background: var(--light-gray);
   --footer-background: var(--dark-green);
+  --navbar-gradient: var(--white-gradient);
 }
 
 .dark{
   --background-01: var(--dark-green);
+  --background-02: var(--dark-green);
+  --navbar-gradient: var(--no-gradient);
+  --font-1: var(--white);
+  --font-2: var(--black);
 }
 button{
   font-size: 1rem;
@@ -33,6 +41,8 @@ h1 {
   background-color: var(--background-01);
 }
 
+
+
 html, body { 
    height: 100%;
    margin: 0;
@@ -40,6 +50,14 @@ html, body {
    background-color: var(--background-01); 
    color: var(--font-1);
 }
+
+/* @media (prefers-color-scheme: dark) {
+  body{
+    background-color: black;
+  }
+} */
+
+
 
 .cont{
   background-color: var(--green);

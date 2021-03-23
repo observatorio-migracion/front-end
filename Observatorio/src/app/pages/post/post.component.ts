@@ -32,9 +32,9 @@ export class PostComponent implements OnInit {
     this.loadPost();
   }
   async loadPost() {
-    const id: number | null = Number(this._router.snapshot.paramMap.get('id'));
+    const id: string | null = this._router.snapshot.paramMap.get('id');
     const styles = postStyleConfig;
-
+    console.log({id});
     if (id) {
       this._postService.getPostById(id).subscribe(
         post => {
@@ -46,10 +46,11 @@ export class PostComponent implements OnInit {
           if (post?.contenido) {
             const html = this.markDowntoHtml(post.contenido);
             this.contentHTML = this._sanitizer.bypassSecurityTrustHtml(html);
+          }else{
           }
 
         },
-        err => console.log(err));
+        err => console.error(err));
 
     }
   }

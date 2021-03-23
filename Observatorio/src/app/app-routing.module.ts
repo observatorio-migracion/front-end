@@ -10,6 +10,7 @@ import { PostComponent } from './pages/post/post.component';
 const routes: Routes = [
   {path: 'inicio', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
+  {path: 'blog/:category', component: BlogComponent},
   {path: 'nosotros', component: AboutComponent},
   {path: 'directorio', component: PhonebookComponent},
   {path: 'post/:id', component: PostComponent},

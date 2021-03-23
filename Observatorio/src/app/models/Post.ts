@@ -55,7 +55,7 @@ export class Formats {
 }
 
 export class Miniatura {
-    id: number|undefined;
+    id: string|undefined;
     name: string|undefined;
     alternativeText: string|undefined;
     caption: string|undefined;
@@ -75,7 +75,7 @@ export class Miniatura {
 }
 
 export class Categoria {
-    id: number|undefined;
+    id: string|undefined;
     nombre: string|undefined;
     published_at: Date|undefined;
     created_at: Date|undefined;
@@ -84,7 +84,7 @@ export class Categoria {
 }
 
 export class Post {
-    id: number|undefined;
+    id: string|undefined;
     titulo: string|undefined;
     contenido: string|undefined;
     descripcion: string|undefined;

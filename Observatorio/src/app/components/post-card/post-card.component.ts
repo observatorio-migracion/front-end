@@ -4,14 +4,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
 import { parseURLImage } from '../helpers/URLparser';
 
-
 @Component({
   selector: 'app-post-card',
   templateUrl: './post-card.component.html',
   styleUrls: ['./post-card.component.css']
 })
 export class PostCardComponent implements OnInit {
-  id: number | undefined;
+  id: string | undefined;
   title: string | undefined;
   description: string | undefined;
   image: string | undefined;
@@ -35,5 +34,8 @@ export class PostCardComponent implements OnInit {
       result = str.length > delimiter ? str.substr(0, delimiter) + ' ...' : str;
     }
     return result;
+  }
+  filterByCategory(category:Categoria){
+
   }
 }

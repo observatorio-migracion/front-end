@@ -10,9 +10,9 @@
 
 <h1 class="horizontal-bar horizontal-bar-01">Categorías</h1>
 <div class="categories-container">
-    <div class="category" *ngFor="let category of categories">
-        <img class="img-fluid" *ngIf="category.imagen" alt="category.nombre" src="{{category.imagen.formats.small.url}}"
-            max-width="500px" max-height="281px">
+    <div class="category" *ngFor="let category of categories" (click)="filterPostsByCategory(category)">
+        <img class="img-fluid" alt="category.nombre" *ngIf="category.imagen" src="{{category.imagen.formats.small.url}}"
+        width="420px" height="236px">
     </div>
 </div>
 <div class="action-container">
@@ -39,7 +39,8 @@
             <br>
             <p>{{activity.fecha | date: 'mediumDate'}} </p>
             <br>
-            <p><a (click)="openActivity(activity)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="activity-see-more">Ver más información</a></p>
+            <p><a (click)="openActivity(activity)" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    class="activity-see-more">Ver más información</a></p>
         </div>
     </div>
 </div>
@@ -55,8 +56,9 @@
             <div class="modal-body">
                 <p><b>Fecha: </b>{{activitySelected.fecha | date:'longDate'}}</p>
                 <br>
-                <p><b>Descripción: </b>{{activitySelected.descripcion}}</p>
+                <p><b>Descripción: </b></p>
                 <br>
+                <div *ngIf="contentHTML" [innerHTML]="contentHTML">{{contentHTML}}</div>
             </div>
             <div class="modal-footer">
                 <button type="button" mat-raised-button

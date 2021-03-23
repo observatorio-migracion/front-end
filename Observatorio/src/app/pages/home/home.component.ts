@@ -1,3 +1,9 @@
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ShowdownConverter } from 'ngx-showdown';
+import { postStyleConfig } from 'src/app/components/helpers/postStyleConfig';
+
+
 import { Component, OnInit } from '@angular/core';
 import { Activity, Imagenes } from 'src/app/models/Activity';
 import { Categoria, Post } from 'src/app/models/Post';
@@ -9,7 +15,8 @@ import { Thumbnail } from '../../models/Post';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [ShowdownConverter]
 })
 export class HomeComponent implements OnInit {
   public api: string;
@@ -23,7 +30,17 @@ export class HomeComponent implements OnInit {
   public activities: Activity[];
 
   public activitySelected:Activity;
-  constructor(private _postService:PostService, private _eventService: EventService) {
+
+  public contentHTML: SafeHtml;
+  defaultImage: string;
+
+
+  constructor(private _postService:PostService, 
+              private _eventService: EventService,
+              private _router:Router,
+              private _sanitizer: DomSanitizer, 
+              private showdownConverter: ShowdownConverter) {
+    this.contentHTML = "";
     this.categoriesLimit = 4;
     this.recentPostLimit = 3;
     this.activitiesLimit = 4;
@@ -33,7 +50,8 @@ export class HomeComponent implements OnInit {
     this.postsList = new Array<Post>();
     this.seeMoreCategories = true;
     this.activities = new Array<Activity>();
-    this.activitySelected = new Activity(-1, '', new Date(), '', '', '','', new Array<Imagenes>());
+    this.activitySelected = new Activity('', '', new Date(), '', '', '','', new Array<Imagenes>());
+    this.defaultImage = 'assets/images/default.png';
   }
 
   ngOnInit(): void {
@@ -46,7 +64,23 @@ export class HomeComponent implements OnInit {
       this.activities = activities;
     })
   };
-
+  markDowntoHtml(text: string): string {
+    let html = postStyleConfig + this.showdownConverter.makeHtml(text);
+    let aux = '';
+    while (aux !== html) {
+      aux = html;
+      html = html.replace('src="/uploads/', 'src="' + this.api + "/uploads/")
+    }
+    return html;
+  }
+  renderActivity(activity:Activity){
+    // const styles = postStyleConfig;
+    if(activity.descripcion){
+      const html = this.markDowntoHtml(activity.descripcion);
+      this.contentHTML = this._sanitizer.bypassSecurityTrustHtml(html);
+    }
+  
+  }
   loadMoreCategories() {
     this.categoriesLimit = 0;
     this.loadCategories();
@@ -55,13 +89,15 @@ export class HomeComponent implements OnInit {
   loadCategories() {
     this._postService.getEnabledCategories(this.categoriesLimit).subscribe((categories: Categoria[]) => {
       categories.map((value: Categoria) => {
-        value.imagen.formats.small.url = this.api + value.imagen.formats.small.url;//TODO: Recordar cambiarlo para el deploy
+        if(value.imagen){
+          value.imagen.formats.small.url = this.api + value.imagen.formats.small.url;//TODO: Recordar cambiarlo para el deploy
+        }
       })
       this.categories = categories;
       if (!this.categoriesLimit) this.seeMoreCategories = false;
     }
       , err => {
-        console.log("categories error: ", err);
+        console.error("categories error: ", err);
       })
     }
 
@@ -70,11 +106,14 @@ export class HomeComponent implements OnInit {
         this.postsList = posts;
       }
         , err => {
-          console.log("recent posts error: ", err);
+          console.error("recent posts error: ", err);
         })
     }
     openActivity(activity:Activity){
       this.activitySelected = activity;
+      this.renderActivity(activity)
     }
-
+    filterPostsByCategory(category:Categoria){
+      this._router.navigate([`blog`,category.nombre]);
+    }
 }

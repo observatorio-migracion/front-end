@@ -1,7 +1,7 @@
 .header-container{
-  background-image: url('../../../assets/patterns/p5.png');
+  background: linear-gradient(var(--navbar-gradient), var(--navbar-gradient)), url('../../../assets/patterns/p4.jpg');
   background-repeat: repeat;
-  opacity: 0.9;
+  /* opacity: 0.9; .87*/
   /* height: 17%; */
 }
 .decoration-bar{

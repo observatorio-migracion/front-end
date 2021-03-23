@@ -7,7 +7,7 @@
       <h5 class="card-title" routerLink="/post/{{id}}"><b>{{title}}</b></h5>
       <div class="categories">
         <mat-chip-list>
-          <mat-chip *ngFor="let category of categories">{{category.nombre}}</mat-chip>
+          <mat-chip *ngFor="let category of categories" routerLink="/blog/{{category.nombre}}">{{category.nombre}}</mat-chip>
         </mat-chip-list>
       </div>
       <p  routerLink="/post/{{id}}"

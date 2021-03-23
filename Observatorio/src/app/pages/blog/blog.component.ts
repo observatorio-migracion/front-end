@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { CheckBoxData } from 'src/app/models/CheckBoxData';
 import { Categoria, Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
@@ -22,25 +24,40 @@ export class BlogComponent implements OnInit {
   public searchQuery: string = '';
   public searchParams: string = '';
 
-  constructor(private _postService: PostService) {
+  constructor(private _postService: PostService,
+              private _activatedRoute:ActivatedRoute,
+              private _router:Router) {
     this.postsList = new Array<Post>();
     this.postListSize = 0;
     this.postLimit = 4;
     this.postStart = 0;
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
+    this.loadCategories();
+    
     this._postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe(size => {
       this.postListSize = size;
-    }, err => console.log(err));
-    this.loadCategories();
+    }, err => console.error(err));
     this.loadPostList();
   }
+  loadCategoryFilterFromURL(){
+    const category = this._activatedRoute.snapshot.paramMap.get('category');
+    this.categoriesList.forEach((categ: CheckBoxData) => categ.value = false);
+    const result = this.categoriesList.find( (categ:CheckBoxData)=>categ.name === category);
+    if(result){
+      result.value = true;
+      this.valueChanged(result);
+    }
+  }
+  
   loadCategories(): void {
     this._postService.getEnabledCategories().subscribe(
       (res: Categoria[]) => {
         this.categoriesList = res.map((value) => new CheckBoxData(value.nombre || '', false));
-      }, err => console.log(err));
+        this.loadCategoryFilterFromURL();
+      }, err => console.error(err));
   }
   async valueChanged(category: CheckBoxData) {
     this.categoryFilter = '';
@@ -73,7 +90,7 @@ export class BlogComponent implements OnInit {
         }        
       },
       err => {
-        console.log(err)
+        console.error(err)
       }
     );
   }
@@ -90,28 +107,10 @@ export class BlogComponent implements OnInit {
       await this.loadPostList(true);
     }
   }
-
   onScroll() {
     if(this.postStart <= this.postListSize){
       this.postStart += this.postLimit;
       this.loadPostList();
     }
   }
-
-
-  // pageChanged(event: any) {
-  //   console.log(event);
-
-  //   const index = event.pageIndex;
-  //   if (index > this.pageIndex) {
-  //     this.postStart += this.pageSize;
-  //   }
-  //   else {
-  //     this.postStart -= this.pageSize;
-  //   }
-  //   this.pageIndex = index;
-
-  //   this.loadPostList(this.postStart, this.postLimit);
-  // }
-
 }

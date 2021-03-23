@@ -1,6 +1,12 @@
 <div class="header-container">
-  <div class="logo-container"><a href="https://www.ucr.ac.cr/"><img alt="logo" id="logo"
-        src="../../../assets/images/logo-ucr.png" width="110px"></a></div>
+  <div class="logo-container">
+    <a href="https://www.ucr.ac.cr/">
+      <picture>
+        <source srcset="../../../assets/images/logo-ucr-dark.png" media="(prefers-color-scheme: dark)">
+          <img width="110px" src="../../../assets/images/logo-ucr-light.png">
+      </picture>
+    </a>
+  </div>
   <nav class="navbar navbar-expand-md">
     <a class="navbar-brand" href="#">
       <span style="font-size: 1.8rem;">Observatorio</span>
@@ -13,24 +19,32 @@
     <div class="navbar-collapse  collapse no-transition" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/inicio" routerLinkActive="active-link">Inicio
+          <a class="nav-link" routerLink="/inicio" routerLinkActive="active-link"
+            [attr.data-toggle]="matchQuery ? 'collapse' : null"
+            [attr.data-target]="matchQuery ? '#navbarNav' : null">Inicio
             <hr routerLinkActive="underline-text-decoration">
           </a>
 
         </li>
         <li>
-          <a class="nav-link" routerLink="/blog" routerLinkActive="active-link">Blog
+          <a class="nav-link" routerLink="/blog" routerLinkActive="active-link"
+            [attr.data-toggle]="matchQuery ? 'collapse' : null"
+            [attr.data-target]="matchQuery ? '#navbarNav' : null">Blog
             <hr routerLinkActive="underline-text-decoration">
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/nosotros" routerLinkActive="active-link">Nosotros
+          <a class="nav-link" routerLink="/nosotros" routerLinkActive="active-link"
+            [attr.data-toggle]="matchQuery ? 'collapse' : null"
+            [attr.data-target]="matchQuery ? '#navbarNav' : null">Nosotros
             <hr routerLinkActive="underline-text-decoration">
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/directorio" routerLinkActive="active-link">Directorio
+          <a class="nav-link" routerLink="/directorio" routerLinkActive="active-link"
+            [attr.data-toggle]="matchQuery ? 'collapse' : null"
+            [attr.data-target]="matchQuery ? '#navbarNav' : null">Directorio
             <hr routerLinkActive="underline-text-decoration">
           </a>
 

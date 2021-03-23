@@ -20,19 +20,17 @@ export class PostService {
   }
 
   getPostsListSize(categoryFilter: string, searchParams: string = ''): Observable<any> {
-    // console.log(`${this.url}/posts/count?${categoryFilter}${searchParams}`);
     return this._http.get(`${this.url}/posts/count?${categoryFilter}${searchParams}`);
   }
 
   getPostList(categoryFilter: string = '', searchParams: string = '', start: number = 0, limit: number = 4): Observable<Post[]> {
-    // console.log(`${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`);
     return this._http.get<Post[]>(`${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`);
   }
 
   getRecentPostList(sort: string = '', limit: number = 4): Observable<Post[]> {
     return this._http.get<Post[]>(`${this.url}/posts?_sort=${sort}&_limit=${limit}`);
   }
-  getPostById(id: number): Observable<Post> {
+  getPostById(id: string): Observable<Post> {
     return this._http.get<Post>(`${this.url}/posts/${id}`);
   }
   //if limit === 0 returns all the elements

@@ -1,29 +1,29 @@
 export const postStyleConfig = `<style> 
-.post-container h1{
+h1{
   margin-top: 5vh;
   font-size: 3rem;
   font-weight: 400;
 }
-.post-container h2{
+h2{
   margin-top: 1rem;
   font-size: 1.6rem;
   margin-bottom: 1rem;
 }
-.post-container h3{
+h3{
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
-.post-container h4{
+h4{
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
-.post-container p {
+p {
   margin: 1rem 0;
   white-space: pre-wrap;
   font-size: 1rem;
   margin-bottom: 1rem;
 }
-.post-container img{
+img{
   display: block;
   margin: 2rem auto;
   max-width: 95%;
@@ -32,7 +32,7 @@ export const postStyleConfig = `<style>
 }
 
 @media (max-width: 800px) {
-  .post-container h1{
+  h1{
     margin-top: 3vh;
     font-size: 2rem;
     font-weight: 400;

@@ -188,6 +188,17 @@ p{
     .custom-table {
         width: 80% !important; 
     }
+    @media (max-height: 820px){
+        .horizontal-bar-01{
+            height: 30%;
+        }
+        .horizontal-bar-02{
+            height: 25%;
+        }
+        .action-container{
+            margin-top: 3rem; 
+        }
+    }
     @media (max-height: 600px){
         .horizontal-bar-01{
             height: 35%;

@@ -1,7 +1,7 @@
 export class Contact {
     numberList: any;
     constructor(
-        public id:           number,
+        public id:           string,
         public titulo:       string,
         public descripcion:  string,
         public correo:       string,

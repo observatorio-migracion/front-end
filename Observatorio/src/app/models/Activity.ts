@@ -1,6 +1,6 @@
 export class Activity {
     constructor(
-        public id: number,
+        public id: string,
         public nombre: string,
         public fecha: Date,
         public descripcion: string,
@@ -13,7 +13,7 @@ export class Activity {
 
 export class Imagenes {
     constructor(
-        public id: number,
+        public id: string,
         public name: string,
         public alternativeText: string,
         public caption: string,

@@ -18,7 +18,7 @@ export class PhonebookComponent implements OnInit {
   public searchParams;
   constructor(private _contactService: ContactService) {
     this.contactList = new Array<Contact>();
-    this.contactSelected = new Contact(-1, '','','','','','','','','','');
+    this.contactSelected = new Contact('', '','','','','','','','','','');
     this.searchQuery = '';
     this.contactLimit = 4;
     this.contactStart = 0;
@@ -30,7 +30,7 @@ export class PhonebookComponent implements OnInit {
   ngOnInit(): void {
     this._contactService.getContactsListSize(this.searchParams).subscribe(size => {
       this.contactListSize = size;
-    }, err => console.log(err));
+    }, err => console.error(err));
     this.loadContacts();
   }
 
@@ -44,14 +44,14 @@ export class PhonebookComponent implements OnInit {
   loadContacts(){
     this._contactService.getContactsListSize(this.searchParams).subscribe(size => {
       this.contactListSize = size;
-    }, err => console.log(err));
+    }, err => console.error(err));
     this._contactService.getContactsList(this.searchParams,this.contactOrder, this.contactStart, this.contactLimit).subscribe(
       (contacts: Contact[]) => {
         this.contactList.push(...contacts);
         this.splitNumberContact();
       },
       err => {
-        console.log(err)
+        console.error(err)
       }
     );
   }
