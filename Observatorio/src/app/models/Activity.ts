@@ -7,7 +7,8 @@ export class Activity {
         public published_at: string,
         public created_at: string,
         public updated_at: string,
-        public imagenes: Imagenes[]
+        public imagenes: Imagenes[],
+        public reunion: string
     ) { }
 }
 
@@ -55,3 +56,6 @@ export class Large {
         public url: string
     ) { }
 }
+
+
+

@@ -40,6 +40,7 @@ import { PhonebookComponent } from './pages/phonebook/phonebook.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DarktoggleComponent } from './components/darktoggle/darktoggle.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FooterComponent } from './components/footer/footer.component';
     PhonebookComponent,
     AboutComponent,
     FooterComponent,
+    DarktoggleComponent,
   ],
   imports: [
     BrowserModule,

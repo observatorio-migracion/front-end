@@ -18,7 +18,7 @@ export class PhonebookComponent implements OnInit {
   public searchParams;
   constructor(private _contactService: ContactService) {
     this.contactList = new Array<Contact>();
-    this.contactSelected = new Contact('', '','','','','','','','','','');
+    this.contactSelected = new Contact('', '','','','','','','','','','','');
     this.searchQuery = '';
     this.contactLimit = 4;
     this.contactStart = 0;
@@ -90,5 +90,15 @@ export class PhonebookComponent implements OnInit {
       this.contactList = [];
       this.loadContacts();
     }
+  }
+  parseURL(url:string):string{
+    let result:string = '';
+    if(!url.startsWith('http://') && !url.startsWith('https://')){
+      result = 'http://'+url;
+    }
+    else{
+      result = url;
+    }
+    return result;
   }
 }

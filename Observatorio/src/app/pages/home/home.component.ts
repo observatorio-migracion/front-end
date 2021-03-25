@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.postsList = new Array<Post>();
     this.seeMoreCategories = true;
     this.activities = new Array<Activity>();
-    this.activitySelected = new Activity('', '', new Date(), '', '', '','', new Array<Imagenes>());
+    this.activitySelected = new Activity('', '', new Date(), '', '', '','', new Array<Imagenes>(),'');
     this.defaultImage = 'assets/images/default.png';
   }
 

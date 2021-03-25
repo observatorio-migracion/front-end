@@ -24,12 +24,12 @@
 .horizontal-bar-01{
     background-color: var(--background-02);
     color: var(--font-4);
-    height: 30%;
+    height: 250px;
 }
 .horizontal-bar-02{
     background-color: var(--background-01);
     color: var(--font-1);
-    height: 20%;
+    height: 200px;
 }
 .custom-container {
     margin-left: 1vw;
@@ -42,7 +42,7 @@
 }
 .action-container{
     display:block;
-    margin-top: 2.5rem; 
+    margin-top: 40px;; 
     width:100%;
 }
 .action-container-btn-warning{
@@ -110,62 +110,11 @@ p{
 .modal-title{
     font-size: 1.6rem;
 }
-@media (max-width: 4000px) {
-    .horizontal-bar-01{
-        height: 10%;
-    }
-    .horizontal-bar-02{
-        height: 10%;
-    }
-}
-@media (max-width: 2600px) {
-    .horizontal-bar-01{
-        height: 15%;
-    }
-    .horizontal-bar-02{
-        height: 10%;
-    }
-}
-@media (max-width: 2100px) {
-    .horizontal-bar-01{
-        height: 24%;
-    }
-    .horizontal-bar-02{
-        height: 20%;
-    }
-}
-@media (max-width: 1950px) {
-    .horizontal-bar-01{
-        height: 30%;
-    }
-    .horizontal-bar-02{
-        height: 25%;
-    }
-}
+
 @media (max-width: 1400px) {
     .categories-container {
         grid-template-columns: auto auto;
         padding-bottom: 9vh;
-    }
-    .action-container{
-        margin-top: 2rem; 
-    }
-    .horizontal-bar-01{
-        height: 30%;
-    }
-    .horizontal-bar-02{
-        height: 25%;
-    }
-    @media (max-height: 600px){
-        .horizontal-bar-01{
-            height: 35%;
-        }
-        .horizontal-bar-02{
-            height: 30%;
-        }
-        .action-container{
-            margin-top: 3rem; 
-        }
     }
 }
 
@@ -177,37 +126,9 @@ p{
         width: 90%;
         font-size: 1rem;
     }
-    .horizontal-bar-01{
-        height: 20%;
-    }
-    .horizontal-bar-02{
-        height: 15%;
-    }
 
     .custom-table {
         width: 80% !important; 
-    }
-    @media (max-height: 820px){
-        .horizontal-bar-01{
-            height: 30%;
-        }
-        .horizontal-bar-02{
-            height: 25%;
-        }
-        .action-container{
-            margin-top: 3rem; 
-        }
-    }
-    @media (max-height: 600px){
-        .horizontal-bar-01{
-            height: 35%;
-        }
-        .horizontal-bar-02{
-            height: 30%;
-        }
-        .action-container{
-            margin-top: 3rem; 
-        }
     }
 }
 @media (max-width: 700px) {
@@ -224,19 +145,9 @@ p{
     .main-text-container{
         height:auto;
     }
-    .action-container{
-        margin-top: 1.8rem; 
-    }
     .custom-container {
         grid-template-columns: 90vw;
         grid-row-gap: 4rem;
-    }
-
-    .horizontal-bar-01{
-        height: 30%;
-    }
-    .horizontal-bar-02{
-        height: 25%;
     }
     .custom-table {
         width: 90% !important; 
@@ -256,9 +167,6 @@ p{
     .main-text-container{
         height:auto;
     }
-    .action-container{
-        margin-top: 2.5rem; 
-    }
     .horizontal-bar{
         font-size: 1.8rem;
     }
@@ -266,21 +174,9 @@ p{
         font-size: 1.8rem;
     }
     .horizontal-bar-01{
-        height: 23%;
+        height: 200px;
     }
     .horizontal-bar-02{
-        height: 23%;
-    }
-    .row{
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 360px) {
-    .horizontal-bar-01{
-        height: 30%;
-    }
-    .horizontal-bar-02{
-        height: 25%;
+        height: 150px;
     }
 }

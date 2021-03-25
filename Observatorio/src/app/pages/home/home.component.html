@@ -56,9 +56,14 @@
             <div class="modal-body">
                 <p><b>Fecha: </b>{{activitySelected.fecha | date:'longDate'}}</p>
                 <br>
+                <span *ngIf="activitySelected.reunion">
+                    <p><b>Enlace Actividad: </b> <a style="color: var(--warning-01)" href="http://{{activitySelected.reunion}}">{{activitySelected.reunion}}</a></p>
+                    <br>
+                </span>
                 <p><b>Descripción: </b></p>
                 <br>
                 <div *ngIf="contentHTML" [innerHTML]="contentHTML">{{contentHTML}}</div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" mat-raised-button

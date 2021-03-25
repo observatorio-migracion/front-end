@@ -1,4 +1,9 @@
 :root{
+  --black-toggle: #333333;
+  --white-toggle: #f5f5f5;
+  --background-toggle: var(--black-toggle);
+  --foreground-toggle: var(--white-toggle);
+  --transition-toggle: 0.5s ease;
   --dark-blue:#153A4A;
   --very-dark-blue: #12313f;
   --super-dark-blue: #0e2733; 
@@ -19,7 +24,6 @@
   --no-gradient: rgba(255,255,255,0);
 }
  
-/* #E9ECEF */
 
 .web{
   --background-01: var(--white);
@@ -45,6 +49,8 @@
 }
 
 .dark{
+  --background-toggle: var(--white-toggle);
+  --foreground-toggle: var(--black-toggle);
   --background-02: var(--very-dark-blue);
   --background-01: var(--dark-blue);
   --modal-background: var(--very-dark-blue);
