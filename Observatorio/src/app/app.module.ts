@@ -41,6 +41,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DarktoggleComponent } from './components/darktoggle/darktoggle.component';
+import { FabComponent } from './components/fab/fab.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DarktoggleComponent } from './components/darktoggle/darktoggle.componen
     AboutComponent,
     FooterComponent,
     DarktoggleComponent,
+    FabComponent,
   ],
   imports: [
     BrowserModule,

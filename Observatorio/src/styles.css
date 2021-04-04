@@ -1,8 +1,9 @@
 :root{
-  --black-toggle: #333333;
+  /* --black-toggle-01: #333333; */
+  --black-toggle-01: var(--dark-green);
+  --black-toggle-02: #0a1c24;
   --white-toggle: #f5f5f5;
-  --background-toggle: var(--black-toggle);
-  --foreground-toggle: var(--white-toggle);
+  --background-toggle: var(--black-toggle-01);
   --transition-toggle: 0.5s ease;
   --dark-blue:#153A4A;
   --very-dark-blue: #12313f;
@@ -22,6 +23,7 @@
   --dark-blue-gradient:rgba(21, 58, 74, .70);
   --white-gradient: rgba(255,255,255,.87);
   --no-gradient: rgba(255,255,255,0);
+  --foreground-toggle: var(--light-gray);
 }
  
 
@@ -45,12 +47,14 @@
   --filter: var(--white);
   --filter-hover: var(--light-gray);
   --hamburger: var(--green);
-  --search-color: var(--light-gray);
+  --search-color: var(--dark-gray);
+  --fab-color:var(--white);
+  --fab-background-color:var(--gray);
 }
 
 .dark{
   --background-toggle: var(--white-toggle);
-  --foreground-toggle: var(--black-toggle);
+  --foreground-toggle: var(--black-toggle-02);
   --background-02: var(--very-dark-blue);
   --background-01: var(--dark-blue);
   --modal-background: var(--very-dark-blue);
@@ -67,7 +71,12 @@
   --filter-hover: var(--dark-blue);
   --search-color: var(--white);
   --hamburger: var(--font-1);
+  --fab-color:var(--yellow);
+  --fab-background-color:var(--dark-gray);
 }
+
+
+
 button{
   font-size: 1rem;
 }

@@ -33,7 +33,11 @@ export class PhonebookComponent implements OnInit {
     }, err => console.error(err));
     this.loadContacts();
   }
-
+  
+  goTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   onScroll(){
     if (this.contactStart <= this.contactListSize){
       this.contactStart += this.contactLimit;

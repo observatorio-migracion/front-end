@@ -42,6 +42,12 @@ export class BlogComponent implements OnInit {
     }, err => console.error(err));
     this.loadPostList();
   }
+
+  goTop(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  
   loadCategoryFilterFromURL(){
     const category = this._activatedRoute.snapshot.paramMap.get('category');
     this.categoriesList.forEach((categ: CheckBoxData) => categ.value = false);
