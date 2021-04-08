@@ -1,4 +1,4 @@
-import {environment} from '../../../environments/environment';
+import {environment} from '../../environments/environment';
 const APIUrl:string = environment.api.url;
 const parseURLImage = function(url:string | undefined):string{
     let result = '';

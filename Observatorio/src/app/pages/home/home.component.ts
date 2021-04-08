@@ -1,7 +1,7 @@
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ShowdownConverter } from 'ngx-showdown';
-import { postStyleConfig } from 'src/app/components/helpers/postStyleConfig';
+import { postStyleConfig } from '../../helpers/postStyleConfig';
 
 
 import { Component, OnInit } from '@angular/core';

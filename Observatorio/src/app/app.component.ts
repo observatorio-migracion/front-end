@@ -40,22 +40,30 @@ export class AppComponent implements OnInit {
     const body = document.querySelector("body");
     if (body) {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        if (window.localStorage.getItem('theme') === 'dark') {
+        if (window.localStorage.getItem('theme')) {
+          if (window.localStorage.getItem('theme') === 'dark') {
+            body.classList.add("dark");
+            window.localStorage.setItem('theme', 'dark');
+            this.setTheme('dark');
+          } else if (window.localStorage.getItem('theme') === 'light') {
+            this.setTheme('light');
+          }
+        } else {
           body.classList.add("dark");
           window.localStorage.setItem('theme', 'dark');
           this.setTheme('dark');
         }
+
       } else {
         window.localStorage.setItem('theme', 'light');
         this.setTheme('light');
       }
-
-
     }
   }
+
   addListenerColorScheme() {
     const body = document.querySelector("body");
-    if(body){
+    if (body) {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
         const newColorScheme = e.matches ? "dark" : "light";
         if (e.matches) {

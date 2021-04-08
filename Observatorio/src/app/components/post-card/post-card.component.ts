@@ -2,7 +2,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, Input } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
-import { parseURLImage } from '../helpers/URLparser';
+import { parseURLImage } from '../../helpers/URLparser';
 
 @Component({
   selector: 'app-post-card',

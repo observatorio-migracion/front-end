@@ -25,23 +25,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 //components
-// import { HomeComponent } from './pages/home/home.component';
 import { BlogComponent } from './pages/blog/blog.component';
-// import { ContactComponent } from './pages/contact/contact.component';
 import { PostComponent } from './pages/post/post.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
-
-
-//external dependencies
-import { ShowdownModule } from 'ngx-showdown';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PhonebookComponent } from './pages/phonebook/phonebook.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DarktoggleComponent } from './components/darktoggle/darktoggle.component';
 import { FabComponent } from './components/fab/fab.component';
+
+
+//external dependencies
+import { ShowdownModule } from 'ngx-showdown';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import { FabComponent } from './components/fab/fab.component';
     NavbarComponent,
     HomeComponent,
     BlogComponent,
-    // ContactComponent,
     PostComponent,
     PhonebookComponent,
     AboutComponent,

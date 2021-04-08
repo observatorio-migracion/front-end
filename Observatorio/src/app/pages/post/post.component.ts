@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ShowdownConverter } from 'ngx-showdown';
-import { postStyleConfig } from 'src/app/components/helpers/postStyleConfig';
+import { postStyleConfig } from '../../helpers/postStyleConfig';
 import { Categoria } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
 import { environment } from 'src/environments/environment';
