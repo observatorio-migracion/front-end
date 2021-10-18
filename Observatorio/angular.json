@@ -38,7 +38,7 @@
             ],
             "allowedCommonJsDependencies": [
               "showdown"
-           ]
+            ]
           },
           "configurations": {
             "production": {
@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "Observatorio"
+  "defaultProject": "Observatorio",
+  "cli": {
+    "analytics": false
+  }
 }
