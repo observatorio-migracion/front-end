@@ -7,7 +7,7 @@
   --transition-toggle: 0.5s ease;
   --dark-blue:#153A4A;
   --very-dark-blue: #12313f;
-  --super-dark-blue: #0e2733; 
+  --super-dark-blue: #0e2733;
   --light-green-02: #72B1B3;
   --light-green-01: #30A740;
   --green: #236667;
@@ -25,12 +25,11 @@
   --no-gradient: rgba(255,255,255,0);
   --foreground-toggle: var(--light-gray);
 }
- 
 
 .web{
   --background-01: var(--white);
   --background-02: var(--green);
-  --font-1: var(--gray);
+  --font-1: var(--black);
   --font-2: var(--dark-gray);
   --font-3: var(--green);
   --font-4: var(--white);
@@ -39,10 +38,12 @@
   --warning-02: var(--light-green-01);
   --chips-background: var(--light-gray);
   --chips-font: var(--font-1);
-  --footer-background: var(--dark-green);
+  --footer-background: var(--white);
+  --footer-edges: var(--green);
   --navbar-gradient-01: var(--white-gradient);
   --navbar-gradient-02: transparent;
   --underline: var(--dark-green);
+  --footer-underline: var(--yellow);
   --modal-background: var(--white);
   --filter: var(--white);
   --filter-hover: var(--light-gray);
@@ -64,9 +65,11 @@
   --font-2: var(--black);
   --font-3: var(--yellow);
   --underline: var(--yellow);
+  --footer-underline: var(--yellow);
   --navbar-gradient-01: var(--dark-blue-gradient);
   --navbar-gradient-02: var(--dark-blue-gradient);
-  --footer-background: var(--super-dark-blue);
+  --footer-background: var(--dark-blue);
+  --footer-edges: var(--super-dark-blue);
   --filter:var(--light-green-02);
   --filter-hover: var(--dark-blue);
   --search-color: var(--white);
@@ -84,11 +87,11 @@ h1 {
   background-color: var(--background-01);
 }
 
-html, body { 
+html, body {
    height: 100%;
    margin: 0;
-   padding: 0; 
-   background-color: var(--background-01); 
+   padding: 0;
+   background-color: var(--background-01);
    color: var(--font-1);
 }
 
@@ -101,7 +104,7 @@ html, body {
 .ng-valid[required]  {
    border-left: 5px solid #42A948; /* green */
  }
- 
+
  .ng-invalid:not(form)  {
    border-left: 5px solid #a94442; /* red */
  }
@@ -122,7 +125,7 @@ html, body {
 }
 
 .search-input{
-  border: 1px solid var(--search-color);  
+  border: 1px solid var(--search-color);
   font-size: 16px;
   width: 200px;
   height: 30px;
