@@ -7,14 +7,14 @@
   /* height: 150px; */
 
 }
-.decoration-bar{
+/* .decoration-bar{
   width:100%; 
 
   height: 100px;
   background-image: linear-gradient(var(--navbar-gradient-02), var(--navbar-gradient-02)), url('../../../assets/patterns/p4.jpg');
   background-repeat: repeat;
   
-}
+} */
 
 hr{
   display: block;

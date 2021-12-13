@@ -3,6 +3,8 @@
     margin-top: 150px;
     margin-bottom: 150px;
     min-height: 90vh;
+    text-align: justify;
+    text-justify: inter-word;
 }
 .custom-row{
     margin-bottom: 15vh;

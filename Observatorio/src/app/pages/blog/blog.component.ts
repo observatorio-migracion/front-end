@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CheckBoxData } from 'src/app/models/CheckBoxData';
@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./blog.component.css'],
 })
 export class BlogComponent implements OnInit {
+  public scrolled: boolean;
   public postStart: number;
   public readonly postLimit: number;
   public categoryFilter: string = '';
@@ -32,6 +33,7 @@ export class BlogComponent implements OnInit {
     this.postLimit = 4;
     this.postStart = 0;
     this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.scrolled = false;
   }
 
   ngOnInit(): void {
@@ -46,6 +48,11 @@ export class BlogComponent implements OnInit {
   goTop(){
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkIfScroll($event: Event): void {
+    this.scrolled = window.scrollY > 0;
   }
   
   loadCategoryFilterFromURL(){
