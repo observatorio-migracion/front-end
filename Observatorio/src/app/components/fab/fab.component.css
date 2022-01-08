@@ -1,9 +1,8 @@
 .fab{
-    padding: 20px;
-    width: 100%;
     display: flex;
     justify-content: flex-end;
     position: fixed;
-    bottom: 10px;
+    bottom: 7%;
+    left: 93%;
     z-index: 2;
 }
