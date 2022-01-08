@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-<app-fab (click)="goTop()"></app-fab>
+<app-fab *ngIf="scrolled" (click)="goTop()"></app-fab>
   <div class="custom-container" *ngIf="postsList.length">
     <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
   </div>
