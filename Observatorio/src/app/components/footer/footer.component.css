@@ -17,19 +17,22 @@
   color: var(--font-4);
 }
 
+.footer-edge p {
+  font-size: 1rem;
+}
+
 .footer-edge a{
   color: var(--font-4);
 }
 
-
 #upper{
-
+  padding-top: 2rem;
 }
 
 .footer-center{
   display: flex;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 #bottom{
@@ -40,7 +43,9 @@
   flex-direction: row;
 }
 
-.footer-brand{
+.footer-brand p{
+  margin-top: unset;
+  margin-bottom: unset;
 
 }
 
@@ -51,6 +56,24 @@
 
 .footer-bottom-links{
   display: flex;
+}
+
+#bottom-link-left {
+  border: unset;
+}
+
+.bottom-links {
+  margin-right: unset;
+  padding-bottom: unset;
+  padding-top: unset;
+  border-left: 1px solid;
+  padding: 0 8px;
+}
+
+.navbar-brand {
+  margin-right: unset;
+  padding-bottom: unset;
+  padding-top: unset;
 }
 
 .nav-container{
@@ -112,8 +135,9 @@ hr{
 }
 
 img{
-  width: 30%;
-  margin-left: 35%;
+  width: 200px;
+  height: 80px;
+  aspect-ratio: auto 200/80;
 }
 
 .logo-container{
@@ -154,27 +178,12 @@ img{
       flex-wrap: wrap;
       flex-direction: row;
     }
-    /* .footer-bottom-links{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .footer-center{
-      display: flex;
-      align-items: center;
-    }
-    .footer-bottom-links .navbar-brand{
-      font-size: 1rem;
-    }  */
-    img{
-      width: 40%;
-      margin-left: 30%;
-    }
     .navbar-collapse{
       background: transparent;
       text-align: center;
     }
  }
+
 @media (max-width: 800px) {
     .navbar li a:hover{
       font-size: 1rem;
@@ -232,10 +241,10 @@ img{
     }
     .footer-bottom-links .navbar-brand{
       font-size: 1rem;
-    } 
-    img{
-      width: 40%;
-      margin-left: 30%;
+    }
+
+    .bottom-links {
+      border: unset;
     }
     .navbar-collapse{
       background: transparent;
@@ -267,15 +276,19 @@ img{
     }
     .footer-bottom-links .navbar-brand{
       font-size: 1rem;
-    } 
+    }
     .footer-center{
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    img{
-      width: 60%;
-      margin-left: 20%;
+
+    .footer-edge p {
+      font-size: 1rem;
+    }
+
+    .bottom-links {
+      border: unset;
     }
     .navbar-collapse{
       background: transparent;
@@ -293,7 +306,7 @@ img{
     .navbar-collapse {
         background: transparent;
         text-align: center;
-        /* line-height: 1.8; 
+        /* line-height: 1.8;
         padding-top: 20%;
     }
     #bottom{
@@ -315,10 +328,6 @@ img{
     }
     .footer-bottom-links .navbar-brand{
       font-size: 1rem;
-    } 
-    img{
-      width: 60%;
-      margin-left: 20%;
     }
 } */
 
