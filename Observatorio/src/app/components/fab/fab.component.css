@@ -6,3 +6,21 @@
     left: 93%;
     z-index: 2;
 }
+
+@media (max-width: 800px) {
+  .fab{
+    left: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .fab{
+    left: 85%;
+  }
+}
+
+@media (max-width: 420px) {
+  .fab{
+    left: 80%;
+  }
+}

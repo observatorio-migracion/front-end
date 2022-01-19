@@ -1,5 +1,5 @@
 
-.custom-container{    
+.custom-container{
     margin-top: 150px;
     margin-bottom: 150px;
     min-height: 90vh;
@@ -13,7 +13,7 @@
     max-width: 500px;
     max-height: 335px;
     width: 500px;
-    height: 335px;
+    height: unset;
     margin: 45px 45px;
 }
 
@@ -27,14 +27,14 @@ p{
     width: 500px;
     height: 335px;
     max-width: 500px;
-    max-height: 335px;    
+    max-height: 335px;
 }
 
 .offset{
     position:relative;
     --offset: 24px;
     --negative-offset: 24px;
-    
+
 }
 .positive-offset-y{
     top:var(--offset);
@@ -46,7 +46,7 @@ p{
     bottom:var(--offset);
 }
 .negative-offset-x{
-    right:var(--offset); 
+    right:var(--offset);
 }
 @media (max-width: 600px){
     .custom-container{
@@ -63,7 +63,8 @@ p{
     }
     .custom-col{
         width: 350px;
-        height: 235px;
+        height: unset;
+        max-height: unset;
     }
     p{
         font-size: 1rem;
@@ -84,7 +85,7 @@ p{
     }
 }
 @media(max-width: 420px){
-    
+
     .image-container{
         width: 270px;
         height: 180px;
@@ -96,7 +97,7 @@ p{
     }
     .custom-col{
         width: 300px;
-        height: 200px;
+        height: unset;
     }
     .custom-col{
         margin: 20px 10px;

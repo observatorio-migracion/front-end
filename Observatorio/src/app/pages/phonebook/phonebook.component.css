@@ -1,6 +1,6 @@
 .container{
     width: 40%;
-    
+
     margin: 10vh auto;
     font-size: 1rem;
     padding: 0 5vw;
@@ -30,10 +30,10 @@
     height: 30px;
 }
 .search-form{
-    position:relative; left: 17vw;
+    position:relative;
 }
 .search-input{
-    border: 1px solid rgb(175, 175, 175);  
+    border: 1px solid rgb(175, 175, 175);
     font-size: 16px;
     width: 200px;
     height: 30px;
@@ -54,7 +54,7 @@
     z-index: 99;
     position: relative;
     top: 1.5px;
-    right: 2.2rem; 
+    right: 2.2rem;
     background: transparent;
     border: none;
     outline: none;
@@ -80,7 +80,7 @@ a {
         width: 60%;
     }
     .search-form{
-        position:relative; left: 30vw;
+        position:relative;
     }
 }
 
@@ -89,7 +89,7 @@ a {
         width: 70%;
     }
     .search-form{
-        position:relative; left: 35vw;
+        position:relative;
     }
 }
 @media (max-width: 420px) {
