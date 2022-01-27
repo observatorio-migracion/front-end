@@ -7,5 +7,24 @@
 text
 
 ``` ts
-code
+import { Component, OnInit } from '@angular/core';
+``` 
+
+``` ts
+@Component({
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
+})
 ```
+
+``` ts
+export class FooterComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+``` 
