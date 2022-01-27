@@ -19,10 +19,9 @@ Este elemento es muy útil para controlar el scroll infinito de la pagina, englo
 Este contenedor tiene:
 + Buscador: un container de busqueda en el cual, mediante un input se puede ingresar texto para buscar un contacto que conicida con el texto ingresado, llanando a un metodo que carga y retorna la lista de contactos buscados. Además posee un icono que respresenta un botón de busqueda
 + Un parrafo de instrucciones para el usuario
-+ Por ultimo un contenedor de contacto el cual es utilizado para mostrar de la lista de contactos o el resultado de la consulta a la busqueda anterior mente realizada, cada uno con las siguientes partes 
-  + AsK-------------------------------------------------------!!!!! todo: ask
-  +  El titulo del contacto, si se hace clock muestra la información del contacto
-  +  Una lista y enlace de los numeros de telefono asociados al contacto
++ Por ultimo un contenedor de contacto el cual es utilizado para mostrar de la lista de contactos o el resultado de la consulta a la busqueda anteriormente realizada, cada uno con las siguientes partes 
+  +  La letra inicial del contacto y el titulo del contacto, si se hace click en estos elementos, se muestra la información del contacto del modal.
+  +  Una lista y enlace de los numeros de telefono asociados al contacto, si se da click puede intentarse relizar una llamada al número telefónico.
 ``` html 
     <div class="container">
         <div class="search-container">
@@ -50,7 +49,6 @@ Este contenedor tiene:
             <br>
         </div>
     </div>
-
 ```
 
 El siguiente código es la parte que define un modal dialog para mostrar la informacion del contacto.

@@ -65,7 +65,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
-
+ Este método de la clase PhonebookComponent, hace un llamado al componente y lo inicia, en particular carga los datos generados desde el html y el css. También obtiene el tamaño de la lista de contactos mandando el atributo searchParams, mediante la subcripción  se obtiene el tamaño de los contactos y se retorna un error si no se lograra. Si no hay errorores cargaría los contactos con el método loadContacts.
 ``` ts
   ngOnInit(): void {
     this._contactService.getContactsListSize(this.searchParams).subscribe(size => {
@@ -74,7 +74,8 @@ constructor(private _contactService: ContactService) {
     this.loadContacts();
   }
 ```
- 
+
+Este método de la clase PhonebookComponent, devuelve a la parte superior de la página mediante los valores numéricos del ScrollTop donde 0 es el inicio de la página.
 ``` ts
   goTop() {
     document.body.scrollTop = 0;
@@ -82,6 +83,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
+Este método de la clase PhonebookComponent, es el llamado scroll infinito. Por ende, si la posición actual aun es inferior a la totalidad de los posts indica que aún hay post por cargar, entonces se le adiciona el límite de post establecido por defecto postLimit y se procede a cargar más post.
 ``` ts 
   onScroll(){
     if (this.contactStart <= this.contactListSize){
@@ -91,6 +93,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
+Este método de la clase PhonebookComponent, obtiene del servicio de contactos el número de contactos con el atributo searchParams como parametro. Mediante la subcripción se obtiene se obtiene el numero de la lista de contactos, si ocurre un error devuelve un error en la consola. Si lo anterior se da correctamente, se obtiene la lista de contactos del servicio de contactos con los atributos de searchParams, contactOrder, contactStart y contactLimit como parámetros. Mediante una subcripción se va obteniendo una lista de contactos y postreriormente se llama al metódo splitNumberContact. Si se porduce un error ante esta información, se mostraría un error en consola.
 ``` ts
   loadContacts(){
     this._contactService.getContactsListSize(this.searchParams).subscribe(size => {
@@ -108,6 +111,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
+Este método de la clase PhonebookComponent, divide los números telefónicos de la lista de contactos. Mediante un forEach se recorren los contactos y se dividen los numeros utilizando como delimitador las comas.
 ``` ts
   splitNumberContact(){
     this.contactList.forEach(c => {
@@ -116,6 +120,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
+Este método de la clase PhonebookComponent, es utilizado para presentar los contactos en la página del directorio del html. Recibe como parámetro un contacto, el cual es cuardado en el atributo contactSelected y se realiza y una división de los números de telefonos delimitandolos por una coma.
 ``` ts
   showContact(contact:Contact){
     this.contactSelected = contact;
@@ -123,6 +128,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
+Este método de la clase PhonebookComponent, es utilizado para presentar los contactos en la página del directorio del html. Recibe como parámetro un contacto, el contacto previo y el indice del contacto. Aquí mediante un if se verifica si el indice es mayor a 0 y hay un titulo del contacto y hay un titulo del contacto previo entonces se extraen las letras iniciales, se comparan ambas letras y si son estrictamente iguales y genera un booleano retorna falso, pero si son diferentes retornará verdadero. Sino entra en el primer if, también retornará verdadero y se necesita renderizar. 
 ``` ts
   renderFirstLetter(contact:Contact, prev:Contact, index:number){
     if( index > 0 && contact.titulo && prev.titulo){
@@ -136,6 +142,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
+Este método de la clase PhonebookComponent, dependiendo del valor del atributo searchQuery, si este caracter no es vacio entra al if y vacía la lista de contactos y searchParams. Luego se asigna el valor de searchParams dependiedno de si un titulo contiene la consnsulta, similar se asigna al valor de searchParams si una descripción contiene la consulta y por último cargan los contactos. Si el atributo searchQuery está vacío entra al else, vacía los atributos de  searchParams, contactStart, contactList y carga los contactos. 
 ``` ts
   loadContactListSearch(): void {
     if (this.searchQuery) {
@@ -153,6 +160,7 @@ constructor(private _contactService: ContactService) {
   }
 ```
 
+Este método de la clase PhonebookComponent, es utilizado para presentar la url de los contactos en la página del directorio del html. Recibe cómo parámetro  un string de la url. Primero se declara la variable como let llamada result de tipo string. Luego con un if se verifica si la url no inicia con http ni https, si esto es verdadero, se asigna a la variable result una concatenación de http con la url. Pero si el resultado del if es falso, retorna true. 
 ``` ts
   parseURL(url:string):string{
     let result:string = '';

@@ -24,7 +24,7 @@ Importa desde la carpeta de services el servicio de ThemeService
 ``` ts
 import { ThemeService } from '../../services/theme.service';
 ``` 
-* ?
+Importa Subscription de la librería RxJS de Angular que es como la ejecución de un Observable pero este es un recurso llamado desechable.
 ```  ts
 import { Subscription } from 'rxjs';
 ```
@@ -51,7 +51,7 @@ Se definen varios astributos de la clase NavbarComponent uno llamado matchQuery 
   public subscription:Subscription | undefined;
 ``` 
 
-Se inicializa el constructor de la clase NavbarComponent que resive como parametro de tipo _themeService. Luego se asigna al atributo theme el valor de claro y al atributo de matchQuery un valor de maximp ancho en la ventana.
+Se inicializa el constructor de la clase NavbarComponent que resive como parametro de tipo _themeService. Luego se asigna al atributo theme el valor de claro y al atributo de matchQuery un valor de maximo ancho en la ventana.
 ``` ts
   constructor(private _themeService:ThemeService) {
     this.theme = 'light';
@@ -59,8 +59,7 @@ Se inicializa el constructor de la clase NavbarComponent que resive como paramet
   }
 ``` 
 
- Este método del ts, hace un llamado al componente y lo inicia, en particular carga los datos generados desde el html y el css. Luego 
- * ? 
+ Este método del ts, hace un llamado al componente y lo inicia, en particular carga los datos generados desde el html y el css. Luego a el atributo subcription de la clase se le asigna el tema con el valor que tiene al atributo currenteTheme ( tema actual) que del Serivicio de temas.
 ``` ts
   ngOnInit(): void {
     this.subscription = this._themeService.currentTheme.subscribe(theme => {
