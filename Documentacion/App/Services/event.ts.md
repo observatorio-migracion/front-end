@@ -1,1 +1,66 @@
+# Documentación event.ts
+Esta sección contiene la documentación del código .ts del servicio event de la página web. Estas secciones corresponden a peticiones get al backend de los cuales se obtiene los datos que trabaja y muestra la página.
+
+### Código
+Importa el componente Injectable desde la API Core de Angular. Las dependencias son servicios u objetos que una clase necesita para realizar su función. La inyección de dependencia, o DI, es un patrón de diseño en el que una clase solicita dependencias de fuentes externas en lugar de crearlas.
+
+``` ts
+import { Injectable } from '@angular/core';
+```
+
+Importa el componente Observable desde la API rxjs. Los Observables brindan soporte para pasar mensajes entre partes de su aplicación. Se utilizan con frecuencia en Angular y son una técnica para el manejo de eventos, la programación asincrónica y el manejo de múltiples valores.
+``` ts
+import { Observable, of } from 'rxjs';
+```
+
+Importa Activity de la carpeta fuente src local del programa ubicada en models
+``` ts
+import { Activity } from '../models/Activity';
+```
+
+Importa el componente HttpClient desde la API Core de Angular. La mayoría de las aplicaciones de front-end necesitan comunicarse con un servidor a través del protocolo HTTP, para descargar o cargar datos y acceder a otros servicios de back-end. Angular proporciona una API HTTP de cliente para aplicaciones Angular.
+``` ts 
+import { HttpClient } from '@angular/common/http';
+```
+
+Importa environment de la carpeta fuente src local del programa ubicada en environments
+``` ts 
+import { environment } from 'src/environments/environment';
+``` 
+
+El servicio en sí es una clase generada por la CLI y decorada con ella. Por defecto, este decorador tiene una propiedad que crea un proveedor para el servicio. En este caso, especifica que Angular debe proporcionar el servicio en el inyector raíz 
+``` ts
+@Injectable({
+  providedIn: 'root'
+})
+```
+
+Exporta la clase para ser usada en otras instancias
+``` ts
+export class EventService {
+    // codigos siguientes
+}
+```
+
+Crea dos atributos privados, uno llamando activitiesList que es una lista de Activity la cual corresponde  una lista de los eventos de la página y una varible llamada url de tipo string. 
+``` ts
+  private activitiesList:Activity[];
+  private url: string;
+```
+
+En el constructor de la clase EvenrService, se recibe el parametro de tipo HttpClient. También se crea un nuevo arreglo de actividades y se asigna la url delambiente al atributo de la clase.
+``` ts
+  constructor(private _http: HttpClient) { 
+    this.activitiesList = new Array<Activity>();
+    this.url = environment.api.url;
+  }
+```
+
+El método llamado get ActiviiesList de la clase EventService, recibe cómo parametro el liminte como posición final y y un observable de tipo arreglo de actividades. Dvuelve la petición get obtenida a través HttpClient retornando el arreglo de eventos hasta el límite final definido en los parámetros final.
+``` ts 
+  getActivitiesList(limit: number = 4): Observable<Activity[]> {
+    return this._http.get<Activity[]>(`${this.url}/eventos?_limit=${limit}`);
+  }
+}
+``` 
 
