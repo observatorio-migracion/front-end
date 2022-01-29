@@ -17,45 +17,182 @@ Esta sección contiene la documentación del codigo .ts del elemento home de la 
 ### Codigo
 Importa los componentes ComponentFixture y TestBed desde la API Core de Angular y específicamente de testo
 ``` ts
-    import { ComponentFixture, TestBed } from '@angular/core/testing';
-``` 
-
-Importa el componente del Home
-``` ts
-import { HomeComponent } from './home.component';
-``` 
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+```
 
 ``` ts
-describe('HomeComponent', () => {
-    //codigos siguientes
-});
-``` 
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+```
 
-Se define un atribito de llamada componente de tipo HomeComponent y se define otro atributo llanado fixure de tipo ComponentFixture del enterior HomeComponent
 ``` ts
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+import { ShowdownConverter } from 'ngx-showdown';
 ``` 
 
 ``` ts
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+import { postStyleConfig } from '../../helpers/postStyleConfig';
+``` 
+
+``` ts
+import { Component, OnInit } from '@angular/core';
+``` 
+
+``` ts
+import { Activity, Imagenes } from 'src/app/models/Activity';
+``` 
+
+``` ts
+import { Categoria, Post } from 'src/app/models/Post';
+``` 
+```  ts
+import { EventService } from 'src/app/services/event.service';
+``` 
+
+``` ts
+import { PostService } from 'src/app/services/post.service';
+``` 
+
+``` ts
+import { environment } from 'src/environments/environment';
+``` 
+
+``` ts
+import { Thumbnail } from '../../models/Post';
+``` 
+
+``` ts
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
+  providers: [ShowdownConverter]
+})
+``` 
+
+``` ts
+export class HomeComponent implements OnInit {
+  // codigos siguientes
+}
+``` 
+
+``` ts
+  public api: string;
+  public seeMoreCategories:boolean;
+  public categoriesLimit: number;
+  public readonly recentPostLimit:number;
+  public readonly activitiesLimit: number;
+  public categories: Categoria[];
+  public postsList:Post[];
+  public readonly sortQuery: string;
+  public activities: Activity[];
+
+  public activitySelected:Activity;
+
+  public contentHTML: SafeHtml;
+  defaultImage: string;
+``` 
+
+``` ts
+  constructor(private _postService:PostService, 
+              private _eventService: EventService,
+              private _router:Router,
+              private _sanitizer: DomSanitizer, 
+              private showdownConverter: ShowdownConverter) {
+    this.contentHTML = "";
+    this.categoriesLimit = 4;
+    this.recentPostLimit = 3;
+    this.activitiesLimit = 4;
+    this.sortQuery = "published_at:desc";
+    this.categories = new Array<Categoria>();
+    this.api = environment.api.url;
+    this.postsList = new Array<Post>();
+    this.seeMoreCategories = true;
+    this.activities = new Array<Activity>();
+    this.activitySelected = new Activity('', '', new Date(), '', '', '','', new Array<Imagenes>(),'');
+    this.defaultImage = 'assets/images/default.png';
+  }
+``` 
+
+``` ts
+  ngOnInit(): void {
+    this.loadCategories();
+    this.loadRecentPosts();
+    this.loadActivities();
+  }
+``` 
+
+``` ts
+  loadActivities(){  
+    this._eventService.getActivitiesList(this.activitiesLimit).subscribe( (activities:Activity[])=>{
+      this.activities = activities;
     })
-    .compileComponents();
-  });
+  };
 ``` 
 
 ``` ts
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  markDowntoHtml(text: string): string {
+    let html = postStyleConfig + this.showdownConverter.makeHtml(text);
+    let aux = '';
+    while (aux !== html) {
+      aux = html;
+      html = html.replace('src="/uploads/', 'src="' + this.api + "/uploads/")
+    }
+    return html;
+  }
 ``` 
 
 ``` ts
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  renderActivity(activity:Activity){
+    // const styles = postStyleConfig;
+    if(activity.descripcion){
+      const html = this.markDowntoHtml(activity.descripcion);
+      this.contentHTML = this._sanitizer.bypassSecurityTrustHtml(html);
+    }
+  
+  }
+``` 
+
+``` ts
+loadMoreCategories() {
+    this.categoriesLimit = 0;
+    this.loadCategories();
+  }
+``` 
+
+``` ts
+  loadCategories() {
+    this._postService.getEnabledCategories(this.categoriesLimit).subscribe((categories: Categoria[]) => {
+      categories.map((value: Categoria) => {
+        if(value.imagen){
+          value.imagen.formats.small.url = this.api + value.imagen.formats.small.url;//TODO: Recordar cambiarlo para el deploy
+        }
+      })
+      this.categories = categories;
+      if (!this.categoriesLimit) this.seeMoreCategories = false;
+    }
+      , err => {
+        console.error("categories error: ", err);
+      })
+    }
+
+``` 
+
+``` ts
+    loadRecentPosts(){
+      this._postService.getRecentPostList(this.sortQuery, this.recentPostLimit).subscribe((posts: Post[]) => {
+        this.postsList = posts;
+      }
+        , err => {
+          console.error("recent posts error: ", err);
+        })
+    }
+``` 
+
+``` ts
+    openActivity(activity:Activity){
+      this.activitySelected = activity;
+      this.renderActivity(activity)
+    }
+    filterPostsByCategory(category:Categoria){
+      this._router.navigate([`blog`,category.nombre]);
+    }
 ``` 

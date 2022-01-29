@@ -10,7 +10,7 @@
 *  Botón "Ir al blog": Botón que lleva al usuario al página del blog = /blog
 *  Titulo "Eventos Proximos": siguiente parte de eventos próximos
 *  Lista de actividades: para cada una de las activiades se puede observar el nombre, la fecha y "ver más información" que lleva a un modal
-*  Modal de más informacion: muestra la informacion completa de la actividad, incluye el tituno que es el nombre, la fecha en formato extentido, el enlace a la actividad, su descripción y ________
+*  Modal de más informacion: muestra la informacion completa de la actividad, incluye el tituno que es el nombre, la fecha en formato extentido, el enlace a la actividad, su descripción, entre otros
 *  Footer: llamado al componente de footer
 
 ### Codigo
