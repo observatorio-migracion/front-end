@@ -20,41 +20,51 @@ Importa los componentes ComponentFixture y TestBed desde la API Core de Angular 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 ```
 
+Importa DomSanitizer que es una ayuda para evitar ataques de XXS y SafeHtml para también sanitizar enlaces y evitar ataques.
 ``` ts
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 ```
 
+Importa ShowdownConverter de ngx para poder utilizar javascript markdown con html
 ``` ts
 import { ShowdownConverter } from 'ngx-showdown';
 ``` 
 
+Importa de la carpeta Helper postStyleConfig para las publicaciones de la página
 ``` ts
 import { postStyleConfig } from '../../helpers/postStyleConfig';
 ``` 
 
+Importa los componentes Component y OnInit desde la API Core de Angular
 ``` ts
 import { Component, OnInit } from '@angular/core';
 ``` 
 
+Importa de la carpeta models los modelos de Activity e Imagenes
 ``` ts
 import { Activity, Imagenes } from 'src/app/models/Activity';
 ``` 
 
+Importa de la carpeta models los modelos de Categoría y Posts
 ``` ts
 import { Categoria, Post } from 'src/app/models/Post';
 ``` 
+
+Importa de la carpeta servicios los servicios de EventService para los eventos
 ```  ts
 import { EventService } from 'src/app/services/event.service';
 ``` 
 
+Importa de la carpeta servicios los servicios de PostService para las publicaciones
 ``` ts
 import { PostService } from 'src/app/services/post.service';
 ``` 
-
+Importa el ambiente de la página de la carpeta src de la página
 ``` ts
 import { environment } from 'src/environments/environment';
 ``` 
 
+Importa de la carpeta models los modelos a Thumbnail 
 ``` ts
 import { Thumbnail } from '../../models/Post';
 ``` 
@@ -68,12 +78,14 @@ import { Thumbnail } from '../../models/Post';
 })
 ``` 
 
+Exporta la clase HomeComponent para ser usada en otras instancias
 ``` ts
 export class HomeComponent implements OnInit {
   // codigos siguientes
 }
 ``` 
 
+Para la clase HomeComponent se crean los atributos de api como un string para gardar la url del api, seeMoreCategories para controlar la opción de ver más categorías, categoriesLimit es el límite de categorías por ver, de manera solo lectura los limites de los post y los eventos. Un arreglo de categorías, otro de posts y otro de Actividades. El atributo de sortQuery como readonly para indicar el ordenamiento de las consultas. Un atributo de tipo Activity para tener la aactividad seleccionada. un string de tipo safeHtml para contener html y un string para tener la ruta de una imagen default. 
 ``` ts
   public api: string;
   public seeMoreCategories:boolean;
@@ -91,6 +103,8 @@ export class HomeComponent implements OnInit {
   defaultImage: string;
 ``` 
 
+La clase HomeComponent recibe cómo parámetro el servicio de post, el de eventos, el componente de router para rutas, el de DomSanitizer para seguridad y el de ShowdownConverter para convertir markdown a html.
+Se inicializan los atributos de contentHTML como vacío, categoriesLimit con un valor de 4, recentPostLimit con un valor de 3, activitiesLimit con un valor de 4. Al atrubuto de sortQuery se le asigna el ordenamiento que tendran los post por fecha de publicación a la hora de mostrarse. Los arreglos de categorias, publicacioness y actividades. El atributo api recibe el valor de la url del api del ambiente de la aplicación. Se crea una actividad vacía para ser guardada en activitySelected y por último en defaultImage se guarda la ruta de la imagen default. 
 ``` ts
   constructor(private _postService:PostService, 
               private _eventService: EventService,
@@ -112,6 +126,7 @@ export class HomeComponent implements OnInit {
   }
 ``` 
 
+Este método de la clase PostComponent, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadRecentPosts para cargar los post más recientes, al método loadCategories para cargar las categorías y el método loadActivities para cargar los eventos. 
 ``` ts
   ngOnInit(): void {
     this.loadCategories();
@@ -120,6 +135,7 @@ export class HomeComponent implements OnInit {
   }
 ``` 
 
+Este método de la clase HomeComponent tiene como objetivo de obtener la lista de actividades por medio del servicio de eventos hasta el limite indicado por el atrbibuto activitiesLimit y se guarda en el atributo activities la lista obtenida. 
 ``` ts
   loadActivities(){  
     this._eventService.getActivitiesList(this.activitiesLimit).subscribe( (activities:Activity[])=>{
@@ -128,6 +144,7 @@ export class HomeComponent implements OnInit {
   };
 ``` 
 
+Este metodo de la clase HomeComponent, tiene como objetivo recibir un string, luego mediante el helper postStyleConfig y showdownConverter, convertir el texto a html. Luego se defina una variable auxiliar vacía. Mientras la variable auxiliar sea estrictamente diferente al html, se guarda el html en la auxiliar y se hace un cambio en el html remplazando lo igualado a src por el valor de la ruta de api concatenado con /updoads/. Por ultimo retorna el resultado del html.
 ``` ts
   markDowntoHtml(text: string): string {
     let html = postStyleConfig + this.showdownConverter.makeHtml(text);
@@ -140,6 +157,7 @@ export class HomeComponent implements OnInit {
   }
 ``` 
 
+Este método de la clase HomeComponent recibe como parámetro una actividad y si esta contiene descripción, entonces mediante se llama al  método markDowntoHtml y se le pasa como parametro dicha descripción. Posteriormente mediante uno de las funciones de seguridad para sanitizar html, se pasa la variable html para que el resultado quede guardado en contentHTML. 
 ``` ts
   renderActivity(activity:Activity){
     // const styles = postStyleConfig;
@@ -151,6 +169,7 @@ export class HomeComponent implements OnInit {
   }
 ``` 
 
+Este método de la clase HomeComponent asigna el valor de cero al atributo categoriesLimit y hace un llamado al método  loadCategories para que carge todas las categorías existentes. 
 ``` ts
 loadMoreCategories() {
     this.categoriesLimit = 0;
@@ -158,6 +177,7 @@ loadMoreCategories() {
   }
 ``` 
 
+Este método de la clase HomeComponent primero mediante el servicio de post de carguen las categorías hasta el límite indicado en el atributo categoriesLimit que además verifica si tiene imagen y en tal caso guarda el la variable el valor de la ruta del atributo api unido al valor de la url de la imágen y luego de esto ya se guarda la en el atributo categories la lista. Si no tiene limite o tiene un valor de 0 entonces se le asigna al atributo seeMoreCategories en valor de falso. Si se encuentra algun erroe entonces muestra en error en consola.  
 ``` ts
   loadCategories() {
     this._postService.getEnabledCategories(this.categoriesLimit).subscribe((categories: Categoria[]) => {
@@ -176,6 +196,7 @@ loadMoreCategories() {
 
 ``` 
 
+Este método de la clase HomeComponent se encarga obtener con el servidio de post una lista de las publicaciones ordenadas por fecha descendentemente como lo indica el atributo sortQuery hasta el límite indicando en el atributo recentPostLimit y se guardar en el atributo  postsList la lista resultante. 
 ``` ts
     loadRecentPosts(){
       this._postService.getRecentPostList(this.sortQuery, this.recentPostLimit).subscribe((posts: Post[]) => {
@@ -187,11 +208,16 @@ loadMoreCategories() {
     }
 ``` 
 
+Este método de la clase HomeComponent openActivity  recibe como parametro una actividad y esta se guarda en el atributo activitySelected. Porteriormente se llama al metodo renderActivity para convertir de markdown y asegurar el contenido del html.
 ``` ts
     openActivity(activity:Activity){
       this.activitySelected = activity;
       this.renderActivity(activity)
     }
+``` 
+
+Este método de la clase HomeComponent recibe como parametro una categoría y por la cual mediante el route navigate se utiliza para que se dirija la página hacía el blog y ese nombre de categotía. 
+```  ts
     filterPostsByCategory(category:Categoria){
       this._router.navigate([`blog`,category.nombre]);
     }

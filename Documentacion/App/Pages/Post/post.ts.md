@@ -84,7 +84,7 @@ La clase PostComponent recibe cómo parámetro el servicio de post, el Activated
     this.api = environment.api.url;
   }
 ``` 
-Este método de la clase PostComponent, hace un llamado al componente y lo inicia, además hace un llamado al método asincrótico loadPost para cargar los post.
+Este método de la clase PostComponent, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadPost para cargar los post.
 ``` ts
   ngOnInit(): void {
     this.loadPost();
@@ -118,7 +118,7 @@ Este método asincrono de la clase PostComponent, primero se obtiene la ruta cam
   }
 ``` 
 
-Este metodo de la clase PostComponent, tiene como objetivo recibir un string, luego mediante el helper y showdownConverter convertir el texto a html. Luego se defina una variable auxiliar vacía. Mientras la variable auxiliar sea estrictamente diferente al html, se guarda el html en la auxiliar y se hace un cambio en el html. Por ultimo retorna ek resultado del html.
+Este metodo de la clase PostComponent, tiene como objetivo recibir un string, luego mediante el helper postStyleConfig y showdownConverter, convertir el texto a html. Luego se defina una variable auxiliar vacía. Mientras la variable auxiliar sea estrictamente diferente al html, se guarda el html en la auxiliar y se hace un cambio en el html remplazando lo igualado a src por el valor de la ruta de api concatenado con /updoads/. Por ultimo retorna el resultado del html.
 ``` ts
   markDowntoHtml(text: string): string {
     let html = postStyleConfig + this.showdownConverter.makeHtml(text);
