@@ -3,10 +3,10 @@
     <div class="row">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button"
-          id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+          id="dropdown-menu-button" aria-haspopup="true" aria-expanded="false">
           Filtrar por categorías
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="categoriesList.length">
+        <div class="dropdown-menu" aria-labelledby="dropdown-menu-button" *ngIf="categoriesList.length">
           <a class="dropdown-item" *ngFor="let category of categoriesList" onclick="event.stopPropagation()">
             <mat-checkbox class="category-checkbox" [(ngModel)]="category.value" (change)="valueChanged(category)"><span
                 class="category-checkbox-label">{{category.name}}</span></mat-checkbox>
