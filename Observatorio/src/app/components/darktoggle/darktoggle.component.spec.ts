@@ -8,9 +8,9 @@ describe('DarktoggleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DarktoggleComponent ]
+      declarations: [DarktoggleComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
