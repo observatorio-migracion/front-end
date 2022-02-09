@@ -8,9 +8,9 @@ describe('PostCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostCardComponent ]
+      declarations: [PostCardComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

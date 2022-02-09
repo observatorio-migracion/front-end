@@ -1,9 +1,26 @@
-.fab{
-    padding: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    bottom: 10px;
-    z-index: 2;
+.fab {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 7%;
+  left: 93%;
+  z-index: 2;
+}
+
+@media (max-width: 800px) {
+  .fab {
+    left: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .fab {
+    left: 85%;
+  }
+}
+
+@media (max-width: 420px) {
+  .fab {
+    left: 80%;
+  }
 }

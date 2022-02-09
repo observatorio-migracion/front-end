@@ -1,5 +1,5 @@
 export class Activity {
-    constructor(
+  constructor(
         public id: string,
         public nombre: string,
         public fecha: Date,
@@ -8,12 +8,12 @@ export class Activity {
         public created_at: string,
         public updated_at: string,
         public imagenes: Imagenes[],
-        public reunion: string
-    ) { }
+        public reunion: string,
+  ) { }
 }
 
 export class Imagenes {
-    constructor(
+  constructor(
         public id: string,
         public name: string,
         public alternativeText: string,
@@ -31,20 +31,20 @@ export class Imagenes {
         public provider_metadata: null,
         public created_at: string,
         public updated_at: string,
-    ) { }
+  ) { }
 }
 
 export class Formats {
-    constructor(
+  constructor(
         public thumbnail: Large,
         public large: Large,
         public medium: Large,
-        public small: Large
-    ) { }
+        public small: Large,
+  ) { }
 }
 
 export class Large {
-    constructor(
+  constructor(
         public name: string,
         public hash: string,
         public ext: string,
@@ -53,9 +53,6 @@ export class Large {
         public height: number,
         public size: number,
         public path: null,
-        public url: string
-    ) { }
+        public url: string,
+  ) { }
 }
-
-
-
