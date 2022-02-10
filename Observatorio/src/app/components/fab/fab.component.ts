@@ -1,3 +1,4 @@
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["ngOnInit",] }] */
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -11,13 +12,11 @@ export class FabComponent implements OnInit {
   @Input() backgroundColor: string;
 
   constructor() {
-    // backgroundColor="var(--fab-background-color)" color="var(--fab-color)"
-    // this.color = '#FF0000';
-    // this.backgroundColor = '#CFCFCF';
     this.color = 'var(--fab-color)';
     this.backgroundColor = 'var(--fab-background-color)';
   }
 
   ngOnInit(): void {
+    //
   }
 }

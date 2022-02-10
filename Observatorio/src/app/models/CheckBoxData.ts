@@ -4,7 +4,7 @@ export class CheckBoxData {
 
   value: boolean;
 
-  constructor(name: string = '', value: boolean = false) {
+  constructor(name = '', value = false) {
     this.name = name;
     this.value = value;
   }

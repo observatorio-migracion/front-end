@@ -1,3 +1,4 @@
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["ngOnInit",] }] */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-  constructor() { }
-
   ngOnInit(): void {
+    //
   }
 }

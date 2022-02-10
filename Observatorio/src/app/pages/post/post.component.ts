@@ -1,3 +1,4 @@
+/* eslint function-paren-newline: ["error", "never"] */
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -28,7 +29,8 @@ export class PostComponent implements OnInit {
 
   public contentHTML: SafeHtml;
 
-  constructor(private _postService: PostService, private _router: ActivatedRoute, private _sanitizer: DomSanitizer, private showdownConverter: ShowdownConverter) {
+  constructor(private postService: PostService, private router: ActivatedRoute,
+      private sanitizer: DomSanitizer, private showdownConverter: ShowdownConverter) {
     this.contentHTML = '';
     this.api = environment.api.url;
   }
@@ -38,24 +40,19 @@ export class PostComponent implements OnInit {
   }
 
   async loadPost() {
-    const id: string | null = this._router.snapshot.paramMap.get('id');
+    const id: string | null = this.router.snapshot.paramMap.get('id');
     const styles = postStyleConfig;
-    console.log({ id });
     if (id) {
-      this._postService.getPostById(id).subscribe(
-        (post) => {
-          this.title = post.titulo;
-          this.categories = post.categorias;
-          this.date = post.published_at;
+      this.postService.getPostById(id).subscribe((post) => {
+        this.title = post.titulo;
+        this.categories = post.categorias;
+        this.date = post.publishedAt;
 
-          if (post?.contenido) {
-            const html = this.markDowntoHtml(post.contenido);
-            this.contentHTML = this._sanitizer.bypassSecurityTrustHtml(html);
-          } else {
-          }
-        },
-        (err) => console.error(err),
-      );
+        if (post?.contenido) {
+          const html = this.markDowntoHtml(post.contenido);
+          this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(html);
+        }
+      });
     }
   }
 

@@ -1,7 +1,7 @@
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+/* eslint no-param-reassign: ["error"] */
+import { Router } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ShowdownConverter } from 'ngx-showdown';
-
 import { Component, OnInit } from '@angular/core';
 import { Activity, Imagenes } from 'src/app/models/Activity';
 import { Categoria, Post } from 'src/app/models/Post';
@@ -9,7 +9,6 @@ import { EventService } from 'src/app/services/event.service';
 import { PostService } from 'src/app/services/post.service';
 import { environment } from 'src/environments/environment';
 import { postStyleConfig } from '../../helpers/postStyleConfig';
-import { Thumbnail } from '../../models/Post';
 
 @Component({
   selector: 'app-home',
@@ -43,17 +42,17 @@ export class HomeComponent implements OnInit {
   defaultImage: string;
 
   constructor(
-private _postService:PostService,
-              private _eventService: EventService,
-              private _router:Router,
-              private _sanitizer: DomSanitizer,
+private postService:PostService,
+              private eventService: EventService,
+              private router:Router,
+              private sanitizer: DomSanitizer,
               private showdownConverter: ShowdownConverter,
   ) {
     this.contentHTML = '';
     this.categoriesLimit = 4;
     this.recentPostLimit = 3;
     this.activitiesLimit = 4;
-    this.sortQuery = 'published_at:desc';
+    this.sortQuery = 'publishedAt:desc';
     this.categories = new Array<Categoria>();
     this.api = environment.api.url;
     this.postsList = new Array<Post>();
@@ -70,9 +69,10 @@ private _postService:PostService,
   }
 
   loadActivities() {
-    this._eventService.getActivitiesList(this.activitiesLimit).subscribe((activities:Activity[]) => {
-      this.activities = activities;
-    });
+    this.eventService.getActivitiesList(this.activitiesLimit)
+      .subscribe((activities:Activity[]) => {
+        this.activities = activities;
+      });
   }
 
   markDowntoHtml(text: string): string {
@@ -86,10 +86,9 @@ private _postService:PostService,
   }
 
   renderActivity(activity:Activity) {
-    // const styles = postStyleConfig;
     if (activity.descripcion) {
       const html = this.markDowntoHtml(activity.descripcion);
-      this.contentHTML = this._sanitizer.bypassSecurityTrustHtml(html);
+      this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(html);
     }
   }
 
@@ -99,29 +98,24 @@ private _postService:PostService,
   }
 
   loadCategories() {
-    this._postService.getEnabledCategories(this.categoriesLimit).subscribe(
+    this.postService.getEnabledCategories(this.categoriesLimit).subscribe(
       (categories: Categoria[]) => {
         categories.map((value: Categoria) => {
           if (value.imagen) {
-            value.imagen.formats.small.url = this.api + value.imagen.formats.small.url;// TODO: Recordar cambiarlo para el deploy
+            value.imagen.formats.small.url = this.api
+              + value.imagen.formats.small.url;// TODO: Recordar cambiarlo para el deploy
           }
         });
         this.categories = categories;
         if (!this.categoriesLimit) this.seeMoreCategories = false;
       },
-      (err) => {
-        console.error('categories error: ', err);
-      },
     );
   }
 
   loadRecentPosts() {
-    this._postService.getRecentPostList(this.sortQuery, this.recentPostLimit).subscribe(
+    this.postService.getRecentPostList(this.sortQuery, this.recentPostLimit).subscribe(
       (posts: Post[]) => {
         this.postsList = posts;
-      },
-      (err) => {
-        console.error('recent posts error: ', err);
       },
     );
   }
@@ -132,6 +126,6 @@ private _postService:PostService,
   }
 
   filterPostsByCategory(category:Categoria) {
-    this._router.navigate(['blog', category.nombre]);
+    this.router.navigate(['blog', category.nombre]);
   }
 }

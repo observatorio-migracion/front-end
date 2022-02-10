@@ -1,3 +1,4 @@
+/* eslint max-classes-per-file: ["error", 8] */
 // classes needed to consume the API
 export class Thumbnail {
   name: string | undefined;
@@ -118,11 +119,11 @@ export class Miniatura {
 
   provider: string|undefined;
 
-  provider_metadata?: any|undefined;
+  providerMetadata?: any|undefined;
 
-  created_at: Date|undefined;
+  createdAt: Date|undefined;
 
-  updated_at: Date|undefined;
+  updatedAt: Date|undefined;
 }
 
 export class Categoria {
@@ -130,11 +131,11 @@ export class Categoria {
 
   nombre: string|undefined;
 
-  published_at: Date|undefined;
+  publishedAt: Date|undefined;
 
-  created_at: Date|undefined;
+  createdAt: Date|undefined;
 
-  updated_at: Date|undefined;
+  updatedAt: Date|undefined;
 
   imagen:any |undefined;
 }
@@ -148,11 +149,11 @@ export class Post {
 
   descripcion: string|undefined;
 
-  published_at: Date|undefined;
+  publishedAt: Date|undefined;
 
-  created_at: Date|undefined;
+  createdAt: Date|undefined;
 
-  updated_at: Date|undefined;
+  updatedAt: Date|undefined;
 
   miniatura: Miniatura|undefined;
 

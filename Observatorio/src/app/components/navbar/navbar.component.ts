@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from 'src/app/models/Post';
-import { PostService } from 'src/app/services/post.service';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
 
@@ -10,19 +8,19 @@ import { ThemeService } from '../../services/theme.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  public matchQuery: any;
+  public matchQuery: boolean;
 
   public theme: string;
 
   public subscription:Subscription | undefined;
 
-  constructor(private _themeService:ThemeService) {
+  constructor(private themeService:ThemeService) {
     this.theme = 'light';
     this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
   }
 
   ngOnInit(): void {
-    this.subscription = this._themeService.currentTheme.subscribe((theme) => {
+    this.subscription = this.themeService.currentTheme.subscribe((theme) => {
       this.theme = theme;
     });
   }
