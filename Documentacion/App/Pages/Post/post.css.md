@@ -8,44 +8,45 @@ Esta seccion contiene la documentacion del codigo .css del elemento post de la p
 
 ### Codigo
 
-En cualquier atributo del post que tenga la clase  post-container tiene margenes de 0 y 10vw, el padding inferior de 10vh y una alineación del texto de manera justificada.
+La clase **.post-container** contiene el post, el texto y las imagenes y links relacionados.
 ``` css
-.post-container{
-    margin: 0 10vw;
-    padding-bottom: 10vh;
-    text-align: justify;
-}
-
-
-``` css
-@media (max-width: 800px){
-    .post-container{
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }  
+.post-container {
+  margin: 0 10vw;
+  padding-bottom: 10vh;
+  text-align: justify;
 }
 ``` 
 
-Cambia a que los titulos 1 del post tengan margenes de 0 y 10vw, el margen superior de 5vh, tamaño de letra de 3rem y el grueso de la letra de 400.
+La etiqueta **h1** contiene títulos.
 ``` css
-h1{
-    margin: 0 10vw;
-    margin-top: 5vh;
-    font-size: 3rem;
-    font-weight: 400;
+h1 {
+  margin: 0 10vw;
+  margin-top: 5vh;
+  font-size: 3rem;
+  font-weight: 400;
 }
 ``` 
 
-Cambia a que los parrafos del post tengan margenes 2vw y 10vw.
+La etiqueta **p** contiene texto.
 ``` css
 p {
-    margin: 2vw 10vw;
+  margin: 2vw 10vw;
 }
 ```
 
-En cualquier atributo del post que tenga la clase categories tenga margenes de 2vw y 10vw.
+La clase **.categories** contiene las categorías a las que pertenece el post
 ``` css
-.categories{
-    margin: 2vw 10vw;
+.categories {
+  margin: 2vw 10vw;
 }
 ``` 
+
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
+``` css
+@media (max-width: 800px) {
+  .post-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+```

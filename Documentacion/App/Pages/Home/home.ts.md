@@ -102,7 +102,7 @@ Para la clase *HomeComponent* se crean los atributos: *api*, *seeMoreCategories*
   defaultImage: string;
 ``` 
 
-La clase HomeComponent recibe como parametros los servicios necesarios para sus funciones y inicializa sus variables
+La clase *HomeComponent* recibe como parametros los servicios necesarios para sus funciones y inicializa sus variables
 ``` ts
   constructor(private _postService:PostService, 
               private _eventService: EventService,
@@ -124,7 +124,7 @@ La clase HomeComponent recibe como parametros los servicios necesarios para sus 
   }
 ``` 
 
-Este método de la clase HomeComponent, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadRecentPosts para cargar los post más recientes, al método loadCategories para cargar las categorías y el método loadActivities para cargar los eventos. 
+Este método de la clase *HomeComponent*, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadRecentPosts para cargar los post más recientes, al método loadCategories para cargar las categorías y el método loadActivities para cargar los eventos. 
 ``` ts
   ngOnInit(): void {
     this.loadCategories();
@@ -133,7 +133,7 @@ Este método de la clase HomeComponent, hace un llamado al componente y lo inici
   }
 ``` 
 
-Este método de la clase HomeComponent tiene como objetivo de obtener la lista de actividades por medio del servicio de eventos hasta el limite indicado por el atrbibuto activitiesLimit y se guarda en el atributo activities la lista obtenida. 
+Este método de la clase *HomeComponent* tiene como objetivo de obtener la lista de actividades por medio del servicio de eventos hasta el limite indicado por el atrbibuto activitiesLimit y se guarda en el atributo activities la lista obtenida. 
 ``` ts
   loadActivities(){  
     this._eventService.getActivitiesList(this.activitiesLimit).subscribe( (activities:Activity[])=>{
@@ -142,7 +142,7 @@ Este método de la clase HomeComponent tiene como objetivo de obtener la lista d
   };
 ``` 
 
-Este metodo de la clase HomeComponent, tiene como objetivo recibir un string, luego mediante el helper postStyleConfig y showdownConverter, convertir el texto a html. Luego se defina una variable auxiliar vacía. Mientras la variable auxiliar sea estrictamente diferente al html, se guarda el html en la auxiliar y se hace un cambio en el html remplazando lo igualado a src por el valor de la ruta de api concatenado con /updoads/. Por ultimo retorna el resultado del html.
+Este metodo de la clase *HomeComponent*, tiene como objetivo recibir un string, luego mediante el helper postStyleConfig y showdownConverter, convertir el texto a html. Luego se defina una variable auxiliar vacía. Mientras la variable auxiliar sea estrictamente diferente al html, se guarda el html en la auxiliar y se hace un cambio en el html remplazando lo igualado a src por el valor de la ruta de api concatenado con /updoads/. Por ultimo retorna el resultado del html.
 ``` ts
   markDowntoHtml(text: string): string {
     let html = postStyleConfig + this.showdownConverter.makeHtml(text);
@@ -155,7 +155,7 @@ Este metodo de la clase HomeComponent, tiene como objetivo recibir un string, lu
   }
 ``` 
 
-Este método de la clase HomeComponent recibe como parámetro una actividad y si esta contiene descripción, entonces mediante se llama al  método markDowntoHtml y se le pasa como parametro dicha descripción. Posteriormente mediante uno de las funciones de seguridad para sanitizar html, se pasa la variable html para que el resultado quede guardado en contentHTML. 
+Este método de la clase *HomeComponent* recibe como parámetro una actividad y si esta contiene descripción, entonces mediante se llama al  método markDowntoHtml y se le pasa como parametro dicha descripción. Posteriormente mediante uno de las funciones de seguridad para sanitizar html, se pasa la variable html para que el resultado quede guardado en contentHTML. 
 ``` ts
   renderActivity(activity:Activity){
     // const styles = postStyleConfig;
@@ -167,7 +167,7 @@ Este método de la clase HomeComponent recibe como parámetro una actividad y si
   }
 ``` 
 
-Este método de la clase HomeComponent asigna el valor de cero al atributo categoriesLimit y hace un llamado al método  loadCategories para que carge todas las categorías existentes. 
+Este método de la clase *HomeComponent* asigna el valor de cero al atributo categoriesLimit y hace un llamado al método  loadCategories para que carge todas las categorías existentes. 
 ``` ts
 loadMoreCategories() {
     this.categoriesLimit = 0;
@@ -175,7 +175,7 @@ loadMoreCategories() {
   }
 ``` 
 
-Este método de la clase HomeComponent primero mediante el servicio de post de carguen las categorías hasta el límite indicado en el atributo categoriesLimit que además verifica si tiene imagen y en tal caso guarda el la variable el valor de la ruta del atributo api unido al valor de la url de la imágen y luego de esto ya se guarda la en el atributo categories la lista. Si no tiene limite o tiene un valor de 0 entonces se le asigna al atributo seeMoreCategories en valor de falso. Si se encuentra algun erroe entonces muestra en error en consola.  
+Este método de la clase *HomeComponent* primero mediante el servicio de post de carguen las categorías hasta el límite indicado en el atributo categoriesLimit que además verifica si tiene imagen y en tal caso guarda el la variable el valor de la ruta del atributo api unido al valor de la url de la imágen y luego de esto ya se guarda la en el atributo categories la lista. Si no tiene limite o tiene un valor de 0 entonces se le asigna al atributo seeMoreCategories en valor de falso. Si se encuentra algun erroe entonces muestra en error en consola.  
 ``` ts
   loadCategories() {
     this._postService.getEnabledCategories(this.categoriesLimit).subscribe((categories: Categoria[]) => {
@@ -194,7 +194,7 @@ Este método de la clase HomeComponent primero mediante el servicio de post de c
 
 ``` 
 
-Este método de la clase HomeComponent se encarga obtener con el servidio de post una lista de las publicaciones ordenadas por fecha descendentemente como lo indica el atributo sortQuery hasta el límite indicando en el atributo recentPostLimit y se guardar en el atributo  postsList la lista resultante. 
+Este método de la clase *HomeComponent* se encarga obtener con el servidio de post una lista de las publicaciones ordenadas por fecha descendentemente como lo indica el atributo sortQuery hasta el límite indicando en el atributo recentPostLimit y se guardar en el atributo  postsList la lista resultante. 
 ``` ts
     loadRecentPosts(){
       this._postService.getRecentPostList(this.sortQuery, this.recentPostLimit).subscribe((posts: Post[]) => {
@@ -206,7 +206,7 @@ Este método de la clase HomeComponent se encarga obtener con el servidio de pos
     }
 ``` 
 
-Este método de la clase HomeComponent openActivity  recibe como parametro una actividad y esta se guarda en el atributo activitySelected. Porteriormente se llama al metodo renderActivity para convertir de markdown y asegurar el contenido del html.
+Este método de la clase *HomeComponent* openActivity  recibe como parametro una actividad y esta se guarda en el atributo activitySelected. Porteriormente se llama al metodo renderActivity para convertir de markdown y asegurar el contenido del html.
 ``` ts
     openActivity(activity:Activity){
       this.activitySelected = activity;
@@ -214,7 +214,7 @@ Este método de la clase HomeComponent openActivity  recibe como parametro una a
     }
 ``` 
 
-Este método de la clase HomeComponent recibe como parametro una categoría y por la cual mediante el route navigate se utiliza para que se dirija la página hacía el blog y ese nombre de categotía. 
+Este método de la clase *HomeComponent* recibe como parametro una categoría y por la cual mediante el route navigate se utiliza para que se dirija la página hacía el blog y ese nombre de categotía. 
 ```  ts
     filterPostsByCategory(category:Categoria){
       this._router.navigate([`blog`,category.nombre]);

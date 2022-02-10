@@ -263,7 +263,7 @@ El delimitador **media** cambia el comportamiento de distintas clases con respec
 }
 ```
 
-El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
+LA El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
 @media (max-width: 500px) {
     .categories-container {

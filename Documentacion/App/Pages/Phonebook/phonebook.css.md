@@ -11,168 +11,172 @@ Esta seccion contiene la documentacion del codigo .css del elemento phonebook de
 
 ### Codigo
 
-En cualquier atributo del phonebook que tenga la clase  container tendrá un ancho de 40%, magenes de un 10vh y atomatico, tamaño de letra de 1 rem y un padding de 0 y 5vm.
+La clase **.container** contiene todos los componentes del phonebook
 ``` css
-.container{
-    width: 40%;
-    margin: 10vh auto;
-    font-size: 1rem;
-    padding: 0 5vw;
+.container {
+  width: 40%;
+  margin: 10vh auto;
+  font-size: 1rem;
+  padding: 0 5vw;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase contact tendrá una linea de borde de grosor de 1px y un color solido que está en la variable --font-1, además un ancho del 100% y un padding de 2hv y 0
+La clase **.contact** contiene todos los componentes de un contacto individual
 ``` css
-.contact{
-    border-bottom: 1px solid var(--font-1);
-    width: 100%;
-    padding: 2vh 0;
+.contact {
+  border-bottom: 1px solid var(--font-1);
+  width: 100%;
+  padding: 2vh 0;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase phone-list tendrá un display flex, una dirección por row y el último para designar un formato de wrap a las lineas del flex
+La clase **.phone-list** contiene el numero de telefono del contacto
 ``` css
-.phone-list{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.phone-list {
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase contact con la acción de hover, un color que está en la variable  --font-3 y un tipo de cursor pointer
+La acción **hover** de la clase *.contact* hace que cuando el mouse esta encima de un contacto este se coloree amarillo.
 ``` css
-.contact:hover{
-    color: var(--font-3);
-    cursor: pointer;
+.contact:hover {
+  color: var(--font-3);
+  cursor: pointer;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase contact-title con un tamaño de letra de 1.3 rem
+La clase **.contact-title** contiene el titulo de un contacto.
 ``` css
-.contact-title{
-    font-size: 1.3rem;
+.contact-title {
+  font-size: 1.3rem;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase search-container con un alto de 30px
+La clase **.search-container** contiene la barra de busqueda.
 ``` css
-.search-container{
-    height: 30px;
+.search-container {
+  height: 30px;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase search-form tendrá una posición relativa y en la izquierda de 17vm
+La clase **.search-form** contiene los componentes de la barra de busqueda que modifican lo que se muestra.
 ``` css
-.search-form{
-    position:relative; left: 17vw;
+.search-form {
+  position: relative;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase search-input tendrá las siguientes características con un borde de 1px de grosor  con un color solido específico de rgb, el tamaño del texto de 16px, un ancho de 200px y la altura de 30px, el color del findo transparente, el margen de arriba de 0.2 rem y el de la derecha también de 0.2 rem, el radio del borde de 20px, definida como ninguna la outline con la caracteritica  de !important que significa que se mayor prioridad a la instrucción y esto hace que las instrucciones posteriores no puedan sobre escribirla, en el tamaño del borde con la especificacion de border- box le dice al navegador tomar en cuenta para cualquier valor que se especifique de borde o de relleno para el ancho o alto de un elemento, además un padding de 0 y 1rem, el color será el de la variable --font1 y el alineamiento vertical en el medio. 
+La clase **.search-input** contiene el texto que se ingresa en la barra de busqueda.
 ``` css
-.search-input{
-    border: 1px solid rgb(175, 175, 175);  
-    font-size: 16px;
-    width: 200px;
-    height: 30px;
-    background-color:transparent;
-    margin-top: 0.2rem;
-    margin-right: 0.2rem;
-    border-radius: 20px;
-    outline: none !important;
-    box-sizing: border-box;
-    padding: 0 1rem;
-
-    color: var(--font1);
-    vertical-align: middle;
+.search-input {
+  border: 1px solid rgb(175 175 175);
+  font-size: 16px;
+  width: 200px;
+  height: 30px;
+  background-color: transparent;
+  margin-top: 0.2rem;
+  margin-right: 0.2rem;
+  border-radius: 20px;
+  outline: none !important;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  color: var(--font1);
+  vertical-align: middle;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase search-button  se definirá con el display inline, un valor de 99 en el z-index quien indica el orden de un elemento posicionado y sus descendientes, el top será de 1.5px y el de la derecha de 2.2rem, en fondo será transparente, el borde se define como ninguno al igual que la outline y por ultimo el color será en de la variable --font1
+La clase **.search-button** contiene la imagen de una lupa de la barra de busqueda.
 ``` css
-.search-button{
-    display: inline;
-    z-index: 99;
-    position: relative;
-    top: 1.5px;
-    right: 2.2rem; 
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--font1);
+.search-button {
+  display: inline;
+  z-index: 99;
+  position: relative;
+  top: 1.5px;
+  right: 2.2rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--font1);
 }
 ``` 
 
-En cualquier atributo del phonebook que tenga la clase initial-letter el tamaño de la letra será de 3rem
+La clase **.initial-letter** contiene la primera letra con la cual inician los contactos.
 ``` css
-.initial-letter{
-    font-size: 3rem;
+.initial-letter {
+  font-size: 3rem;
 }
 ```
 
-Cambia a que los articulos sean con el color de la variable --warning-01, el texto con una decoración de underline y un margen del 0.1%
+La etiqueta **a** contiene links.
 ``` css
 a {
-    color: var(--warning-01);
-    text-decoration: underline;
-    margin:0 1%;
+  color: var(--warning-01);
+  text-decoration: underline;
+  margin: 0 1%;
 }
 ```
 
-Al unico elemento que tenga el ID instructions padding derecho de 40% y un margen de 5vh y 0
+El identificador **instructions** contiene instrucciones sobre que hacer.
 ``` css
-#instructions{
-   padding-right: 40%; margin: 5vh 0;
+#instructions {
+  padding-right: 40%;
+  margin: 5vh 0;
 }
 ```
 
-En cualquier atributo del phonebook que tenga la clase modal-title se le definirá un tamaño del texto de 1.6 rem
+La clase **.modal-title** contiene el título del modal.
 ``` css
-.modal-title{
-    font-size: 1.6rem;
+.modal-title {
+  font-size: 1.6rem;
 }
 ```
 
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
 @media (max-width: 1024px) {
-    .container{
-        width: 60%;
-    }
-    .search-form{
-        position:relative; left: 30vw;
-    }
-}
-```
+  .container {
+    width: 60%;
+  }
 
-``` css
+  .search-form {
+    position: relative;
+  }
+}
+
 @media (max-width: 800px) {
-    .container{
-        width: 70%;
-    }
-    .search-form{
-        position:relative; left: 35vw;
-    }
-}
-```
+  .container {
+    width: 70%;
+  }
 
-``` css
+  .search-form {
+    position: relative;
+  }
+}
+
 @media (max-width: 420px) {
-    .container{
-        width: 95%;
-    }
-    .search-form{
-        /* position:relative; left: 0vw; */
-        position: static;
-        margin: 0 auto;
-    }
-    #instructions{
-        padding: 0; margin: 5vh 0;
-     }
-     .contact-title{
-         font-size: 1.2rem;
-     }
-     .initial-letter{
-         text-align: center;
-     }
+  .container {
+    width: 95%;
+  }
+
+  .search-form {
+    /* position:relative; left: 0vw; */
+    position: static;
+    margin: 0 auto;
+  }
+
+  #instructions {
+    padding: 0;
+    margin: 5vh 0;
+  }
+
+  .contact-title {
+    font-size: 1.2rem;
+  }
+
+  .initial-letter {
+    text-align: center;
+  }
 }
 ```
