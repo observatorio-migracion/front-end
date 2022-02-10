@@ -1,5 +1,5 @@
 
- Esta seccion contiene la documentacion del home.css del elemento Home de la pagina web. Dentro de su estructura visual posee: 
+ ### Esta seccion contiene la documentacion del home.css del elemento Home de la pagina web. Dentro de su estructura visual posee: 
 * Información de la pagina: Proyecto del Observatorio de Migración.
 *  Titulo "Categorias": siguiente parte de categorias
 *  Listado de las categorías existentes: contiene los nombres y las imágenes de las primeras 4 categorias 
@@ -14,195 +14,199 @@
 
 ### Codigo
 
-En cualquier atributo del home que tenga la clase main-text-container con las caracterítcas de un ancho del 50%, una altura de 36%, margenes de 10% y otro autmático y un tamaño del texto de 1.3 rem
+La clase **.main-text-container** es un contenedor con texto sobre el proyecto, que se usa para determinar como se verá este bloque de texto.
 ``` css
-.main-text-container{
-    width: 50%;
-    height:36%;
-    margin: 10% auto;
-    font-size: 1.3rem;
+.main-text-container {
+  width: 50%;
+  height: 36%;
+  margin: 10% auto;
+  font-size: 1.3rem;
+  text-align: center;
 }
 ```
-En cualquier atributo del home que tenga la clase categories-container se caracterizza por tener un margen de -5rem y 1rem, un display de tipo grid,  también  en  grid-template-columns se definen los valores para el contenido un area con todos de manera automática,  un valor de 0.8rem en grid-gap el cual define tamaño dentro los canales de entre las filas y columnas, una justificación del contenido centralizado y un padding inferior de 9 vh
+La clase **.categories-container** Es un contenedor donde estan las distintas categorias en las que pueden estar los posts.
 ``` css
-.categories-container{
-    margin: -5rem 1rem;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 0.8rem;
-    justify-content: center;
-    padding-bottom: 9vh;
+.categories-container {
+  margin: -5rem 1rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 0.8rem;
+  justify-content: center;
+  padding-bottom: 9vh;
 }
 ```
-En cualquier atributo del home que tenga la clase horizontal-bar se le definirá un tamaño de letra de 2.2rem, un ancho del 100%, el texto con una alineación centrada, tendrá una posición relativa, un padding superior de 4rem y un z-index de -1 para comodar un elemento y sus desendientes
+La clase **.horizontal-bar** contiene los separadores entre secciones de la pagina principal, asi como el título de la sección que ira debajo.
 ``` css
-.horizontal-bar{
-    font-size: 2.2rem;
-    width:100%;
-    text-align: center;
-    padding-top: 4rem;
-    position: relative;
-    z-index: -1;
+.horizontal-bar {
+  font-size: 2.2rem;
+  width: 100%;
+  text-align: center;
+  padding-top: 4rem;
+  position: relative;
+  z-index: -1;
 }
 ```
-En cualquier atributo del home que tenga la clase horizontal-bar-01 se definirá un fondo del color de la variable --background-02, el color den texto --font-4 y un alto de 250px
+La clase **.horizontal-bar-01** funciona como un *Identificador* para identificar la primera barra horizontal.
 ``` css
-.horizontal-bar-01{
-    background-color: var(--background-02);
-    color: var(--font-4);
-    height: 250px;
+.horizontal-bar-01 {
+  background-color: var(--background-02);
+  color: var(--font-4);
+  height: 250px;
 }
 ```
-En cualquier atributo del home que tenga la clase horizontal-bar-02 se definirá un fondo del color de la variable --background-01, el color den texto --font-1 y un alto de 200px
+
+La clase **.horizontal-bar-02** funciona como un *Identificador* para identificar la segunda barra horizontal.
 ``` css
-.horizontal-bar-02{
-    background-color: var(--background-01);
-    color: var(--font-1);
-    height: 200px;
+.horizontal-bar-02 {
+  background-color: var(--background-01);
+  color: var(--font-1);
+  height: 200px;
 }
 ```
-En cualquier atributo del home que tenga la clase custom-container se caracterisa con tener un margen izquierdo de 1vw y otro derecho de 1vw, un dsplay del tipo grid, y un valor de 2vw en grid-gap el cual define tamaño dentro los canales de entre las filas y columnas, un padding de valor 0, también  en  grid-template-columns se definen los valores para el contenido un area con los valores de 30vw 30vw 30vw y la justificación del contenido será centrada
+
+La clase **.custom-container** es un contenedor que almacena los cards para la sección de las publicaciones recientes.
 ``` css
 .custom-container {
-    margin-left: 1vw;
-    margin-right: 1vw;
-    display: grid;
-    grid-gap: 2vw;
-    padding: 0;
-    grid-template-columns: 30vw 30vw 30vw;
-    justify-content: center;
-}
-```
-En cualquier atributo del home que tenga la clase action-container se especifíca que sea un diplay en bloque, un margen superior de 40px y un ancho del 100%
-``` css
-.action-container{
-    display:block;
-    margin-top: 40px;; 
-    width:100%;
-}
-
-```
-En cualquier atributo del home que tenga la clase action-container-btn-warning tendrá las caracteríticas de un fonco con el color de la variable --warning-02, el color de la letra con el de  la variable --font-4, un display del tipo en bloque y un margen de 0 y autmático
-``` css
-.action-container-btn-warning{
-    background-color: var(--warning-02); 
-    color:var(--font-4);
-    display:block; 
-    margin:0 auto;
-}
-```
-En cualquier atributo del home que tenga la clase category tendrá el sursos en pointer y una transiciión  de la transformación de  .1 segundos con una velocidad de tipo ease que hace que comience lentamente, se acelere rápidamente y sea ralentizado al final.
-``` css
-.category{
-    cursor: pointer;
-    transition: transform .1s ease;
-}
-```
-En cualquier atributo del home que tenga la clase category cuando se realice la acción hover sobre él tendrá las caracteríticas de -ms-transform: transladando el eje Y con  -10px,  también  -webkit-transform: transladando el eje Y con -10px, transform: translaradar el eje Y con -10px 
-``` css
-.category:hover{
-    -ms-transform: translateY(-10px); /* IE 9 */
-     -webkit-transform: translateY(-10px); /* Safari 3-8 */
-    transform: translateY(-10px); 
-}
-```
-En cualquier atributo del home que tenga la clase events-container tendrá una especificaciones de un margen de 2 rem y de 0
-``` css
-.events-container{
-    margin: 2rem 0;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  display: grid;
+  grid-gap: 2vw;
+  padding: 0;
+  grid-template-columns: 30vw 30vw 30vw;
+  justify-content: center;
 }
 ```
 
-En cualquier atributo del home que tenga la clase events-container tendrán las especificaciones de un padding superior de 3rem, el color del fondo de la variale --font-4
+La clase **.action-container** es un contenedor donde hay acciones adicionales, como el botón de "Ir a Blog".
 ``` css
-.events-container{
-    padding-top: 3rem;
-    background-color: var(--background-02);
-    color:var(--font-4);
+.action-container {
+  display: block;
+  margin-top: 40px;
+  width: 100%;
 }
 ```
 
-Los h1 dentro de la clase events-container tendrán las sigunetesa especificaciones donde la alineación del texto es centralizada, el tamaño de la letra es de 2.2 rem, el color del fondo del contenedor será el de la variable --background-02, el color del texto será el de la variavle --font-4 y por ultltimo un margen inferir de 3rem
+La clase **.action-container-btn-warning** funciona como *Identificador* para un botón contenido en la clase *.action-container*
 ``` css
-.events-container h1{
-    text-align: center;
-    font-size: 2.2rem;
-    background-color: var(--background-02);
-    color: var(--font-4);
-    margin-bottom: 3rem;
+.action-container-btn-warning {
+  background-color: var(--warning-02);
+  color: var(--font-4);
+  display: block;
+  margin: 0 auto;
 }
 ```
 
-Especifica que en la clase custum table tendrá un ancho de un 60% donde el detalle de !important significa que se mayor prioridad a la instrucción, esto hace que las instrucciones posteriores no puedan sobre escribirla y además de un tamaño de margen  de 0  y automátio
+La clase **.category** es un contenedor para las categorías en las que se separan los post en la sección de Categorías.
 ``` css
-.custom-table{
-    width: 60% !important; 
-    margin: 0 auto;
+.category {
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+```
+
+La acción **hover** de la clase *.category* hace que cuando el mouse esta encima de un post este se mueva ligeramente hacía arriba.
+``` css
+.category:hover {
+  transform: translateY(-10px); /* IE 9 */
+  transform: translateY(-10px); /* Safari 3-8 */
+  transform: translateY(-10px);
+}
+```
+
+La clase **.events-container** es un contenedor para la tabla en la que se colocan los eventos en la sección de Eventos próximos
+``` css
+.events-container {
+  margin: 2rem 0;
+  padding-top: 3rem;
+  background-color: var(--background-02);
+  color: var(--font-4);
+}
+```
+
+La etiqueta **h1** de la clase *.events-container* tiene el título de la sección.
+``` css
+.events-container h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  background-color: var(--background-02);
+  color: var(--font-4);
+  margin-bottom: 3rem;
+}
+```
+
+La clase **.custom-table** es un contenedor en el que estan las filas con los eventos próximos.
+``` css
+.custom-table {
+  width: 60% !important;
+  margin: 0 auto;
+}
+```
+
+La clase **.row** es un contenedor para cada evento dentro de la sección de eventos próximos.
+``` css
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.7rem 0;
+}
+```
+
+La etiqueta **p** es para almacenar texto.
+``` css
+p {
+  margin: 0 !important;
+}
+```
+
+La etiqueta **p** dentro de la clase *.custom-table* es para almacenar texto dentro de esta clase.
+``` css
+.custom-table p {
+  color: var(--font-4);
+  font-size: 1rem;
 }
 ```
 
 
-En cualquier atributo del home que tenga la clase .row se le van a definir estas caracteríticas donde el display va a ser flex y la dirección del flex por columna, la alineación de los items que contenga será centrada, la justificación del contenido será space-between y tendrá un padding de 1.7rem y 0
+La clase **.index** de la clase *.custom-table* funciona como *identificador* para el index en esta sección.
 ``` css
-.row{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: space-between;
-    padding: 1.7rem 0;
+.custom-table .index {
+  font-size: 1.5rem;
+}
+```
+
+Las etiquetas **a** y **p** en la clase *.custom-table* contienen los links a más información.
+``` css
+.custom-table p a {
+  text-align: right !important;
+  color: var(--font-5);
+}
+```
+
+La clase **.activity-see-more** indica que la división es un link a más informacion sobre el articulo
+``` css
+.activity-see-more {
+  cursor: pointer;
 }
 ```
 
 
-En la clase custum table a sus parrafos se les cambia el color por el que se encuentra en la variable --font-4 además de eso se  cambia el tamaño de la letra a 1rem
+La acción **active** de la clase *.activity-see-more* hace que cuando el mouse esta encima de un link este se subraye
 ``` css
-.custom-table p{
-    color: var(--font-4);
-    font-size: 1rem;
+.activity-see-more:active {
+  text-decoration: underline;
 }
 ```
 
-
-Especifica que en la clase custum table que sea de la clase .index tenga un tamaño de letra de 1.5 rem
+La clase **.modal-title** contiene el título de la sección de modal (que parece que no esta en la pagina)
 ``` css
-.custom-table .index{
-    font-size: 1.5rem; 
-}
-```
-Especifica que en la clase custum table los articulos dentro de los parrafos tengan una alineación del texto hacia la derecha y el detalle de !important significa que se mayor prioridad a la instrucción y esto hace que las instrucciones posteriores no puedan sobre escribirla.
-Además a dichos articulos se les cambia el color por el que se encuentra en la variable --font-5
-``` css
-.custom-table p a{
-    text-align: right !important;
-    color: var(--font-5);
-}
-```
-Cambia el margen del parrafo a que sea de valor cero
-El detalle de !important significa que se mayor prioridad a la instrucción y esto hace que las instrucciones posteriores no puedan sobre escribirla 
-``` css
-p{
-    margin: 0 !important;
-}
-```
-En cualquier atributo del home que tenga la clase activity-see-more se le va a definir el cursos de tipo pointer
-``` css
-.activity-see-more{
-    cursor: pointer;
-}
-```
-En cualquier atributo del home que tenga la clase activity-see-more cuando se de la actividad de active, se le va definir al texto una decoración  de una linea debajo
-``` css
-.activity-see-more:active{
-    text-decoration: underline;
-}
-```
-En cualquier atributo del home que tenga la clase modal-title cambia el tamaño de la letra del titulo del modal por 1.6 rem
-``` css
-.modal-title{
-    font-size: 1.6rem;
+.modal-title {
+  font-size: 1.6rem;
 }
 ```
 
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
 @media (max-width: 1400px) {
     .categories-container {
@@ -212,6 +216,7 @@ En cualquier atributo del home que tenga la clase modal-title cambia el tamaño 
 }
 ```
 
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
 @media (max-width: 900px) {
     .custom-container {
@@ -228,6 +233,7 @@ En cualquier atributo del home que tenga la clase modal-title cambia el tamaño 
 }
 ```
 
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
 @media (max-width: 700px) {
     .categories-container {
@@ -257,6 +263,7 @@ En cualquier atributo del home que tenga la clase modal-title cambia el tamaño 
 }
 ```
 
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
 @media (max-width: 500px) {
     .categories-container {

@@ -69,6 +69,7 @@ Importa de la carpeta models los modelos a Thumbnail
 import { Thumbnail } from '../../models/Post';
 ``` 
 
+Agrega un componente *selector* de CSS llamado *app-home*, que identifica esta directiva en una plantilla y activa la instanciación de la directiva, luego agrega un componente *templeteUrl* que brinda la ruta relativa de un archivo de plantilla para un componente angular. Por último, se agrega un componente *styleUrls* que brinda la ruta relativa a un archivo que contiene hojas de estilo CSS para utilizar en este componente.
 ``` ts
 @Component({
   selector: 'app-home',
@@ -85,7 +86,7 @@ export class HomeComponent implements OnInit {
 }
 ``` 
 
-Para la clase HomeComponent se crean los atributos de api como un string para gardar la url del api, seeMoreCategories para controlar la opción de ver más categorías, categoriesLimit es el límite de categorías por ver, de manera solo lectura los limites de los post y los eventos. Un arreglo de categorías, otro de posts y otro de Actividades. El atributo de sortQuery como readonly para indicar el ordenamiento de las consultas. Un atributo de tipo Activity para tener la aactividad seleccionada. un string de tipo safeHtml para contener html y un string para tener la ruta de una imagen default. 
+Para la clase *HomeComponent* se crean los atributos: *api*, *seeMoreCategories*, *categoriesLimit*, *recentPostLimit*, *activitiesLimit*, *categories*, *postsList*, *sortQuery*, *activities*, *activitySelected*, *contentHTML* y *defaultImage*
 ``` ts
   public api: string;
   public seeMoreCategories:boolean;
@@ -96,15 +97,12 @@ Para la clase HomeComponent se crean los atributos de api como un string para ga
   public postsList:Post[];
   public readonly sortQuery: string;
   public activities: Activity[];
-
   public activitySelected:Activity;
-
   public contentHTML: SafeHtml;
   defaultImage: string;
 ``` 
 
-La clase HomeComponent recibe cómo parámetro el servicio de post, el de eventos, el componente de router para rutas, el de DomSanitizer para seguridad y el de ShowdownConverter para convertir markdown a html.
-Se inicializan los atributos de contentHTML como vacío, categoriesLimit con un valor de 4, recentPostLimit con un valor de 3, activitiesLimit con un valor de 4. Al atrubuto de sortQuery se le asigna el ordenamiento que tendran los post por fecha de publicación a la hora de mostrarse. Los arreglos de categorias, publicacioness y actividades. El atributo api recibe el valor de la url del api del ambiente de la aplicación. Se crea una actividad vacía para ser guardada en activitySelected y por último en defaultImage se guarda la ruta de la imagen default. 
+La clase HomeComponent recibe como parametros los servicios necesarios para sus funciones y inicializa sus variables
 ``` ts
   constructor(private _postService:PostService, 
               private _eventService: EventService,
@@ -126,7 +124,7 @@ Se inicializan los atributos de contentHTML como vacío, categoriesLimit con un 
   }
 ``` 
 
-Este método de la clase PostComponent, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadRecentPosts para cargar los post más recientes, al método loadCategories para cargar las categorías y el método loadActivities para cargar los eventos. 
+Este método de la clase HomeComponent, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadRecentPosts para cargar los post más recientes, al método loadCategories para cargar las categorías y el método loadActivities para cargar los eventos. 
 ``` ts
   ngOnInit(): void {
     this.loadCategories();
