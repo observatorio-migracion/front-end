@@ -15,78 +15,104 @@
 
 ### Codigo
 
-Main text conteiner: contiene el texto de la infomracion del obsevatorio.
-
+Esta etiqueta **div** tiene la clase *.main-text-container*, que tiene texto sobre el proyecto
 ``` html 
-    <div class="main-text-container"> El Observatorio de Migración es un proyecto ... </div>
-```
-<br/>
-
-Titulo de las Categorías y un div como el contenedor de categorías el cual tiene otro div cde categoria con un ngFor de la lista de categorías filtrando los post por categoría en la que cada una se mostrará con su nombre e imagen la cual se recupera de la ruta en la que se encuentra  y con un ancho y altura establecido para midan lo mismo.
-
-``` html
-    <h1 class="horizontal-bar horizontal-bar-01">Categorías</h1>
-    <div class="categories-container">
-        <div class="category" *ngFor="let category of categories" (click)="filterPostsByCategory(category)">
-            <img class="img-fluid" alt="category.nombre" *ngIf="category.imagen" src="{{category.imagen.formats.small.url}}"
-            width="420px" height="236px">
-        </div>
+    <div class="main-text-container"> 
+        El Observatorio de Migración es un proyecto ...    
     </div>
 ```
 
-Un div de contenedor de acción el cual tiene un botón con el texto "Ver más" el cual al recibir un click llama la función de cargar las demás categorías que no han sido presentadas al usuario. 
+Esta etiqueta **h1** tiene el titulo de la sección de Categorías, y tambien tiene la clase *.horizontal-bar .horizontal-bar-01*
+```html 
+<h1 class="horizontal-bar horizontal-bar-01">
+    Categorías  
+</h1>
+```
+
+Esta etiqueta **div** tiene la clase *.categories-container*, que almacena las distintas categorias que se van a obtener por medio del *ngFor que obtiene todas las categorías y las despliega en los **div** de clase *.category* con su respectiva imagen y nombre y que al ser clickeado filtra los post segun la categoría que se clickeo.
+
+``` html
+<div class="categories-container">
+    <div class="category" 
+         *ngFor="let category of categories" 
+         (click)="filterPostsByCategory(category)">
+        <img class="img-fluid"  
+             alt="category.nombre" 
+             *ngIf="category.imagen" 
+             src="{{category.imagen.formats.small.url}}"
+             width="420px" 
+             height="236px">
+    </div>
+</div>
+```
+
+Esta etiqueta **div** tiene la clase *.action-container*, donde esta el botón para tener mas categorías.
   * falta: preguntar si se recarga solo esta parte para presentar en el ng for todas las categotías disponibles y preguntar cuantas enseña por default 
-
 ``` html
-    <div class="action-container">
-        <button *ngIf="seeMoreCategories" class="action-container-btn-warning" mat-raised-button
-            (click)="loadMoreCategories()">Ver más</button>
-    </div>
+<div class="action-container">
+    <button *ngIf="seeMoreCategories" 
+            class="action-container-btn-warning" 
+            mat-raised-button (click)="loadMoreCategories()">
+        Ver más  
+    </button>
+</div>
 ```
 
-<br/> 
-
- Titulo de las Publicaciones recientes y un div como el contenedor custom el cual tiene una llamda al  componente  app-post-card pasandole un ngFor por la lista de post existentes.
-
+Esta etiqueta **h1** tiene el titulo de la sección de Publicaciones recientes, y tambien tiene la clase *.horizontal-bar y .horizontal-bar-02*. 
 ``` html
-    <h1 class="horizontal-bar horizontal-bar-02">Publicaciones recientes</h1>
-
-    <div class="custom-container">
-        <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
-    </div>
+<h1 class="horizontal-bar horizontal-bar-02">
+    Publicaciones recientes
+</h1>
 ```
 
- <br/>
-
-
- Un div de contenedor de acción el cual tiene un botón con el texto "Ir al blog" el cual al recibir un click se vuelve un router link el cual dirige al usuario hacai la página del blog en la direción "/blog ". 
-
+Esta etiqueta **div** tiene la clase *.custom-container*, que almacena los distintos posts que se van a obtener por medio del *ngFor que obtiene todos los posts y los despliega en los **app-post-card**.
 ``` html
-    <div class="action-container">
-        <button class="action-container-btn-warning" mat-raised-button routerLink="/blog">Ir al blog</button>
-    </div>
+<div class="custom-container">
+    <app-post-card *ngFor="let post of postsList" 
+                   [post]="post">
+    </app-post-card>
+</div>
+```
+
+Esta etiqueta **div** tiene la clase *.action-container*, donde esta el botón para ir a la página de blog.
+``` html
+<div class="action-container">
+    <button class="action-container-btn-warning"
+            mat-raised-button routerLink="/blog">
+        Ir al blog
+    </button>
+</div>
 ```
 <br/>
 
- Segudamente un div que es un contenedor de elementos que contiene primeramente el titulo de "eventos pr+oximos", luego otro div del tipo custom-table para ser posible que en cada columna(row) se ecnuantre una actividad recividas por el NgFor de la lista de actividades, en la que para cada una de las actividades se mostrtá su nombre, fecha en formato de tamaño medio y por último un botón que dice ver "Ver más Información" y cuando se le hace click muestra un modal en la pantalla con la información completa de la actividad.
-
+Esta etiqueta **div** tiene la clase *.events-container*, en donde va a sección de eventos próximos, que se guardan en la **div** con clase *.custom-table*, que se obtienen mediante un *ngFor, para desplegarlos en **div** que tienen la clase *.row*
 ``` html
     <div class="events-container">
         <h1>Eventos próximos</h1>
         <div class="custom-table">
-            <div class="row" *ngFor="let activity of activities">
-                <p class="index">{{activity.nombre}}</p>
+            <div class="row" 
+                *ngFor="let activity of activities">
+                <p class="index">
+                    {{activity.nombre}}
+                </p>
                 <br>
-                <p>{{activity.fecha | date: 'mediumDate'}} </p>
+                <p>
+                    {{activity.fecha | date: 'mediumDate'}} 
+                </p>
                 <br>
-                <p><a (click)="openActivity(activity)" data-bs-toggle="modal" data-bs-target="#activityModal"
-                        class="activity-see-more">Ver más información</a></p>
+                <p>
+                    <a (click)="openActivity(activity)" 
+                      data-bs-toggle="modal"
+                      data-bs-target="#activityModal"
+                      class="activity-see-more">
+                      Ver más información
+                    </a>
+                </p>
             </div>
         </div>
     </div>
 ```
-<br/>
-
+(esto no existe asi que no se que ponerle)
  # Modal de una actividad: 
  Este codigo muestra la estucra html de un modal para una activdad. Primeramente el div tiene un id como activityModal, y se d efine su clases. Posteriomente se encuentra otro div que es el contenerdor del modal donde se va a tener un header-body-footer. El div del encabezado del modal tiene un titulo con el nombre de la actividad seleccionada. El div del cuerpo del modal donde se ubica la fecha en formato largo, un ngIf por si existe o no una reunión, en el caso de que exista se proporciona el enlace a la actividad  mediante un href, seguidamente su descripción y si existe al igual con un ngIf se muestra el contentHTML. Por último está el footer del modal en la que hay un botón para cerrar el modal.
 
@@ -121,8 +147,7 @@ Un div de contenedor de acción el cual tiene un botón con el texto "Ver más" 
 ```
 <br/>
 
- Finalmente se realiza una llamada al componente del footer
-
+Esta etiqueta **app-footer** contiene al footer de la página
 ```  html
     <app-footer></app-footer>
 ```

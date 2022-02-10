@@ -66,7 +66,7 @@ export class PostComponent implements OnInit {
 }
 ``` 
 
-Para la clase PostComponent se definem los atributos de la clase, un numero identificador, un titulo, descripción, un arreglo de categorías, una fecha, un atributo llamado api  de tipo string y un atributo de tipo  SafeHtml llamado contenthtml.
+Para la clase *PostComponent* se definem los atributos: *id*, *title*, *description*, *categories*, *date*, *api* y *contentHTML*
 ``` ts
   id: number | undefined;
   title: string | undefined;
@@ -77,21 +77,21 @@ Para la clase PostComponent se definem los atributos de la clase, un numero iden
   public contentHTML: SafeHtml;
 ``` 
 
-La clase PostComponent recibe cómo parámetro el servicio de post, el ActivatedRoute, un DomSanitizer y el  ShowdownConverter. Se asigna a al atributo contentHTML un string vacío y al atributo api el valor de la url del api del ambiente.
+La clase *PostComponent* recibe como parametros los servicios necesarios para sus funciones y inicializa sus variables
 ``` ts
   constructor(private _postService: PostService, private _router: ActivatedRoute, private _sanitizer: DomSanitizer, private showdownConverter: ShowdownConverter) {
     this.contentHTML = "";
     this.api = environment.api.url;
   }
 ``` 
-Este método de la clase PostComponent, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadPost para cargar los post.
+Este método de la clase *PostComponent*, hace un llamado al componente y lo inicia, además hace un llamado al método asincrónico loadPost para cargar los post.
 ``` ts
   ngOnInit(): void {
     this.loadPost();
   }
 ``` 
 
-Este método asincrono de la clase PostComponent, primero se obtiene la ruta camturada como un snapshot de  la cual se extrae el id. Luego se guarda el estilo del helper postStyleConfig en la variable style. Muestra en consola el id obtenido anteriormente. Si este id no en nulo, obtiene el id del post y mediante un subscribe se asignan a los atriburos los valores de ese post. Si tiene contenido, se toma el texto del post que viene un markdown y se convierte a html llamando al metodo de la clase markDowntoHtml, luego es sanitizado y verificado para poder ser asignado al atributo contentHTML. Si no hay contenido o es nulo pasa al else vacío.Si a la hora de obtener el post anterior tiene algun error, este  se mostraría en consola.
+Este método asincrono de la clase *PostComponent*, primero se obtiene la ruta camturada como un snapshot de  la cual se extrae el id. Luego se guarda el estilo del helper postStyleConfig en la variable style. Muestra en consola el id obtenido anteriormente. Si este id no en nulo, obtiene el id del post y mediante un subscribe se asignan a los atriburos los valores de ese post. Si tiene contenido, se toma el texto del post que viene un markdown y se convierte a html llamando al metodo de la clase markDowntoHtml, luego es sanitizado y verificado para poder ser asignado al atributo contentHTML. Si no hay contenido o es nulo pasa al else vacío.Si a la hora de obtener el post anterior tiene algun error, este  se mostraría en consola.
 ``` ts
   async loadPost() {
     const id: string | null = this._router.snapshot.paramMap.get('id');
@@ -118,7 +118,7 @@ Este método asincrono de la clase PostComponent, primero se obtiene la ruta cam
   }
 ``` 
 
-Este metodo de la clase PostComponent, tiene como objetivo recibir un string, luego mediante el helper postStyleConfig y showdownConverter, convertir el texto a html. Luego se defina una variable auxiliar vacía. Mientras la variable auxiliar sea estrictamente diferente al html, se guarda el html en la auxiliar y se hace un cambio en el html remplazando lo igualado a src por el valor de la ruta de api concatenado con /updoads/. Por ultimo retorna el resultado del html.
+Este metodo de la clase *PostComponent*, tiene como objetivo recibir un string, luego mediante el helper postStyleConfig y showdownConverter, convertir el texto a html. Luego se defina una variable auxiliar vacía. Mientras la variable auxiliar sea estrictamente diferente al html, se guarda el html en la auxiliar y se hace un cambio en el html remplazando lo igualado a src por el valor de la ruta de api concatenado con /updoads/. Por ultimo retorna el resultado del html.
 ``` ts
   markDowntoHtml(text: string): string {
     let html = postStyleConfig + this.showdownConverter.makeHtml(text);
