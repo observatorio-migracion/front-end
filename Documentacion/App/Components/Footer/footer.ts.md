@@ -1,4 +1,4 @@
-# Documentacion footer.ts
+# Documentación footer.ts
 
 ### Esta sección contiene la documentación del footer.ts del componente footer de la página web. Dentro de su estructura visual posee: 
 * Footer: Esta sección detallará información adicional sobre la página, se divide en 3 secciones, la primera es un divisor, la segunda contiene el logo del Observatorio, el logo de la UCR con un enlace respectivo a la página oficial y la tercera contiene enlaces hacia las páginas de preguntas frecuentes, mapa del sitio y de contacto.
@@ -36,30 +36,30 @@ Agrega un componente *selector* de CSS llamado *app-footer*, que identifica esta
 Exporta la clase para ser utilizada en otras instancias.
 ``` ts
 export class FooterComponent implements OnInit {
-    //...
+  //...
 }
 ``` 
 
 Se definen tres atributos en la clase *FooterComponent*: *matchQuery*, *theme* y *subscription*. 
 ``` ts
-  public matchQuery: any;
-  public theme: string;
-  public subscription:Subscription | undefined;
+public matchQuery: any;
+public theme: string;
+public subscription:Subscription | undefined;
 ``` 
 
 El constructor de la clase *FooterComponent* inicializa dos variables y recibe el servicio.
 ``` ts
-  constructor(private _themeService:ThemeService) {
-    this.theme = 'light';
-    this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
-  }
+constructor(private _themeService:ThemeService) {
+  this.theme = 'light';
+  this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
+}
 ``` 
 
- Este método del TypeScript hace un llamado al componente y lo inicia, en particular carga los datos generados desde el HTML y el CSS. Se suscribe al servicio de temas, con el fin de manterse actualizado ante cualquier cambio en dicho servicio. 
+Este método del TypeScript hace un llamado al componente y lo inicia, en particular carga los datos generados desde el HTML y el CSS. Se suscribe al servicio de temas, con el fin de mantenerse actualizado ante cualquier cambio en dicho servicio. 
 ``` ts
-  ngOnInit(): void {
-    this.subscription = this._themeService.currentTheme.subscribe(theme => {
-      this.theme = theme;
-    })
-  }
+ngOnInit(): void {
+  this.subscription = this._themeService.currentTheme.subscribe(theme => {
+    this.theme = theme;
+  })
+}
 ``` 

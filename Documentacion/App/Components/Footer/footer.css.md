@@ -1,4 +1,4 @@
-# Documentacion footer.css
+# Documentación footer.css
 
 ### Esta sección contiene la documentación del footer.css del componente footer de la página web. Dentro de su estructura visual posee: 
 * Footer: Esta sección detallará información adicional sobre la página, se divide en 3 secciones, la primera es un divisor, la segunda contiene el logo del Observatorio, el logo de la UCR con un enlace respectivo a la página oficial y la tercera contiene enlaces hacia las páginas de preguntas frecuentes, mapa del sitio y de contacto.
@@ -32,14 +32,14 @@ La clase **.footer-edge** contiene los bordes externos definidos para las seccio
 }
 ``` 
 
-La etiqueta **p** de clase *.footer-edge* se utiliza para los párrafos de dicha clase.
+La etiqueta **p** de la clase *.footer-edge* se utiliza para los párrafos de dicha clase.
 ``` css
 .footer-edge p {
   font-size: 1rem;
 }
 ``` 
 
-La etiqueta **a** de clase *.footer-edge* se utiliza para los enlaces de dicha clase.
+La etiqueta **a** de la clase *.footer-edge* se utiliza para los enlaces de dicha clase.
 ``` css
 .footer-edge a {
   color: var(--font-4);
@@ -73,7 +73,7 @@ El identificador **#bottom** se utiliza junto con la clase *.footer-edge* para d
 }
 ``` 
 
-La etiqueta **p** de clase *.footer-brand* se utiliza para los párrafos de dicha clase.
+La etiqueta **p** de la clase *.footer-brand* se utiliza para los párrafos de dicha clase.
 ``` css
 .footer-brand p {
   margin-top: unset;
@@ -81,7 +81,7 @@ La etiqueta **p** de clase *.footer-brand* se utiliza para los párrafos de dich
 }
 ``` 
 
-La etiqueta **p** de clase *.footer-copyright* se utiliza para los párrafos de dicha clase. 
+La etiqueta **p** de la clase *.footer-copyright* se utiliza para los párrafos de dicha clase. 
 ``` css
 .footer-copyright p {
   margin-top: unset;

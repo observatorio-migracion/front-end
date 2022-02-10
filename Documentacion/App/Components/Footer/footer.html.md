@@ -1,4 +1,4 @@
-# Documentacion footer.html
+# Documentación footer.html
 
 ### Esta sección contiene la documentación del footer.html del componente footer de la página web. Dentro de su estructura visual posee: 
 * Footer: Esta sección detallará información adicional sobre la página, se divide en 3 secciones, la primera es un divisor, la segunda contiene el logo del Observatorio, el logo de la UCR con un enlace respectivo a la página oficial y la tercera contiene enlaces hacia las páginas de preguntas frecuentes, mapa del sitio y de contacto.
@@ -7,14 +7,14 @@
 Esta etiqueta **div** tiene la clase *footer* y encapsula todo el código base del footer.
 ``` html 
 <div class="footer">
-     ...
+  ...
 </div>
 ``` 
 
 Esta etiqueta **div** tiene la clase *footer-container*, su funcionalidad principal es ser un contenedor para los elementos del footer.
 ``` html 
 <div class="footer-container">
-     ...
+  ...
 </div>     
 ``` 
 
