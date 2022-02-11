@@ -64,15 +64,15 @@
 
 ## Definiciones, acrónimos y abreviaturas
 
-**Inicio**: Página principal del sitio web.
-**Blog**: Página que recopila todas las publicaciones que se han realizado en el sitio web.
-**Nosotros**: Página que brinda un apartado informativo sobre los involucrados en el proyecto.
-**Directorio**: Apartado ubicado en la página inicio que brinda información de contacto con algunos entes afines al proyecto de TCU.
-**Publicaciones**: Elementnos informativos publicados en la página para ser consultados por los usuarios que visiten el sitio web.  
-**Eventos**: Registro de eventos informativos, estos poseen título, fecha, enlace y descripción.
-**Categorías**: Clasificaciones que posee la página para aplicar a las distintas publicaciones que se registren.
-**Contacto**: Información específica sobre algún ente a fin al proyecto.
-**UCR**: Universidad de Costa Rica
+* **Inicio**: Página principal del sitio web.
+* **Blog**: Página que recopila todas las publicaciones que se han realizado en el sitio web.
+* **Nosotros**: Página que brinda un apartado informativo sobre los involucrados en el proyecto.
+* **Directorio**: Apartado ubicado en la página inicio que brinda información de contacto con algunos entes afines al proyecto de TCU.
+* **Publicaciones**: Elementnos informativos publicados en la página para ser consultados por los usuarios que visiten el sitio web.  
+* **Eventos**: Registro de eventos informativos, estos poseen título, fecha, enlace y descripción.
+* **Categorías**: Clasificaciones que posee la página para aplicar a las distintas publicaciones que se registren.
+* **Contacto**: Información específica sobre algún ente a fin al proyecto.
+* **UCR**: Universidad de Costa Rica
 
 ## Introducción
 
