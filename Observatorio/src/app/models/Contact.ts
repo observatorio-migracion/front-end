@@ -1,5 +1,5 @@
 export class Contact {
-  numberList: any;
+  numberList: string[] | undefined;
 
   constructor(
         public id: string,

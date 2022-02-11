@@ -41,7 +41,7 @@ export class PostComponent implements OnInit {
 
   async loadPost() {
     const id: string | null = this.router.snapshot.paramMap.get('id');
-    const styles = postStyleConfig;
+    // const styles = postStyleConfig;
     if (id) {
       this.postService.getPostById(id).subscribe((post) => {
         this.title = post.titulo;

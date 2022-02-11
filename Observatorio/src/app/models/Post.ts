@@ -15,7 +15,7 @@ export class Thumbnail {
 
   size: number | undefined;
 
-  path?: any | undefined;
+  path?: string | undefined;
 
   url: string | undefined;
 }
@@ -35,7 +35,7 @@ export class Large {
 
   size: number | undefined;
 
-  path?: any | undefined;
+  path?: string | undefined;
 
   url: string | undefined;
 }
@@ -55,7 +55,7 @@ export class Medium {
 
   size: number | undefined;
 
-  path?: any | undefined;
+  path?: string | undefined;
 
   url: string | undefined;
 }
@@ -75,7 +75,7 @@ export class Small {
 
   size: number|undefined;
 
-  path?: any|undefined;
+  path?: string | undefined;
 
   url: string|undefined;
 }
@@ -115,11 +115,11 @@ export class Miniatura {
 
   url: string|undefined;
 
-  previewUrl?: any|undefined;
+  previewUrl?: string|undefined;
 
   provider: string|undefined;
 
-  providerMetadata?: any|undefined;
+  providerMetadata?: string|undefined;
 
   createdAt: Date|undefined;
 
@@ -137,7 +137,8 @@ export class Categoria {
 
   updatedAt: Date|undefined;
 
-  imagen:any |undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imagen: any | undefined;
 }
 
 export class Post {

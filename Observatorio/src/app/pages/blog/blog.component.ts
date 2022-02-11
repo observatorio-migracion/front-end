@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint max-len: ["error", { "code": 120 }] */
 /* eslint class-methods-use-this: ["error", { "exceptMethods": ["goTop",] }] */
 /* eslint no-return-assign: ["error"] */

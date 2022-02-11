@@ -77,7 +77,7 @@ export class PhonebookComponent implements OnInit {
 
   showContact(contact:Contact) {
     this.contactSelected = contact;
-    const contactNumbers: string[] = this.contactSelected.numero.split(',');
+    // const contactNumbers: string[] = this.contactSelected.numero.split(',');
   }
 
   renderFirstLetter(contact:Contact, prev:Contact, index:number) {

@@ -1,4 +1,5 @@
 /* eslint no-param-reassign: ["error"] */
+/* eslint array-callback-return: "error" */
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ShowdownConverter } from 'ngx-showdown';
@@ -100,7 +101,7 @@ private postService:PostService,
   loadCategories() {
     this.postService.getEnabledCategories(this.categoriesLimit).subscribe(
       (categories: Categoria[]) => {
-        categories.map((value: Categoria) => {
+        categories.forEach((value: Categoria) => {
           if (value.imagen) {
             value.imagen.formats.small.url = this.api
               + value.imagen.formats.small.url;// TODO: Recordar cambiarlo para el deploy

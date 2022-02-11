@@ -4,12 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-CR';
 
 // config
-import { environment } from 'src/environments/environment';
+// import { environment } from 'src/environments/environment';
 
 // angular material
 import { MatButtonModule } from '@angular/material/button';

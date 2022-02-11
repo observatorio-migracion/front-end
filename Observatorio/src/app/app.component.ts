@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
     const body = document.querySelector('body');
     if (body) {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        const newColorScheme = e.matches ? 'dark' : 'light';
+        // const newColorScheme = e.matches ? 'dark' : 'light';
         if (e.matches) {
           body.classList.add('dark');
           window.localStorage.setItem('theme', 'dark');
