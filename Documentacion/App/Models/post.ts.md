@@ -1,10 +1,10 @@
 # Documentación Post.ts
-Esta sección contiene la documentación del código .ts de los módulos para la base de datos de la página web. Estas secciones corresponden los modelos que se utiliza para formar la base de datos de la página.
+### Esta sección contiene la documentación del código Post.ts de los módulos para la base de datos de la página web. Estas secciones corresponden los modelos que se utilizan para formar la base de datos de la página.
 
 ### Código
-Esta clase define Thumbnail, que corresponde para el formato de  las imagenes miniaturas de una publicación del blog de la página.
-Tiene los atributos de nombre, hash, ext, mime, ancho, alto, tamaño, path y url.
 
+Esta clase define Thumbnail, que corresponde al formato de las imagenes miniaturas de una publicación del blog de la página.
+Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
 export class Thumbnail {
     name: string | undefined;
@@ -19,8 +19,8 @@ export class Thumbnail {
 }
 ``` 
 
-Esta clase define Large, que corresponde al tipo largo de tamaños de formatos de las imagenes miniaturas de las publicaciones
-Tiene los atributos de nombre, hash, ext, mime, ancho, alto, tamaño, path y url.
+Esta clase define Large, que corresponde al tipo largo de tamaños de formatos de las imagenes miniaturas de las publicaciones.
+Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
 export class Large {
     name: string | undefined;
@@ -35,8 +35,8 @@ export class Large {
 }
 ``` 
 
-Esta clase define Medium, que corresponde al lo tipo mediano de tamaños de formatos de las imagenes miniaturas de las publicaciones
-Tiene los atributos de nombre, hash, ext, mime, ancho, alto, tamaño, path y url.
+Esta clase define Medium, que corresponde al tipo mediano de tamaños de formatos de las imagenes miniaturas de las publicaciones.
+Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
 export class Medium {
     name: string | undefined;
@@ -51,8 +51,8 @@ export class Medium {
 }
 ``` 
 
-Esta clase define Small, que corresponde al lo tipo  pequeño de tamaños de formatos de las imagenes miniaturas de las publicaciones
-Tiene los atributos de nombre, hash, ext, mime, ancho, alto, tamaño, path y url.
+Esta clase define Small, que corresponde al tipo pequeño de tamaños de formatos de las imagenes miniaturas de las publicaciones.
+Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
 export class Small {
     name: string | undefined;
@@ -68,7 +68,7 @@ export class Small {
 ```  
 
 Esta clase define Formats, que corresponde a los formatos de las imagenes miniaturas de las publicaciones. 
-Tiene los atributos de la clase thumbnail, los diferentes atributos de la clase Large: largo, medio, pequeño.
+Declara las variables: *thumbnail*, *large*, *medium* y *small*.
 ```  ts
 export class Formats {
     thumbnail: Thumbnail  |undefined;
@@ -79,7 +79,7 @@ export class Formats {
 ``` 
 
 Esta clase define Miniatura, que corresponde a las imagenes miniatutas de las publicaciones. 
- Tiene los atributos de id que es el identificador de la imagen, el nombre, el texto alternativo, caption, ancho, alto, el formato de la imagen que es otra clase, un hash, ext, tamaño, url, url de preview, provider, metadata provider, fecha de creación y fecha de actualización.
+Declara las variables: *id*, *name*, *alternativeText*, *caption*, *width*, *height*, *formats*, *hash*, *ext*, *mime*, *size*, *url*, *previewUrl*, *provider*, *providerMetadata*, *createdAt* y *updatedAt*.
 ```  ts
 export class Miniatura {
     id: string|undefined;
@@ -96,36 +96,36 @@ export class Miniatura {
     url: string|undefined;
     previewUrl?: any|undefined;
     provider: string|undefined;
-    provider_metadata?: any|undefined;
-    created_at: Date|undefined;
-    updated_at: Date|undefined;
+    providerMetadata?: any|undefined;
+    createdAt: Date|undefined;
+    updatedAt: Date|undefined;
 }
 ``` 
 
-Esta clase define Categoria, que corresponde a las imagenes miniatutas de las publicaciones. 
- Tiene los atributos de id que es el identificador de la categoría, nombre, fecha de publicación en la página, fecha de creación, fecha de actualización y la imagen.
+Esta clase define Categoria, que corresponde a las imagenes miniatutas de las categorías. 
+Declara las variables: *id*, *nombre*, *publishedAt*, *createdAt*, *updatedAt* y *imagen*.
 ```  ts
 export class Categoria {
     id: string|undefined;
     nombre: string|undefined;
-    published_at: Date|undefined;
-    created_at: Date|undefined;
-    updated_at: Date|undefined;
+    publishedAt: Date|undefined;
+    createdAt: Date|undefined;
+    updatedAt: Date|undefined;
     imagen:any |undefined;
 }
 ``` 
 
-sta clase define Post, que corresponde a las publicaciones. 
- Tiene los atributos de id que es el identificador de la publicación, titulo, contenido del post, descripción del post,fecha de publicación en la página, fecha de creación, fecha de actualización. Además tiene la imagen de miniatura asociada a la categoría de post y un array(lista) de categorías que puede tener una publicación.
+Esta clase define Post, que corresponde a las publicaciones. 
+Declara las variables: *id*, *titulo*, *contenido*, *descripcion*, *publishedAt*, *createdAt*, *updatedAt*, *miniatura* y *categorias*.
 ``` ts
 export class Post {
     id: string|undefined;
     titulo: string|undefined;
     contenido: string|undefined;
     descripcion: string|undefined;
-    published_at: Date|undefined;
-    created_at: Date|undefined;
-    updated_at: Date|undefined;
+    publishedAt: Date|undefined;
+    createdAt: Date|undefined;
+    updatedAt: Date|undefined;
     miniatura: Miniatura|undefined;
     categorias: Categoria[]|undefined;
 }

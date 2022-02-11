@@ -1,7 +1,8 @@
 # Documentación theme.ts
-Esta sección contiene la documentación del código .ts del servicio theme de la página web. Estas secciones corresponden a peticiones get al backend de los cuales se obtiene los datos que trabaja y muestra la página.
+### Esta sección contiene la documentación del código theme.ts del servicio theme de la página web. Estas secciones corresponden a peticiones *get* al backend por medio de las cuales se obtienen los datos que trabaja y muestra la página.
 
 ### Código
+
 Importa el componente Injectable desde la API Core de Angular. Las dependencias son servicios u objetos que una clase necesita para realizar su función. La inyección de dependencia, o DI, es un patrón de diseño en el que una clase solicita dependencias de fuentes externas en lugar de crearlas.
 ``` ts
 import { Injectable } from '@angular/core';
@@ -19,32 +20,30 @@ El servicio en sí es una clase generada por la CLI y decorada con ella. Por def
 })
 ```
 
-Exporta la clase para ser usada en otras instancias
+Exporta la clase para ser utilizada en otras instancias.
 ``` ts
 export class ThemeService {
-    // codigos siguientes
+    //...
 }
 ```
 
-Para la claseThemesService se crean dos varibles una privadallamada themeSource que corresponde a un BehaviorSubject de tipo string y a un Observable de tipo string llamado currentTheme.
+Se definen dos atributos en la clase *ThemeService*: *themeSource* y *currentTheme*. 
 ``` ts
-  private themeSource:BehaviorSubject<string>;
-  public currentTheme:Observable<string>;
+private themeSource:BehaviorSubject<string>;
+public currentTheme:Observable<string>;
 ```
 
-Constructor de la clase ThemeService, sin parametros pero que si asigna al atributothemeSourceun nuevo BehaviorSubject dependiendo si ya tiene en e almacenamento local un thema elegido o sino le presenta el claro. Además asigna al atributo currentTheme del themeSource como Observable. 
+El constructor de la clase *ThemeService* inicializa dos variables.
 ``` ts
-  constructor() { 
-    this.themeSource = new BehaviorSubject(window.localStorage.getItem('theme') || 'light');
-    this.currentTheme = this.themeSource.asObservable();
-  }
+constructor() { 
+  this.themeSource = new BehaviorSubject(window.localStorage.getItem('theme') || 'light');
+  this.currentTheme = this.themeSource.asObservable();
+}
 ```
 
-Método de la clase THemeService llamado setTheme, dicho método recibe un parámetro string llamado thema y al atributo del themeSource con el metodo de BheaviorSubject next() envía como parametro el tema recibido.
-
+Método de la clase *ThemeService* llamado **setTheme**, define el tema de la página web en base al parámetro recibido.
 ``` ts
-  setTheme(theme: string){
-    this.themeSource.next(theme);
-  }
+setTheme(theme: string){
+  this.themeSource.next(theme);
 }
 ```

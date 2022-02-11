@@ -1,18 +1,17 @@
 # Documentación post.ts
-Esta sección contiene la documentación del código .ts del servicio post de la página web. Estas secciones corresponden a peticiones get al backend de los cuales se obtiene los datos que trabaja y muestra la página.
+### Esta sección contiene la documentación del código post.ts del servicio post de la página web. Estas secciones corresponden a peticiones *get* al backend por medio de las cuales se obtienen los datos que trabaja y muestra la página.
 
 ### Código
+
 Importa el componente Injectable desde la API Core de Angular. Las dependencias son servicios u objetos que una clase necesita para realizar su función. La inyección de dependencia, o DI, es un patrón de diseño en el que una clase solicita dependencias de fuentes externas en lugar de crearlas.
 ``` ts
 import { Injectable } from '@angular/core';
 ```  
 
-
 Importa el componente Observable desde la API rxjs. Los Observables brindan soporte para pasar mensajes entre partes de su aplicación. Se utilizan con frecuencia en Angular y son una técnica para el manejo de eventos, la programación asincrónica y el manejo de múltiples valores.
 ``` ts
 import { Observable, of } from 'rxjs';
 ``` 
-
 
 Importa los componentes filter y map desde la API rxjs. El opearador filter sive para filtrar los valores emitidos por la fuente. El operador map sirve paraque en los observables mappear valores en tipos de datos diferentes.
 ``` ts
@@ -41,67 +40,66 @@ El servicio en sí es una clase generada por la CLI y decorada con ella. Por def
 })
 ``` 
 
-Exporta la clase para ser usada en otras instancias
+Exporta la clase para ser utilizada en otras instancias.
 ``` ts
 export class PostService {
- // códigos siguientes
+ //...
 ``` 
 
-Crea dos atributos de la clase PostServise. El primero es llamdo postList el cual corresponde a un arregla de post. El segundo es llamado url que es de tipo string.  
+Se definen dos atributos en la clase *PostService*: *postsList* y *url*. 
 ``` ts
-  private postsList: Post[];
-  private url: string;
+private postsList: Post[];
+private url: string;
 ``` 
 
-Constructor de la clase PostService,  recibe un parametro de tipo HttpClient, crea un arreglo de post que iguala al atributo de la clase y  una obtiene una url del ambiente que de igual manera iguala al atributo de la clase.
+El constructor de la clase *PostService* inicializa dos variables y recibe el cliente HTTP.
 ``` ts
-  constructor(private _http: HttpClient) {
-    this.postsList = new Array<Post>();
-    this.url = environment.api.url;
-  }
+constructor(private _http: HttpClient) {
+  this.postsList = new Array<Post>();
+  this.url = environment.api.url;
+}
 ``` 
 
-El método de la clase PostService llamado getPostListSize, dicho método recibe un parámetro de tipo string con el filtro de categoría, un parametro de tipo string de parametros a buscar y un observable de tipo any, posteriormente devuelve la petición get obtenida a través HttpClient retornando post dependiendo de el filtro y los parametros consultados.
+Método de la clase *PostService* llamado **getPostsListSize**, retorna la cantidad de publicaciones con los parámetros recibidos.
 ``` ts
-  getPostsListSize(categoryFilter: string, searchParams: string = ''): Observable<any> {
-    return this._http.get(`${this.url}/posts/count?${categoryFilter}${searchParams}`);
-  }
+getPostsListSize(categoryFilter: string, searchParams: string = ''): Observable<any> {
+  return this._http.get(`${this.url}/posts/count?${categoryFilter}${searchParams}`);
+}
 ``` 
 
-Método de la clase PostService llamado getPostList, dicho método recibe un parámetro de tipo string con el filtro de la categoría, un parámetro llamado searchParam tipo string que son paametroa a buscar, un parámetro de tipo entero con la posición inicial, un parámetro de tipo entero con la posición final posteriormente y un observable de arreglo de Post. Devuelve la petición get obtenida a través HttpClient retornando el arreglo de post definido por los valores de filtro de categoría, parametros a bucar, inicio y final.
+Método de la clase *PostService* llamado **getPostList**, retorna la lista de publicaciones con los parámetros recibidos.
 ``` ts
-  getPostList(categoryFilter: string = '', searchParams: string = '', start: number = 0, limit: number = 4): Observable<Post[]> {
-    return this._http.get<Post[]>(`${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`);
-  }
+getPostList(categoryFilter: string = '', searchParams: string = '', start: number = 0, limit: number = 4): Observable<Post[]> {
+  return this.http.get<Post[]>(`${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`);
+}
 ``` 
 
-El método de la clase PostService llamado getRecentPostList, dicho método recibe un parámetro de tipo string para ordenar, un parametro de numero con el limite final y un observable de tipo arreglo de post, posteriormente devuelve la petición get obtenida a través HttpClient retornando post ordenados y hasta el limite final definido en los paramtros.
+Método de la clase *PostService* llamado **getPostList**, retorna la lista de publicaciones recientes con los parámetros recibidos.
 ``` ts
-  getRecentPostList(sort: string = '', limit: number = 4): Observable<Post[]> {
-    return this._http.get<Post[]>(`${this.url}/posts?_sort=${sort}&_limit=${limit}`);
-  }
+getRecentPostList(sort: string = '', limit: number = 4): Observable<Post[]> {
+  return this.http.get<Post[]>(`${this.url}/posts?_sort=${sort}&_limit=${limit}`);
+}
 ``` 
 
-El método de la clase PostService llamado getPostById, dicho método recibe un parámetro de tipo string con el identificador y un observable de tipo post, posteriormente devuelve la petición get obtenida a través HttpClient retornando el post respectivo al Id.
+Método de la clase *PostService* llamado **getPostById**, retorna la publicación que corresponde al parámetro *id* recibido.
 ``` ts
-  getPostById(id: string): Observable<Post> {
-    return this._http.get<Post>(`${this.url}/posts/${id}`);
-  }
+getPostById(id: string): Observable<Post> {
+  return this.http.get<Post>(`${this.url}/posts/${id}`);
+}
 ``` 
 
-El método de la clase PostService llamado getEnabledCategorie, dicho método recibe un parámetro de tipo numero como el limitefinal, si este es 0 significa que son todos los elementos, y un observable de tipo arreglo de Categorias, posteriormente devuelve la petición get obtenida a través HttpClient retornando las categorías dependiendo del límite final.
+Método de la clase *PostService* llamado **getEnabledCategories**, retorna las categorías en base al parámetro *limit* recibido.
 ``` ts
-  //if limit === 0 returns all the elements
-  getEnabledCategories(limit: number = 0): Observable<Categoria[]> {
-    return this._http.get<Categoria[]>(`${this.url}/categories${(limit) ? "?_limit=" : ""}${(limit)?limit:""}`);
-  }
+//if limit === 0 returns all the elements
+getEnabledCategories(limit: number = 0): Observable<Categoria[]> {
+  return this.http.get<Categoria[]>(`${this.url}/categories${(limit) ? "?_limit=" : ""}${(limit)?limit:""}`);
+}
 ``` 
 
-El método de la clase PostService llamado searchByKeywords, dicho método recibe un parámetro de tipo string con el keyword y un observable de tipo arreglo de Post, posteriormente devuelve un arreglo de post de la petición get obtenida a través HttpClient retornando dependiendo del keyword obtenido en los parametros.
+Método de la clase *PostService* llamado **searchByKeywords**, retorna las publicaciones que corresponden al parámetro *keywords* recibido.
 ``` ts
-  //retorna un observable de un arreglo de posts;
-  searchByKeywords(keywords: string): Observable<Post[]> {
-    return this._http.get<Post[]>(`${this.url}/posts?${keywords}`);
-  }
+//retorna un observable de un arreglo de posts;
+searchByKeywords(keywords: string): Observable<Post[]> {
+  return this.http.get<Post[]>(`${this.url}/posts?${keywords}`);
 }
 ``` 

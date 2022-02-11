@@ -1,8 +1,10 @@
 # Documentación activity.ts
-Esta sección contiene la documentación del código .ts de los módulos para la base de datos de la página web. Estas secciones corresponden los modelos que se utiliza para formar la base de datos de la página. 
+### Esta sección contiene la documentación del código activity.ts de los módulos para la base de datos de la página web. Estas secciones corresponden los modelos que se utilizan para formar la base de datos de la página. 
 
 ### Código
-Esta clase define Activity, que corresponde un evento de la página. Tiene los atributos de id que es el identificador del evento, nombre, fecha, descripción, fecha de publicación en la página, fecha de creación, fecha de actualización, una arreglo de imágenes y un atributo que peude tener texto asociado a la reunion. 
+
+Esta clase define Activity, que corresponde a un evento de la página. 
+Declara las variables: *id*, *nombre*, *fecha*, *descripcion*, *publishedAt*, *createdAt*, *updatedAt*, *imagenes* y *reunion*.
 ``` ts
 export class Activity {
     constructor(
@@ -10,9 +12,9 @@ export class Activity {
         public nombre: string,
         public fecha: Date,
         public descripcion: string,
-        public published_at: string,
-        public created_at: string,
-        public updated_at: string,
+        public publishedAt: string,
+        public createdAt: string,
+        public updatedAt: string,
         public imagenes: Imagenes[],
         public reunion: string
     ) { }
@@ -20,7 +22,7 @@ export class Activity {
 ```
 
 Esta clase define Imagenes, que corresponde a una imagenes, utilizadas en eventos, miniaturas de publicaciones y categorías.
- Tiene los atributos de id que es el identificador de la imagen, el nombre, el texto alternativo, caption, ancho, alto, el formato de la imagen que es otra clase, un hash, ext, tamaño, url, url de preview, provider, metadata provider, fecha de creación y fecha de actualización.
+Declara las variables: *id*, *name*, *alternativeText*, *caption*, *width*, *height*, *formats*, *hash*, *ext*, *mime*, *size*, *url*, *previewUrl*, *provider*, *providerMetadata*, *createdAt* y *updatedAt*.
 ``` ts
 export class Imagenes {
     constructor(
@@ -38,14 +40,15 @@ export class Imagenes {
         public url: string,
         public previewUrl: null,
         public provider: string,
-        public provider_metadata: null,
-        public created_at: string,
-        public updated_at: string,
+        public providerMetadata: null,
+        public createdAt: string,
+        public updatedAt: string,
     ) { }
 }
 ```
 
-Esta clase define Formats, que corresponde a los formatos  utilizados en las imagenes. Tiene los atributos de la clase thumbnail, los diferentes atributos de la clase Large: largo, medio, pequeño.
+Esta clase define Formats, que corresponde a los formatos utilizados en las imagenes.
+Declara las variables: *thumbnail*, *large*, *medium* y *small*.
 ``` ts
 export class Formats {
     constructor(
@@ -57,7 +60,8 @@ export class Formats {
 }
 ```
 
-Esta clase define Large, que corresponde a una el largo de los formatos utilizados en las imagenes. Tiene los atributos de nombre, hash, ext, ancho, alto, tamaño, path y url. 
+Esta clase define Large, que corresponde al largo de los formatos utilizados en las imagenes.  
+Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
 export class Large {
     constructor(
