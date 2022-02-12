@@ -49,9 +49,12 @@ hr {
   margin-bottom: 16px;
 }
 
-#logo {
-  padding-top: 0.5rem;
-  padding-right: 1rem;
+.no-transition {
+  transition: height 0.01s;
+}
+
+navbar-toggler {
+  margin-right: 1rem;
 }
 
 @media (min-width: 1024px) {
@@ -135,14 +138,6 @@ hr {
     text-align: center;
     padding-top: 20%;
   }
-
-  /* .navbar-nav {
-    height: 100vh;
-  } */
-}
-
-.no-transition {
-  transition: height 0.01s;
 }
 
 @media (min-width: 767px) {
@@ -151,8 +146,4 @@ hr {
     justify-content: flex-end;
     margin: 0 auto;
   }
-}
-
-navbar-toggler {
-  margin-right: 1rem;
 }
