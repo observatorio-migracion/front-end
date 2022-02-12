@@ -1,12 +1,8 @@
 # Documentación post-card.ts
-
- Esta sección contiene la documentación del Código .ts del componente post-card de la página web. Dentro de su estructura visual posee: 
-*  Botón de forma rectangular con la información de la publicación: Este botón en particular posee varias secciones, la primera corresponde a la imagen situada en la parte más superior del botón, posteriormente seguido de la imagen podemos encontrar un identificador con la fecha de la publicación, seguido justamente debajo encontramos el título que identifica a la publicación, seguidamente encontramos los botones a las categorías ligadas a la publicación estos son clickeables y por último en la parte más inferior encontramos una descripción de la publicación. Este tipo de botones los podemos encontrar en la sección de posts del navbar y en el inicio de la página. 
+*  Botón de forma rectangular con la información de la publicación: Este botón posee 5 secciones: la primera, corresponde a la imagen situada en la parte más superior del botón; la segunda, es un identificador con la fecha de la publicación; la tercera, corresponde al título que identifica a la publicación; la cuarta, son los botones a las categorías ligadas a la publicación, los cuales son clickeables y la quinta, es una descripción de la publicación. Este tipo de botones los podemos encontrar en la sección de posts del navbar y en el inicio de la página. 
 
 ### Código
-
 Importa los componentes Component, OnInit e Input desde la API Core de Angular
-
 ``` ts
 import { Component, OnInit, Input } from '@angular/core';
 ```
@@ -16,12 +12,12 @@ Importa el componente THIS_EXPR desde la API Core de Angular
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 ```
 
-Importa Categories y Post de la carpeta fuente src local del programa
+Importa desde la carpeta models el modelo de Categories y Post.
 ``` ts
 import { Categoria, Post } from 'src/app/models/Post';
 ```
 
-Importa parseURLImage de la carpeta fuente src local del programa ubicada en helpers
+Importa desde la carpera helpers el ayudador parseURLImage.
 ``` ts
 import { parseURLImage } from '../../helpers/URLparser';
 ```
@@ -52,63 +48,63 @@ export class PostCardComponent implements OnInit {
 }
 ```
 
-Asigna una variable llamada id de tipo string que contiene el valor del identificador para el elemento actual, definido por defecto como indefinido.
+Asigna una variable llamada id de tipo string que contiene el valor del identificador para el elemento actual.
 ``` ts
 id: string | undefined;
 ```
 
-Asigna una variable llamada title de tipo string que contiene el valor del título para el elemento actual, definido por defecto como indefinido.
+Asigna una variable llamada title de tipo string que contiene el valor del título para el elemento actual.
 ``` ts
 title: string | undefined;
 ```
 
-Asigna una variable llamada description de tipo string que contiene el valor de la description para el elemento actual, definido por defecto como indefinido.
+Asigna una variable llamada description de tipo string que contiene el valor de la description para el elemento actual.
 ``` ts
 description: string | undefined;
 ```
 
-Asigna una variable llamada image de tipo string que contiene el valor del path de la imagen para el elemento actual, definido por defecto como indefinido.
+Asigna una variable llamada image de tipo string que contiene el valor del path de la imagen para el elemento actual.
 ``` ts
 image: string | undefined;
 ```
 
-Asigna un arreglo llamado categories de tipo Categoria que recibe la lista de categorias del elemento actual, definido por defecto como indefinido.
+Asigna un arreglo llamado categories de tipo Categoria que recibe la lista de categorias del elemento actual.
 ``` ts
 categories: Categoria[] | undefined;
 ```
 
-Asigna una variable llamada date de tipo Date que recibe la fecha de creación del elemento actual, definido por defecto como indefinido.
+Asigna una variable llamada date de tipo Date que recibe la fecha de creación del elemento actual.
 ``` ts
 date: Date | undefined;
 ```
 
-Recibe un elemento de tipo Post el cual es un atributo dado por la entrada, definido por defecto como indefinido
+Recibe un elemento de tipo Post el cual es un atributo dado por la entrada.
 ``` ts
 @Input() post: Post | undefined;
 ```
 
-Método constructor de la clase, definido vacío por defecto.
+Método constructor de la clase.
 ``` ts
 constructor() { }
 ```
 
-Método void que opera a la clase.
+Método void que opera la clase.
 ``` ts
 ngOnInit(): void {
 }
 ```
 
-Llamada en el ngOnInit, asigna el valor a la variable local del id del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
+Llamada en el ngOnInit. Asigna el valor a la variable local del id del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
 ``` ts
 this.id = this.post?.id;
 ```
 
-Llamada en el ngOnInit, asigna el valor a la variable local del title del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
+Llamada en el ngOnInit. Asigna el valor a la variable local del title del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
 ``` ts
 this.title = this.post?.titulo;
 ```
 
-Llamada en el ngOnInit, asigna el valor a la variable local del description del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
+Llamada en el ngOnInit. Asigna el valor a la variable local del description del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
 ``` ts
 this.description = this.post?.descripcion;
 ```
@@ -118,17 +114,17 @@ Llamada en el ngOnInit, mediante el método de parse de la clase, toma el url de
 this.image = parseURLImage(this.post?.miniatura?.formats?.medium?.url);
 ```
 
-Llamada en el ngOnInit, asigna el valor a la variable local del categories del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
+Llamada en el ngOnInit. Asigna el valor a la variable local del categories del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
 ``` ts
 this.categories = this.post?.categorias;
 ```
 
-Llamada en el ngOnInit, asigna el valor a la variable local de date del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
+Llamada en el ngOnInit. Asigna el valor a la variable local de date del elemento recibido como entrada si este es válido, sino mantiene su valor por defecto.
 ``` ts
 this.date = this.post?.published_at;
 ```
 
-Método de la clase post-card.ts que recibe un delimitador llamado delimiter y una hilera llamada str, modifica el valor entrado por parámetro con la dirección del path, cuyo valor obtenido es retornado 
+Método de la clase post-card.ts que recibe un delimitador llamado delimiter y una hilera llamada str. Modifica el valor entrado por parámetro con la dirección del path y retorna el valor obtenido.
 ``` ts
 parseString(delimiter: number, str: string | undefined) {
     let result: string = '';

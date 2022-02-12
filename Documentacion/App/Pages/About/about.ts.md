@@ -1,16 +1,14 @@
 # Documentación about.ts
 
- Esta sección contiene la documentación del codigo .ts del elemento about de la página web. Dentro de su estructura visual posee: 
-*  Barra de navegación: conformada por cuatro botones con sus respectivas etiquetas, el primero lleva a la página principal, el segundo es el corresponde al botón que redirige al mismo blog, el tercer botón redirige a la página de nosotros, y el cuarto al área de directorio.
-*  Botón superior de modo oscuro/claro: el botón se sitúa en el margen superior izquierdo, dicho botón es deslizable y se encuentra anclado, su función es intercalar el modo oscuro claro y es capaz de recordar su última elección.
-*  Botón superior Inicio: un botón ubicado en el margen superior izquierdo debajo del botón de modo oscuro claro, su función consiste en volver a la página inicio.
-*  Botón logo UCR: un botón anclado en el margen superior derecho, su función es redirigir a la página de la Universidad de Costa Rica.
-*  Cuerpo de la página: comprende el centro de la página web en esta sección contiene notas sobre la agrupación que llevo a cabo el proyecto y alguna información extra.
+### Esta sección contiene la documentación del codigo .ts del elemento about de la página web. Dentro de su estructura visual posee: 
+*  Barra de navegación: conformada por cuatro botones con sus respectivas etiquetas: el primero, lleva a la página principal; el segundo, redirige al mismo blog; el tercero, redirige a la página de nosotros y el cuarto, al área de directorio.
+*  Botón superior de modo oscuro/claro: situado en el margen superior izquierdo, es deslizable y se encuentra anclado, su función es intercalar el modo oscuro claro y es capaz de recordar su última elección.
+*  Botón superior de Inicio: ubicado en el margen superior izquierdo, debajo del botón de modo oscuro claro. Su función consiste en volver a la página inicio.
+*  Botón logo UCR: anclado en el margen superior derecho. Su función es redirigir a la página de la Universidad de Costa Rica.
+*  Cuerpo de la página: comprende el centro de la página web. Contiene notas sobre el por qué se lleva a cabo el proyecto y de qué trata.
 
 ### Código
-
-Importa los componentes Component y OnInit desde la API Core de Angular
-
+Importa los componentes Component y OnInit desde la API Core de Angular.
 ``` ts
 import { Component, OnInit } from '@angular/core';
 ```
@@ -40,12 +38,12 @@ export class AboutComponent implements OnInit {
 }
 ```
 
-Inicializa el constructor del componente con los atributos privado, en particular este se encuentra vacío debido a que no se pensaron valores en particular para inicializar
+Inicializa el constructor del componente con los atributos privado.
 ``` ts
 constructor() { }
 ```
 
-Único método del ts, hace un llamado al componente y lo inicia, en particular carga los datos generados desde el html y el css.
+Método que hace un llamado al componente y lo inicia.
 ``` ts
 ngOnInit(): void {
   }

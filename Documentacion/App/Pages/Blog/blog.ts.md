@@ -1,46 +1,44 @@
 # Documentación blog.ts
 
-Esta sección contiene la documentación del código .ts del elemento blog de la página web. Dentro de su estructura visual posee: 
-*  Barra de búsqueda: se posiciona en el margen derecho, filtra las búsquedas del usuario de forma activa por lo que no requiere recargar la página y se encuentra anclada por lo cual no se moverá al deslizar la pagina
-*  Barra de navegación: conformada por cuatro botones con sus respectivas etiquetas, el primero lleva a la página principal, el segundo es el corresponde al botón que redirige al mismo blog, el tercer botón redirige a la página de nosotros, y el cuarto al área de directorio.
-*  Botón superior de modo oscuro/claro: el botón se sitúa en el margen superior izquierdo, dicho botón es deslizable y se encuentra anclado, su función es intercalar el modo oscuro claro y es capaz de recordar su última elección.
-*  Botón superior Inicio: un botón ubicado en el margen superior izquierdo debajo del botón de modo oscuro claro, su función consiste en volver a la página inicio.
-*  Botón logo UCR: un botón anclado en el margen superior derecho, su función es redirigir a la página de la Universidad de Costa Rica.
-*  Botón filtrar: un botón anclado en el margen izquierdo posee una barra desplegable que revela algunos botones los cuales al hacer click filtran los resultados mostrados en el curso de la página por las categorías seleccionadas.
-*  Botón de regreso a la parte superior: un botón ubicado en el margen inferior derecho se mueve junto con el scroll por lo cual no desaparece de la pantalla, su función es volver a la parte superior de la página al hacer click.
-*  Cuerpo de la página: comprende el centro de la página web en esta sección se despliegan los distintos posts que se agregan a la página, posee la propiedad de scroll infinito lo cual hace que al bajar a la página se carguen los demás posts con forme se desciende en la lista.
+### Esta sección contiene la documentación del código .ts del elemento blog de la página web. Dentro de su estructura visual posee: 
+*  Barra de búsqueda: posicionada en el margen derecho. Filtra las búsquedas del usuario de forma activa.
+*  Barra de navegación: conformada por cuatro botones con sus respectivas etiquetas: el primero, lleva a la página principal; el segundo, redirige al mismo blog; el tercero, redirige a la página de nosotros y el cuarto, al área de directorio.
+*  Botón superior de modo oscuro/claro: situado en el margen superior izquierdo, es deslizable y se encuentra anclado, su función es intercalar el modo oscuro claro y es capaz de recordar su última elección.
+*  Botón superior de Inicio: ubicado en el margen superior izquierdo, debajo del botón de modo oscuro claro. Su función consiste en volver a la página inicio.
+*  Botón logo UCR: anclado en el margen superior derecho. Su función es redirigir a la página de la Universidad de Costa Rica.
+*  Botón filtrar: anclado en el margen izquierdo. Posee una barra desplegable y filtra los resultados mostrados en la página según las categorías seleccionadas.
+*  Botón de regreso a la parte superior: ubicado en el margen inferior derecho. Se mueve con el scroll. Su función es volver a la parte superior de la página al hacer click.
+*  Cuerpo de la página: comprende el centro de la página web. En esta sección se despliegan los distintos posts.Posee la propiedad de scroll infinito, lo cual hace que al bajar en la página se carguen los demás posts.
+
 ### Código
-
-Importa los componentes Component y OnInit desde la API Core de Angular
-
+Importa los componentes Component y OnInit desde la API Core de Angular.
 ``` ts
 import { Component, OnInit } from '@angular/core';
 ```
 
-Importa ActivatedRoute y Router de la API Router de Angular
-
+Importa ActivatedRoute y Router de la API Router de Angular.
 ``` ts
 import { ActivatedRoute, Router } from '@angular/router';
 ```
 
-Importa CheckBoxData desde Models de la carpeta fuente src local del programa
+Importa desde la carpeta de models el modelo de CheckBoxData.
 ``` ts
 import { CheckBoxData } from 'src/app/models/CheckBoxData';
 ``` 
-Importa Categories y Post de la carpeta fuente src local del programa
+Importa desde la carpeta de models los modelos de Categories y Post.
 ``` ts
 import { Categoria, Post } from 'src/app/models/Post';
 ```
-Importa Posts desde Services de la carpeta fuente src local del programa
+Importa de la carpera services el servicio de Posts.
 ``` ts
 import { PostService } from 'src/app/services/post.service';
 ```
-Importa Filter de los módulos Operators de la librería RxJS de Angular
+Importa Filter de los módulos Operators de la librería RxJS de Angular.
 ``` ts
 import { filter } from 'rxjs/operators';
 ```
 
-Importa Subscription de la librería RxJS de Angular
+Importa Subscription de la librería RxJS de Angular.
 ``` ts
 import { Subscription } from 'rxjs';
 ```
@@ -64,29 +62,29 @@ Agrega un componente styleUrls que brinda la ruta relativa a un archivo que cont
 })
 ```
 
-Exporta la clase para ser usada en otras instancias
+Exporta la clase para ser usada en otras instancias.
 ``` ts
 export class BlogComponent implements OnInit {
 
 }
 ```
 
-Crea el atributo publico postStart de tipo número, indica cual es el primer post que se debe obtener 
+Crea el atributo público postStart e indica cuál es el primer post que se debe obtener .
 ``` ts
 public postStart: number;
 ```
 
-Crea el atributo publico postLimit de tipo número, indica el límite de post que se puede obtener cada vez que se haga scroll
+Crea el atributo público postLimit e indica el límite de post que se puede obtener cada vez que se haga scroll.
 ``` ts
 public readonly postLimit: number;
 ```
 
-Crea el atributo publico categoryFilter de tipo string, filtra los posts que se obtienen del backend según las categorías
+Crea el atributo público categoryFilter y filtra los posts que se obtienen del backend según las categorías.
 ``` ts
 public categoryFilter: string = '';
 ```
 
-Crea el atributo publico postListSize de tipo número, indica el tamaño de los posts actuales, puede ser el total, el filtrado por categorías o puede ser el filtrado por la búsqueda del usuario.
+Crea el atributo público postListSize e indica el tamaño de los posts actuales.
 ``` ts
 public postListSize: number;
 ```
@@ -96,22 +94,22 @@ Crea el atributo publico postsList de tipo arreglo, contiene la información de 
 public postsList: Post[];
 ```
 
-Crea el atributo publico categoriesList de tipo arreglo (checkBox), almacena los filtros de las categorías
+Crea el atributo público categoriesList y almacena los filtros de las categorías.
 ``` ts
 public categoriesList: (CheckBoxData)[] = [];
 ```
 
-Crea el atributo publico searchQuery de tipo string, dato que ingresa el usuario para realizar una búsqueda
+Crea el atributo público searchQuery y el dato que ingresa el usuario para realizar una búsqueda
 ``` ts
 public searchQuery: string = '';
 ```
 
-Crea el atributo publico searchParams de tipo string, dato que se envía al backend para ser devuelto como resultado
+Crea el atributo público searchParams y el dato que se envía al backend para ser devuelto como resultado.
 ``` ts
 public searchParams: string = '';
 ```
 
-Inicializa el constructor del componente con los atributos privado _postService importado a través de src/app/services/post.service, _activatedRoute importado a través de @angular/router y _router importado a través de @angular/router
+Inicializa el constructor del componente.
 ``` ts
 constructor(private _postService: PostService, private
 _activatedRoute:ActivatedRoute, private _router:Router) {
@@ -119,7 +117,7 @@ _activatedRoute:ActivatedRoute, private _router:Router) {
   }
 ```
 
-Inicializa los valores públicos postsList como un arreglo de Post, postListSize con el valor defecto de 0, postLimit con el valor defecto de 4, postStart con el valor defecto 0 y _router con el valor false.
+Inicializa los valores públicos.
 ``` ts
 this.postsList = new Array<Post>();
 this.postListSize = 0;
@@ -128,7 +126,7 @@ this.postStart = 0;
 this._router.routeReuseStrategy.shouldReuseRoute = () => false;
 ```
 
-Método que carga las categorías, toma el tamaño de los posts además dicho tamaño puede estar incluido con un filtro de categorías, con un filtro de búsqueda de usuario, o sin filtro y se obtiene la totalidad del tamaño de los posts, retorna error si no lo logro, de lo contrario carga los posts.
+Método que carga las categorías, toma el tamaño de los posts y carga los posts o retorna error si no lo logró.
 ``` ts
 ngOnInit(): void {
     this.loadCategories();
@@ -140,7 +138,7 @@ ngOnInit(): void {
   }
 ```
 
-Método que devuelve a la parte superior de la página mediante los valores numéricos del ScrollTop donde 0 es el inicio de la página.
+Método que devuelve a la parte superior de la página.
 ``` ts
 goTop(){
     document.body.scrollTop = 0;
@@ -148,7 +146,7 @@ goTop(){
   }
 ```
 
-Método encargado de redirigir a través de la URL a una búsqueda por filtro, la variable category recibe el valor del filtro de la selección desde el Home, luego toma la lista de categorías y las inicializa en falso para evitar que se muestren y realiza un búsqueda de la categoría recibida en primera instancia donde si coincide con la búsqueda y el resultado de la búsqueda no es null le asigna el valor de true y actualiza el valor que cambio.
+Método encargado de redirigir a través de la URL a una búsqueda por filtro.
 ``` ts
 loadCategoryFilterFromURL(){
     const category = this._activatedRoute.snapshot.paramMap.get('category');
@@ -160,7 +158,7 @@ loadCategoryFilterFromURL(){
     }
   }
 ```
-Recibe a través del servicio de categorías la lista de categorías desde el backend, luego se toman las categorías y se agregan al filtro de categorías además se le asigna al valor checkbox de falso para que por defecto no tenga ningún filtro. En caso de que no se cargue la información adecuadamente se hace un llamado a loadCategoryFilterFromURL que cargara las categorías por defecto. Por último, si el proceso se realizó de forma correcta culmina si tuvo un error lo devuelve por consola.
+Método que recibe la lista de categorías desde el backend, toma las categorías y se agregan al filtro de categorías. En caso de que no se cargue la información se cargan las categorías por defecto.
 ``` ts
 loadCategories(): void {
     this._postService.getEnabledCategories().subscribe((res: Categoria[]) => {
@@ -170,7 +168,7 @@ loadCategories(): void {
   }
 ```
 
-Toma los valores que fueron asignados como nuevos y les asigna un CheckBoxdata con un valor de filtro vacío, luego se toma la lista de categorías y toma su valor de categoría. Mediante un iterador se recorre la lista del filtro de categorías y si el valor de la categoría es verdadero se asocia a través del filtro de categorías con su nombre para poderlo filtrar. Por último, carga el post mediante el llamado loadPostList(bool) donde si el valor es true se cargan se limpian los posts y se generan o si es false se adiciona a los que ya estaban.
+Método que toma los valores que fueron asignados como nuevos y la lista de categorías, luego toma su valor de categoría y carga el post.
 ``` ts
 async valueChanged(category: CheckBoxData) {
     this.categoryFilter = '';
@@ -182,14 +180,14 @@ async valueChanged(category: CheckBoxData) {
     await this.loadPostList(true);
 ```
 
-Elimina la lista de post mediante un llamado a una promesa, esto hace que se espere hasta que el método culmine su llamado y los pueda borrar
+Método que elimina la lista de post.
 ``` ts
 async deletePostsList(): Promise<void>{
     this.postsList = [];
   }
 ```
 
-Recibe un valor bool el cual respectivamente si es true carga todos los posts o si es false adiciona al post existente. Mediante el servicio de _postService obtiene el tamaño de la lista el cual está condicionado por el filtro de categorías y la búsqueda del usuario, puede también no estar condicionado por ninguno o estar condicionado por ambos al mismo tiempo, este valor se almacena en postListSize. Si debe limpiar post existentes la variable postStart se le asigna 0 ya que esta variable indica el inicio para el scroll infinito. Posteriormente se hace un llamado a través del _postService a la lista de posts lo cuales están condicionados por el filtro de categorías, por la búsqueda del usuario, el post actual y el límite de post que debe alojar esto se almacena en un arreglo de post. Posteriormente se condiciona por un if, si hay que limpiar el post se llama al método de borrado de post y se le hace push a la lista de posts, caso contrario (else) solo se cargan los posts a la lista de post sin borrar. Por último, si resultara un error en el proceso se devuelve a la salida el error.
+Método que carga los post. Si resultara un error en el proceso, se devuelve a la salida.
 ``` ts
 async loadPostList(clear:boolean =  false): Promise<void> {
     this._postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe(
@@ -214,7 +212,7 @@ async loadPostList(clear:boolean =  false): Promise<void> {
     );
 ```
 
-Para este método se recibe un carácter a través del searchQuery, si este carácter no viene vacío entonces se hace una solicitud al backend sobre los resultados que emparejen con el contenido del post, el título del post, a la descripción o a los tres anteriores en conjunto, seguidamente se hace la solicitud de cargar los posts por medio del loadPostList. Si el carácter de entrada resulta vacío, se limpia el parámetro de búsqueda searchParams y solicita los posts de vuelta en su totalidad.
+Método que recibe un carácter a través del searchQuery y solicita al backend sobre los resultados que emparejen con el contenido, el título, la descripción y hace la solicitud de cargar los posts. Si el carácter de entrada resulta vacío, se limpia el parámetro de búsqueda y solicita todos los posts de vuelta.
 ``` ts 
 async loadPostListSearch(): Promise<void> {
     if (this.searchQuery) {
@@ -230,7 +228,7 @@ async loadPostListSearch(): Promise<void> {
   }
 ```
 
-Método para el llamado al scroll infinito, si la posición actual aun es inferior a la totalidad de los posts indica que aún hay post por cargar, entonces se le adiciona el límite de post establecido por defecto postLimit y se procede a cargar más post.
+Método para el llamado al scroll infinito.
 ``` ts
 onScroll() {
     if(this.postStart <= this.postListSize){
