@@ -69,12 +69,23 @@
 a {
   color: var(--warning-01);
   text-decoration: underline;
-  margin: 0 1%;
+}
+
+.modal-text {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
 }
 
 #instructions {
   padding-right: 40%;
   margin: 5vh 0;
+}
+
+.modal-dialog {
+  max-width: 600px;
 }
 
 .modal-title {
