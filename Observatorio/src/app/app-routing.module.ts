@@ -6,6 +6,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 // import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PostComponent } from './pages/post/post.component';
+import { FAQComponent } from './pages/faq/faq.component';
 
 const routes: Routes = [
   { path: 'inicio', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'nosotros', component: AboutComponent },
   { path: 'directorio', component: PhonebookComponent },
   { path: 'post/:id', component: PostComponent },
+  { path: 'faq', component: FAQComponent},
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent },
 ];

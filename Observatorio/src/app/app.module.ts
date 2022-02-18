@@ -36,6 +36,7 @@ import { FabComponent } from './components/fab/fab.component';
 // external dependencies
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FAQComponent } from './pages/faq/faq.component';
 
 registerLocaleData(localeEs, 'es-CR');
 
@@ -52,6 +53,7 @@ registerLocaleData(localeEs, 'es-CR');
     FooterComponent,
     DarktoggleComponent,
     FabComponent,
+    FAQComponent,
   ],
   imports: [
     BrowserModule,
