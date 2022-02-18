@@ -7,6 +7,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PostComponent } from './pages/post/post.component';
 import { FAQComponent } from './pages/faq/faq.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: 'inicio', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'directorio', component: PhonebookComponent },
   { path: 'post/:id', component: PostComponent },
   { path: 'faq', component: FAQComponent},
+  { path: 'contact-us', component: ContactUsComponent},
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent },
 ];
