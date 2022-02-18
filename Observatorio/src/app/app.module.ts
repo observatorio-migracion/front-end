@@ -38,6 +38,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FAQComponent } from './pages/faq/faq.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { SiteMapComponent } from './pages/site-map/site-map.component';
 
 registerLocaleData(localeEs, 'es-CR');
 
@@ -56,6 +57,7 @@ registerLocaleData(localeEs, 'es-CR');
     FabComponent,
     FAQComponent,
     ContactUsComponent,
+    SiteMapComponent,
   ],
   imports: [
     BrowserModule,
