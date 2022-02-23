@@ -1,0 +1,12 @@
+.faq-container {
+    border-bottom: 1px solid var(--font-1);
+}
+
+.container {
+    width: 40%;
+    min-height: 60vh;
+    margin: 10vh auto;
+    font-size: 1rem;
+    padding: 0 5vw;
+  }
+

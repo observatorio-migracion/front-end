@@ -19,18 +19,31 @@
       </div>
     </div>
     <div class="footer-edge" id="bottom">
-      <div class="footer-brand">
-        <a class="navbar-brand" href="#">
+      <div class="footer-brand footer-edge-content">
+        <a class="page-brand" href="#">
           <p>Observatorio de Migración</p>
         </a>
       </div>
-      <div class="footer-copyright">
+      <div class="footer-copyright footer-edge-content">
         <p>© Universidad de Costa Rica </p>
       </div>
-      <div class="footer-bottom-links">
-        <a class="bottom-links" id="bottom-link-left" href="#">Contactos</a>
-        <a class="bottom-links" href="#">Mapa del sitio</a>
-        <a class="bottom-links" href="#">Preguntas frecuentes</a>
+      <div class="footer-bottom-links footer-edge-content">
+        <a class="bottom-links" 
+           id="bottom-link-left" 
+           routerLink="/contact-us" 
+           routerLinkActive="active-link">
+            Contactos
+        </a>
+        <a class="bottom-links" 
+           routerLink="/site-map" 
+           routerLinkActive="active-link">
+              Mapa del sitio
+        </a>
+        <a class="bottom-links" 
+           routerLink="/faq" 
+           routerLinkActive="active-link">
+              Preguntas frecuentes
+        </a>
       </div>
     </div>
   </div>

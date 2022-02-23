@@ -9,7 +9,7 @@
     gratuito para las personas migrantes.
 </div>
 
-<h1 class="horizontal-bar horizontal-bar-01">Categorías</h1>
+<h1 class="horizontal-bar">Categorías</h1>
 <div class="categories-container">
     <div class="category" *ngFor="let category of categories" (click)="filterPostsByCategory(category)">
         <img class="img-fluid" alt="category.nombre" *ngIf="category.imagen" src="{{category.imagen.formats.small.url}}"
@@ -22,7 +22,7 @@
 </div>
 <br>
 <br>
-<h1 class="horizontal-bar horizontal-bar-02">Publicaciones recientes</h1>
+<h1 class="horizontal-bar">Publicaciones recientes</h1>
 
 <div class="custom-container">
     <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>

@@ -13,6 +13,12 @@ hr {
   top: -0.9rem;
 }
 
+img {
+  width: 200px;
+  height: 80px;
+  aspect-ratio: auto 200/80;
+}
+
 .underline-text-decoration {
   background-color: var(--underline);
 }
@@ -37,7 +43,7 @@ hr {
 
 .navbar li a {
   color: var(--font-1);
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .logo-container {
