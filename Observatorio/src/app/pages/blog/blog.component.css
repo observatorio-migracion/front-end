@@ -16,6 +16,10 @@
   justify-content: space-between;
 }
 
+.search-input {
+  font-size: 1rem;
+}
+
 .search-container {
   height: 30px;
 }
@@ -82,6 +86,7 @@ ul {
 
 .dropdown-menu {
   background-color: var(--filter);
+  font-size: 1.1rem;
 }
 
 .dropdown-item:hover {
@@ -113,4 +118,5 @@ ul {
   color: var(--font-1);
   border: none;
   outline: none;
+  font-size: 1.1rem;
 }
