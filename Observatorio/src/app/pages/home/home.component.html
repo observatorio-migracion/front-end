@@ -12,8 +12,7 @@
 <h1 class="horizontal-bar">Categorías</h1>
 <div class="categories-container">
     <div class="category" *ngFor="let category of categories" (click)="filterPostsByCategory(category)">
-        <img class="img-fluid" alt="category.nombre" *ngIf="category.imagen" src="{{category.imagen.formats.small.url}}"
-        width="420px" height="236px">
+        <img class="img-fluid" alt="category.nombre" *ngIf="category.imagen" src="{{category.imagen.formats.small.url}}">
     </div>
 </div>
 <div class="action-container">
@@ -57,10 +56,10 @@
             <div class="modal-body">
                 <p><b>Fecha: </b>{{activitySelected.fecha | date:'longDate'}}</p>
                 <br>
-                <span *ngIf="activitySelected.reunion">
+                <div *ngIf="activitySelected.reunion">
                     <p><b>Enlace Actividad: </b> <a style="color: var(--warning-01)" href="http://{{activitySelected.reunion}}">{{activitySelected.reunion}}</a></p>
                     <br>
-                </span>
+                </div>
                 <p><b>Descripción: </b></p>
                 <br>
                 <div *ngIf="contentHTML" [innerHTML]="contentHTML">{{contentHTML}}</div>

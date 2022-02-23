@@ -52,6 +52,8 @@
 .category {
   cursor: pointer;
   transition: transform 0.1s ease;
+  width: 420px;
+  height: 236px;
 }
 
 .category:hover {
