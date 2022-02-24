@@ -34,6 +34,8 @@ export class HomeComponent implements OnInit {
 
   public readonly sortQuery: string;
 
+  public readonly dateSortQuery: string;
+
   public activities: Activity[];
 
   public activitySelected:Activity;
@@ -54,6 +56,7 @@ private postService:PostService,
     this.recentPostLimit = 3;
     this.activitiesLimit = 4;
     this.sortQuery = 'publishedAt:desc';
+    this.dateSortQuery = 'fecha:desc';
     this.categories = new Array<Categoria>();
     this.api = environment.api.url;
     this.postsList = new Array<Post>();
@@ -70,7 +73,7 @@ private postService:PostService,
   }
 
   loadActivities() {
-    this.eventService.getActivitiesList(this.activitiesLimit)
+    this.eventService.getActivitiesList(this.activitiesLimit, this.dateSortQuery)
       .subscribe((activities:Activity[]) => {
         this.activities = activities;
       });
