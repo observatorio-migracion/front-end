@@ -56,8 +56,9 @@
             <div class="modal-body">
                 <p><b>Fecha: </b>{{activitySelected.fecha | date:'longDate'}}</p>
                 <br>
-                <div *ngIf="activitySelected.reunion">
-                    <p><b>Enlace Actividad: </b> <a style="color: var(--warning-01)" href="http://{{activitySelected.reunion}}">{{activitySelected.reunion}}</a></p>
+                <div *ngIf="activitySelected.reunion" class="modal-link">
+                    <p><b>Enlace Actividad: </b> 
+                        <a style="color: var(--warning-01)" href="http://{{activitySelected.reunion}}">{{activitySelected.reunion}}</a></p>
                     <br>
                 </div>
                 <p><b>Descripción: </b></p>

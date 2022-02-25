@@ -1,21 +1,23 @@
 .container {
-    width: 40%;
-    min-height: 60vh;
-    margin: 10vh auto;
-    font-size: 1rem;
-    padding: 0 5vw;
-  }
+  display: flex;
+  justify-content: center;
+  min-width: 40%;
+  min-height: 60vh;
+  margin: 10vh auto;
+  font-size: 1rem;
+  padding: 0 5vw;
+}
 
-  a {
-    color: var(--font-1);
-    font-size: 1.3rem;
-  }
+a {
+  color: var(--font-1);
+  font-size: 1.3rem;
+}
 
-  a:hover {
-    color: var(--font-3);
-    text-decoration: underline;
-  }
+a:hover {
+  color: var(--font-3);
+  text-decoration: underline;
+}
 
-  h1 {
-    font-size: 3rem;
-  }
+h1 {
+  font-size: 3rem;
+}
