@@ -1,6 +1,14 @@
 .header-container {
-  background: linear-gradient(var(--navbar-gradient-01), var(--navbar-gradient-01)), url("../../../assets/patterns/p4.jpg");
+  background: linear-gradient(var(--navbar-gradient-01), var(--navbar-gradient-01)), url("../../../assets/patterns/patron-dark.png");
+  /* background: url("../../../assets/patterns/patron-dark.png"); */
+  /* background: url("../../../assets/patterns/patron-light.png"); */
   background-repeat: repeat;
+  background-size: contain;
+}
+
+.toggle-container {
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
 
 hr {
@@ -14,9 +22,7 @@ hr {
 }
 
 img {
-  width: 200px;
   height: 80px;
-  aspect-ratio: auto 200/80;
 }
 
 .underline-text-decoration {
@@ -53,7 +59,7 @@ img {
 .logo-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 5px;
   padding: 0 1rem;
   margin-bottom: 16px;
@@ -132,6 +138,12 @@ navbar-toggler {
   }
 }
 
+@media (max-width: 480px) {
+  .logo-container {
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 300px) {
   * {
     font-size: 0.8rem;
@@ -142,7 +154,8 @@ navbar-toggler {
   }
 }
 
-@media (max-width: 767px) {/* breakpoint for mobile menu */
+@media (max-width: 767px) {
+  /* breakpoint for mobile menu */
   .navbar-collapse {
     background: transparent;
     text-align: center;

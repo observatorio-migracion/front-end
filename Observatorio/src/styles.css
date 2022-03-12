@@ -10,7 +10,7 @@
   --super-dark-blue: #0e2733;
   --light-green-02: #72b1b3;
   --light-green-01: #30a740;
-  --green: #236667;
+  --green: #246566;
   --dark-green: #1a4c4d;
   --darker-green: #1e5859;
   --very-dark-green: #113233;
@@ -21,7 +21,7 @@
   --light-gray: #cfcfcf;
   --yellow: #f2c62c;
   --dark-blue-gradient: rgba(21 58 74 / 70%);
-  --white-gradient: rgba(255 255 255 / 87%);
+  --white-gradient: rgba(255 255 255 / 30%);
   --no-gradient: rgba(255 255 255 / 0%);
   --foreground-toggle: var(--light-gray);
 }

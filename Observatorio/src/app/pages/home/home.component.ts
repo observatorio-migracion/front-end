@@ -41,9 +41,7 @@ export class HomeComponent implements OnInit {
   public activitySelected:Activity;
 
   public contentHTML: SafeHtml;
-
-  defaultImage: string;
-
+  
   constructor(
 private postService:PostService,
               private eventService: EventService,
@@ -63,7 +61,6 @@ private postService:PostService,
     this.seeMoreCategories = true;
     this.activities = new Array<Activity>();
     this.activitySelected = new Activity('', '', new Date(), '', '', '', '', new Array<Imagenes>(), '');
-    this.defaultImage = 'assets/images/default.png';
   }
 
   ngOnInit(): void {

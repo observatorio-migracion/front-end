@@ -1,7 +1,10 @@
 <div class="nav-container">
   <div class="header-container">
-    <div class="logo-container">
+    <div class="toggle-container">
       <app-darktoggle></app-darktoggle>
+
+    </div>
+    <div class="logo-container">
       <a href="https://www.ucr.ac.cr/">
         <picture>
           <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf='theme === "dark"'>
@@ -11,9 +14,10 @@
     </div>
     <nav class="navbar navbar-expand-md">
       <a class="navbar-brand" href="#">
-        <span style="font-size: 1.8rem;">Observatorio</span>
-        <br>
-        <span style="font-size: 1.5rem;">de Migración</span>
+        <picture>
+          <source srcset="../../../assets/images/membrete-dark.png" *ngIf='theme === "dark"'>
+          <img src="../../../assets/images/membrete-dark.png">
+        </picture>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
