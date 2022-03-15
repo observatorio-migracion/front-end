@@ -1,7 +1,4 @@
-.header-container {
-  background: linear-gradient(var(--navbar-gradient-01), var(--navbar-gradient-01)), url("../../../assets/patterns/patron-dark.png");
-  /* background: url("../../../assets/patterns/patron-dark.png"); */
-  /* background: url("../../../assets/patterns/patron-light.png"); */
+#header-container {
   background-repeat: repeat;
   background-size: contain;
 }
@@ -27,6 +24,10 @@ img {
 
 .underline-text-decoration {
   background-color: var(--underline);
+}
+
+.nav-link {
+  font-weight: bold;
 }
 
 .navbar {
