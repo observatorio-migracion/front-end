@@ -52,9 +52,9 @@
                         <p>{{contactSelected.horario}}</p>
                     <br>
                     <h4>Página Web: </h4> 
-                        <p><a href="{{parseURL(contactSelected.web)}}">{{parseURL(contactSelected.web)}}</a></p>
+                        <p><a href="{{parseURL(contactSelected.web)}}" target="_blank">{{parseURL(contactSelected.web)}}</a></p>
                     <br>
-                    <p *ngIf="contactSelected.gps"> <b><a href="{{parseURL(contactSelected.gps)}}">Ver Dirección</a></b></p>
+                    <p *ngIf="contactSelected.gps"> <b><a href="{{parseURL(contactSelected.gps)}}" target="_blank">Ver Dirección</a></b></p>
                 </div>
                 <div class="modal-footer">
                     <button class="close-modal" type="button" mat-raised-button
