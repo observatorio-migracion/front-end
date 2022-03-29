@@ -1,41 +1,10 @@
 <div class="container">
     <h1> Preguntas Frecuentes </h1>
     <br>
-    <br>
-    <div class="faq-container">
-        <h3>
-            ¿Lorem ipsum dolor sit amet?
-        </h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper, quam ut euismod aliquet, mi metus interdum odio, at malesuada nisi mi eu arcu. Donec finibus semper imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut massa ipsum. Nunc sed quam quis ante dictum semper ac sit amet est. Phasellus a tellus augue. Ut felis orci, placerat nec pellentesque sit amet, accumsan sit amet eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam finibus eros sed scelerisque euismod.         
-        </p>
-    </div>
-    <br>
-    <div class="faq-container">
-        <h3>
-            Pregunta 2        
-        </h3>
-        <p>
-            Repuesta FAQ        
-        </p>
-    </div>
-    <br>
-    <div class="faq-container">
-        <h3>
-            Pregunta 3
-        </h3>
-        <p>
-            Repuesta FAQ
-        </p>
-    </div>
-    <br>
-    <div class="faq-container">
-        <h3>
-            Pregunta 4
-        </h3>
-        <p>
-            Repuesta FAQ
-        </p>
+    <div class="faq-container" *ngFor="let question of faqList">
+        <br>
+        <h3>{{question.pregunta}}</h3>
+        <p>{{question.contenido}}</p>
     </div>
 </div>
 <app-footer></app-footer>

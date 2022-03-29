@@ -4,7 +4,7 @@
 ### Código
 
 Esta clase define Activity, que corresponde a un evento de la página. 
-Declara las variables: *id*, *nombre*, *fecha*, *descripcion*, *publishedAt*, *createdAt*, *updatedAt*, *imagenes* y *reunion*.
+Declara las variables: *id*, *nombre*, *fecha*, *descripcion*, *published_at*, *createdAt*, *updatedAt*, *imagenes* y *reunion*.
 ``` ts
 export class Activity {
     constructor(
@@ -12,7 +12,7 @@ export class Activity {
         public nombre: string,
         public fecha: Date,
         public descripcion: string,
-        public publishedAt: string,
+        public published_at: string,
         public createdAt: string,
         public updatedAt: string,
         public imagenes: Imagenes[],

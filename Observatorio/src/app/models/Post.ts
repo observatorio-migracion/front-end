@@ -131,7 +131,7 @@ export class Categoria {
 
   nombre: string|undefined;
 
-  publishedAt: Date|undefined;
+  published_at: Date|undefined;
 
   createdAt: Date|undefined;
 
@@ -150,7 +150,7 @@ export class Post {
 
   descripcion: string|undefined;
 
-  publishedAt: Date|undefined;
+  published_at: Date|undefined;
 
   createdAt: Date|undefined;
 

@@ -31,7 +31,7 @@ export class PostCardComponent implements OnInit {
     // TODO: Revisar cual es la resolucion mas adecuada
     this.image = parseURLImage(this.post?.miniatura?.formats?.medium?.url);
     this.categories = this.post?.categorias;
-    this.date = this.post?.publishedAt;
+    this.date = this.post?.published_at;
   }
 
   // cut a string defining a delimiter position an adds an ... at the end

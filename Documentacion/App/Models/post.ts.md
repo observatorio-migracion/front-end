@@ -103,12 +103,12 @@ export class Miniatura {
 ``` 
 
 Esta clase define Categoria, que corresponde a las imagenes miniatutas de las categorías. 
-Declara las variables: *id*, *nombre*, *publishedAt*, *createdAt*, *updatedAt* y *imagen*.
+Declara las variables: *id*, *nombre*, *published_at*, *createdAt*, *updatedAt* y *imagen*.
 ```  ts
 export class Categoria {
     id: string|undefined;
     nombre: string|undefined;
-    publishedAt: Date|undefined;
+    published_at: Date|undefined;
     createdAt: Date|undefined;
     updatedAt: Date|undefined;
     imagen:any |undefined;
@@ -116,14 +116,14 @@ export class Categoria {
 ``` 
 
 Esta clase define Post, que corresponde a las publicaciones. 
-Declara las variables: *id*, *titulo*, *contenido*, *descripcion*, *publishedAt*, *createdAt*, *updatedAt*, *miniatura* y *categorias*.
+Declara las variables: *id*, *titulo*, *contenido*, *descripcion*, *published_at*, *createdAt*, *updatedAt*, *miniatura* y *categorias*.
 ``` ts
 export class Post {
     id: string|undefined;
     titulo: string|undefined;
     contenido: string|undefined;
     descripcion: string|undefined;
-    publishedAt: Date|undefined;
+    published_at: Date|undefined;
     createdAt: Date|undefined;
     updatedAt: Date|undefined;
     miniatura: Miniatura|undefined;

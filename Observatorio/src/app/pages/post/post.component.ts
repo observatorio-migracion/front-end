@@ -46,7 +46,7 @@ export class PostComponent implements OnInit {
       this.postService.getPostById(id).subscribe((post) => {
         this.title = post.titulo;
         this.categories = post.categorias;
-        this.date = post.publishedAt;
+        this.date = post.published_at;
 
         if (post?.contenido) {
           const html = this.markDowntoHtml(post.contenido);

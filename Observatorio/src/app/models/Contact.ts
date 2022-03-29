@@ -10,7 +10,7 @@ export class Contact {
         public horario: string,
         public web: string,
         public numero: string,
-        public publishedAt: string,
+        public published_at: string,
         public createdAt: string,
         public updatedAt: string,
         public gps: string,

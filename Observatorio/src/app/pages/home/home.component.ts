@@ -53,7 +53,7 @@ private postService:PostService,
     this.categoriesLimit = 4;
     this.recentPostLimit = 3;
     this.activitiesLimit = 4;
-    this.sortQuery = 'publishedAt:desc';
+    this.sortQuery = 'published_at:desc';
     this.dateSortQuery = 'fecha:desc';
     this.categories = new Array<Categoria>();
     this.api = environment.api.url;
