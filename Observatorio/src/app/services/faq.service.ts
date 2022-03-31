@@ -7,15 +7,13 @@ import { Question } from '../models/Question';
   providedIn: 'root'
 })
 export class FaqService {
-
   private url: string;
 
   constructor(private http: HttpClient) {
     this.url = environment.api.url;
   }
 
-  getQuestionList(){
+  getQuestionList() {
     return this.http.get<Question[]>(`${this.url}/faqs`);
   }
-
 }

@@ -1,34 +1,47 @@
 <div class="main-text-container">
-    El Observatorio de Migración es un proyecto que trata 
-    de ayudar a las personas migrantes en la búsqueda de 
-    soluciones al gran reto que es la incorporación social 
-    y gubernamental al país, ya sea en el mercado laboral, 
-    la inclusión social y el trato igualitario entre hombres 
-    y mujeres. Por medio de talleres, charlas y post informativos. 
-    El Observatorio espera ser un centro de ayuda accesible y 
-    gratuito para las personas migrantes.
+  El Observatorio de Migración es un proyecto que trata de ayudar a las personas migrantes en la
+  búsqueda de soluciones al gran reto que es la incorporación social y gubernamental al país, ya sea
+  en el mercado laboral, la inclusión social y el trato igualitario entre hombres y mujeres. Por
+  medio de talleres, charlas y post informativos. El Observatorio espera ser un centro de ayuda
+  accesible y gratuito para las personas migrantes.
 </div>
 
 <h1 class="horizontal-bar">Categorías</h1>
 <div class="categories-container">
-    <div class="category" *ngFor="let category of categories" (click)="filterPostsByCategory(category)">
-        <img class="img-fluid" alt="category.nombre" *ngIf="category.imagen" src="{{category.imagen.formats.small.url}}">
-    </div>
+  <div
+    class="category"
+    *ngFor="let category of categories"
+    (click)="filterPostsByCategory(category)"
+  >
+    <img
+      class="img-fluid"
+      alt="category.nombre"
+      *ngIf="category.imagen"
+      src="{{ category.imagen.formats.small.url }}"
+    />
+  </div>
 </div>
 <div class="action-container">
-    <button *ngIf="seeMoreCategories" class="action-container-btn-warning" mat-raised-button
-        (click)="loadMoreCategories()">Ver más</button>
+  <button
+    *ngIf="seeMoreCategories"
+    class="action-container-btn-warning"
+    mat-raised-button
+    (click)="loadMoreCategories()"
+  >
+    Ver más
+  </button>
 </div>
 
 <h1 class="horizontal-bar">Publicaciones recientes</h1>
 
 <div class="custom-container">
-    <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
+  <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
 </div>
 <div class="action-container">
-    <button class="action-container-btn-warning" mat-raised-button routerLink="/blog">Ir al blog</button>
+  <button class="action-container-btn-warning" mat-raised-button routerLink="/blog">
+    Ir al blog
+  </button>
 </div>
-
 
 <!-- <div class="events-container">
     <h1>Eventos próximos</h1>

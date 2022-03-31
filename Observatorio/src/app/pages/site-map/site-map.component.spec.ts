@@ -8,9 +8,9 @@ describe('SiteMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SiteMapComponent ]
+      declarations: [SiteMapComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

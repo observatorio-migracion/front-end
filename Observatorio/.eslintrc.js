@@ -2,36 +2,34 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
     'airbnb-base',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint'],
   rules: {
-    'import/no-unresolved': 'off',
-    'import/extensions': 'off',
-    'no-restricted-syntax': 'off',
-    'no-useless-constructor': 'off',
     'linebreak-style': 'off',
+    'comma-dangle': 'off',
     'import/prefer-default-export': 'off',
-    '@typescript-eslint/no-empty-function': [
+    'import/no-unresolved': 'off',
+    'no-restricted-syntax': 'off',
+    'class-methods-use-this': [
       'error',
-      {
-        allow: [
-          'constructors',
-        ],
-      },
+      { exceptMethods: ['ngOnInit', 'parseString', 'goTop', 'renderFirstLetter', 'parseURL'] }
     ],
-  },
+    'import/extensions': 'off',
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': ['error', { allow: ['methods', 'constructors'] }],
+    camelcase: ['error', { allow: ['published_at'] }],
+    'no-useless-constructor': 'off'
+  }
 };

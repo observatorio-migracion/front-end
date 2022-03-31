@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 import { Contact } from '../models/Contact';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ContactService {
-  private contactsList:Contact[];
+  private contactsList: Contact[];
 
-  private url:string;
+  private url: string;
 
   constructor(private http: HttpClient) {
     this.contactsList = new Array<Contact>();
@@ -22,6 +22,8 @@ export class ContactService {
   }
 
   getContactsList(keywords: string, order = '', start = 0, limit = 4): Observable<Contact[]> {
-    return this.http.get<Contact[]>(`${this.url}/contactos?${keywords}&_sort=${order}&_limit=${limit}&_start=${start}`);
+    return this.http.get<Contact[]>(
+      `${this.url}/contactos?${keywords}&_sort=${order}&_limit=${limit}&_start=${start}`
+    );
   }
 }

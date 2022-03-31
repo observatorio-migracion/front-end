@@ -11,10 +11,13 @@ import { FaqService } from 'src/app/services/faq.service';
   styleUrls: ['./faq.component.css']
 })
 export class FAQComponent implements OnInit {
-
   faqList: Question[];
 
-  constructor(private faqService: FaqService, private showdownConverter: ShowdownConverter, private sanitizer: DomSanitizer) { 
+  constructor(
+    private faqService: FaqService,
+    private showdownConverter: ShowdownConverter,
+    private sanitizer: DomSanitizer
+  ) {
     this.faqList = [];
   }
 
@@ -22,17 +25,16 @@ export class FAQComponent implements OnInit {
     this.loadFAQs();
   }
 
-  loadFAQs(){
-    this.faqService.getQuestionList().subscribe(
-      (question: Question[]) =>{
-        for (const faq of question) {
-          if (faq?.contenido) {
-            const html = this.markDowntoHtml(faq.contenido);
-            const contentHTML: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(html);
-            faq.safeHtml = contentHTML;
-          }
-          this.faqList.push(faq);
+  loadFAQs() {
+    this.faqService.getQuestionList().subscribe((question: Question[]) => {
+      for (const faq of question) {
+        if (faq?.contenido) {
+          const html = this.markDowntoHtml(faq.contenido);
+          const contentHTML: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(html);
+          faq.safeHtml = contentHTML;
         }
+        this.faqList.push(faq);
+      }
     });
   }
 

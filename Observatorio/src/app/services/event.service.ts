@@ -5,10 +5,10 @@ import { environment } from 'src/environments/environment';
 import { Activity } from '../models/Activity';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class EventService {
-  private activitiesList:Activity[];
+  private activitiesList: Activity[];
 
   private url: string;
 

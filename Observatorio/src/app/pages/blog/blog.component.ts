@@ -1,12 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint max-len: ["error", { "code": 120 }] */
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["goTop",] }] */
-/* eslint no-return-assign: ["error"] */
-/* eslint no-param-reassign: ["error"] */
-/* eslint no-shadow: ["error", { "allow": ["category"] }] */
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { CheckBoxData } from 'src/app/models/CheckBoxData';
 import { Categoria, Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
@@ -14,7 +7,7 @@ import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
+  styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
   public scrolled: boolean;
@@ -29,16 +22,16 @@ export class BlogComponent implements OnInit {
 
   public postsList: Post[];
 
-  public categoriesList: (CheckBoxData)[] = [];
+  public categoriesList: CheckBoxData[] = [];
 
   public searchQuery = '';
 
   public searchParams = '';
 
   constructor(
-private postService: PostService,
-              private activatedRoute:ActivatedRoute,
-              private router:Router,
+    private postService: PostService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.postsList = new Array<Post>();
     this.postListSize = 0;
@@ -63,17 +56,21 @@ private postService: PostService,
   }
 
   @HostListener('window:scroll', ['$event'])
-  checkIfScroll($event: Event): void {
+  checkIfScroll(): void {
     this.scrolled = window.scrollY > 0;
   }
 
   loadCategoryFilterFromURL() {
     const category = this.activatedRoute.snapshot.paramMap.get('category');
-    this.categoriesList.forEach((categ: CheckBoxData) => (categ.value = false));
-    const result = this.categoriesList.find((categ:CheckBoxData) => categ.name === category);
+
+    for (const item of this.categoriesList) {
+      item.value = false;
+    }
+
+    const result = this.categoriesList.find((categ: CheckBoxData) => categ.name === category);
     if (result) {
       result.value = true;
-      this.valueChanged(result);
+      this.valueChanged();
     }
   }
 
@@ -84,11 +81,11 @@ private postService: PostService,
     });
   }
 
-  async valueChanged(category: CheckBoxData) {
+  async valueChanged() {
     this.categoryFilter = '';
-    for (const category of this.categoriesList) {
-      if (category.value) {
-        this.categoryFilter += `_where[categorias.nombre]=${category.name}&`;
+    for (const item of this.categoriesList) {
+      if (item.value) {
+        this.categoryFilter += `_where[categorias.nombre]=${item.name}&`;
       }
     }
     await this.loadPostList(true);
@@ -99,14 +96,13 @@ private postService: PostService,
   }
 
   async loadPostList(clear = false): Promise<void> {
-    this.postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe(
-      (size) => {
-        this.postListSize = size;
-      },
-    );
+    this.postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe((size) => {
+      this.postListSize = size;
+    });
     if (clear) this.postStart = 0;
-    this.postService.getPostList(this.categoryFilter, this.searchParams, this.postStart, this.postLimit).subscribe(
-      (posts: Post[]) => {
+    this.postService
+      .getPostList(this.categoryFilter, this.searchParams, this.postStart, this.postLimit)
+      .subscribe((posts: Post[]) => {
         if (clear) {
           this.deletePostsList().then(() => {
             this.postsList.push(...posts);
@@ -114,8 +110,7 @@ private postService: PostService,
         } else {
           this.postsList.push(...posts);
         }
-      },
-    );
+      });
   }
 
   async loadPostListSearch(): Promise<void> {

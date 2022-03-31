@@ -1,4 +1,3 @@
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["parseString",] }] */
 import { Component, OnInit, Input } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
 import { parseURLImage } from '../../helpers/URLparser';
@@ -6,7 +5,7 @@ import { parseURLImage } from '../../helpers/URLparser';
 @Component({
   selector: 'app-post-card',
   templateUrl: './post-card.component.html',
-  styleUrls: ['./post-card.component.css'],
+  styleUrls: ['./post-card.component.css']
 })
 export class PostCardComponent implements OnInit {
   id: string | undefined;

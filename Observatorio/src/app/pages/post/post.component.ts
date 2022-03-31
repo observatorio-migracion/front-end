@@ -1,4 +1,3 @@
-/* eslint function-paren-newline: ["error", "never"] */
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +11,7 @@ import { postStyleConfig } from '../../helpers/postStyleConfig';
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
-  providers: [ShowdownConverter],
+  providers: [ShowdownConverter]
 })
 export class PostComponent implements OnInit {
   id: number | undefined;
@@ -29,8 +28,12 @@ export class PostComponent implements OnInit {
 
   public contentHTML: SafeHtml;
 
-  constructor(private postService: PostService, private router: ActivatedRoute,
-      private sanitizer: DomSanitizer, private showdownConverter: ShowdownConverter) {
+  constructor(
+    private postService: PostService,
+    private router: ActivatedRoute,
+    private sanitizer: DomSanitizer,
+    private showdownConverter: ShowdownConverter
+  ) {
     this.contentHTML = '';
     this.api = environment.api.url;
   }

@@ -5,7 +5,7 @@ import { ThemeService } from '../../services/theme.service';
 @Component({
   selector: 'app-darktoggle',
   templateUrl: './darktoggle.component.html',
-  styleUrls: ['./darktoggle.component.css'],
+  styleUrls: ['./darktoggle.component.css']
 })
 export class DarktoggleComponent implements OnInit {
   public isEnabled: boolean;
@@ -35,7 +35,7 @@ export class DarktoggleComponent implements OnInit {
     const body = document.querySelector('body');
     if (body) {
       body.classList.toggle('dark');
-      this.theme = (window.localStorage.getItem('theme') === 'dark') ? 'light' : 'dark';
+      this.theme = window.localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
       window.localStorage.setItem('theme', this.theme);
       this.themeService.setTheme(this.theme);
     }

@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
 import { PhonebookComponent } from './pages/phonebook/phonebook.component';
 import { BlogComponent } from './pages/blog/blog.component';
-// import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PostComponent } from './pages/post/post.component';
 import { FAQComponent } from './pages/faq/faq.component';
@@ -17,15 +16,15 @@ const routes: Routes = [
   { path: 'nosotros', component: AboutComponent },
   { path: 'directorio', component: PhonebookComponent },
   { path: 'post/:id', component: PostComponent },
-  { path: 'faq', component: FAQComponent},
-  { path: 'contact-us', component: ContactUsComponent},
-  { path: 'site-map', component: SiteMapComponent},
+  { path: 'faq', component: FAQComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'site-map', component: SiteMapComponent },
   { path: '', component: HomeComponent },
-  { path: '**', component: HomeComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

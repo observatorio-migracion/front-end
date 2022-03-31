@@ -24,10 +24,10 @@
   --white-gradient: rgba(255 255 255 / 30%);
   --no-gradient: rgba(255 255 255 / 0%);
   --foreground-toggle: var(--light-gray);
-  --font-family: "Myriad Pro";
-  --font-family-title-style: "Black SemiExtended";
-  --font-family-text-style: "Condensed";
-  --font-family-subtitle-style: "Regular";
+  --font-family: 'Myriad Pro';
+  --font-family-title-style: 'Black SemiExtended';
+  --font-family-text-style: 'Condensed';
+  --font-family-subtitle-style: 'Regular';
 }
 
 .web {
@@ -91,7 +91,11 @@ h1 {
   background-color: var(--background-01);
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-style: var(--font-family-subtitle-style);
 }
 
@@ -103,6 +107,7 @@ body {
   padding: 0;
   background-color: var(--background-01);
   color: var(--font-1);
+  overflow-x: visible;
 }
 
 .cont {

@@ -1,12 +1,10 @@
 <div class="container">
-    <h1> Preguntas Frecuentes </h1>
-    <br>
-    <div class="faq-container" *ngFor="let question of faqList">
-        <br>
-        <h3>{{question.pregunta}}</h3>
-        <div *ngIf="question.safeHtml" [innerHTML]="question.safeHtml">
-        </div>
-    </div>
+  <h1>Preguntas Frecuentes</h1>
+  <br />
+  <div class="faq-container" *ngFor="let question of faqList">
+    <br />
+    <h3>{{ question.pregunta }}</h3>
+    <div *ngIf="question.safeHtml" [innerHTML]="question.safeHtml"></div>
+  </div>
 </div>
 <app-footer></app-footer>
-

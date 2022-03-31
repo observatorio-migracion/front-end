@@ -1,46 +1,43 @@
 <div class="footer">
   <div class="footer-container">
-    <div class="footer-edge" id="upper">
-    </div>
+    <div class="footer-edge" id="upper"></div>
     <div class="footer-center">
       <div class="logo-container">
         <a href="#">
           <picture>
-            <source srcset="../../../assets/images/membrete-dark.png" *ngIf='theme === "dark"'>
-            <img src="../../../assets/images/membrete-light.png">
+            <source srcset="../../../assets/images/membrete-dark.png" *ngIf="theme === 'dark'" />
+            <img src="../../../assets/images/membrete-light.png" alt="Logo Observatorio" />
           </picture>
         </a>
       </div>
       <div class="logo-container">
         <a href="https://www.ucr.ac.cr/" target="_blank">
           <picture>
-            <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf='theme === "dark"'>
-            <img src="../../../assets/images/logo-ucr-light.png">
+            <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf="theme === 'dark'" />
+            <img src="../../../assets/images/logo-ucr-light.png" alt="Logo UCR" />
           </picture>
         </a>
       </div>
     </div>
     <div class="footer-edge" id="bottom">
       <div class="footer-bottom-links footer-edge-content">
-        <a class="bottom-links" 
-           id="bottom-link-left" 
-           routerLink="/contact-us" 
-           routerLinkActive="active-link">
-            Contáctenos
+        <a
+          class="bottom-links"
+          id="bottom-link-left"
+          routerLink="/contact-us"
+          routerLinkActive="active-link"
+        >
+          Contáctenos
         </a>
-        <a class="bottom-links" 
-           routerLink="/site-map" 
-           routerLinkActive="active-link">
-              Mapa del sitio
+        <a class="bottom-links" routerLink="/site-map" routerLinkActive="active-link">
+          Mapa del sitio
         </a>
-        <a class="bottom-links" 
-           routerLink="/faq" 
-           routerLinkActive="active-link">
-              Preguntas frecuentes
+        <a class="bottom-links" routerLink="/faq" routerLinkActive="active-link">
+          Preguntas frecuentes
         </a>
       </div>
       <div class="footer-copyright footer-edge-content">
-        <p>© Universidad de Costa Rica </p>
+        <p>© Universidad de Costa Rica</p>
       </div>
     </div>
   </div>

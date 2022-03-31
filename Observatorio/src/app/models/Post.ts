@@ -1,6 +1,5 @@
-/* eslint max-classes-per-file: ["error", 8] */
-// classes needed to consume the API
-export class Thumbnail {
+// interfaces needed to consume the API
+export interface Thumbnail {
   name: string | undefined;
 
   hash: string | undefined;
@@ -20,7 +19,7 @@ export class Thumbnail {
   url: string | undefined;
 }
 
-export class Large {
+export interface Large {
   name: string | undefined;
 
   hash: string | undefined;
@@ -40,10 +39,10 @@ export class Large {
   url: string | undefined;
 }
 
-export class Medium {
+export interface Medium {
   name: string | undefined;
 
-  hash: string| undefined;
+  hash: string | undefined;
 
   ext: string | undefined;
 
@@ -60,7 +59,7 @@ export class Medium {
   url: string | undefined;
 }
 
-export class Small {
+export interface Small {
   name: string | undefined;
 
   hash: string | undefined;
@@ -69,94 +68,93 @@ export class Small {
 
   mime: string | undefined;
 
-  width: number| undefined;
+  width: number | undefined;
 
-  height: number| undefined;
+  height: number | undefined;
 
-  size: number|undefined;
+  size: number | undefined;
 
   path?: string | undefined;
 
-  url: string|undefined;
+  url: string | undefined;
 }
 
-export class Formats {
-  thumbnail: Thumbnail |undefined;
+export interface Formats {
+  thumbnail: Thumbnail | undefined;
 
-  large: Large |undefined;
+  large: Large | undefined;
 
-  medium: Medium |undefined;
+  medium: Medium | undefined;
 
-  small: Small |undefined;
+  small: Small | undefined;
 }
 
-export class Miniatura {
-  id: string|undefined;
+export interface Miniatura {
+  id: string | undefined;
 
-  name: string|undefined;
+  name: string | undefined;
 
-  alternativeText: string|undefined;
+  alternativeText: string | undefined;
 
-  caption: string|undefined;
+  caption: string | undefined;
 
-  width: number|undefined;
+  width: number | undefined;
 
-  height: number|undefined;
+  height: number | undefined;
 
-  formats: Formats|undefined;
+  formats: Formats | undefined;
 
-  hash: string|undefined;
+  hash: string | undefined;
 
-  ext: string|undefined;
+  ext: string | undefined;
 
-  mime: string|undefined;
+  mime: string | undefined;
 
-  size: number|undefined;
+  size: number | undefined;
 
-  url: string|undefined;
+  url: string | undefined;
 
-  previewUrl?: string|undefined;
+  previewUrl?: string | undefined;
 
-  provider: string|undefined;
+  provider: string | undefined;
 
-  providerMetadata?: string|undefined;
+  providerMetadata?: string | undefined;
 
-  createdAt: Date|undefined;
+  createdAt: Date | undefined;
 
-  updatedAt: Date|undefined;
+  updatedAt: Date | undefined;
 }
 
-export class Categoria {
-  id: string|undefined;
+export interface Categoria {
+  id: string | undefined;
 
-  nombre: string|undefined;
+  nombre: string | undefined;
 
-  published_at: Date|undefined;
+  published_at: Date | undefined;
 
-  createdAt: Date|undefined;
+  createdAt: Date | undefined;
 
-  updatedAt: Date|undefined;
+  updatedAt: Date | undefined;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   imagen: any | undefined;
 }
 
-export class Post {
-  id: string|undefined;
+export interface Post {
+  id: string | undefined;
 
-  titulo: string|undefined;
+  titulo: string | undefined;
 
-  contenido: string|undefined;
+  contenido: string | undefined;
 
-  descripcion: string|undefined;
+  descripcion: string | undefined;
 
-  published_at: Date|undefined;
+  published_at: Date | undefined;
 
-  createdAt: Date|undefined;
+  createdAt: Date | undefined;
 
-  updatedAt: Date|undefined;
+  updatedAt: Date | undefined;
 
-  miniatura: Miniatura|undefined;
+  miniatura: Miniatura | undefined;
 
-  categorias: Categoria[]|undefined;
+  categorias: Categoria[] | undefined;
 }

@@ -1,10 +1,9 @@
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["ngOnInit",] }] */
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fab',
   templateUrl: './fab.component.html',
-  styleUrls: ['./fab.component.css'],
+  styleUrls: ['./fab.component.css']
 })
 export class FabComponent implements OnInit {
   @Input() color: string;

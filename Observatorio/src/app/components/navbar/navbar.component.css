@@ -70,17 +70,13 @@ img {
   transition: height 0.01s;
 }
 
-navbar-toggler {
+.navbar-toggler {
   margin-right: 1rem;
 }
 
 @media (min-width: 1024px) {
   .active-link {
     border-radius: 0.2rem;
-  }
-
-  .nav-item {
-    margin: 0 3%;
   }
 
   #search-button {
@@ -142,6 +138,12 @@ navbar-toggler {
 @media (max-width: 480px) {
   .logo-container {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 367px) {
+  .navbar-toggler {
+    margin-left: auto;
   }
 }
 
