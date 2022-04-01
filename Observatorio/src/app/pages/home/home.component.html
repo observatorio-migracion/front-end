@@ -7,6 +7,7 @@
 </div>
 
 <h1 class="horizontal-bar">Categorías</h1>
+
 <div class="categories-container">
   <div
     class="category"
@@ -21,10 +22,11 @@
     />
   </div>
 </div>
-<div class="action-container">
+
+<div class="button-container">
   <button
     *ngIf="seeMoreCategories"
-    class="action-container-btn-warning"
+    class="button-container-btn-warning"
     mat-raised-button
     (click)="loadMoreCategories()"
   >
@@ -34,11 +36,12 @@
 
 <h1 class="horizontal-bar">Publicaciones recientes</h1>
 
-<div class="custom-container">
-  <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
+<div class="posts-container">
+  <app-post-card *ngFor="let post of postsList" [post]="post" class="post"></app-post-card>
 </div>
-<div class="action-container">
-  <button class="action-container-btn-warning" mat-raised-button routerLink="/blog">
+
+<div class="button-container">
+  <button class="button-container-btn-warning" mat-raised-button routerLink="/blog">
     Ir al blog
   </button>
 </div>

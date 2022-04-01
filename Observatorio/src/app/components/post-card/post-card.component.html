@@ -1,19 +1,17 @@
-<div class="card-container">
-  <div class="custom-card">
-    <img class="card-img-top" src="{{ image }}" alt="post image" routerLink="/post/{{ id }}" />
-    <div class="card-body-container">
-      <p class="body-line">{{ date | date: 'longDate' }}</p>
-      <h5 class="card-title" routerLink="/post/{{ id }}">
-        <strong>{{ title }}</strong>
-      </h5>
-      <div class="categories">
-        <mat-chip-list>
-          <mat-chip *ngFor="let category of categories" routerLink="/blog/{{ category.nombre }}">{{
-            category.nombre
-          }}</mat-chip>
-        </mat-chip-list>
-      </div>
-      <p routerLink="/post/{{ id }}" style="cursor: pointer">{{ description }}</p>
+<div class="custom-card">
+  <img class="card-img-top" src="{{ image }}" alt="post image" routerLink="/post/{{ id }}" />
+  <div class="card-body-container">
+    <p class="body-line">{{ date | date: 'longDate' }}</p>
+    <h5 class="card-title" routerLink="/post/{{ id }}">
+      <strong>{{ title }}</strong>
+    </h5>
+    <div class="categories">
+      <mat-chip-list>
+        <mat-chip *ngFor="let category of categories" routerLink="/blog/{{ category.nombre }}">{{
+          category.nombre
+        }}</mat-chip>
+      </mat-chip-list>
     </div>
+    <p routerLink="/post/{{ id }}" style="cursor: pointer">{{ description }}</p>
   </div>
 </div>

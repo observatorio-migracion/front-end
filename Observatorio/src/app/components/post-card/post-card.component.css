@@ -1,11 +1,6 @@
-.card-container {
-  display: flex;
-}
-
 .custom-card {
-  width: 100%;
-  height: 100%;
   transition: transform 0.1s ease;
+  max-width: inherit;
 }
 
 .custom-card:hover {
