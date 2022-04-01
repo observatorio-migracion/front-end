@@ -1,3 +1,5 @@
+/* eslint max-len: ["error", { "code": 120 }] */
+/* eslint import/no-extraneous-dependencies: ["error"] */
 /** *************************************************************************************************
  * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
  */

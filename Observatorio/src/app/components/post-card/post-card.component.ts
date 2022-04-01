@@ -1,4 +1,4 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["parseString",] }] */
 import { Component, OnInit, Input } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
 import { parseURLImage } from '../../helpers/URLparser';
@@ -23,27 +23,23 @@ export class PostCardComponent implements OnInit {
 
   @Input() post: Post | undefined;
 
-  constructor() { }
-
   ngOnInit(): void {
     this.id = this.post?.id;
     this.title = this.post?.titulo;
     this.description = this.post?.descripcion;
-    this.image = parseURLImage(this.post?.miniatura?.formats?.medium?.url);// TODO: Revisar cual es la resolucion mas adecuada
+
+    // TODO: Revisar cual es la resolucion mas adecuada
+    this.image = parseURLImage(this.post?.miniatura?.formats?.medium?.url);
     this.categories = this.post?.categorias;
-    this.date = this.post?.published_at;
+    this.date = this.post?.publishedAt;
   }
 
   // cut a string defining a delimiter position an adds an ... at the end
   parseString(delimiter: number, str: string | undefined) {
-    let result: string = '';
+    let result = '';
     if (str) {
       result = str.length > delimiter ? `${str.substr(0, delimiter)} ...` : str;
     }
     return result;
-  }
-
-  filterByCategory(category:Categoria) {
-
   }
 }

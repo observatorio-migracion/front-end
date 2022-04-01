@@ -1,5 +1,5 @@
 export class Contact {
-  numberList: any;
+  numberList: string[] | undefined;
 
   constructor(
         public id: string,
@@ -10,9 +10,9 @@ export class Contact {
         public horario: string,
         public web: string,
         public numero: string,
-        public published_at: string,
-        public created_at: string,
-        public updated_at: string,
+        public publishedAt: string,
+        public createdAt: string,
+        public updatedAt: string,
         public gps: string,
   ) {}
 }

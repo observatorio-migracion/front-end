@@ -1,3 +1,4 @@
+/* eslint max-classes-per-file: ["error", 8] */
 // classes needed to consume the API
 export class Thumbnail {
   name: string | undefined;
@@ -14,7 +15,7 @@ export class Thumbnail {
 
   size: number | undefined;
 
-  path?: any | undefined;
+  path?: string | undefined;
 
   url: string | undefined;
 }
@@ -34,7 +35,7 @@ export class Large {
 
   size: number | undefined;
 
-  path?: any | undefined;
+  path?: string | undefined;
 
   url: string | undefined;
 }
@@ -54,7 +55,7 @@ export class Medium {
 
   size: number | undefined;
 
-  path?: any | undefined;
+  path?: string | undefined;
 
   url: string | undefined;
 }
@@ -74,7 +75,7 @@ export class Small {
 
   size: number|undefined;
 
-  path?: any|undefined;
+  path?: string | undefined;
 
   url: string|undefined;
 }
@@ -114,15 +115,15 @@ export class Miniatura {
 
   url: string|undefined;
 
-  previewUrl?: any|undefined;
+  previewUrl?: string|undefined;
 
   provider: string|undefined;
 
-  provider_metadata?: any|undefined;
+  providerMetadata?: string|undefined;
 
-  created_at: Date|undefined;
+  createdAt: Date|undefined;
 
-  updated_at: Date|undefined;
+  updatedAt: Date|undefined;
 }
 
 export class Categoria {
@@ -130,13 +131,14 @@ export class Categoria {
 
   nombre: string|undefined;
 
-  published_at: Date|undefined;
+  publishedAt: Date|undefined;
 
-  created_at: Date|undefined;
+  createdAt: Date|undefined;
 
-  updated_at: Date|undefined;
+  updatedAt: Date|undefined;
 
-  imagen:any |undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imagen: any | undefined;
 }
 
 export class Post {
@@ -148,11 +150,11 @@ export class Post {
 
   descripcion: string|undefined;
 
-  published_at: Date|undefined;
+  publishedAt: Date|undefined;
 
-  created_at: Date|undefined;
+  createdAt: Date|undefined;
 
-  updated_at: Date|undefined;
+  updatedAt: Date|undefined;
 
   miniatura: Miniatura|undefined;
 

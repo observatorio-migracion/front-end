@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
 
   public subscription: Subscription | undefined;
 
-  constructor(private _themeService: ThemeService) {
+  constructor(private themeService: ThemeService) {
     this.theme = 'light';
   }
 
   ngOnInit(): void {
-    this.subscription = this._themeService.currentTheme.subscribe((theme) => {
+    this.subscription = this.themeService.currentTheme.subscribe((theme) => {
       this.theme = theme;
     });
     this.checkTheme();
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   setTheme(theme: string) {
-    this._themeService.setTheme(theme);
+    this.themeService.setTheme(theme);
   }
 
   toggleTheme() {
@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
     const body = document.querySelector('body');
     if (body) {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        const newColorScheme = e.matches ? 'dark' : 'light';
+        // const newColorScheme = e.matches ? 'dark' : 'light';
         if (e.matches) {
           body.classList.add('dark');
           window.localStorage.setItem('theme', 'dark');

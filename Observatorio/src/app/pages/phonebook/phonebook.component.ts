@@ -1,3 +1,6 @@
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["goTop", "renderFirstLetter", "parseURL"] }] */
+/* eslint max-len: ["error", { "code": 126 }] */
+/* eslint no-param-reassign: "error" */
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/models/Contact';
 import { ContactService } from '../../services/contact.service';
@@ -24,7 +27,7 @@ export class PhonebookComponent implements OnInit {
 
   public searchParams;
 
-  constructor(private _contactService: ContactService) {
+  constructor(private contactService: ContactService) {
     this.contactList = new Array<Contact>();
     this.contactSelected = new Contact('', '', '', '', '', '', '', '', '', '', '', '');
     this.searchQuery = '';
@@ -36,9 +39,9 @@ export class PhonebookComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._contactService.getContactsListSize(this.searchParams).subscribe((size) => {
+    this.contactService.getContactsListSize(this.searchParams).subscribe((size) => {
       this.contactListSize = size;
-    }, (err) => console.error(err));
+    });
     this.loadContacts();
   }
 
@@ -55,16 +58,13 @@ export class PhonebookComponent implements OnInit {
   }
 
   loadContacts() {
-    this._contactService.getContactsListSize(this.searchParams).subscribe((size) => {
+    this.contactService.getContactsListSize(this.searchParams).subscribe((size) => {
       this.contactListSize = size;
-    }, (err) => console.error(err));
-    this._contactService.getContactsList(this.searchParams, this.contactOrder, this.contactStart, this.contactLimit).subscribe(
+    });
+    this.contactService.getContactsList(this.searchParams, this.contactOrder, this.contactStart, this.contactLimit).subscribe(
       (contacts: Contact[]) => {
         this.contactList.push(...contacts);
         this.splitNumberContact();
-      },
-      (err) => {
-        console.error(err);
       },
     );
   }
@@ -77,7 +77,7 @@ export class PhonebookComponent implements OnInit {
 
   showContact(contact:Contact) {
     this.contactSelected = contact;
-    const contactNumbers: string[] = this.contactSelected.numero.split(',');
+    // const contactNumbers: string[] = this.contactSelected.numero.split(',');
   }
 
   renderFirstLetter(contact:Contact, prev:Contact, index:number) {
@@ -107,7 +107,7 @@ export class PhonebookComponent implements OnInit {
   }
 
   parseURL(url:string):string {
-    let result:string = '';
+    let result = '';
     if (!url.startsWith('http://') && !url.startsWith('https://')) {
       result = `http://${url}`;
     } else {

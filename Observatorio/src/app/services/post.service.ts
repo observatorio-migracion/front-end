@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -14,34 +14,34 @@ export class PostService {
 
   private url: string;
 
-  constructor(private _http: HttpClient) {
+  constructor(private http: HttpClient) {
     this.postsList = new Array<Post>();
     this.url = environment.api.url;
   }
 
-  getPostsListSize(categoryFilter: string, searchParams: string = ''): Observable<any> {
-    return this._http.get(`${this.url}/posts/count?${categoryFilter}${searchParams}`);
+  getPostsListSize(categoryFilter: string, searchParams = ''): Observable<any> {
+    return this.http.get(`${this.url}/posts/count?${categoryFilter}${searchParams}`);
   }
 
-  getPostList(categoryFilter: string = '', searchParams: string = '', start: number = 0, limit: number = 4): Observable<Post[]> {
-    return this._http.get<Post[]>(`${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`);
+  getPostList(categoryFilter = '', searchParams = '', start = 0, limit = 4): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`);
   }
 
-  getRecentPostList(sort: string = '', limit: number = 4): Observable<Post[]> {
-    return this._http.get<Post[]>(`${this.url}/posts?_sort=${sort}&_limit=${limit}`);
+  getRecentPostList(sort = '', limit = 4): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.url}/posts?_sort=${sort}&_limit=${limit}`);
   }
 
   getPostById(id: string): Observable<Post> {
-    return this._http.get<Post>(`${this.url}/posts/${id}`);
+    return this.http.get<Post>(`${this.url}/posts/${id}`);
   }
 
   // if limit === 0 returns all the elements
-  getEnabledCategories(limit: number = 0): Observable<Categoria[]> {
-    return this._http.get<Categoria[]>(`${this.url}/categories${(limit) ? '?_limit=' : ''}${(limit) || ''}`);
+  getEnabledCategories(limit = 0): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(`${this.url}/categories${(limit) ? '?_limit=' : ''}${(limit) || ''}`);
   }
 
   // retorna un observable de un arreglo de posts;
   searchByKeywords(keywords: string): Observable<Post[]> {
-    return this._http.get<Post[]>(`${this.url}/posts?${keywords}`);
+    return this.http.get<Post[]>(`${this.url}/posts?${keywords}`);
   }
 }

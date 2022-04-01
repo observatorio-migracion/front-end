@@ -14,13 +14,13 @@ export class DarktoggleComponent implements OnInit {
 
   public subscription: Subscription | undefined;
 
-  constructor(private _themeService: ThemeService) {
+  constructor(private themeService: ThemeService) {
     this.isEnabled = false;
     this.theme = '';
   }
 
   ngOnInit(): void {
-    this.subscription = this._themeService.currentTheme.subscribe((theme) => {
+    this.subscription = this.themeService.currentTheme.subscribe((theme) => {
       this.theme = theme;
       if (this.theme === 'dark') {
         this.isEnabled = true;
@@ -37,7 +37,7 @@ export class DarktoggleComponent implements OnInit {
       body.classList.toggle('dark');
       this.theme = (window.localStorage.getItem('theme') === 'dark') ? 'light' : 'dark';
       window.localStorage.setItem('theme', this.theme);
-      this._themeService.setTheme(this.theme);
+      this.themeService.setTheme(this.theme);
     }
   }
 }

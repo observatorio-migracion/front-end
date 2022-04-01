@@ -1,3 +1,4 @@
+/* eslint class-methods-use-this: ["error", { "exceptMethods": ["ngOnInit",] }] */
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -16,5 +17,6 @@ export class FabComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //
   }
 }
