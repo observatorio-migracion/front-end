@@ -42,8 +42,7 @@ export class FAQComponent implements OnInit {
 
   verifyFaqContent(value: string): string {
     const htmlConverted = this.markDowntoHtml(value);
-    const htmlContent = this.sanitizer.sanitize(SecurityContext.HTML, htmlConverted) || '';
-    return htmlContent;
+    return this.sanitizer.sanitize(SecurityContext.HTML, htmlConverted) || '';
   }
 
   markDowntoHtml(text: string): string {

@@ -1,13 +1,10 @@
 import { Router } from '@angular/router';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ShowdownConverter } from 'ngx-showdown';
 import { Component, OnInit } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
-import { EventService } from 'src/app/services/event.service';
 import { PostService } from 'src/app/services/post.service';
 import { environment } from 'src/environments/environment';
 import { postStyleConfig } from '../../helpers/postStyleConfig';
-// import { Activity, Imagenes } from 'src/app/models/Activity';
 
 @Component({
   selector: 'app-home',
@@ -34,16 +31,11 @@ export class HomeComponent implements OnInit {
 
   public readonly dateSortQuery: string;
 
-  public contentHTML: SafeHtml;
-
   constructor(
     private postService: PostService,
-    private eventService: EventService,
     private router: Router,
-    private sanitizer: DomSanitizer,
     private showdownConverter: ShowdownConverter
   ) {
-    this.contentHTML = '';
     this.categoriesLimit = 4;
     this.recentPostLimit = 3;
     this.activitiesLimit = 4;
