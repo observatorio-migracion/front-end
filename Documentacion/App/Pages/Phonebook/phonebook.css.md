@@ -1,8 +1,8 @@
 
 # Documentacion phonebook.css
 
-Esta seccion contiene la documentacion del codigo .css del elemento phonebook de la pagina web. Dentro de su estructura visual posee: 
-* Barra de bsusqueda: Cuadro donde se escribe el texto para realizar la busca de un contacto que lo contenga o así como un botón con el icono de busqueda
+Esta seccion contiene la documentacion del codigo .css del elemento phonebook de la pagina web. Dentro de su estructura visual posee:
+* Barra de búsqueda: Cuadro donde se escribe el texto para realizar la busca de un contacto que lo contenga o así como un botón con el icono de busqueda
 * Lista de contactos: se muestra una lista de contactos ya sea los axistentes aí como los ingresados en la barra de busqueda, en el queb cada uno muestra su titulo así como una  lista de sus números de telefono. Al dar click a un contacto muestra un Modal con la información completa del contacto
 * Modal de información: muestra el título, la descripción, el horario, un enlace al lugar, un enlace al sitio web y una lista de los numeros de telegono del contacto. Al final sale un botón para cerrar
 * Botón para ir arriba: este se puede clikear y presenta la parte superior de la página, es descrito en el componente fab
