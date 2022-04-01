@@ -20,7 +20,7 @@ La clase **.container** contiene todos los elementos de las faq.
 }
 ```
 
-La clase **.faq-container** contiene los elementos de una pregunta frecuente de forma individual.
+La clase **.faq-container** contiene los elementos de una faq de forma individual.
 ``` css
 .faq-container{
   border-bottom: 1px solid var(--font-1);
