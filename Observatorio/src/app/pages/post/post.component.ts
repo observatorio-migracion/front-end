@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, OnInit, SecurityContext } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ShowdownConverter } from 'ngx-showdown';
 import { Categoria } from 'src/app/models/Post';
@@ -26,7 +26,7 @@ export class PostComponent implements OnInit {
 
   api: string;
 
-  public contentHTML: SafeHtml;
+  htmlContent: string;
 
   constructor(
     private postService: PostService,
@@ -34,7 +34,7 @@ export class PostComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private showdownConverter: ShowdownConverter
   ) {
-    this.contentHTML = '';
+    this.htmlContent = '';
     this.api = environment.api.url;
   }
 
@@ -44,7 +44,7 @@ export class PostComponent implements OnInit {
 
   async loadPost() {
     const id: string | null = this.router.snapshot.paramMap.get('id');
-    // const styles = postStyleConfig;
+
     if (id) {
       this.postService.getPostById(id).subscribe((post) => {
         this.title = post.titulo;
@@ -52,11 +52,20 @@ export class PostComponent implements OnInit {
         this.date = post.published_at;
 
         if (post?.contenido) {
-          const html = this.markDowntoHtml(post.contenido);
-          this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(html);
+          const verifiedContent = this.verifyFaqContent(post.contenido);
+
+          if (verifiedContent !== '') {
+            this.htmlContent = verifiedContent;
+          }
         }
       });
     }
+  }
+
+  verifyFaqContent(value: string): string {
+    const htmlConverted = this.markDowntoHtml(value);
+    const htmlContent = this.sanitizer.sanitize(SecurityContext.HTML, htmlConverted) || '';
+    return htmlContent;
   }
 
   markDowntoHtml(text: string): string {

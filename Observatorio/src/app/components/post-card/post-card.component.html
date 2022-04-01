@@ -4,7 +4,7 @@
     <div class="card-body-container">
       <p class="body-line">{{ date | date: 'longDate' }}</p>
       <h5 class="card-title" routerLink="/post/{{ id }}">
-        <b>{{ title }}</b>
+        <strong>{{ title }}</strong>
       </h5>
       <div class="categories">
         <mat-chip-list>
@@ -14,8 +14,6 @@
         </mat-chip-list>
       </div>
       <p routerLink="/post/{{ id }}" style="cursor: pointer">{{ description }}</p>
-
-      <!-- <button routerLink="/post/{{id}}" mat-raised-button color="accent">Leer más</button> -->
     </div>
   </div>
 </div>

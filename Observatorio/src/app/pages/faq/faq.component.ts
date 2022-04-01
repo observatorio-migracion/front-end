@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ShowdownConverter } from 'ngx-showdown';
 import { postStyleConfig } from 'src/app/helpers/postStyleConfig';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Question } from 'src/app/models/Question';
 import { FaqService } from 'src/app/services/faq.service';
 
@@ -29,13 +29,21 @@ export class FAQComponent implements OnInit {
     this.faqService.getQuestionList().subscribe((question: Question[]) => {
       for (const faq of question) {
         if (faq?.contenido) {
-          const html = this.markDowntoHtml(faq.contenido);
-          const contentHTML: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(html);
-          faq.safeHtml = contentHTML;
+          const verifiedContent = this.verifyFaqContent(faq.contenido);
+
+          if (verifiedContent !== '') {
+            faq.contenido = verifiedContent;
+            this.faqList.push(faq);
+          }
         }
-        this.faqList.push(faq);
       }
     });
+  }
+
+  verifyFaqContent(value: string): string {
+    const htmlConverted = this.markDowntoHtml(value);
+    const htmlContent = this.sanitizer.sanitize(SecurityContext.HTML, htmlConverted) || '';
+    return htmlContent;
   }
 
   markDowntoHtml(text: string): string {

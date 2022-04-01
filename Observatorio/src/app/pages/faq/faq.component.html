@@ -4,7 +4,7 @@
   <div class="faq-container" *ngFor="let question of faqList">
     <br />
     <h3>{{ question.pregunta }}</h3>
-    <div *ngIf="question.safeHtml" [innerHTML]="question.safeHtml"></div>
+    <div [innerHTML]="question.contenido"></div>
   </div>
 </div>
 <app-footer></app-footer>

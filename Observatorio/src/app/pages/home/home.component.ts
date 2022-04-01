@@ -35,9 +35,6 @@ export class HomeComponent implements OnInit {
   public readonly dateSortQuery: string;
 
   public contentHTML: SafeHtml;
-  // public activities: Activity[];
-
-  // public activitySelected: Activity | undefined;
 
   constructor(
     private postService: PostService,
@@ -56,33 +53,12 @@ export class HomeComponent implements OnInit {
     this.api = environment.api.url;
     this.postsList = new Array<Post>();
     this.seeMoreCategories = true;
-    // this.activities = new Array<Activity>();
-    // this.activitySelected = new Activity(
-    //   '',
-    //   '',
-    //   new Date(),
-    //   '',
-    //   '',
-    //   '',
-    //   '',
-    //   new Array<Imagenes>(),
-    //   ''
-    // );
   }
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadRecentPosts();
-    // this.loadActivities();
   }
-
-  // loadActivities() {
-  //   this.eventService
-  //     .getActivitiesList(this.activitiesLimit, this.dateSortQuery)
-  //     .subscribe((activities: Activity[]) => {
-  //       this.activities = activities;
-  //     });
-  // }
 
   markDowntoHtml(text: string): string {
     let html = postStyleConfig + this.showdownConverter.makeHtml(text);
@@ -93,13 +69,6 @@ export class HomeComponent implements OnInit {
     }
     return html;
   }
-
-  // renderActivity(activity: Activity) {
-  //   if (activity.descripcion) {
-  //     const html = this.markDowntoHtml(activity.descripcion);
-  //     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(html);
-  //   }
-  // }
 
   loadMoreCategories() {
     this.categoriesLimit = 0;
@@ -112,7 +81,6 @@ export class HomeComponent implements OnInit {
       .subscribe((categories: Categoria[]) => {
         for (const item of categories) {
           if (item.imagen) {
-            // TODO: Recordar cambiarlo para el deploy
             item.imagen.formats.small.url = this.api + item.imagen.formats.small.url;
           }
         }
@@ -129,11 +97,6 @@ export class HomeComponent implements OnInit {
         this.postsList = posts;
       });
   }
-
-  // openActivity(activity: Activity) {
-  //   this.activitySelected = activity;
-  //   this.renderActivity(activity);
-  // }
 
   filterPostsByCategory(category: Categoria) {
     this.router.navigate(['blog', category.nombre]);

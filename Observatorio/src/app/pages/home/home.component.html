@@ -43,48 +43,4 @@
   </button>
 </div>
 
-<!-- <div class="events-container">
-    <h1>Eventos próximos</h1>
-    <div class="custom-table">
-        <div class="row" *ngFor="let activity of activities">
-            <p class="index">{{activity.nombre}}</p>
-            <br>
-            <p>{{activity.fecha | date: 'mediumDate'}} </p>
-            <br>
-            <p><a (click)="openActivity(activity)" data-bs-toggle="modal" data-bs-target="#activityModal"
-                    class="activity-see-more">Ver más información</a></p>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" tabindex="-1" id="activityModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">{{activitySelected.nombre}}</h5>
-
-            </div>
-            <div class="modal-body">
-                <p><b>Fecha: </b>{{activitySelected.fecha | date:'longDate'}}</p>
-                <br>
-                <div *ngIf="activitySelected.reunion" class="modal-link">
-                    <p><b>Enlace Actividad: </b> 
-                        <a style="color: var(--warning-01)" href="http://{{activitySelected.reunion}}">{{activitySelected.reunion}}</a></p>
-                    <br>
-                </div>
-                <p><b>Descripción: </b></p>
-                <br>
-                <div *ngIf="contentHTML" [innerHTML]="contentHTML">{{contentHTML}}</div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" mat-raised-button
-                    style="background-color: var(--warning-02); color:var(--font-4);"
-                    data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <app-footer></app-footer>

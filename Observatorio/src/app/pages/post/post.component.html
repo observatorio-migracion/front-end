@@ -5,5 +5,5 @@
     <mat-chip *ngFor="let category of categories">{{ category.nombre }}</mat-chip>
   </mat-chip-list>
 </div>
-<div class="post-container" *ngIf="contentHTML" [innerHTML]="contentHTML"></div>
+<div class="post-container" *ngIf="htmlContent" [innerHTML]="htmlContent"></div>
 <app-footer></app-footer>

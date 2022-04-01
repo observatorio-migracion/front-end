@@ -21,7 +21,7 @@
           (click)="showContact(contact)"
           *ngIf="renderFirstLetter(contact, contactList[i - 1], i)"
         >
-          <b>{{ contact.titulo[0] }}</b>
+          <strong>{{ contact.titulo[0] }}</strong>
         </div>
         <p
           class="contact-title"
@@ -67,13 +67,17 @@
           <br />
           <h4>Página Web:</h4>
           <p>
-            <a href="{{ parseURL(contactSelected.web) }}" target="_blank">{{
+            <a href="{{ parseURL(contactSelected.web) }}" target="_blank" rel="noopener">{{
               parseURL(contactSelected.web)
             }}</a>
           </p>
           <br />
           <p *ngIf="contactSelected.gps">
-            <b><a href="{{ parseURL(contactSelected.gps) }}" target="_blank">Ver Dirección</a></b>
+            <strong
+              ><a href="{{ parseURL(contactSelected.gps) }}" target="_blank" rel="noopener"
+                >Ver Dirección</a
+              ></strong
+            >
           </p>
         </div>
         <div class="modal-footer">
