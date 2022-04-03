@@ -27,38 +27,46 @@ Esta etiqueta **div** tiene la clase *footer-edge* y el identificador *upper*, s
 Esta etiqueta **div** tiene la clase *footer-center*, la cual se divide en otras dos secciones, cada una con un logo. Con la función **ngIf* se verifica si la página se encuentra en modo claro u oscuro y dependiendo del modo, se intercambia la imagen con su respectivo formato.
 ``` html 
 <div class="footer-center">
-      <div class="logo-container">
-        <a href="https://www.ucr.ac.cr/">
-          <picture>
-            <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf='theme === "dark"'>
-            <img src="../../../assets/images/logo-ucr-light.png">
-          </picture>
-        </a>
-      </div>
-      <div class="logo-container">
-          <picture>
-            <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf='theme === "dark"'>
-            <img src="../../../assets/images/logo-ucr-light.png">
-          </picture>
-      </div>
-    </div>
+  <div class="logo-container">
+    <a href="#">
+      <picture>
+        <source srcset="../../../assets/images/membrete-dark.png" *ngIf="theme === 'dark'" />
+        <img src="../../../assets/images/membrete-light.png" alt="Logo Observatorio" />
+      </picture>
+    </a>
+  </div>
+  <div class="logo-container">
+    <a href="https://www.ucr.ac.cr/" target="_blank" rel="noopener">
+      <picture>
+        <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf="theme === 'dark'" />
+        <img src="../../../assets/images/logo-ucr-light.png" alt="Logo UCR" />
+      </picture>
+    </a>
+  </div>
+</div>
 ``` 
 
 Esta etiqueta **div** tiene la clase *footer-edge* y el identificador *bottom*, la cual se divide en otras tres secciones, la primera contiene un enlace hacia el inicio de la propi página, la segunda contiene el copyright y la tercera contiene tres enlaces.
 ``` html 
 <div class="footer-edge" id="bottom">
-      <div class="footer-brand">
-        <a class="navbar-brand" href="#">
-          <p>Observatorio de Migración</p>
-        </a>
-      </div>
-      <div class="footer-copyright">
-        <p>© Universidad de Costa Rica </p>
-      </div>
-      <div class="footer-bottom-links">
-        <a class="bottom-links" id="bottom-link-left" href="#">Contactos</a>
-        <a class="bottom-links" href="#">Mapa del sitio</a>
-        <a class="bottom-links" href="#">Preguntas frecuentes</a>
-      </div>
-    </div>
+  <div class="footer-bottom-links footer-edge-content">
+    <a
+      class="bottom-links"
+      id="bottom-link-left"
+      routerLink="/contact-us"
+      routerLinkActive="active-link"
+    >
+      Contáctenos
+    </a>
+    <a class="bottom-links" routerLink="/site-map" routerLinkActive="active-link">
+      Mapa del sitio
+    </a>
+    <a class="bottom-links" routerLink="/faq" routerLinkActive="active-link">
+      Preguntas frecuentes
+    </a>
+  </div>
+  <div class="footer-copyright footer-edge-content">
+    <p>© Universidad de Costa Rica</p>
+  </div>
+</div>
 ``` 
