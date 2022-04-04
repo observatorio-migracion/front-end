@@ -3,6 +3,7 @@ import { ShowdownConverter } from 'ngx-showdown';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Question } from 'src/app/models/Question';
 import { FaqService } from 'src/app/services/faq.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-faq',
@@ -12,12 +13,15 @@ import { FaqService } from 'src/app/services/faq.service';
 export class FAQComponent implements OnInit {
   faqList: Question[];
 
+  url: string;
+
   constructor(
     private faqService: FaqService,
     private showdownConverter: ShowdownConverter,
     private sanitizer: DomSanitizer
   ) {
     this.faqList = [];
+    this.url = environment.main.url;
   }
 
   ngOnInit(): void {
@@ -45,6 +49,12 @@ export class FAQComponent implements OnInit {
   }
 
   markDowntoHtml(text: string): string {
-    return this.showdownConverter.makeHtml(text);
+    let html = this.showdownConverter.makeHtml(text);
+    let aux = '';
+    while (aux !== html) {
+      aux = html;
+      html = html.replace('href="/post/', `href="${this.url}/post/`);
+    }
+    return html;
   }
 }

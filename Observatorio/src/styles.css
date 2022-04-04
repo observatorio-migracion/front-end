@@ -209,6 +209,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.post-container a {
+  color: var(--font-3);
+}
+
 @media (max-width: 800px) {
   .post-container h1 {
     margin-top: 3vh;
