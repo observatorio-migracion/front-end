@@ -10,11 +10,10 @@
 }
 
 a {
-  color: var(--font-1);
+  color: var(--font-3);
 }
 
 a:hover {
-  color: var(--font-3);
   text-decoration: underline;
 }
 
