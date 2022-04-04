@@ -11,7 +11,6 @@ La clase **.footer** es el contenedor base de todas las clases pertenecientes al
   width: 100%;
   height: 2rem;
   position: relative;
-  margin-top: -2rem;
 }
 ``` 
 
@@ -21,6 +20,8 @@ La clase **.footer-container** es un contenedor de todo el footer, que se utiliz
   display: flex;
   flex-flow: wrap;
   flex-direction: column;
+  position: absolute;
+  width: 100%;
 }
 ``` 
 
@@ -66,9 +67,8 @@ El identificador **#bottom** se utiliza junto con la clase *.footer-edge* para d
 ``` css
 #bottom {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  flex-flow: row;
+  flex-flow: column;
   flex-wrap: wrap;
 }
 ``` 
@@ -93,42 +93,40 @@ La clase **.footer-bottom-links** es la sección de los enlaces adicionales de l
 ``` css
 .footer-bottom-links {
   display: flex;
+  padding-bottom: 1rem;
 }
 ``` 
 
 El identificador **#bottom-link-left** se utiliza junto con la clase *.bottom-links* para definir que es el primer enlace.
 ``` css
 #bottom-link-left {
+  margin-left: 5rem;
   border: unset;
 }
 ``` 
+
+La clase **.active-link** se utiliza para marcar en negrita la página del footer en la que se encuentra, si se encuentra en una de ellas.
+``` css
+.active-link {
+  font-weight: bold;
+}
+```
 
 La clase **.bottom-links** contienen los enlaces adicionales de la clase *.footer-bottom-links*.
 ``` css
 .bottom-links {
   margin-right: unset;
-  padding: 0 8px;
+  padding: 0 3rem;
   padding-bottom: unset;
   padding-top: unset;
   border-left: 1px solid;
 }
 ``` 
 
-La clase **.navbar-brand** contiene un enlace de referencia a la propia página.
-``` css
-.navbar-brand {
-  margin-right: unset;
-  padding-bottom: unset;
-  padding-top: unset;
-}
-``` 
-
 La etiqueta **img** contiene una imagen dentro del footer.
 ``` css
 img {
-  width: 200px;
   height: 80px;
-  aspect-ratio: auto 200/80;
 }
 ``` 
 
@@ -145,58 +143,9 @@ La clase **.logo-container** contiene un único logo.
 
 El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
-@media (min-width: 1024px) {
-  .active-link {
-    border-radius: 0.2rem;
-  }
-
-  .nav-item {
-    margin: 0 3%;
-  }
-
-  #search-button {
-    margin: 0 3%;
-  }
-
-  #bottom {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-flow: row;
-    flex-wrap: wrap;
-  }
-}
-``` 
-
-El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
-``` css
-@media (max-width: 800px) {
-  * {
-    font-size: 1rem;
-  }
-
-  .navbar-brand {
-    font-size: 1.4rem;
-  }
-
-  .active-link {
-    font-weight: bold;
-  }
-
-  .nav-item {
-    margin: 0;
-  }
-
-  #search-button {
-    margin: 0;
-  }
-
-  #bottom {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-flow: row;
-    flex-wrap: wrap;
+@media (max-width: 900px) {
+  #bottom-link-left {
+    margin-left: unset;
   }
 
   .footer-bottom-links {
@@ -204,78 +153,29 @@ El delimitador **media** cambia el comportamiento de distintas clases con respec
     flex-direction: column;
     align-items: center;
   }
-
-  .footer-brand span {
-    align-items: center;
+ 
+ .bottom-links {
+    border: unset;
   }
-
+}
+``` 
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
+``` css
+@media (max-width: 800px) {
   .footer-center {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
-  .footer-bottom-links .navbar-brand {
-    font-size: 1rem;
-  }
-
-  .bottom-links {
-    border: unset;
-  }
-
-  .navbar-collapse {
-    background: transparent;
-    text-align: center;
-  }
-
-  .navbar {
-    align-content: center;
-  }
 }
-``` 
+```
 
 El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
 @media (max-width: 300px) {
-  * {
-    font-size: 0.8rem;
-  }
-
-  .navbar-brand {
-    font-size: 1.6rem;
-  }
-
-  #bottom {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-flow: row;
-    flex-wrap: wrap;
-  }
-
-  .footer-bottom-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-bottom-links .navbar-brand {
-    font-size: 1rem;
-  }
-
-  .footer-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-edge p {
-    font-size: 1rem;
-  }
-
   .bottom-links {
+    padding: unset;
     border: unset;
   }
 }
-
 ``` 
