@@ -1,6 +1,5 @@
 import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ShowdownConverter } from 'ngx-showdown';
-import { postStyleConfig } from 'src/app/helpers/postStyleConfig';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Question } from 'src/app/models/Question';
 import { FaqService } from 'src/app/services/faq.service';
@@ -46,6 +45,6 @@ export class FAQComponent implements OnInit {
   }
 
   markDowntoHtml(text: string): string {
-    return postStyleConfig + this.showdownConverter.makeHtml(text);
+    return this.showdownConverter.makeHtml(text);
   }
 }

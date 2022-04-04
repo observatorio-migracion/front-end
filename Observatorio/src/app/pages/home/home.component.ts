@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
 import { environment } from 'src/environments/environment';
-import { postStyleConfig } from '../../helpers/postStyleConfig';
 
 @Component({
   selector: 'app-home',
@@ -53,7 +52,7 @@ export class HomeComponent implements OnInit {
   }
 
   markDowntoHtml(text: string): string {
-    let html = postStyleConfig + this.showdownConverter.makeHtml(text);
+    let html = this.showdownConverter.makeHtml(text);
     let aux = '';
     while (aux !== html) {
       aux = html;
