@@ -182,7 +182,6 @@ body {
 
 .post-container h1 {
   margin-top: 40px;
-  font-size: 3rem;
   font-weight: 400;
 }
 
@@ -204,6 +203,7 @@ body {
 
 .post-container p {
   margin: 1rem 0;
+  text-align: justify;
   white-space: pre-wrap;
   font-size: 1rem;
   margin-bottom: 1rem;

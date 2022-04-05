@@ -37,6 +37,7 @@ export class FAQComponent implements OnInit {
           if (verifiedContent !== '') {
             faq.contenido = verifiedContent;
             this.faqList.push(faq);
+            this.faqList.sort((a, b) => a.order - b.order);
           }
         }
       }
