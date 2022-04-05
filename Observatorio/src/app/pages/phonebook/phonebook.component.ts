@@ -68,7 +68,7 @@ export class PhonebookComponent implements OnInit {
 
   splitNumberContact() {
     for (const item of this.contactList) {
-      item.numberList = item.numero.split(',');
+      item.numberList = item.numero.split('/');
     }
   }
 
