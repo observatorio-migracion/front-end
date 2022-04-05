@@ -10,7 +10,7 @@
   --super-dark-blue: #0e2733;
   --light-green-02: #72b1b3;
   --light-green-01: #30a740;
-  --green: #236667;
+  --green: #246566;
   --dark-green: #1a4c4d;
   --darker-green: #1e5859;
   --very-dark-green: #113233;
@@ -21,9 +21,13 @@
   --light-gray: #cfcfcf;
   --yellow: #f2c62c;
   --dark-blue-gradient: rgba(21 58 74 / 70%);
-  --white-gradient: rgba(255 255 255 / 87%);
+  --white-gradient: rgba(255 255 255 / 30%);
   --no-gradient: rgba(255 255 255 / 0%);
   --foreground-toggle: var(--light-gray);
+  --font-family: 'Myriad Pro';
+  --font-family-title-style: 'Black SemiExtended';
+  --font-family-text-style: 'Condensed';
+  --font-family-subtitle-style: 'Regular';
 }
 
 .web {
@@ -42,7 +46,7 @@
   --footer-edges: var(--green);
   --navbar-gradient-01: var(--white-gradient);
   --navbar-gradient-02: transparent;
-  --underline: var(--dark-green);
+  --underline: var(--black);
   --footer-underline: var(--yellow);
   --modal-background: var(--white);
   --filter: var(--white);
@@ -83,16 +87,27 @@ button {
 }
 
 h1 {
+  font-style: var(--font-family-title-style);
   background-color: var(--background-01);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: var(--font-family-subtitle-style);
 }
 
 html,
 body {
+  font-size: 20px;
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: var(--background-01);
   color: var(--font-1);
+  overflow-x: visible;
 }
 
 .cont {
@@ -100,7 +115,8 @@ body {
 }
 
 * {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: var(--font-family-text), sans-serif;
+  font-style: var(--font-family-text-style);
 }
 
 .ng-valid[required] {
@@ -148,4 +164,59 @@ body {
 
 .search-input::placeholder {
   color: var(--search-color);
+}
+
+/* CSS de faqs (innerHTML) */
+.faq-html-container a {
+  color: var(--font-3);
+}
+
+/* CSS de posts (innerHTML) */
+.post-container img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 95%;
+  height: auto;
+  border-radius: 0.3rem;
+}
+
+.post-container h1 {
+  margin-top: 40px;
+  font-weight: 400;
+}
+
+.post-container h2 {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.post-container h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.post-container h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.post-container p {
+  margin: 1rem 0;
+  text-align: justify;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-container a {
+  color: var(--font-3);
+}
+
+@media (max-width: 800px) {
+  .post-container h1 {
+    margin-top: 3vh;
+    font-size: 2rem;
+    font-weight: 400;
+  }
 }

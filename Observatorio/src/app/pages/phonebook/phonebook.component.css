@@ -1,5 +1,5 @@
 .container {
-  width: 40%;
+  width: 80%;
   margin: 10vh auto;
   font-size: 1rem;
   padding: 0 5vw;
@@ -13,8 +13,7 @@
 
 .phone-list {
   display: flex;
-  flex-flow: wrap;
-  flex-direction: row;
+  flex-flow: column;
 }
 
 .contact:hover {
@@ -27,16 +26,20 @@
 }
 
 .search-container {
-  height: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .search-form {
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .search-input {
   border: 1px solid rgb(175 175 175);
-  font-size: 16px;
+  font-size: 1rem;
   width: 200px;
   height: 30px;
   background-color: transparent;
@@ -50,6 +53,10 @@
   vertical-align: middle;
 }
 
+.close-modal {
+  font-size: 1rem;
+}
+
 .search-button {
   display: inline;
   z-index: 99;
@@ -60,6 +67,8 @@
   border: none;
   outline: none;
   color: var(--font1);
+  width: 24px;
+  height: 24px;
 }
 
 .initial-letter {
@@ -67,54 +76,50 @@
 }
 
 a {
-  color: var(--warning-01);
+  color: var(--font-3);
   text-decoration: underline;
-  margin: 0 1%;
+}
+
+.modal-text {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
 }
 
 #instructions {
-  padding-right: 40%;
-  margin: 5vh 0;
+  max-width: 50%;
+}
+
+.modal-dialog {
+  max-width: 600px;
 }
 
 .modal-title {
   font-size: 1.6rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 800px) {
   .container {
-    width: 60%;
-  }
-
-  .search-form {
-    position: relative;
+    width: 80%;
   }
 }
 
-@media (max-width: 800px) {
-  .container {
-    width: 70%;
+@media (max-width: 655px) {
+  .search-container {
+    justify-content: center;
   }
 
-  .search-form {
-    position: relative;
+  #instructions {
+    max-width: unset;
+    width: 100%;
   }
 }
 
 @media (max-width: 420px) {
   .container {
     width: 95%;
-  }
-
-  .search-form {
-    /* position:relative; left: 0vw; */
-    position: static;
-    margin: 0 auto;
-  }
-
-  #instructions {
-    padding: 0;
-    margin: 5vh 0;
   }
 
   .contact-title {

@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 40%;
+  min-height: 49vh;
+  margin: 10vh auto;
+  font-size: 1rem;
+  padding: 0 15vw;
+}
+
+a {
+  color: var(--font-3);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 728px) {
+  .container {
+    padding: 0 5vw;
+  }
+}

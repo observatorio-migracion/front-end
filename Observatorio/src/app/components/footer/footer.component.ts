@@ -5,16 +5,16 @@ import { ThemeService } from '../../services/theme.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css'],
+  styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
   public matchQuery: boolean;
 
   public theme: string;
 
-  public subscription:Subscription | undefined;
+  public subscription: Subscription | undefined;
 
-  constructor(private themeService:ThemeService) {
+  constructor(private themeService: ThemeService) {
     this.theme = 'light';
     this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
   }

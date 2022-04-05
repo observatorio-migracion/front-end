@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ThemeService {
-  private themeSource:BehaviorSubject<string>;
+  private themeSource: BehaviorSubject<string>;
 
-  public currentTheme:Observable<string>;
+  public currentTheme: Observable<string>;
 
   constructor() {
     this.themeSource = new BehaviorSubject(window.localStorage.getItem('theme') || 'light');

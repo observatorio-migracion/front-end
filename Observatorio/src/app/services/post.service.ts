@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Categoria, Post } from '../models/Post';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PostService {
   private postsList: Post[];
@@ -24,7 +23,9 @@ export class PostService {
   }
 
   getPostList(categoryFilter = '', searchParams = '', start = 0, limit = 4): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`);
+    return this.http.get<Post[]>(
+      `${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`
+    );
   }
 
   getRecentPostList(sort = '', limit = 4): Observable<Post[]> {
@@ -37,7 +38,9 @@ export class PostService {
 
   // if limit === 0 returns all the elements
   getEnabledCategories(limit = 0): Observable<Categoria[]> {
-    return this.http.get<Categoria[]>(`${this.url}/categories${(limit) ? '?_limit=' : ''}${(limit) || ''}`);
+    return this.http.get<Categoria[]>(
+      `${this.url}/categories${limit ? '?_limit=' : ''}${limit || ''}`
+    );
   }
 
   // retorna un observable de un arreglo de posts;

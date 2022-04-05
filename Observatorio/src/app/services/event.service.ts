@@ -5,10 +5,10 @@ import { environment } from 'src/environments/environment';
 import { Activity } from '../models/Activity';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class EventService {
-  private activitiesList:Activity[];
+  private activitiesList: Activity[];
 
   private url: string;
 
@@ -17,7 +17,7 @@ export class EventService {
     this.url = environment.api.url;
   }
 
-  getActivitiesList(limit = 4): Observable<Activity[]> {
-    return this.http.get<Activity[]>(`${this.url}/eventos?_limit=${limit}`);
+  getActivitiesList(limit = 4, sort = ''): Observable<Activity[]> {
+    return this.http.get<Activity[]>(`${this.url}/eventos?_sort=${sort}&_limit=${limit}`);
   }
 }

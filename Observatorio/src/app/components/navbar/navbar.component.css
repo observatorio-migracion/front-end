@@ -1,6 +1,11 @@
-.header-container {
-  background: linear-gradient(var(--navbar-gradient-01), var(--navbar-gradient-01)), url("../../../assets/patterns/p4.jpg");
+#header-container {
   background-repeat: repeat;
+  background-size: contain;
+}
+
+.toggle-container {
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
 
 hr {
@@ -13,13 +18,25 @@ hr {
   top: -0.9rem;
 }
 
+img {
+  height: 80px;
+}
+
 .underline-text-decoration {
   background-color: var(--underline);
+}
+
+.nav-link {
+  font-weight: bold;
 }
 
 .navbar {
   margin: 0;
   padding: 0% 0.4%;
+}
+
+.navbar-collapse {
+  min-width: 60%;
 }
 
 .navbar a {
@@ -37,13 +54,13 @@ hr {
 
 .navbar li a {
   color: var(--font-1);
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .logo-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 5px;
   padding: 0 1rem;
   margin-bottom: 16px;
@@ -53,17 +70,13 @@ hr {
   transition: height 0.01s;
 }
 
-navbar-toggler {
+.navbar-toggler {
   margin-right: 1rem;
 }
 
 @media (min-width: 1024px) {
   .active-link {
     border-radius: 0.2rem;
-  }
-
-  .nav-item {
-    margin: 0 3%;
   }
 
   #search-button {
@@ -122,6 +135,18 @@ navbar-toggler {
   }
 }
 
+@media (max-width: 480px) {
+  .logo-container {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 367px) {
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}
+
 @media (max-width: 300px) {
   * {
     font-size: 0.8rem;
@@ -132,7 +157,8 @@ navbar-toggler {
   }
 }
 
-@media (max-width: 767px) {/* breakpoint for mobile menu */
+@media (max-width: 767px) {
+  /* breakpoint for mobile menu */
   .navbar-collapse {
     background: transparent;
     text-align: center;

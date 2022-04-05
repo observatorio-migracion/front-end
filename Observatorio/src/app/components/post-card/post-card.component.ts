@@ -1,4 +1,3 @@
-/* eslint class-methods-use-this: ["error", { "exceptMethods": ["parseString",] }] */
 import { Component, OnInit, Input } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
 import { parseURLImage } from '../../helpers/URLparser';
@@ -6,7 +5,7 @@ import { parseURLImage } from '../../helpers/URLparser';
 @Component({
   selector: 'app-post-card',
   templateUrl: './post-card.component.html',
-  styleUrls: ['./post-card.component.css'],
+  styleUrls: ['./post-card.component.css']
 })
 export class PostCardComponent implements OnInit {
   id: string | undefined;
@@ -31,7 +30,7 @@ export class PostCardComponent implements OnInit {
     // TODO: Revisar cual es la resolucion mas adecuada
     this.image = parseURLImage(this.post?.miniatura?.formats?.medium?.url);
     this.categories = this.post?.categorias;
-    this.date = this.post?.publishedAt;
+    this.date = this.post?.published_at;
   }
 
   // cut a string defining a delimiter position an adds an ... at the end
