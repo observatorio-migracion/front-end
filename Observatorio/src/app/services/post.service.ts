@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
@@ -22,9 +22,9 @@ export class PostService {
     return this.http.get(`${this.url}/posts/count?${categoryFilter}${searchParams}`);
   }
 
-  getPostList(categoryFilter = '', searchParams = '', start = 0, limit = 4): Observable<Post[]> {
+  getPostList(sort = '',categoryFilter = '', searchParams = '', start = 0, limit = 4): Observable<Post[]> {
     return this.http.get<Post[]>(
-      `${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}`
+      `${this.url}/posts?${categoryFilter}${searchParams}_start=${start}&_limit=${limit}&_sort=${sort}`
     );
   }
 

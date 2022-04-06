@@ -28,6 +28,8 @@ export class BlogComponent implements OnInit {
 
   public searchParams = '';
 
+  public readonly sortQuery: string;
+
   constructor(
     private postService: PostService,
     private activatedRoute: ActivatedRoute,
@@ -39,6 +41,7 @@ export class BlogComponent implements OnInit {
     this.postStart = 0;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.scrolled = false;
+    this.sortQuery = 'published_at:desc';
   }
 
   ngOnInit(): void {
@@ -95,13 +98,19 @@ export class BlogComponent implements OnInit {
     this.postsList = [];
   }
 
+
   async loadPostList(clear = false): Promise<void> {
     this.postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe((size) => {
       this.postListSize = size;
     });
+    // this.postService
+    // .getRecentPostList(this.sortQuery, this.recentPostLimit)
+    // .subscribe((posts: Post[]) => {
+    //   this.postsList = posts;
+    // });
     if (clear) this.postStart = 0;
     this.postService
-      .getPostList(this.categoryFilter, this.searchParams, this.postStart, this.postLimit)
+      .getPostList(this.sortQuery,this.categoryFilter, this.searchParams, this.postStart, this.postLimit)
       .subscribe((posts: Post[]) => {
         if (clear) {
           this.deletePostsList().then(() => {
