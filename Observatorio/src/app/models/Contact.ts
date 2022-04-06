@@ -1,5 +1,5 @@
 export class Contact {
-  numberList: string[] | undefined;
+  numberList: NumberInfo[] | undefined;
 
   constructor(
     public id: string,
@@ -15,4 +15,9 @@ export class Contact {
     public updatedAt: string,
     public gps: string
   ) {}
+}
+
+export interface NumberInfo{
+  text : string;
+  number : string;
 }
