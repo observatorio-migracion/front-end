@@ -80,24 +80,18 @@ export class PhonebookComponent implements OnInit {
       //console.log(item);
       tempString = item.numero.split('/');
       item.numberList = new Array(tempString.length);
-      console.log(tempString);
-      console.log(item.numberList.length);
       cont = 0;
       for(const num of tempString){
         if(num.includes(':')){
           tempSplit = num.split(':');
           item.numberList![cont] = {text : tempSplit[0] + ": ", number : tempSplit[1]};
-          console.log(item.numberList[cont]);
           cont++;
           
         }else{
           item.numberList![cont] = {text : "", number : num};
           cont++;
-          console.log(item.numberList);
         }
-        console.log(item.numberList);
       }
-      console.log(item.numberList);
     }
   }
 
