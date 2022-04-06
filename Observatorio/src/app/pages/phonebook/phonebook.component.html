@@ -33,7 +33,7 @@
         </p>
         <div class="phone-list">
           <a href="tel:{{ number.number }}" *ngFor="let number of contact.numberList">
-            {{number.text }}{{ number.number }} 
+            {{number.text }}{{ number.number }}
           </a>
         </div>
       </div>
@@ -53,9 +53,9 @@
           <br />
           <h4>Teléfono:</h4>
           <div class="phone-list">
-            <a href="tel:{{ number.number }}" *ngFor="let number of contactSelected.numberList">{{
-              number.text
-            }}</a>
+            <a href="tel:{{ number.number }}" *ngFor="let number of contactSelected.numberList">
+              {{number.text }}{{ number.number }}
+            </a>
           </div>
           <br />
           <h4>Correo Electrónico:</h4>
