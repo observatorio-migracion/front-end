@@ -4,6 +4,6 @@ export const environment = {
     url: 'https://observatorio-backend.herokuapp.com'
   },
   main: {
-    url: 'https://observatorio-frontend.herokuapp.com'
+    url: 'https://proyecto-observatorio.herokuapp.com'
   }
 };
