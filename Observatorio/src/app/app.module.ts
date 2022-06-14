@@ -32,7 +32,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DarktoggleComponent } from './components/darktoggle/darktoggle.component';
 import { FabComponent } from './components/fab/fab.component';
-
+import { NewsComponent } from './pages/news/news.component';
 // external dependencies
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -58,6 +58,7 @@ registerLocaleData(localeEs, 'es-CR');
     FAQComponent,
     ContactUsComponent,
     SiteMapComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -73,13 +74,9 @@ registerLocaleData(localeEs, 'es-CR');
     ShowdownModule.forRoot({ emoji: true, noHeaderId: true, flavor: 'github' }),
     MatPaginatorModule,
     ReactiveFormsModule,
-    MatSelectModule,
-
+    MatSelectModule
   ],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'es-CR' },
-  ],
-  bootstrap: [AppComponent],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-CR' }],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

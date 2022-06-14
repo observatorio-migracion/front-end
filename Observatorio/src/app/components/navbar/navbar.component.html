@@ -85,6 +85,17 @@
               <hr routerLinkActive="underline-text-decoration" />
             </a>
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/news"
+              routerLinkActive="active-link"
+              [attr.data-toggle]="matchQuery ? 'collapse' : null"
+              [attr.data-target]="matchQuery ? '#navbarNav' : null"
+              >Noticias
+              <hr routerLinkActive="underline-text-decoration" />
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
