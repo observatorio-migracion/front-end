@@ -39,6 +39,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FAQComponent } from './pages/faq/faq.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { SiteMapComponent } from './pages/site-map/site-map.component';
+import { NewCardComponent } from './components/new-card/new-card.component';
 
 registerLocaleData(localeEs, 'es-CR');
 
@@ -58,7 +59,8 @@ registerLocaleData(localeEs, 'es-CR');
     FAQComponent,
     ContactUsComponent,
     SiteMapComponent,
-    NewsComponent
+    NewsComponent,
+    NewCardComponent
   ],
   imports: [
     BrowserModule,
