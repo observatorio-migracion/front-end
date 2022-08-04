@@ -1,8 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CheckBoxData } from 'src/app/models/CheckBoxData';
-import { Categoria, Post } from 'src/app/models/Post';
-import { PostService } from 'src/app/services/post.service';
+import { Categoria, New } from 'src/app/models/New';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-news',
@@ -12,15 +12,15 @@ import { PostService } from 'src/app/services/post.service';
 export class NewsComponent implements OnInit {
   public scrolled: boolean;
 
-  public postStart: number;
+  public newStart: number;
 
-  public readonly postLimit: number;
+  public readonly newLimit: number;
 
   public categoryFilter = '';
 
-  public postListSize: number;
+  public newsListSize: number;
 
-  public postsList: New[];
+  public newsList: New[];
 
   public categoriesList: CheckBoxData[] = [];
 
@@ -31,14 +31,14 @@ export class NewsComponent implements OnInit {
   public readonly sortQuery: string;
 
   constructor(
-    private postService: PostService,
+    private newsService: NewsService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.postsList = new Array<Post>();
-    this.postListSize = 0;
-    this.postLimit = 4;
-    this.postStart = 0;
+    this.newsList = new Array<New>();
+    this.newsListSize = 0;
+    this.newLimit = 4;
+    this.newStart = 0;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.scrolled = false;
     this.sortQuery = 'published_at:desc';
@@ -47,8 +47,8 @@ export class NewsComponent implements OnInit {
   ngOnInit(): void {
     this.loadCategories();
 
-    this.postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe((size) => {
-      this.postListSize = size;
+    this.newsService.getNewsListSize(this.categoryFilter, this.searchParams).subscribe((size) => {
+      this.newsListSize = size;
     });
     this.loadPostList();
   }
@@ -78,7 +78,7 @@ export class NewsComponent implements OnInit {
   }
 
   loadCategories(): void {
-    this.postService.getEnabledCategories().subscribe((res: Categoria[]) => {
+    this.newsService.getEnabledCategories().subscribe((res: Categoria[]) => {
       this.categoriesList = res.map((value) => new CheckBoxData(value.nombre || '', false));
       this.loadCategoryFilterFromURL();
     });
@@ -95,34 +95,34 @@ export class NewsComponent implements OnInit {
   }
 
   async deletePostsList(): Promise<void> {
-    this.postsList = [];
+    this.newsList = [];
   }
 
   async loadPostList(clear = false): Promise<void> {
-    this.postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe((size) => {
-      this.postListSize = size;
+    this.newsService.getNewsListSize(this.categoryFilter, this.searchParams).subscribe((size) => {
+      this.newsListSize = size;
     });
-    // this.postService
+    // this.newsService
     // .getRecentPostList(this.sortQuery, this.recentPostLimit)
     // .subscribe((posts: Post[]) => {
     //   this.postsList = posts;
     // });
-    if (clear) this.postStart = 0;
-    this.postService
-      .getPostList(
+    if (clear) this.newStart = 0;
+    this.newsService
+      .getNewsList(
         this.sortQuery,
         this.categoryFilter,
         this.searchParams,
-        this.postStart,
-        this.postLimit
+        this.newStart,
+        this.newLimit
       )
-      .subscribe((posts: Post[]) => {
+      .subscribe((posts: New[]) => {
         if (clear) {
           this.deletePostsList().then(() => {
-            this.postsList.push(...posts);
+            this.newsList.push(...posts);
           });
         } else {
-          this.postsList.push(...posts);
+          this.newsList.push(...posts);
         }
       });
   }
@@ -141,9 +141,10 @@ export class NewsComponent implements OnInit {
   }
 
   onScroll() {
-    if (this.postStart <= this.postListSize) {
-      this.postStart += this.postLimit;
+    if (this.newStart <= this.newsListSize) {
+      this.newStart += this.newLimit;
       this.loadPostList();
     }
   }
-}
+  
+ }

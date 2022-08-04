@@ -1,1 +1,54 @@
-<p>news works!</p>
+<div class="infinite-scroll" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+    <div class="tools">
+      <div class="row">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            type="button"
+            id="dropdown-menu-button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Filtrar por categorías
+          </button>
+          <div
+            class="dropdown-menu"
+            aria-labelledby="dropdown-menu-button"
+            *ngIf="categoriesList.length"
+          >
+            <a
+              class="dropdown-item"
+              *ngFor="let category of categoriesList"
+              onclick="event.stopPropagation()"
+            >
+              <mat-checkbox
+                class="category-checkbox"
+                [(ngModel)]="category.value"
+                (change)="valueChanged()"
+                ><span class="category-checkbox-label">{{ category.name }}</span></mat-checkbox
+              >
+            </a>
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="search-form">
+            <input
+              type="text"
+              placeholder="Buscar"
+              class="search-input"
+              [(ngModel)]="searchQuery"
+              (ngModelChange)="loadPostListSearch()"
+            />
+            <img alt="menu" class="search-button" src="assets/icons/search.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-fab *ngIf="scrolled" (click)="goTop()"></app-fab>
+    <div class="custom-container" *ngIf="newsList.length">
+      <app-new-card *ngFor="let new of newsList" [new]="new"></app-new-card>
+    </div>
+  </div>
+  
+  <app-footer></app-footer>

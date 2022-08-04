@@ -139,7 +139,9 @@ export interface Categoria {
   imagen: any | undefined;
 }
 
-export interface Post {
+export interface New {
+  id: string | undefined;
+
   agenda: number | undefined;
 
   pos: string | undefined;
