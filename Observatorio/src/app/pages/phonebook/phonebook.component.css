@@ -11,6 +11,15 @@
   padding: 2vh 0;
 }
 
+.modal-dialog{
+  max-width: 42rem;
+}
+
+.gps-map{
+  width: 100%;
+  min-height: 450px;
+}
+
 .phone-list {
   display: flex;
   flex-flow: column;
@@ -90,10 +99,6 @@ a {
 
 #instructions {
   max-width: 50%;
-}
-
-.modal-dialog {
-  max-width: 600px;
 }
 
 .modal-title {
