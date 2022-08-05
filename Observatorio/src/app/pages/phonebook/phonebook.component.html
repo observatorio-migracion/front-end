@@ -95,10 +95,8 @@
           <br />
           <p *ngIf="contactSelected.gps">
             <strong>
-            <iframe
-            class="gps-map"
-            src="https://www.google.com/maps/d/embed?mid=1MLDBhUcJbKsqGpvYYTgk13wnSUDxQetm&hl=en_US&ehbc=2E312F&z=16"
-          ></iframe></strong>
+              <iframe class="gps-map" [src]="urlSafe"></iframe>
+            </strong>
           </p>
         </div>
         <div class="modal-footer">
