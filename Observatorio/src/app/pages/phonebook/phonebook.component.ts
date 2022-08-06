@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/models/Contact';
 import { ContactService } from '../../services/contact.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 export interface NumberInfo{
   text : string;
@@ -29,7 +30,9 @@ export class PhonebookComponent implements OnInit {
 
   public searchParams;
 
-  constructor(private contactService: ContactService) {
+  public urlSafe: SafeResourceUrl;
+
+  constructor(private contactService: ContactService, public sanitizer: DomSanitizer) {
     this.contactList = new Array<Contact>();
     this.contactSelected = new Contact('', '', '', '', '', '', '', '', '', '', '', '');
     this.searchQuery = '';
@@ -38,6 +41,7 @@ export class PhonebookComponent implements OnInit {
     this.contactOrder = 'titulo:asc';
     this.contactListSize = 0;
     this.searchParams = '';
+    this.urlSafe = '';
   }
 
   ngOnInit(): void {
@@ -97,6 +101,7 @@ export class PhonebookComponent implements OnInit {
 
   showContact(contact: Contact) {
     this.contactSelected = contact;
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.contactSelected.gps);
   }
 
   renderFirstLetter(contact: Contact, prev: Contact, index: number) {

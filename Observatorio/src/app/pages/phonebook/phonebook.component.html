@@ -58,28 +58,45 @@
             </a>
           </div>
           <br />
-          <h4>Correo Electrónico:</h4>
-          <p>{{ contactSelected.correo }}</p>
+          <p *ngIf="contactSelected.correo && contactSelected.correo != 'NA@NA.NA' ">
+            <strong> 
+              <h4>Correo Electrónico:</h4>
+              <a href = "mailto: {{ contactSelected.correo }}">{{ contactSelected.correo }}</a>
+              <br />
+            </strong>
+          </p>
           <br />
-          <h4>Lugar:</h4>
-          <p>{{ contactSelected.lugar }}</p>
-          <br />
-          <h4>Horario:</h4>
-          <p>{{ contactSelected.horario }}</p>
-          <br />
-          <h4>Página Web:</h4>
-          <p>
-            <a href="{{ parseURL(contactSelected.web) }}" target="_blank" rel="noopener">{{
-              parseURL(contactSelected.web)
-            }}</a>
+          <p *ngIf="contactSelected.lugar != 'N/A'">
+            <strong> 
+              <h4>Lugar:</h4>
+              <p>{{ contactSelected.lugar }}</p>
+              <br />
+            </strong>
+          </p>
+          
+          <p *ngIf="contactSelected.horario != 'N/A'">
+            <strong> 
+              <h4>Horario:</h4>
+              <p>{{ contactSelected.horario }}</p>
+              <br />
+            </strong>
+          </p>
+         
+          <p *ngIf="contactSelected.web">
+            <strong> 
+              <h4>Página Web:</h4>
+              <p>
+                <a href="{{ parseURL(contactSelected.web) }}" target="_blank" rel="noopener">{{
+                  parseURL(contactSelected.web)
+                }}</a>
+              </p>
+            </strong>
           </p>
           <br />
           <p *ngIf="contactSelected.gps">
-            <strong
-              ><a href="{{ parseURL(contactSelected.gps) }}" target="_blank" rel="noopener"
-                >Ver Dirección</a
-              ></strong
-            >
+            <strong>
+              <iframe class="gps-map" [src]="urlSafe"></iframe>
+            </strong>
           </p>
         </div>
         <div class="modal-footer">
