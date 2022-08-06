@@ -1,4 +1,6 @@
-<div class="infinite-scroll" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+<app-navbar *ngIf="!scrolled"></app-navbar>
+<app-sticky-bar *ngIf="scrolled"></app-sticky-bar>
+  <div class="infinite-scroll" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
   <div class="tools">
     <div class="row">
       <div class="dropdown">
