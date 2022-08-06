@@ -1,4 +1,4 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnInit, SecurityContext, HostListener } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ShowdownConverter } from 'ngx-showdown';
@@ -27,6 +27,8 @@ export class PostComponent implements OnInit {
 
   htmlContent: string;
 
+  public scrolled: boolean;
+
   constructor(
     private postService: PostService,
     private router: ActivatedRoute,
@@ -35,10 +37,16 @@ export class PostComponent implements OnInit {
   ) {
     this.htmlContent = '';
     this.api = environment.api.url;
+    this.scrolled = false;
   }
 
   ngOnInit(): void {
     this.loadPost();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkIfScroll(): void {
+    this.scrolled = window.scrollY > 0;
   }
 
   async loadPost() {

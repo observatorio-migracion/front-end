@@ -13,9 +13,17 @@ export class StickyBarComponent implements OnInit {
   public theme: string;
 
   public subscription: Subscription | undefined;
+
+  public mobile: boolean;
+
   constructor(private themeService: ThemeService) {
     this.theme = 'light';
     this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
+    if (window.screen.width <= 767) { // 768px portrait
+      this.mobile = true;
+    }else{
+      this.mobile = false;
+    }
   }
 
   ngOnInit(): void {
