@@ -114,6 +114,6 @@
       </div>
     </div>
   </div>
-  <app-fab (click)="goTop()"></app-fab>
+  <app-fab (click)="goTop()" *ngIf="scrolled"></app-fab>
 </div>
 <app-footer></app-footer>

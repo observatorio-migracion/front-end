@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
 
@@ -16,6 +16,8 @@ export class StickyBarComponent implements OnInit {
 
   public mobile: boolean;
 
+  public scrolled: boolean;
+
   constructor(private themeService: ThemeService) {
     this.theme = 'light';
     this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
@@ -24,6 +26,12 @@ export class StickyBarComponent implements OnInit {
     }else{
       this.mobile = false;
     }
+    this.scrolled = false;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkIfScroll(): void {
+    this.scrolled = window.scrollY > 0;
   }
 
   ngOnInit(): void {

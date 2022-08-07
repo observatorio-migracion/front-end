@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Contact } from 'src/app/models/Contact';
 import { ContactService } from '../../services/contact.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -32,6 +32,8 @@ export class PhonebookComponent implements OnInit {
 
   public urlSafe: SafeResourceUrl;
 
+  public scrolled: boolean;
+
   constructor(private contactService: ContactService, public sanitizer: DomSanitizer) {
     this.contactList = new Array<Contact>();
     this.contactSelected = new Contact('', '', '', '', '', '', '', '', '', '', '', '');
@@ -42,6 +44,7 @@ export class PhonebookComponent implements OnInit {
     this.contactListSize = 0;
     this.searchParams = '';
     this.urlSafe = '';
+    this.scrolled = false;
   }
 
   ngOnInit(): void {
@@ -49,6 +52,11 @@ export class PhonebookComponent implements OnInit {
       this.contactListSize = size;
     });
     this.loadContacts();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkIfScroll(): void {
+    this.scrolled = window.scrollY > 0;
   }
 
   goTop() {

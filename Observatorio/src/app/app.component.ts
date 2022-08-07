@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ThemeService } from './services/theme.service';
 
@@ -14,8 +14,11 @@ export class AppComponent implements OnInit {
 
   public subscription: Subscription | undefined;
 
+  public scrolled: boolean;
+
   constructor(private themeService: ThemeService) {
     this.theme = 'light';
+    this.scrolled = false;
   }
 
   ngOnInit(): void {
@@ -24,6 +27,11 @@ export class AppComponent implements OnInit {
     });
     this.checkTheme();
     this.addListenerColorScheme();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkIfScroll(): void {
+    this.scrolled = window.scrollY > 0;
   }
 
   setTheme(theme: string) {

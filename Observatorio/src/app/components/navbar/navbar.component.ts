@@ -31,14 +31,13 @@ export class NavbarComponent implements OnInit {
     const container = document.getElementById('header-container');
     this.subscription = this.themeService.currentTheme.subscribe((theme) => {
       this.theme = theme;
-
-    });
-    if (container) {
-      if (this.theme === 'dark') {
-        container.style.backgroundImage = 'url(../../../assets/patterns/patron-dark.png)';
-      } else {
-        container.style.backgroundImage = 'url(../../../assets/patterns/patron-light.png)';
+      if (container) {
+        if (this.theme === 'dark') {
+          container.style.backgroundImage = 'url(../../../assets/patterns/patron-dark.png)';
+        } else {
+          container.style.backgroundImage = 'url(../../../assets/patterns/patron-light.png)';
+        }
       }
-    }
+    });
   }
 }
