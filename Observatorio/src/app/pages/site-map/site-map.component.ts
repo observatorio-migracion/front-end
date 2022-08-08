@@ -19,7 +19,7 @@ export class SiteMapComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   checkIfScroll(): void {
-    this.scrolled = window.scrollY > 0;
+    this.scrolled = window.scrollY >= 150;
   }
 
 }

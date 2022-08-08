@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { ShowdownConverter } from 'ngx-showdown';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Categoria, Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
 import { environment } from 'src/environments/environment';
@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
 
   public readonly dateSortQuery: string;
 
+  public scrolled: boolean;
+
   constructor(
     private postService: PostService,
     private router: Router,
@@ -44,12 +46,19 @@ export class HomeComponent implements OnInit {
     this.api = environment.api.url;
     this.postsList = new Array<Post>();
     this.seeMoreCategories = true;
+    this.scrolled = false;
   }
 
   ngOnInit(): void {
     this.loadCategories();
     this.loadRecentPosts();
   }
+
+  @HostListener('window:scroll', ['$event'])
+  checkIfScroll(): void {
+    this.scrolled = window.scrollY >= 150;
+  }
+
 
   markDowntoHtml(text: string): string {
     let html = this.showdownConverter.makeHtml(text);

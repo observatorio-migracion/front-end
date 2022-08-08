@@ -1,4 +1,4 @@
-<app-navbar *ngIf="!scrolled"></app-navbar>
+<app-sticky-bar *ngIf="scrolled"></app-sticky-bar>
 <div infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()" style="min-height: 100%">
   <div class="container">
     <div class="search-container">

@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-sticky-bar *ngIf="scrolled"></app-sticky-bar>
 <h1>{{ title }}</h1>
 <p>{{ date | date: 'short' }}</p>
 <div class="categories">

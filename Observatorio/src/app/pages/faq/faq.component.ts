@@ -1,4 +1,4 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnInit, SecurityContext, HostListener } from '@angular/core';
 import { ShowdownConverter } from 'ngx-showdown';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Question } from 'src/app/models/Question';
@@ -15,6 +15,8 @@ export class FAQComponent implements OnInit {
 
   url: string;
 
+  public scrolled: boolean;
+
   constructor(
     private faqService: FaqService,
     private showdownConverter: ShowdownConverter,
@@ -22,10 +24,16 @@ export class FAQComponent implements OnInit {
   ) {
     this.faqList = [];
     this.url = environment.main.url;
+    this.scrolled = false;
   }
 
   ngOnInit(): void {
     this.loadFAQs();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkIfScroll(): void {
+    this.scrolled = window.scrollY >= 150;
   }
 
   loadFAQs() {

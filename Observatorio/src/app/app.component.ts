@@ -16,9 +16,12 @@ export class AppComponent implements OnInit {
 
   public scrolled: boolean;
 
+  public navbar: HTMLElement | null;
+
   constructor(private themeService: ThemeService) {
     this.theme = 'light';
     this.scrolled = false;
+    this.navbar = document.getElementById('navbar');
   }
 
   ngOnInit(): void {
@@ -31,7 +34,14 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   checkIfScroll(): void {
-    this.scrolled = window.scrollY > 0;
+    this.scrolled = window.scrollY > 230;
+    if(this.scrolled && this.navbar){
+      this.navbar.style.visibility = 'hidden';
+    }else{
+      if(this.navbar){
+        this.navbar.style.visibility = 'visible';
+      }
+    }
   }
 
   setTheme(theme: string) {
