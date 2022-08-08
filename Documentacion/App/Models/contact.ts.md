@@ -7,20 +7,30 @@ Esta clase define Contact, que corresponde a un contacto del directorio de conta
 Declara las variables: *id*, *titulo*, *descripcion*, *correo*, *lugar*, *horario*, *web*, *numero*, *published_at*, *createdAt*, *updatedAt* y *gps*.
 ``` ts
 export class Contact {
-    numberList: any;
-    constructor(
-        public id:           string,
-        public titulo:       string,
-        public descripcion:  string,
-        public correo:       string,
-        public lugar:        string,
-        public horario:      string,
-        public web:          string,
-        public numero:       string,
-        public published_at: string,
-        public createdAt:   string,
-        public updatedAt:   string,
-        public gps: string
-    ){}
+  numberList: NumberInfo[] | undefined;
+
+  constructor(
+    public id: string,
+    public titulo: string,
+    public descripcion: string,
+    public correo: string,
+    public lugar: string,
+    public horario: string,
+    public web: string,
+    public numero: string,
+    public published_at: string,
+    public createdAt: string,
+    public updatedAt: string,
+    public gps: string
+  ) {}
+}
+```
+
+Esta interfaz NumberInfo.
+Declara las variables *text* y *number*
+``` ts
+export interface NumberInfo{
+  text : string;
+  number : string;
 }
 ```

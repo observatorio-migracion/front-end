@@ -97,6 +97,7 @@ Para la clase *HomeComponent* se crean los atributos: *api*, *seeMoreCategories*
   public postsList:Post[];
   public readonly sortQuery: string;
   public readonly dateSortQuery: string;
+  public scrolled: boolean;
 ``` 
 
 La clase *HomeComponent* recibe como parametros los servicios necesarios para sus funciones y inicializa sus variables
@@ -113,6 +114,7 @@ constructor(private postService: PostService,
   this.api = environment.api.url;
   this.postsList = new Array<Post>();
   this.seeMoreCategories = true;
+  this.scrolled = false;
 }
 ``` 
 

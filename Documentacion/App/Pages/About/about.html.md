@@ -9,29 +9,90 @@
 
 ### Código
 
-Divisor de clase que contiene todas las subelementos de la página, el formato que se aplique a este divisor afecta a toda la página.
+Esta etiqueta **div** con las clases *container-fluid*, *px-md-5* y *custom-container* almacenan los componentes de esta pagina
 ``` html
-<div class="container-fluid px-md-5 custom-container" >   
+<div class="container-fluid px-md-5 custom-container">
+    ... 
 </div>
 ```
 
-Divisor de clase para las notas que están contenidas dentro del cuerpo de la pagina
+Esta etiqueta **div** con las clases *row*, *custom-row* y *justify-content-center* almacenan los bloques de esta pagina
 ``` html
 <div class="row custom-row justify-content-center" >   
-</div>
-```
-Divisores de clase para la imagen de la nota posteada en la página, dentro del divisor se brinda la ruta source a la imagen .jpg y mediante una declaración inline se asigna ancho y altura.
-``` html
-<div class="image-container mx-auto" >
-    <img alt="" class="offset negative-offset-y negative-offset-x" src="../../../assets/images/ab1.jpg" width="500" height="335">
-</div>
-```
-Divisor de clase que contiene el texto que se sitúa en el centro de la página y que se despliega junto a las imágenes
-``` html
-<div class="col-xl custom-col">
-    <p>Esse anim sunt ad labore commodo laborum qui. Adipisicing Lorem dolor non culpa nisi quis deserunt qui nisi aliquip adipisicing. In duis aliqua laboris aliquip nostrud.</p>
-    <p>Esse anim sunt ad labore commodo laborum qui. Adipisicing Lorem dolor non culpa nisi quis deserunt qui nisi aliquip adipisicing. In duis aliqua laboris aliquip nostrud.</p>
+    ...
 </div>
 ```
 
-El objetivo del componente About es mostrar información valiosa del proyecto y de las personas que lo desarrollaron, por este motivo estos posts son estáticos y se sitúan en el código fuente dado que su objetivo es que perdure en la página y no está pensado para ser modificados de forma activa. Por este motivo en la página se incluyeron con código de forma homóloga para los distintos posts, por lo que si se desease agregar otro se deberá agregar el código un nuevo bloque de código debajo del ultimo agregado.
+Estas **div** contienen las imagenes y texto de las distintas filas de la pagina
+``` html
+<div class="col-md custom-col">
+    <div class="image-container mx-auto">
+    <img
+        alt=""
+        class="offset negative-offset-y negative-offset-x"
+        src="../../../assets/images/ab1.jpg"
+        width="500"
+        height="335"
+    />
+    </div>
+</div>
+<div class="col-xl custom-col">
+    <p>
+    "La Organización Internacional para las Migraciones, define la migración como un término
+    genérico que se “designa a toda persona que se traslada fuera de su lugar de residencia
+    habitual, ya sea dentro de un país o a través de una frontera internacional, de manera
+    temporal o permanente, y por diversas razones."
+    </p>
+</div>
+```
+Estas **div** contienen las imagenes y texto de las distintas filas de la pagina
+``` html
+<div class="col-xl custom-col">
+    <div class="image-container mx-auto">
+    <img
+        class="offset positive-offset-y negative-offset-x"
+        alt=""
+        src="../../../assets/images/ab2.jpg"
+        width="500"
+        height="335"
+    />
+    </div>
+</div>
+<div class="col-xl order-xl-first custom-col">
+    <p>
+    Ante el contexto actual de migraciones, el Observatorio de Migración es una extensión del
+    programa de Acción Social de la Universidad de Costa Rica, que busca brindar información a
+    las personas migrantes, este proyecto surge con la idea de que cualquier persona pueda tener
+    fácil acceso a una variedad de información verídica y fiable referida a la temática
+    migratoria nacional e internacional, por medio de una página web que sea de un uso amigable
+    para cualquier usuario interesado en conocer más sobre el tema migratorio en sus distintas
+    vertientes temáticas.
+    </p>
+</div>
+```
+
+Estas **div** contienen las imagenes y texto de las distintas filas de la pagina
+``` html
+<div class="col-xl custom-col">
+    <div class="image-container mx-auto">
+    <img
+        class="offset negative-offset-y positive-offset-x"
+        alt=""
+        src="../../../assets/images/ab3.jpg"
+        width="500"
+        height="335"
+    />
+    </div>
+</div>
+<div class="col-xl custom-col">
+    <p>
+    La meta principal del proyecto es simplificar información que facilite el acceso a servicios
+    y al cumplimiento de trámites para las personas migrantes en Costa Rica, así como ofrecer
+    información de interés para esta población. Asimismo, nuestra perspectiva está orientada a
+    la solidaridad con quienes salen de su país por distintas razones, comunicando un mensaje a
+    la población costarricense sobre la inclusión de las personas inmigrantes en la sociedad que
+    los acoge y de generar una convivencia intercultural solidaria.
+    </p>
+</div>
+</div>
+```

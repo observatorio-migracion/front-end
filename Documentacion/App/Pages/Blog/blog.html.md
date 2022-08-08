@@ -32,39 +32,64 @@
  Crea un botón en html que corresponde al botón de categorías desplegables. Posee atributos de nombres de clase e id.
 
 ``` html
-<button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button"
-          id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
-          Filtrar por categorías
+<button
+  class="btn btn-secondary dropdown-toggle"
+  data-bs-toggle="dropdown"
+  type="button"
+  id="dropdown-menu-button"
+  aria-haspopup="true"
+  aria-expanded="false"
+>
+  Filtrar por categorías
 </button>
 ```
 
  Crea una etiqueta que enlaza a un componente de angular, esta se encarga de llamar a las categorías que van en el botón de filtro por categorías, mediante un ciclo (ngfor) recorre el arreglo de categorías para desplegarlas al presionar el botón.
 ``` html
-<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="categoriesList.length">
-          <a class="dropdown-item" *ngFor="let category of categoriesList" onclick="event.stopPropagation()">
-            <mat-checkbox class="category-checkbox" [(ngModel)]="category.value" (change)="valueChanged(category)"><span
-                class="category-checkbox-label">{{category.name}}</span></mat-checkbox>
-          </a>
+<div
+  class="dropdown-menu"
+  aria-labelledby="dropdown-menu-button"
+  *ngIf="categoriesList.length"
+>
+  <a
+    class="dropdown-item"
+    *ngFor="let category of categoriesList"
+    onclick="event.stopPropagation()"
+  >
+    <mat-checkbox
+      class="category-checkbox"
+      [(ngModel)]="category.value"
+      (change)="valueChanged()"
+      ><span class="category-checkbox-label">{{ category.name }}</span></mat-checkbox
+    >
+  </a>
 </div>
 ```
 
  Crea un divisor que contienen el botón de búsqueda en la página, dentro permite que cada vez que se haga una escritura en el cuadro de búsqueda se haga un llamado al método de typescript para refrescar los posts que se muestran. Por último, en la línea 21 hace una modificación a la imagen que es la que se muestra como botón de búsqueda.
 ``` html
-      <div class="search-container">
-        <div class="search-form">
-          <input type="text" placeholder="Buscar" class="search-input" [(ngModel)]="searchQuery"
-            (ngModelChange)="loadPostListSearch()">
-          <img alt="menu" class="search-button" src="assets/icons/search.svg" width="24px" heigth="24px">
+<div class="search-container">
+  <div class="search-form">
+    <input
+      type="text"
+      placeholder="Buscar"
+      class="search-input"
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="loadPostListSearch()"
+    />
+    <img alt="menu" class="search-button" src="assets/icons/search.svg" />
+  </div>
+</div>
 ```
 
 Botón para ir a la parte superior de la página indistintamente de la posición actual, si ya se encuentra en la parte superior quedara en el mismo lugar.
 ``` html
-<app-fab (click)="goTop()"></app-fab>
+  <app-fab *ngIf="scrolled" (click)="goTop()"></app-fab>
 ```
 
  Llamada al método que permite cargar los posts de la página.
 ``` html
 <div class="custom-container" *ngIf="postsList.length">
-    <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
-  </div>
+  <app-post-card *ngFor="let post of postsList" [post]="post"></app-post-card>
+</div>
 ```

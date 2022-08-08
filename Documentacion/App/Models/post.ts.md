@@ -3,130 +3,194 @@
 
 ### Código
 
-Esta clase define Thumbnail, que corresponde al formato de las imagenes miniaturas de una publicación del blog de la página.
+Esta intefaz define Thumbnail, que corresponde al formato de las imagenes miniaturas de una publicación del blog de la página.
 Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
-export class Thumbnail {
-    name: string | undefined;
-    hash: string | undefined;
-    ext: string | undefined;
-    mime: string | undefined;
-    width: number | undefined;
-    height: number | undefined;
-    size: number | undefined;
-    path?: any | undefined;
-    url: string | undefined;
+export interface Thumbnail {
+  name: string | undefined;
+
+  hash: string | undefined;
+
+  ext: string | undefined;
+
+  mime: string | undefined;
+
+  width: number | undefined;
+
+  height: number | undefined;
+
+  size: number | undefined;
+
+  path?: string | undefined;
+
+  url: string | undefined;
 }
 ``` 
 
-Esta clase define Large, que corresponde al tipo largo de tamaños de formatos de las imagenes miniaturas de las publicaciones.
+Esta intefaz define Large, que corresponde al tipo largo de tamaños de formatos de las imagenes miniaturas de las publicaciones.
 Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
-export class Large {
-    name: string | undefined;
-    hash: string | undefined;
-    ext: string | undefined;
-    mime: string | undefined;
-    width: number | undefined;
-    height: number | undefined;
-    size: number | undefined;
-    path?: any | undefined;
-    url: string | undefined;
+export interface Large {
+  name: string | undefined;
+
+  hash: string | undefined;
+
+  ext: string | undefined;
+
+  mime: string | undefined;
+
+  width: number | undefined;
+
+  height: number | undefined;
+
+  size: number | undefined;
+
+  path?: string | undefined;
+
+  url: string | undefined;
 }
 ``` 
 
-Esta clase define Medium, que corresponde al tipo mediano de tamaños de formatos de las imagenes miniaturas de las publicaciones.
+Esta intefaz define Medium, que corresponde al tipo mediano de tamaños de formatos de las imagenes miniaturas de las publicaciones.
 Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
-export class Medium {
-    name: string | undefined;
-    hash: string| undefined;
-    ext: string | undefined;
-    mime: string | undefined;
-    width: number | undefined;
-    height: number | undefined;
-    size: number | undefined;
-    path?: any | undefined;
-    url: string | undefined;
+export interface Medium {
+  name: string | undefined;
+
+  hash: string | undefined;
+
+  ext: string | undefined;
+
+  mime: string | undefined;
+
+  width: number | undefined;
+
+  height: number | undefined;
+
+  size: number | undefined;
+
+  path?: string | undefined;
+
+  url: string | undefined;
 }
 ``` 
 
-Esta clase define Small, que corresponde al tipo pequeño de tamaños de formatos de las imagenes miniaturas de las publicaciones.
+Esta intefaz define Small, que corresponde al tipo pequeño de tamaños de formatos de las imagenes miniaturas de las publicaciones.
 Declara las variables: *name*, *hash*, *ext*, *mime*, *width*, *height*, *size*, *path* y *url*.
 ``` ts
-export class Small {
-    name: string | undefined;
-    hash: string | undefined;
-    ext: string | undefined;
-    mime: string | undefined;
-    width: number| undefined;
-    height: number| undefined;
-    size: number|undefined;
-    path?: any|undefined;
-    url: string|undefined;
+export interface Small {
+  name: string | undefined;
+
+  hash: string | undefined;
+
+  ext: string | undefined;
+
+  mime: string | undefined;
+
+  width: number | undefined;
+
+  height: number | undefined;
+
+  size: number | undefined;
+
+  path?: string | undefined;
+
+  url: string | undefined;
 }
 ```  
 
-Esta clase define Formats, que corresponde a los formatos de las imagenes miniaturas de las publicaciones. 
+Esta intefaz define Formats, que corresponde a los formatos de las imagenes miniaturas de las publicaciones. 
 Declara las variables: *thumbnail*, *large*, *medium* y *small*.
 ```  ts
-export class Formats {
-    thumbnail: Thumbnail  |undefined;
-    large: Large |undefined;
-    medium: Medium |undefined;
-    small: Small |undefined;
+export interface Formats {
+  thumbnail: Thumbnail | undefined;
+
+  large: Large | undefined;
+
+  medium: Medium | undefined;
+
+  small: Small | undefined;
 }
 ``` 
 
-Esta clase define Miniatura, que corresponde a las imagenes miniatutas de las publicaciones. 
+Esta intefaz define Miniatura, que corresponde a las imagenes miniatutas de las publicaciones. 
 Declara las variables: *id*, *name*, *alternativeText*, *caption*, *width*, *height*, *formats*, *hash*, *ext*, *mime*, *size*, *url*, *previewUrl*, *provider*, *providerMetadata*, *createdAt* y *updatedAt*.
 ```  ts
-export class Miniatura {
-    id: string|undefined;
-    name: string|undefined;
-    alternativeText: string|undefined;
-    caption: string|undefined;
-    width: number|undefined;
-    height: number|undefined;
-    formats: Formats|undefined;
-    hash: string|undefined;
-    ext: string|undefined;
-    mime: string|undefined;
-    size: number|undefined;
-    url: string|undefined;
-    previewUrl?: any|undefined;
-    provider: string|undefined;
-    providerMetadata?: any|undefined;
-    createdAt: Date|undefined;
-    updatedAt: Date|undefined;
+export interface Miniatura {
+  id: string | undefined;
+
+  name: string | undefined;
+
+  alternativeText: string | undefined;
+
+  caption: string | undefined;
+
+  width: number | undefined;
+
+  height: number | undefined;
+
+  formats: Formats | undefined;
+
+  hash: string | undefined;
+
+  ext: string | undefined;
+
+  mime: string | undefined;
+
+  size: number | undefined;
+
+  url: string | undefined;
+
+  previewUrl?: string | undefined;
+
+  provider: string | undefined;
+
+  providerMetadata?: string | undefined;
+
+  createdAt: Date | undefined;
+
+  updatedAt: Date | undefined;
 }
 ``` 
 
-Esta clase define Categoria, que corresponde a las imagenes miniatutas de las categorías. 
+Esta intefaz define Categoria, que corresponde a las imagenes miniatutas de las categorías. 
 Declara las variables: *id*, *nombre*, *published_at*, *createdAt*, *updatedAt* y *imagen*.
 ```  ts
-export class Categoria {
-    id: string|undefined;
-    nombre: string|undefined;
-    published_at: Date|undefined;
-    createdAt: Date|undefined;
-    updatedAt: Date|undefined;
-    imagen:any |undefined;
+export interface Categoria {
+  id: string | undefined;
+
+  nombre: string | undefined;
+
+  published_at: Date | undefined;
+
+  createdAt: Date | undefined;
+
+  updatedAt: Date | undefined;
+
+  imagen: any | undefined;
 }
 ``` 
 
-Esta clase define Post, que corresponde a las publicaciones. 
+Esta intefaz define Post, que corresponde a las publicaciones. 
 Declara las variables: *id*, *titulo*, *contenido*, *descripcion*, *published_at*, *createdAt*, *updatedAt*, *miniatura* y *categorias*.
 ``` ts
-export class Post {
-    id: string|undefined;
-    titulo: string|undefined;
-    contenido: string|undefined;
-    descripcion: string|undefined;
-    published_at: Date|undefined;
-    createdAt: Date|undefined;
-    updatedAt: Date|undefined;
-    miniatura: Miniatura|undefined;
-    categorias: Categoria[]|undefined;
+export interface Post {
+  id: string | undefined;
+
+  titulo: string | undefined;
+
+  contenido: string | undefined;
+
+  descripcion: string | undefined;
+
+  published_at: Date | undefined;
+
+  createdAt: Date | undefined;
+
+  updatedAt: Date | undefined;
+
+  miniatura: Miniatura | undefined;
+
+  categorias: Categoria[] | undefined;
 }
 ``` 

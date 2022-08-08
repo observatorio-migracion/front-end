@@ -14,7 +14,7 @@ Esta sección contiene la documentación del código .ts del elemento blog de la
 Importa los componentes Component y OnInit desde la API Core de Angular
 
 ``` ts
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 ```
 
 Importa ActivatedRoute y Router de la API Router de Angular
@@ -34,15 +34,6 @@ import { Categoria, Post } from 'src/app/models/Post';
 Importa Posts desde Services de la carpeta fuente src local del programa
 ``` ts
 import { PostService } from 'src/app/services/post.service';
-```
-Importa Filter de los módulos Operators de la librería RxJS de Angular
-``` ts
-import { filter } from 'rxjs/operators';
-```
-
-Importa Subscription de la librería RxJS de Angular
-``` ts
-import { Subscription } from 'rxjs';
 ```
 
 Agrega un componente selector de CSS llamado app-blog que identifica esta directiva en una plantilla y activa la instanciación de la directiva.  
@@ -113,29 +104,34 @@ public searchParams: string = '';
 
 Inicializa el constructor del componente con los atributos privado _postService importado a través de src/app/services/post.service, _activatedRoute importado a través de @angular/router y _router importado a través de @angular/router
 ``` ts
-constructor(private _postService: PostService, private
-_activatedRoute:ActivatedRoute, private _router:Router) {
+constructor(
+    private postService: PostService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
     
   }
 ```
 
 Inicializa los valores públicos postsList como un arreglo de Post, postListSize con el valor defecto de 0, postLimit con el valor defecto de 4, postStart con el valor defecto 0 y _router con el valor false.
 ``` ts
-this.postsList = new Array<Post>();
-this.postListSize = 0;
-this.postLimit = 4;
-this.postStart = 0;
-this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.postsList = new Array<Post>();
+    this.postListSize = 0;
+    this.postLimit = 4;
+    this.postStart = 0;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.scrolled = false;
+    this.sortQuery = 'published_at:desc';
 ```
 
 Método que carga las categorías, toma el tamaño de los posts además dicho tamaño puede estar incluido con un filtro de categorías, con un filtro de búsqueda de usuario, o sin filtro y se obtiene la totalidad del tamaño de los posts, retorna error si no lo logro, de lo contrario carga los posts.
 ``` ts
 ngOnInit(): void {
     this.loadCategories();
-    
-    this._postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe(size => {
+
+    this.postService.getPostsListSize(this.categoryFilter, this.searchParams).subscribe((size) => {
       this.postListSize = size;
-    }, err => console.error(err));
+    });
     this.loadPostList();
   }
 ```

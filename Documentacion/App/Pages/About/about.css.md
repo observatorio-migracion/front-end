@@ -9,193 +9,162 @@
 
 ### Código
 
-Asigna atributos a los márgenes superior e inferior del divisor por defecto del HTML y asigna la altura máxima por defecto.
+Esta clase **.custom-container** almacena todos los componentes de la pagina
 ``` css
-.custom-container{    
-    margin-top: 150px;
-    margin-bottom: 150px;
-    min-height: 90vh;
+.custom-container {
+  margin-top: 150px;
+  margin-bottom: 150px;
+  min-height: 90vh;
+  text-align: justify;
+  text-justify: inter-word;
 }
 ```
 
-Asigna atributos al margen inferior de las filas por defecto en la pagina
+Esta clase **.custom-row** almacena las filas de la pagina
 ``` css
-.custom-row{
-    margin-bottom: 15vh;
-}
-```
-Asigna atributos de anchura y altura máxima a las columnas, además agrega tamaños por defecto de altura, ancho y márgenes. 
-``` css
-.custom-col{
-    max-width: 500px;
-    max-height: 335px;
-    width: 500px;
-    height: 335px;
-    margin: 45px 45px;
-}
-```
-Agrega tamaño a la fuente de todos los 'p' párrafos que se encuentra en la página actual.
-``` css
-p{
-    font-size: 1.3rem;
-}
-```
-Asigna valores a los atributos de los divisores de imágenes que están contenidos en la clase declarada, les asigna un color de fondo y un valor de color mediante un llamado a una propiedad personalizada, asigna un valor de anchura y altura y define un valor máximo para altura y anchura.
-``` css
-.image-container{
-    background-color: var(--background-02);
-    color: var(--font-4);
-    width: 500px;
-    height: 335px;
-    max-width: 500px;
-    max-height: 335px;    
+.custom-row {
+  margin-bottom: 15vh;
 }
 ```
 
-Reasigna un valor predefinido para cuando el ancho de la pantalla es de solo 600px, dentro de este método esta contenido los ajustes para que el tamaño de dicha pantalla sea acorde.
+Esta clase **custom-col** es para os campos de las columnas de la pagina
 ``` css
-@media (max-width: 600px){
-
+.custom-col {
+  max-width: 500px;
+  width: 500px;
+  height: unset;
+  margin: 45px;
 }
 ```
 
-Reasigna un valor de margen al contenedor por defecto de 70px para cuando el tamaño corresponde a 600px
+La etiqueta **p** es para los parrafos
 ``` css
-.custom-container{
-        margin-top: 70px
-    }
-```
-
-Reasigna valores de altura, tamaño y margen al divisor que contiene las imágenes, para tamaños de pantalla de 600px
-``` css
-.image-container{
-        width: 350px;
-        height: 235px;
-        margin: 0 auto;
-    }
-```
-Reasigna valores de altura y ancho al elemento imagen contenido en el divisor que contiene las imágenes (reescribe la instrucción anterior), para tamaños de pantalla de 600px
-``` css
-.image-container img{
-        width: 350px;
-        height: 235px;
-    }
-```
-Reasigna valores de altura y ancho al divisor que contiene el divisor de columna para tamaños de pantalla de 600px
-``` css
- .custom-col{
-        width: 350px;
-        height: 235px;
-    }
-```
-
-Reasigna valores de tamaño de fuente a todos los divisores marcados como párrafo para tamaños de pantalla de 600px
-``` css
- p{
-        font-size: 1rem;
-    }
-```
-Reasigna el valor de margen de columnas para tamaños de pantalla de 600px
-``` css
-.custom-col{
-        margin: 0px 20px;
-    }
-```
-Reasigna el valor de margen de filas para tamaños de pantalla de 600px
-``` css
-.custom-row{
-        margin: 0 auto;
-    }
-```
-Reasigna el valor de margen de columnas para tamaños de pantalla de 600px
-``` css
-.custom-col{
-        margin: 30px 20px;
-    }
-```
-Reasigna el valor de margen de filas para tamaños de pantalla de 600px
-``` css
-.custom-row{
-        margin: 20 auto;
-    }
-```
-Reasigna un valor predefinido para cuando el ancho de la pantalla es de solo 420px, dentro de este método está contenido los ajustes para que el tamaño de dicha pantalla sea acorde.
-``` css
-@media(max-width: 420px){
-
+p {
+  font-size: 1.3rem;
 }
 ```
 
-Reasigna valores de altura, tamaño y margen al divisor que contiene las imágenes, para tamaños de pantalla de 420px
+La clase **.image-container** es para guardar las imagenes
 ``` css
-.image-container{
-        width: 270px;
-        height: 180px;
-        margin: 0 auto;
-    }
-```
-Reasigna valores de altura y ancho al elemento imagen contenido en el divisor que contiene las imágenes (reescribe la instrucción anterior), para tamaños de pantalla de 420px
-``` css
-.image-container img{
-        width: 270px;
-        height: 180px;
-    }
-```
-
-Reasigna el valor de margen de columnas para tamaños de pantalla de 420px
-``` css
-.custom-col{
-        width: 300px;
-        height: 200px;
-    }
-```
-
-Reasigna el valor de margen de columnas para tamaños de pantalla de 420px
-``` css
-.custom-col{
-        margin: 20px 10px;
-    }
-```
-
-Reasigna el valor de margen de filas para tamaños de pantalla de 420px
-``` css
-.custom-row{
-        margin: 0 auto;
-        margin-bottom: 20vh;
-    }
-```
-
-Reasigna un valor predefinido para cuando el ancho de la pantalla es de solo 320px, dentro de este método está contenido los ajustes para que el tamaño de dicha pantalla sea acorde.
-``` css
-@media(max-width: 320px){
-
+.image-container {
+  background-color: var(--background-02);
+  color: var(--font-4);
+  width: 500px;
+  height: 335px;
+  max-width: 500px;
+  max-height: 335px;
 }
 ```
-Reasigna valores de altura, ancho y margen al divisor que contiene las imágenes, para tamaños de pantalla de 320px
+
+Los offsets definen cuanto se mueven en un eje los componentes de la pagina
 ``` css
-.image-container{
-        width: 240px;
-        height: 160px;
-        margin: 0 auto;
-    }
-```
-Reasigna valores de altura y ancho al elemento imagen contenido en el divisor que contiene las imágenes (reescribe la instrucción anterior), para tamaños de pantalla de 320px
-``` css
-.image-container img{
-        width: 240px;
-        height: 160px;
-    }
-```
-Reasigna el valor de margen de columnas para tamaños de pantalla de 320px
-``` css
-.custom-col{
-        margin: 20px 10px;
-    }
+.offset {
+  position: relative;
+
+  --offset: 24px;
+  --negative-offset: 24px;
+}
+
+.positive-offset-y {
+  top: var(--offset);
+}
+
+.positive-offset-x {
+  left: var(--offset);
+}
+
+.negative-offset-y {
+  bottom: var(--offset);
+}
+
+.negative-offset-x {
+  right: var(--offset);
+}
 ```
 
-Reasigna valores de tamaño de fuente a todos los divisores marcados como párrafo para tamaños de pantalla de 320px
+
+El delimitador **media** cambia el comportamiento de distintas clases con respecto a la resolución de la pantalla.
 ``` css
-p{
-        font-size: 0.8rem;
-    }
+@media (max-width: 600px) {
+  .custom-container {
+    margin-top: 70px;
+  }
+
+  .image-container {
+    width: 350px;
+    height: 235px;
+    margin: 0 auto;
+  }
+
+  .image-container img {
+    width: 350px;
+    height: 235px;
+  }
+
+  .custom-col {
+    width: 350px;
+    height: unset;
+    max-height: unset;
+    margin: 0 20px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .custom-row {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .custom-col {
+    margin: 30px 20px;
+  }
+
+  .custom-row {
+    margin: 20 auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .image-container {
+    width: 270px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .image-container img {
+    width: 270px;
+    height: 180px;
+  }
+
+  .custom-col {
+    width: 300px;
+    height: unset;
+    margin: 20px 10px;
+  }
+
+  .custom-row {
+    margin: 0 auto;
+    margin-bottom: 20vh;
+  }
+}
+
+@media (max-width: 320px) {
+  .image-container {
+    width: 240px;
+    height: 160px;
+    margin: 0 auto;
+  }
+
+  .image-container img {
+    width: 240px;
+    height: 160px;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
 ```

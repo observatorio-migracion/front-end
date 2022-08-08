@@ -20,7 +20,5 @@ export class AboutComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   checkIfScroll(): void {
     this.scrolled = window.scrollY >= 150;
-    console.log(window.scrollY);
-    console.log(this.scrolled);
   }
 }
