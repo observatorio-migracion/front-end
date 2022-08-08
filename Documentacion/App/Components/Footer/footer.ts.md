@@ -8,14 +8,6 @@ Importa los componentes Component y OnInit desde la API Core de Angular.
 ``` ts
 import { Component, OnInit } from '@angular/core';
 ``` 
-Importa desde la carpeta models el modelo de Post .
-``` ts 
-import { Post } from 'src/app/models/Post';
-``` 
-Importa desde la carpeta de services el servicio de PostServices.
-``` ts
-import { PostService } from 'src/app/services/post.service';
-``` 
 Importa desde la carpeta de services el servicio de ThemeService.
 ``` ts
 import { ThemeService } from '../../services/theme.service';

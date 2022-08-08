@@ -41,7 +41,7 @@ La etiqueta **hr** aplica el estilo a los cortes horizontales de línea dentro d
   }
 ``` 
 
-La etiqueta **img** guarda una imagne, define el tamaño
+La etiqueta **img** guarda una imagen, define el tamaño
 ``` css
   img {
     height: 80px;

@@ -8,43 +8,62 @@
 Ajusta las proporciones básicas del botón post-card, asignando la altura y el ancho por defecto en 100%, asigna también la transición transform la cual hace visible el efecto al posicionar el apuntador encima del botón.
 
 ``` css
-.custom-card{
-    width: 100%;
-    height: 100%;
-    transition: transform .1s ease;
+.custom-card {
+  transition: transform 0.1s ease;
+  max-width: inherit;
 }
 ```
 
 Le asigna a la propiedad hover del post-card una transformación que corresponde a un movimiento en vertical de 10 pixeles menos, generando un movimiento hacia abajo en el botón.
 ``` css
-.custom-card:hover{
-    transform: translateY(-10px);
+.custom-card:hover {
+  transform: translateY(-10px);
 }
 ```
 
 Establece el espacio de relleno entre el contenido del elemento y su borde, este se establece por defecto en 1rem, que sería aproximadamente 16px para cualquier posición en el documento.
 ``` css
-.card-body-container{
-    padding-top: 1rem;
+.card-body-container {
+  padding-top: 1rem;
 }
 ```
 
 Establece el espacio de relleno entre el contenido del elemento y su borde para todos los demás contenedores ubicados en el elemento, este se establece por defecto en 0rem, aproximadamente 0px.
 ``` css
-.card-body-container *{
-    padding-top: 0rem;
+.card-body-container * {
+  padding-top: 0;
 }
 ```
 
 Establece el características básicas para el título del post-card, la primera corresponde al color que se establece a través del valor de la variable font-3, el segundo es la propiedad de cursor al situarse encima del botón el cual será de tipo pointer usado para enlaces, establece el border el cual se define en none o ninguno por defecto y el ultimo atributo es el outline el cual se define en none o ninguno por defecto.
 ``` css
-.card-title:hover{
-    color: var(--font-3);
-    cursor: pointer;
-    border: none;
-    outline: none;
+.card-title:hover {
+  color: var(--font-3);
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 ```
+
+Establece las caracteristicas de los mat-chip, en donde se muestran las categorias
+``` css
+mat-chip {
+  padding: none;
+  margin: none;
+}
+```
+
+.categories {
+  margin-bottom: 1rem;
+}
+
+.example-box.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-chip .cdk-drop-list-dragging {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
 
 Establece la media quieres basadas en un ancho máximo de pantalla de 800px para la etiqueta custom-card del elemento actual, al cual también se le modifican sus atributos básicos: se establece el margen superior en 1rem (16px aproximadamente), el tamaño fuente en 1rem (16px aproximadamente), ancho de 150rem (2400px aproximadamente), margen izquierdo en 0 y margen derecho en 0.
 ``` css

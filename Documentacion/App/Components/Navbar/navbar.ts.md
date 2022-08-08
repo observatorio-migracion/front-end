@@ -11,15 +11,7 @@
 Importa los componentes Component y OnInit desde la API Core de Angular
 ``` ts
 import { Component, OnInit } from '@angular/core';
-``` 
-Importa desde la carpeta models el modelo de Post 
-``` ts 
-import { Post } from 'src/app/models/Post';
-``` 
-Importa desde la carpeta de services el servicio de PostServices
-``` ts
-import { PostService } from 'src/app/services/post.service';
-``` 
+```  
 Importa desde la carpeta de services el servicio de ThemeService
 ``` ts
 import { ThemeService } from '../../services/theme.service';
@@ -54,17 +46,33 @@ public subscription:Subscription | undefined;
 
 El constructor de la clase *NavbarComponent* inicializa dos variables y recibe el servicio.
 ``` ts
-constructor(private _themeService:ThemeService) {
+constructor(private themeService: ThemeService) {
   this.theme = 'light';
   this.matchQuery = window.matchMedia('(max-width: 767px)').matches;
+  const container = document.getElementById('header-container');
+  if (container) {
+    if (this.theme === 'dark') {
+      container.style.backgroundImage = 'url(../../../assets/patterns/patron-dark.png)';
+    } else {
+      container.style.backgroundImage = 'url(../../../assets/patterns/patron-light.png)';
+    }
+  }
 }
 ``` 
 
  Este método del TypeScript hace un llamado al componente y lo inicia, en particular carga los datos generados desde el HTML y el CSS. Se suscribe al servicio de temas, con el fin de mantenerse actualizado ante cualquier cambio en dicho servicio. 
 ``` ts
 ngOnInit(): void {
-  this.subscription = this._themeService.currentTheme.subscribe(theme => {
+  const container = document.getElementById('header-container');
+  this.subscription = this.themeService.currentTheme.subscribe((theme) => {
     this.theme = theme;
-  })
+    if (container) {
+      if (this.theme === 'dark') {
+        container.style.backgroundImage = 'url(../../../assets/patterns/patron-dark.png)';
+      } else {
+        container.style.backgroundImage = 'url(../../../assets/patterns/patron-light.png)';
+      }
+    }
+  });
 }
 ``` 

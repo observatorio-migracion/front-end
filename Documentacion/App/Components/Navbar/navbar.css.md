@@ -8,13 +8,21 @@
 
 ### Código
 
-La clase **.header-container** es un contenedor de todo el encabezado, define el estilo base.
+La etiqueta **#header-container** es un contenedor de todo el encabezado, define el estilo base.
 ``` css
-.header-container {
-  background: linear-gradient(var(--navbar-gradient-01), var(--navbar-gradient-01)), url("../../../assets/patterns/p4.jpg");
+#header-container {
   background-repeat: repeat;
+  background-size: contain;
 }
 ```  
+
+La clase **.toggle-container** almacena el boton de toggle
+``` css
+.toggle-container {
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+```
 
 La etiqueta **hr** aplica el estilo a los cortes horizontales de línea dentro de las opciones del navbar.
 ```  css
@@ -29,12 +37,26 @@ hr {
 }
 ``` 
 
+La etiqueta **img** guarda una imagne, define el tamaño
+``` css
+  img {
+    height: 80px;
+  }
+```
+
 La clase **.underline-text-decoration** define el estilo de subrayado a las opciones del navbar.
 ```  css
 .underline-text-decoration {
   background-color: var(--underline);
 }
 ``` 
+
+la clase **.nav-link** define a los links dentro del navbar, los pone con texto en negrita
+``` css
+  .nav-link {
+    font-weight: bold;
+  }
+```
 
 La clase **.navbar** es un contenedor del navbar, define el estilo base.
 ```  css
@@ -43,6 +65,13 @@ La clase **.navbar** es un contenedor del navbar, define el estilo base.
   padding: 0% 0.4%;
 }
 ``` 
+
+La clase **.navbar-collapse** se le da al navbar para que pueda entrar en modo colapsable en mobil
+``` css
+.navbar-collapse {
+  min-width: 60%;
+}
+```
 
 La etiqueta **a** de la clase *.navbar* se utiliza para los enlaces de dicha clase.
 ```  css

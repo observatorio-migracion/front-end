@@ -15,12 +15,19 @@ Esta etiqueta **div** tiene la clase *nav-container* y encapsula todo el código
 </div>
 ``` 
 
-Esta etiqueta **div** tiene la clase *header-container* y encapsula todo el código base del encabezado. Misma funcionalidad que el *.nav-container*.
+Esta etiqueta **div** tiene el id *header-container* y encapsula todo el código base del encabezado. Misma funcionalidad que el *.nav-container*.
 ``` html 
-<div class="header-container">
+<div id="header-container">
   ...
 </div>
 ``` 
+
+Esta etiqueta **div** tiene la clase *toggle-container* y encapsula el componente de toggle
+``` html
+<div class="toggle-container">
+  <app-darktoggle></app-darktoggle>
+</div>
+```
 
 Esta etiqueta **div** tiene la clase *logo-container* y encapsula el botón darktoggle y el logo del encabezado.
 ``` html
@@ -29,7 +36,7 @@ Esta etiqueta **div** tiene la clase *logo-container* y encapsula el botón dark
   <a href="https://www.ucr.ac.cr/">
     <picture>
       <source srcset="../../../assets/images/logo-ucr-dark.png" *ngIf='theme === "dark"'>
-      <img width="110px" src="../../../assets/images/logo-ucr-light.png">
+      <img src="../../../assets/images/logo-ucr-light.png" alt="Logo UCR" />
     </picture>
   </a>
 </div>
@@ -42,21 +49,34 @@ Esta etiqueta **nav** tiene las clases *navbar* y *navbar-expand-md*, encapsula 
 </nav>
 ```
 
-Esta etiqueta **a** tiene la clase *navbar-brand*, encapsula el texto con el nombre de la página.
+Esta etiqueta **a** tiene la clase *navbar-brand*, encapsula el icono con el nombre de la página.
 ``` html
 <a class="navbar-brand" href="#">
-  <span style="font-size: 1.8rem;">Observatorio</span>
-  <br>
-  <span style="font-size: 1.5rem;">de Migración</span>
+  <picture>
+    <source srcset="../../../assets/images/membrete-dark.png" *ngIf="theme === 'dark'" />
+    <img src="../../../assets/images/membrete-light.png" alt="Logo Observatorio" />
+  </picture>
 </a>
 ```
 
 Esta etiqueta **button** tiene la clase *navbar-toggler* y es el contenedor del botón para desplegar las opciones del navbar, el diseño se declara en formato svg. Además, funciona como un componente accionador.
 ``` html
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <svg xmlns="http://www.w3.org/2000/svg" style="fill:var(--hamburger);" height="24" viewBox="0 0 24 24"
-    width="24">
+<button
+  class="navbar-toggler"
+  type="button"
+  data-toggle="collapse"
+  data-target="#navbarNav"
+  aria-controls="navbarNav"
+  aria-expanded="false"
+  aria-label="Toggle navigation"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    style="fill: var(--hamburger)"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+  >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
   </svg>
@@ -65,38 +85,52 @@ Esta etiqueta **button** tiene la clase *navbar-toggler* y es el contenedor del 
 
 Esta etiqueta **div** con el identificador *navbarNav* es el contenedor de las opciones disponibles para navegar a través del sitio web. 
 ``` html
-<div class="navbar-collapse  collapse no-transition" id="navbarNav">
+<div class="navbar-collapse collapse no-transition" id="navbarNav">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/inicio" routerLinkActive="active-link"
+      <a
+        class="nav-link"
+        routerLink="/inicio"
+        routerLinkActive="active-link"
         [attr.data-toggle]="matchQuery ? 'collapse' : null"
-        [attr.data-target]="matchQuery ? '#navbarNav' : null">Inicio
-        <hr routerLinkActive="underline-text-decoration">
+        [attr.data-target]="matchQuery ? '#navbarNav' : null"
+        >Inicio
+        <hr routerLinkActive="underline-text-decoration" />
       </a>
-
     </li>
     <li>
-      <a class="nav-link" routerLink="/blog" routerLinkActive="active-link"
+      <a
+        class="nav-link"
+        routerLink="/blog"
+        routerLinkActive="active-link"
         [attr.data-toggle]="matchQuery ? 'collapse' : null"
-        [attr.data-target]="matchQuery ? '#navbarNav' : null">Blog
-        <hr routerLinkActive="underline-text-decoration">
+        [attr.data-target]="matchQuery ? '#navbarNav' : null"
+        >Blog
+        <hr routerLinkActive="underline-text-decoration" />
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" routerLink="/nosotros" routerLinkActive="active-link"
+      <a
+        class="nav-link"
+        routerLink="/nosotros"
+        routerLinkActive="active-link"
         [attr.data-toggle]="matchQuery ? 'collapse' : null"
-        [attr.data-target]="matchQuery ? '#navbarNav' : null">Nosotros
-        <hr routerLinkActive="underline-text-decoration">
+        [attr.data-target]="matchQuery ? '#navbarNav' : null"
+        >Nosotros
+        <hr routerLinkActive="underline-text-decoration" />
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/directorio" routerLinkActive="active-link"
+      <a
+        class="nav-link"
+        routerLink="/directorio"
+        routerLinkActive="active-link"
         [attr.data-toggle]="matchQuery ? 'collapse' : null"
-        [attr.data-target]="matchQuery ? '#navbarNav' : null">Directorio
-        <hr routerLinkActive="underline-text-decoration">
+        [attr.data-target]="matchQuery ? '#navbarNav' : null"
+        >Directorio
+        <hr routerLinkActive="underline-text-decoration" />
       </a>
-
     </li>
   </ul>
 </div>
