@@ -38,10 +38,6 @@
     padding: 1%;
   }
   
-  .navbar-collapse {
-    min-width: 60%;
-  }
-  
   .navbar a {
     color: var(--font-1);
     margin-left: 1rem;
